@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,82 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠰",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "353gxm6hd4"
+    ],
+    "occurrences": 822,
+    "plates": 531,
+    "plate_list_head": [
+      "H229",
+      "H239",
+      "H242",
+      "H244",
+      "H246",
+      "H247",
+      "H257",
+      "H259",
+      "H277",
+      "H280",
+      "H281",
+      "H289"
+    ],
+    "by_category": {
+      "卜辞句": 740,
+      "验辞": 77,
+      "未定": 3,
+      "兆序": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 310
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 162
+      },
+      {
+        "text": "茲",
+        "uid": "jgofpoxdpd",
+        "count": 156
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 140
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 138
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 125
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H229",
+        "heji_candidate": "229",
+        "group_index": 1,
+        "text": "辛巳□賓貞□甲申用目來羌自□",
+        "position": 9,
+        "length": 14
+      },
+      {
+        "plate": "H242",
+        "heji_candidate": "242",
+        "group_index": 1,
+        "text": "丙寅卜賓貞小來羌來甲戌㲹用",
+        "position": 13,
+        "length": 13
+      }
+    ]
   }
 }

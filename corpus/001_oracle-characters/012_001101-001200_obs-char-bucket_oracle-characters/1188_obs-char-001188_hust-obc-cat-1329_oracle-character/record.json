@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤧",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "6k62imdisa"
+    ],
+    "occurrences": 64,
+    "plates": 60,
+    "plate_list_head": [
+      "H44",
+      "H114",
+      "H839",
+      "H2537",
+      "H2837",
+      "H4213",
+      "H4214",
+      "H4215",
+      "H4216",
+      "H4217",
+      "H4219",
+      "H4220"
+    ],
+    "by_category": {
+      "卜辞句": 64
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 36
+      },
+      {
+        "text": "師",
+        "uid": "0avi2tcy0g",
+        "count": 31
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 16
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 12
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 10
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 8
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H114",
+        "heji_candidate": "114",
+        "group_index": 3,
+        "text": "貞取般□",
+        "position": 3,
+        "length": 4
+      },
+      {
+        "plate": "H839",
+        "heji_candidate": "839",
+        "group_index": 1,
+        "text": "乎師般取逸自敦",
+        "position": 3,
+        "length": 7
+      }
+    ]
   }
 }

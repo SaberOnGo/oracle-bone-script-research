@@ -93,5 +93,46 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡍",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "3ux82tu34t"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "HD467"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "肩",
+        "uid": "79c9fojxw0",
+        "count": 1
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 1
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,77 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑝",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "1fjsmv778r"
+    ],
+    "occurrences": 12,
+    "plates": 10,
+    "plate_list_head": [
+      "H1329",
+      "H3303",
+      "H4014",
+      "H19310",
+      "H30763",
+      "H32854",
+      "H32855",
+      "HD377",
+      "HD391",
+      "HD473"
+    ],
+    "by_category": {
+      "卜辞句": 12
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 3
+      },
+      {
+        "text": "歸",
+        "uid": "xbypbgiy9z",
+        "count": 2
+      },
+      {
+        "text": "視",
+        "uid": "vgtvawlq60",
+        "count": 2
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30763",
+        "heji_candidate": "30763",
+        "group_index": 1,
+        "text": "其將乃鼓其□佑正",
+        "position": 3,
+        "length": 8
+      },
+      {
+        "plate": "H32854",
+        "heji_candidate": "32854",
+        "group_index": 1,
+        "text": "□□貞王令畢今秋□舟𫮩乃奠",
+        "position": 12,
+        "length": 13
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㟥",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "hjfwaxkb60"
+    ],
+    "occurrences": 14,
+    "plates": 14,
+    "plate_list_head": [
+      "H2874",
+      "H5497",
+      "H5561",
+      "H5562",
+      "H11550",
+      "H16014",
+      "H17416",
+      "H19621",
+      "H19625",
+      "H20245",
+      "H30453",
+      "H30774"
+    ],
+    "by_category": {
+      "卜辞句": 14
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 6
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 3
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 3
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 3
+      },
+      {
+        "text": "御",
+        "uid": "o6m37o3l7o",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2874",
+        "heji_candidate": "2874",
+        "group_index": 1,
+        "text": "丙寅卜殻貞其㞢火",
+        "position": 8,
+        "length": 8
+      },
+      {
+        "plate": "H5561",
+        "heji_candidate": "5561",
+        "group_index": 2,
+        "text": "貞勿□火入御史",
+        "position": 4,
+        "length": 7
+      }
+    ]
   }
 }

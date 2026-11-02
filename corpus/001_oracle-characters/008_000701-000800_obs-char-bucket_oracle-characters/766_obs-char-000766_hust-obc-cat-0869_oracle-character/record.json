@@ -96,5 +96,31 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㝛",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "valpak04h2"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H21430"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "舟",
+        "uid": "wf3aejbrt3",
+        "count": 1
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

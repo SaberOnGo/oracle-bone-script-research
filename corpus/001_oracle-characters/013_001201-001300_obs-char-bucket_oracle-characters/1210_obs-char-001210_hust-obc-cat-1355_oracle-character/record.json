@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㥁",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "sywfwn7sg1"
+    ],
+    "occurrences": 15,
+    "plates": 14,
+    "plate_list_head": [
+      "H2674",
+      "H4189",
+      "H6799",
+      "H17176",
+      "H17178",
+      "H17179",
+      "H17182",
+      "H20627",
+      "H21375",
+      "H32829",
+      "H32830",
+      "HD195"
+    ],
+    "by_category": {
+      "卜辞句": 15
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 3
+      },
+      {
+        "text": "子",
+        "uid": "r79attbhro",
+        "count": 3
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 3
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6799",
+        "heji_candidate": "6799",
+        "group_index": 2,
+        "text": "□子余于孫葬",
+        "position": 6,
+        "length": 6
+      },
+      {
+        "plate": "H17176",
+        "heji_candidate": "17176",
+        "group_index": 1,
+        "text": "己卯卜貞𢏂比□葬羴",
+        "position": 8,
+        "length": 9
+      }
+    ]
   }
 }

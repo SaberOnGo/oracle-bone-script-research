@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,81 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕓",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "aki498y6jc",
+      "tyn2yfryvp"
+    ],
+    "occurrences": 123,
+    "plates": 111,
+    "plate_list_head": [
+      "H429",
+      "H497",
+      "H572",
+      "H1409",
+      "H1451",
+      "H1495",
+      "H1602",
+      "H1734",
+      "H1803",
+      "H2523",
+      "H2848",
+      "H2924"
+    ],
+    "by_category": {
+      "卜辞句": 122,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 54
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 43
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 31
+      },
+      {
+        "text": "曰",
+        "uid": "9xhq4zclpe",
+        "count": 18
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 17
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 16
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H572",
+        "heji_candidate": "572",
+        "group_index": 1,
+        "text": "貞乎求寇執",
+        "position": 3,
+        "length": 5
+      },
+      {
+        "plate": "H1409",
+        "heji_candidate": "1409",
+        "group_index": 1,
+        "text": "貞大丁求□",
+        "position": 4,
+        "length": 5
+      }
+    ]
   }
 }

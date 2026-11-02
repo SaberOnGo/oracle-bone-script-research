@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,74 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩿",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "9649n5rjvr"
+    ],
+    "occurrences": 9,
+    "plates": 7,
+    "plate_list_head": [
+      "H2546",
+      "H2873",
+      "H8140",
+      "H17295",
+      "H17297",
+      "HD132",
+      "HD284"
+    ],
+    "by_category": {
+      "卜辞句": 9
+    },
+    "top_cooccurring": [
+      {
+        "text": "御",
+        "uid": "o6m37o3l7o",
+        "count": 3
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "gbq6n25ye0",
+        "count": 2
+      },
+      {
+        "text": "牝",
+        "uid": "nllrzldww6",
+        "count": 2
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 2
+      },
+      {
+        "text": "歸",
+        "uid": "xbypbgiy9z",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2873",
+        "heji_candidate": "2873",
+        "group_index": 3,
+        "text": "勿御□齒",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "HD132",
+        "heji_candidate": "D132",
+        "group_index": 2,
+        "text": "辛亥歲◇廌牝一齒御歸",
+        "position": 8,
+        "length": 10
+      }
+    ]
   }
 }

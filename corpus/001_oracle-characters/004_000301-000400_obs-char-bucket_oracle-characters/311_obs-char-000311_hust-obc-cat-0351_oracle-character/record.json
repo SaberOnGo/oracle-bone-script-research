@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕕",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "dlza5ir0k7"
+    ],
+    "occurrences": 38,
+    "plates": 35,
+    "plate_list_head": [
+      "H7",
+      "H950",
+      "H1245",
+      "H1340",
+      "H1346",
+      "H1347",
+      "H1350",
+      "H1356",
+      "H1360",
+      "H1361",
+      "H1366",
+      "H1369"
+    ],
+    "by_category": {
+      "卜辞句": 38
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 13
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 12
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 9
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 5
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7",
+        "heji_candidate": "7",
+        "group_index": 1,
+        "text": "癸未卜爭貞王在茲◇咸狩",
+        "position": 10,
+        "length": 11
+      },
+      {
+        "plate": "H1340",
+        "heji_candidate": "1340",
+        "group_index": 1,
+        "text": "□㞢于咸",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

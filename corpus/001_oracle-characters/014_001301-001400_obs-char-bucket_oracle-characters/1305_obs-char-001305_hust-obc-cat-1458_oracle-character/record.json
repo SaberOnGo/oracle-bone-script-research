@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦨",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ubq4rpw1wu"
+    ],
+    "occurrences": 9,
+    "plates": 9,
+    "plate_list_head": [
+      "H8173",
+      "H8174",
+      "H8176",
+      "H8178",
+      "H22320",
+      "H32883",
+      "H33030",
+      "H33040",
+      "H33146"
+    ],
+    "by_category": {
+      "卜辞句": 9
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 3
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 2
+      },
+      {
+        "text": "畢",
+        "uid": "zk0j4pcnzj",
+        "count": 2
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8176",
+        "heji_candidate": "8176",
+        "group_index": 1,
+        "text": "貞日畢□以□至轡",
+        "position": 8,
+        "length": 8
+      },
+      {
+        "plate": "H8178",
+        "heji_candidate": "8178",
+        "group_index": 1,
+        "text": "□□卜亘貞王□◇出于轡◇",
+        "position": 11,
+        "length": 12
+      }
+    ]
   }
 }

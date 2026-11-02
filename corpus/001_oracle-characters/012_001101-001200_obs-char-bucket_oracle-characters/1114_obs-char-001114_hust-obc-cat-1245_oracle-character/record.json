@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,66 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㣓",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "6x2xfo2ygq"
+    ],
+    "occurrences": 7,
+    "plates": 7,
+    "plate_list_head": [
+      "H149",
+      "H7059",
+      "H10740",
+      "H10743",
+      "H10745",
+      "H20729",
+      "HD374"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "隹",
+        "uid": "y0f5gu3q0a",
+        "count": 1
+      },
+      {
+        "text": "芻",
+        "uid": "27jl2n6uoo",
+        "count": 1
+      },
+      {
+        "text": "丘",
+        "uid": "crd6njmjax",
+        "count": 1
+      },
+      {
+        "text": "取",
+        "uid": "hvm3m8ypgu",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7059",
+        "heji_candidate": "7059",
+        "group_index": 2,
+        "text": "貞乎取丘罝",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

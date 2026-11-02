@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡬",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "0h1vf0twxr"
+    ],
+    "occurrences": 12,
+    "plates": 11,
+    "plate_list_head": [
+      "H6754",
+      "H6971",
+      "H6972",
+      "H6973",
+      "H6974",
+      "H7991",
+      "H7992",
+      "H7994",
+      "H7995",
+      "H20220",
+      "H30473"
+    ],
+    "by_category": {
+      "卜辞句": 12
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 3
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 3
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 2
+      },
+      {
+        "text": "雀",
+        "uid": "ecbetcendb",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6754",
+        "heji_candidate": "6754",
+        "group_index": 1,
+        "text": "辛亥卜貞盾其取方◇",
+        "position": 5,
+        "length": 9
+      },
+      {
+        "plate": "H6971",
+        "heji_candidate": "6971",
+        "group_index": 1,
+        "text": "丁巳卜貞盾□翦雀◇",
+        "position": 5,
+        "length": 9
+      }
+    ]
   }
 }

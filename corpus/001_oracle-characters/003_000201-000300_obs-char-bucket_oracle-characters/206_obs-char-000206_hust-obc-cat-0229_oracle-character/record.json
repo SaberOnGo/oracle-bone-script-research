@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,68 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓛",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fxgbagkc2t"
+    ],
+    "occurrences": 2,
+    "plates": 1,
+    "plate_list_head": [
+      "HD391"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 2
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 2
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 2
+      },
+      {
+        "text": "若",
+        "uid": "1k9ogi7w79",
+        "count": 2
+      },
+      {
+        "text": "告",
+        "uid": "fmdym8mxmv",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD391",
+        "heji_candidate": "D391",
+        "group_index": 10,
+        "text": "甲午卜◇乍琡分卯告其丁若",
+        "position": 7,
+        "length": 12
+      },
+      {
+        "plate": "HD391",
+        "heji_candidate": "D391",
+        "group_index": 11,
+        "text": "甲午卜◇乍琡分卯巳弜告丁用若",
+        "position": 7,
+        "length": 14
+      }
+    ]
   }
 }

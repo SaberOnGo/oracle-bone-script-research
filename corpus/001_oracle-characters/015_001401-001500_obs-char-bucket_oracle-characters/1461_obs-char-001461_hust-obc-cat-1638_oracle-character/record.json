@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,75 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩜",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "za6gsc8sdo"
+    ],
+    "occurrences": 8,
+    "plates": 8,
+    "plate_list_head": [
+      "H4155",
+      "H17367",
+      "H17368",
+      "H20642",
+      "H29696",
+      "HD39",
+      "HD450",
+      "HD501"
+    ],
+    "by_category": {
+      "卜辞句": 8
+    },
+    "top_cooccurring": [
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 4
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "耳",
+        "uid": "32pzmjlrd9",
+        "count": 3
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H17367",
+        "heji_candidate": "17367",
+        "group_index": 2,
+        "text": "丁巳貞鳥鳴□祸",
+        "position": 5,
+        "length": 7
+      },
+      {
+        "plate": "HD39",
+        "heji_candidate": "D39",
+        "group_index": 21,
+        "text": "庚卜弜◇◇耳鳴亡小艱",
+        "position": 7,
+        "length": 10
+      }
+    ]
   }
 }

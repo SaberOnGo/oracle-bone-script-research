@@ -96,5 +96,31 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛟",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "tcvw6ggyds"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H532"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "帚",
+        "uid": "qe26dg343r",
+        "count": 1
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

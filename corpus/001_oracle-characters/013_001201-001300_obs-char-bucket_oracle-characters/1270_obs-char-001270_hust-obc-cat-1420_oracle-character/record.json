@@ -97,5 +97,51 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦂",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "r1lyc5x0pa"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H1652"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "祭",
+        "uid": "xjoc12tti2",
+        "count": 1
+      },
+      {
+        "text": "至",
+        "uid": "q4rk3syf2x",
+        "count": 1
+      },
+      {
+        "text": "來",
+        "uid": "rlx0knkq0v",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "多",
+        "uid": "ex96ntmoie",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "htn7736sjm",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

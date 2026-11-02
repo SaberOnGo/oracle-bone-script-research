@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤜",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "kz1rfdj0ws"
+    ],
+    "occurrences": 85,
+    "plates": 76,
+    "plate_list_head": [
+      "H17",
+      "H18",
+      "H165",
+      "H166",
+      "H167",
+      "H168",
+      "H169",
+      "H244",
+      "H277",
+      "H1012",
+      "H3203",
+      "H3857"
+    ],
+    "by_category": {
+      "卜辞句": 85
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 49
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 23
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 18
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 18
+      },
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 14
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 13
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H17",
+        "heji_candidate": "17",
+        "group_index": 1,
+        "text": "辛亥卜□貞眾□往臿□㞢擒",
+        "position": 9,
+        "length": 12
+      },
+      {
+        "plate": "H18",
+        "heji_candidate": "18",
+        "group_index": 4,
+        "text": "貞臿啟叶",
+        "position": 2,
+        "length": 4
+      }
+    ]
   }
 }

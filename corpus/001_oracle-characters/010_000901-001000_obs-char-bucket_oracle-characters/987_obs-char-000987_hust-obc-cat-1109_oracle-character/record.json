@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡋",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "qmspt85dhp"
+    ],
+    "occurrences": 39,
+    "plates": 32,
+    "plate_list_head": [
+      "H45",
+      "H869",
+      "H1782",
+      "H2969",
+      "H3224",
+      "H3807",
+      "H3929",
+      "H5583",
+      "H5645",
+      "H8941",
+      "H12668",
+      "H12900"
+    ],
+    "by_category": {
+      "卜辞句": 39
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 18
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 15
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 9
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 7
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 7
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H869",
+        "heji_candidate": "869",
+        "group_index": 2,
+        "text": "貞㞢疒告羌甲",
+        "position": 3,
+        "length": 6
+      },
+      {
+        "plate": "H3224",
+        "heji_candidate": "3224",
+        "group_index": 1,
+        "text": "貞◇蝠亡疒",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

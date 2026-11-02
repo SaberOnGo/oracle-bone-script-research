@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,50 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡥",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "o2g1mpwg2a"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H2050"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "夕",
+        "uid": "no4gdlajf6",
+        "count": 1
+      },
+      {
+        "text": "三",
+        "uid": "p77d58vew4",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "从",
+        "uid": "fd2xhqwsjk",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2050",
+        "heji_candidate": "2050",
+        "group_index": 2,
+        "text": "貞从盡三夕",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

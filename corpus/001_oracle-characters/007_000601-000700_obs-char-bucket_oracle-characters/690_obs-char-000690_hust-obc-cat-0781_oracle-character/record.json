@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜃",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "mg6ldxzwwb"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H301",
+      "HD35"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "百",
+        "uid": "vwahtur1cj",
+        "count": 1
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 1
+      },
+      {
+        "text": "旋",
+        "uid": "giysoy67zo",
+        "count": 1
+      },
+      {
+        "text": "殻",
+        "uid": "5k1l85d8n2",
+        "count": 1
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD35",
+        "heji_candidate": "D35",
+        "group_index": 1,
+        "text": "壬申卜巳往于田从昔◇用擒四鹿",
+        "position": 9,
+        "length": 14
+      }
+    ]
   }
 }

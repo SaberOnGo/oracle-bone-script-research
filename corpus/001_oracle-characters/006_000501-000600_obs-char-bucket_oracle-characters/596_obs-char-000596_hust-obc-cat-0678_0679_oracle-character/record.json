@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚜㚝",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "o6m37o3l7o"
+    ],
+    "occurrences": 367,
+    "plates": 306,
+    "plate_list_head": [
+      "H18",
+      "H33",
+      "H159",
+      "H177",
+      "H298",
+      "H300",
+      "H301",
+      "H322",
+      "H328",
+      "H331",
+      "H362",
+      "H384"
+    ],
+    "by_category": {
+      "卜辞句": 366,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 163
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 152
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 147
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 39
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 39
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 39
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H33",
+        "heji_candidate": "33",
+        "group_index": 2,
+        "text": "壬御卜◇貞㞢于高匕己匕庚小牢",
+        "position": 2,
+        "length": 14
+      },
+      {
+        "plate": "H177",
+        "heji_candidate": "177",
+        "group_index": 4,
+        "text": "甲御卜殻貞乎畢先御尞于河",
+        "position": 2,
+        "length": 12
+      }
+    ]
   }
 }

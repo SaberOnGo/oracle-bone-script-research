@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,73 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤃",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "yg0sm41ear"
+    ],
+    "occurrences": 8,
+    "plates": 6,
+    "plate_list_head": [
+      "H12215",
+      "H26079",
+      "HD237",
+      "HD441",
+      "HD446",
+      "HD490"
+    ],
+    "by_category": {
+      "卜辞句": 8
+    },
+    "top_cooccurring": [
+      {
+        "text": "入",
+        "uid": "a8n7ywfrd3",
+        "count": 5
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 3
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H12215",
+        "heji_candidate": "12215",
+        "group_index": 1,
+        "text": "貞肉夕不雨",
+        "position": 2,
+        "length": 5
+      },
+      {
+        "plate": "HD237",
+        "heji_candidate": "D237",
+        "group_index": 14,
+        "text": "弜告丁肉弜入丁用",
+        "position": 4,
+        "length": 8
+      }
+    ]
   }
 }

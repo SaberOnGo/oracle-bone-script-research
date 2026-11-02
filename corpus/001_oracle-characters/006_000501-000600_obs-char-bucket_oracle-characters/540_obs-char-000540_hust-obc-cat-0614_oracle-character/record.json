@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙜",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "qe26dg343r"
+    ],
+    "occurrences": 178,
+    "plates": 165,
+    "plate_list_head": [
+      "H176",
+      "H181",
+      "H384",
+      "H516",
+      "H532",
+      "H629",
+      "H630",
+      "H684",
+      "H693",
+      "H731",
+      "H2607",
+      "H2609"
+    ],
+    "by_category": {
+      "卜辞句": 177,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 79
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 66
+      },
+      {
+        "text": "好",
+        "uid": "oaaqvh5dtf",
+        "count": 60
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 54
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 23
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 21
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H176",
+        "heji_candidate": "176",
+        "group_index": 8,
+        "text": "貞乎帚擇",
+        "position": 3,
+        "length": 4
+      },
+      {
+        "plate": "H176",
+        "heji_candidate": "176",
+        "group_index": 9,
+        "text": "貞乎帚好擇",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㟎㟏",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "33r901db0e"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H1333",
+      "H8311",
+      "H15784",
+      "H33177"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "北",
+        "uid": "um3hp76w21",
+        "count": 2
+      },
+      {
+        "text": "夕",
+        "uid": "no4gdlajf6",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "cbi1n9904r",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "t2memeu0c4",
+        "count": 1
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1333",
+        "heji_candidate": "1333",
+        "group_index": 3,
+        "text": "貞夕◇◇□滳",
+        "position": 6,
+        "length": 6
+      },
+      {
+        "plate": "H8311",
+        "heji_candidate": "8311",
+        "group_index": 1,
+        "text": "□未卜尸貞不隹滳令保方",
+        "position": 8,
+        "length": 11
+      }
+    ]
   }
 }

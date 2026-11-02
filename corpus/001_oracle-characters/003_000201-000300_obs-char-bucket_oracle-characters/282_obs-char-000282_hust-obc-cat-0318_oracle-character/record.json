@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔴",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "vpcd7inkf9"
+    ],
+    "occurrences": 22,
+    "plates": 18,
+    "plate_list_head": [
+      "H31973",
+      "H31976",
+      "H31987",
+      "H33015",
+      "H33016",
+      "H33019",
+      "H33020",
+      "H33022",
+      "H33026",
+      "H33027",
+      "H33028",
+      "H33029"
+    ],
+    "by_category": {
+      "卜辞句": 22
+    },
+    "top_cooccurring": [
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 15
+      },
+      {
+        "text": "受",
+        "uid": "52a130pcmy",
+        "count": 10
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 9
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 8
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 6
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 6
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H31973",
+        "heji_candidate": "31973",
+        "group_index": 1,
+        "text": "□丑貞王令◇以眾臿伐召受佑",
+        "position": 11,
+        "length": 13
+      },
+      {
+        "plate": "H31976",
+        "heji_candidate": "31976",
+        "group_index": 1,
+        "text": "甲辰貞□以眾臿伐召方受佑",
+        "position": 9,
+        "length": 12
+      }
+    ]
   }
 }

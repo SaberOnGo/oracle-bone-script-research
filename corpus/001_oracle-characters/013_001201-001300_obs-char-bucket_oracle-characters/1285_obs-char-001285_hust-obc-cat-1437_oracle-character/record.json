@@ -97,5 +97,32 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦓",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "0rv771drzl"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H19442",
+      "H20247"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 1
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

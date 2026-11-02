@@ -15,6 +15,7 @@
 - OBIMD 主字表中没有隶定为同一字的字形。
 - EvoBC 有 1 个类别标为同一字（evobc-evo-cat-11967），可用于跨时期字形比较〔来源 src-evobc〕。
 - 更正：本档案 2026-11-02 合并时曾写作“㫐”。那是早期流程把本类号错接到 HUST-OBC OCR 字表的结果，已按官方对照表更正。
+
 ## 10 来源与权利
 
 - 来源 src-hust-obc，图片资产 `asset-001568`，权利状态 `source_marked_risk_noted`。HUST-OBC 的 Figshare 与期刊页面许可表述不一致，详见来源档案 `corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/`。

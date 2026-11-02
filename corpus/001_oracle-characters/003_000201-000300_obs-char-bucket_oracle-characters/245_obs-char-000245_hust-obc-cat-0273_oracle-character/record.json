@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,81 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔇",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "89m3dkhxyy",
+      "o6m37o3l7o"
+    ],
+    "occurrences": 759,
+    "plates": 643,
+    "plate_list_head": [
+      "H11",
+      "H18",
+      "H33",
+      "H142",
+      "H146",
+      "H159",
+      "H177",
+      "H255",
+      "H265",
+      "H298",
+      "H300",
+      "H301"
+    ],
+    "by_category": {
+      "卜辞句": 756,
+      "未定": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 392
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 326
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 224
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 137
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 120
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 97
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H11",
+        "heji_candidate": "11",
+        "group_index": 4,
+        "text": "丙午卜古貞□眾黍于□",
+        "position": 2,
+        "length": 10
+      },
+      {
+        "plate": "H33",
+        "heji_candidate": "33",
+        "group_index": 2,
+        "text": "壬御卜◇貞㞢于高匕己匕庚小牢",
+        "position": 2,
+        "length": 14
+      }
+    ]
   }
 }

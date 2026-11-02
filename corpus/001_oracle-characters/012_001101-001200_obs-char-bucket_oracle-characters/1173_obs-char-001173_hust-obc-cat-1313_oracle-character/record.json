@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤗",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "q4rk3syf2x"
+    ],
+    "occurrences": 217,
+    "plates": 195,
+    "plate_list_head": [
+      "H199",
+      "H377",
+      "H401",
+      "H417",
+      "H600",
+      "H799",
+      "H1650",
+      "H1651",
+      "H1652",
+      "H1952",
+      "H2655",
+      "H2922"
+    ],
+    "by_category": {
+      "卜辞句": 217
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 70
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 59
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 51
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 40
+      },
+      {
+        "text": "自",
+        "uid": "0cwxw7rveh",
+        "count": 39
+      },
+      {
+        "text": "今",
+        "uid": "ihsuhqgmdc",
+        "count": 33
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H377",
+        "heji_candidate": "377",
+        "group_index": 2,
+        "text": "庚辰卜貞卒◇歲乍◇自且乙至于丁◇",
+        "position": 13,
+        "length": 16
+      },
+      {
+        "plate": "H401",
+        "heji_candidate": "401",
+        "group_index": 2,
+        "text": "□貞翌丁巳用至告歲羌三卯牢",
+        "position": 7,
+        "length": 13
+      }
+    ]
   }
 }

@@ -96,5 +96,41 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㪔",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "90fb7u7080"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H33160"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 1
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 1
+      },
+      {
+        "text": "往",
+        "uid": "m6szz2tcxv",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

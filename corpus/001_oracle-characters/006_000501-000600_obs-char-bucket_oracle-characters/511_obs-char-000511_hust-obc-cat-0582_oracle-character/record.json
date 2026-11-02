@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "iftkudcar6"
+    ],
+    "occurrences": 13,
+    "plates": 13,
+    "plate_list_head": [
+      "H582",
+      "H3140",
+      "H3141",
+      "H3143",
+      "H3150",
+      "H8085",
+      "H15468",
+      "H32051",
+      "H32692",
+      "H32776",
+      "H32987",
+      "H33139"
+    ],
+    "by_category": {
+      "卜辞句": 13
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 6
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "◇",
+        "uid": "nv9w78focj",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "5wa7dg1020",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3140",
+        "heji_candidate": "3140",
+        "group_index": 1,
+        "text": "□◇就◇◇牡二□",
+        "position": 3,
+        "length": 8
+      },
+      {
+        "plate": "H3150",
+        "heji_candidate": "3150",
+        "group_index": 1,
+        "text": "貞◇就□",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

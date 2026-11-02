@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓃㓄",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "qmvfvw99v9"
+    ],
+    "occurrences": 2385,
+    "plates": 1990,
+    "plate_list_head": [
+      "H2",
+      "H8",
+      "H11",
+      "H16",
+      "H18",
+      "H30",
+      "H51",
+      "H52",
+      "H56",
+      "H58",
+      "H61",
+      "H74"
+    ],
+    "by_category": {
+      "卜辞句": 2380,
+      "未定": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 949
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 712
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 377
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 376
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 286
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 234
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2",
+        "heji_candidate": "2",
+        "group_index": 1,
+        "text": "曰協田其受年◇",
+        "position": 4,
+        "length": 7
+      },
+      {
+        "plate": "H11",
+        "heji_candidate": "11",
+        "group_index": 1,
+        "text": "貞弗其冓",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

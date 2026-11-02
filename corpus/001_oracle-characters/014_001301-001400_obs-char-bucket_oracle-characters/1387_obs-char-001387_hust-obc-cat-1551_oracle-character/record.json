@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨅",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "7kjgfmjunm"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H24348",
+      "HD296"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 2
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "三",
+        "uid": "p77d58vew4",
+        "count": 1
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 1
+      },
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "syc1ih4v1p",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD296",
+        "heji_candidate": "D296",
+        "group_index": 3,
+        "text": "癸卯卜其入雇侃用",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔙",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "nptkahm6a5"
+    ],
+    "occurrences": 101,
+    "plates": 92,
+    "plate_list_head": [
+      "H4318",
+      "H19906",
+      "H20142",
+      "H22637",
+      "H22692",
+      "H22945",
+      "H23021",
+      "H23135",
+      "H23229",
+      "H23407",
+      "H23418",
+      "H23442"
+    ],
+    "by_category": {
+      "卜辞句": 101
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 70
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 51
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 43
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 35
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 30
+      },
+      {
+        "text": "祸",
+        "uid": "tp5ykv5jzh",
+        "count": 22
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H4318",
+        "heji_candidate": "4318",
+        "group_index": 1,
+        "text": "癸未卜王𠵂允來即弜",
+        "position": 8,
+        "length": 9
+      },
+      {
+        "plate": "H19906",
+        "heji_candidate": "19906",
+        "group_index": 2,
+        "text": "六匕即日用",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

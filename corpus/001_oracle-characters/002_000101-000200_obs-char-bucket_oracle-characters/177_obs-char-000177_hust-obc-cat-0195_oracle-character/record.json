@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒹",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "a8n7ywfrd3"
+    ],
+    "occurrences": 207,
+    "plates": 169,
+    "plate_list_head": [
+      "H520",
+      "H1210",
+      "H1535",
+      "H2886",
+      "H2924",
+      "H2955",
+      "H3099",
+      "H4081",
+      "H4124",
+      "H4357",
+      "H4425",
+      "H5165"
+    ],
+    "by_category": {
+      "卜辞句": 206,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 64
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 59
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 53
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 46
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 27
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 24
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1210",
+        "heji_candidate": "1210",
+        "group_index": 1,
+        "text": "貞王勿卒入",
+        "position": 5,
+        "length": 5
+      },
+      {
+        "plate": "H1210",
+        "heji_candidate": "1210",
+        "group_index": 4,
+        "text": "辛亥卜殻貞王入",
+        "position": 7,
+        "length": 7
+      }
+    ]
   }
 }

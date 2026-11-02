@@ -97,5 +97,36 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㝨",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "2p40zfuzsl"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H33153"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

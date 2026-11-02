@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚋㚌",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "vbkc7p8qc9"
+    ],
+    "occurrences": 120,
+    "plates": 110,
+    "plate_list_head": [
+      "H451",
+      "H1184",
+      "H1347",
+      "H15458",
+      "H15460",
+      "H15461",
+      "H15463",
+      "H15710",
+      "H15712",
+      "H15758",
+      "H19872",
+      "H22633"
+    ],
+    "by_category": {
+      "卜辞句": 119,
+      "兆序": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 84
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 70
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 64
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 57
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 44
+      },
+      {
+        "text": "尤",
+        "uid": "hhr47shesw",
+        "count": 40
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H451",
+        "heji_candidate": "451",
+        "group_index": 1,
+        "text": "貞其用竹鼄羌叀𫹉彡用",
+        "position": 9,
+        "length": 10
+      },
+      {
+        "plate": "H1184",
+        "heji_candidate": "1184",
+        "group_index": 1,
+        "text": "辛卯卜亘貞彡𫹉于㘡亡害九月",
+        "position": 6,
+        "length": 13
+      }
+    ]
   }
 }

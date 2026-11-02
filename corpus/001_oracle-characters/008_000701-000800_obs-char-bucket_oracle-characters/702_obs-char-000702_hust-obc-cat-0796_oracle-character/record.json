@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜒",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "hmne5uy3qt"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H30688",
+      "H30691",
+      "H30692",
+      "H32390"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 3
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 2
+      },
+      {
+        "text": "廿",
+        "uid": "fd6c02qezd",
+        "count": 1
+      },
+      {
+        "text": "受",
+        "uid": "52a130pcmy",
+        "count": 1
+      },
+      {
+        "text": "牛",
+        "uid": "66iowpdbuc",
+        "count": 1
+      },
+      {
+        "text": "年",
+        "uid": "xkubtjk815",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30688",
+        "heji_candidate": "30688",
+        "group_index": 3,
+        "text": "其用舊智廿牛受年",
+        "position": 4,
+        "length": 8
+      },
+      {
+        "plate": "H30691",
+        "heji_candidate": "30691",
+        "group_index": 2,
+        "text": "叀典智用",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "a73fq76370"
+    ],
+    "occurrences": 19,
+    "plates": 18,
+    "plate_list_head": [
+      "H181",
+      "H2722",
+      "H2724",
+      "H2732",
+      "H2735",
+      "H2736",
+      "H2740",
+      "H2741",
+      "H2745",
+      "H2747",
+      "H2750",
+      "H2753"
+    ],
+    "by_category": {
+      "卜辞句": 19
+    },
+    "top_cooccurring": [
+      {
+        "text": "帚",
+        "uid": "qe26dg343r",
+        "count": 11
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 7
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "先",
+        "uid": "h8exoqnpru",
+        "count": 3
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 3
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H181",
+        "heji_candidate": "181",
+        "group_index": 1,
+        "text": "乙巳卜賓貞帚妌娩𰋶□帚妌",
+        "position": 7,
+        "length": 12
+      },
+      {
+        "plate": "H2722",
+        "heji_candidate": "2722",
+        "group_index": 1,
+        "text": "丁未卜□帚妌㞢賓",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

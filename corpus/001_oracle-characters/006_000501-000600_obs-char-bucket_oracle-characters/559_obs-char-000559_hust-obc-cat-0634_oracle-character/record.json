@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙰",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "nqghhf5br6"
+    ],
+    "occurrences": 18,
+    "plates": 11,
+    "plate_list_head": [
+      "H20731",
+      "H20733",
+      "H30182",
+      "H30282",
+      "HD132",
+      "HD139",
+      "HD198",
+      "HD237",
+      "HD34",
+      "HD369",
+      "HD467"
+    ],
+    "by_category": {
+      "卜辞句": 18
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 10
+      },
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 7
+      },
+      {
+        "text": "幽",
+        "uid": "kggb6goupa",
+        "count": 6
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 5
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 5
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H20731",
+        "heji_candidate": "20731",
+        "group_index": 1,
+        "text": "庚戌卜𫹔叀翌步射廌于盟",
+        "position": 9,
+        "length": 11
+      },
+      {
+        "plate": "H20733",
+        "heji_candidate": "20733",
+        "group_index": 1,
+        "text": "□□卜王隹廌之日隹",
+        "position": 6,
+        "length": 9
+      }
+    ]
   }
 }

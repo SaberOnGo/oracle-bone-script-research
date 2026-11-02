@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜙",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "9xhq4zclpe"
+    ],
+    "occurrences": 254,
+    "plates": 200,
+    "plate_list_head": [
+      "H2",
+      "H3",
+      "H4",
+      "H5",
+      "H199",
+      "H214",
+      "H1409",
+      "H2483",
+      "H2496",
+      "H2648",
+      "H2719",
+      "H2792"
+    ],
+    "by_category": {
+      "卜辞句": 253,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 119
+      },
+      {
+        "text": "占",
+        "uid": "73ru6libmk",
+        "count": 117
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 103
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 91
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 74
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 57
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2",
+        "heji_candidate": "2",
+        "group_index": 1,
+        "text": "曰協田其受年◇",
+        "position": 1,
+        "length": 7
+      },
+      {
+        "plate": "H3",
+        "heji_candidate": "3",
+        "group_index": 1,
+        "text": "□人曰協田",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

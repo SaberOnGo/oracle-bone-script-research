@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘍㘎",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "f0j9ho8ua2"
+    ],
+    "occurrences": 115,
+    "plates": 78,
+    "plate_list_head": [
+      "H386",
+      "H394",
+      "H483",
+      "H2890",
+      "H5413",
+      "H8034",
+      "H8035",
+      "H8181",
+      "H8233",
+      "H13181",
+      "H13219",
+      "H13358"
+    ],
+    "by_category": {
+      "卜辞句": 115
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 47
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 40
+      },
+      {
+        "text": "牛",
+        "uid": "66iowpdbuc",
+        "count": 27
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 23
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 20
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 20
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H386",
+        "heji_candidate": "386",
+        "group_index": 1,
+        "text": "己未宜□◇羌□人卯十牛左",
+        "position": 3,
+        "length": 12
+      },
+      {
+        "plate": "H394",
+        "heji_candidate": "394",
+        "group_index": 1,
+        "text": "癸酉宜于◇羌三人卯十牛佑",
+        "position": 3,
+        "length": 12
+      }
+    ]
   }
 }

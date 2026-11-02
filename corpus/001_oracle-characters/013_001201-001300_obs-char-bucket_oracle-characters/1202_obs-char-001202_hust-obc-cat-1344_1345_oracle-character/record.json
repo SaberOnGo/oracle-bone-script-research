@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -98,5 +98,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤶㤷",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "z6mdb6y8rn"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H32294"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "申",
+        "uid": "rzfokwkc7a",
+        "count": 1
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 1
+      },
+      {
+        "text": "羊",
+        "uid": "aoaipuy20h",
+        "count": 1
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H32294",
+        "heji_candidate": "32294",
+        "group_index": 1,
+        "text": "丙申卜尞于苟羊雨",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

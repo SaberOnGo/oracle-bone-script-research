@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔰",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "4ytix1aozf"
+    ],
+    "occurrences": 16,
+    "plates": 15,
+    "plate_list_head": [
+      "H16877",
+      "H18272",
+      "H20627",
+      "H20846",
+      "H22376",
+      "H29728",
+      "H29959",
+      "H30010",
+      "H30182",
+      "H30436",
+      "H30562",
+      "H32962"
+    ],
+    "by_category": {
+      "卜辞句": 16
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 9
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 3
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 3
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 2
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H16877",
+        "heji_candidate": "16877",
+        "group_index": 5,
+        "text": "癸卯卜口貞旬亡□",
+        "position": 4,
+        "length": 8
+      },
+      {
+        "plate": "H20846",
+        "heji_candidate": "20846",
+        "group_index": 2,
+        "text": "子卜幽口",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

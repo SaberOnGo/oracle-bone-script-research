@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑽",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "p6uj3n0aze"
+    ],
+    "occurrences": 181,
+    "plates": 158,
+    "plate_list_head": [
+      "H3",
+      "H15",
+      "H33",
+      "H37",
+      "H41",
+      "H51",
+      "H57",
+      "H66",
+      "H78",
+      "H380",
+      "H383",
+      "H386"
+    ],
+    "by_category": {
+      "卜辞句": 178,
+      "未定": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 76
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 49
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 44
+      },
+      {
+        "text": "史",
+        "uid": "h3nw474wwr",
+        "count": 22
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 21
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 21
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3",
+        "heji_candidate": "3",
+        "group_index": 1,
+        "text": "□人曰協田",
+        "position": 2,
+        "length": 5
+      },
+      {
+        "plate": "H15",
+        "heji_candidate": "15",
+        "group_index": 1,
+        "text": "貞乎眾人出麋克",
+        "position": 4,
+        "length": 7
+      }
+    ]
   }
 }

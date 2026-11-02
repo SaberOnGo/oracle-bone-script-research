@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙋㙌",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "nscqmvthk1"
+    ],
+    "occurrences": 113,
+    "plates": 100,
+    "plate_list_head": [
+      "H377",
+      "H5518",
+      "H5519",
+      "H5520",
+      "H5521",
+      "H9408",
+      "H9730",
+      "H9937",
+      "H10072",
+      "H10126",
+      "H10139",
+      "H10203"
+    ],
+    "by_category": {
+      "卜辞句": 113
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 57
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 54
+      },
+      {
+        "text": "尞",
+        "uid": "h44zkm9mt8",
+        "count": 25
+      },
+      {
+        "text": "禱",
+        "uid": "1wismy95hz",
+        "count": 25
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 24
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 16
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H377",
+        "heji_candidate": "377",
+        "group_index": 1,
+        "text": "庚辰卜貞㞢于岳三羌三小牢卯三牛",
+        "position": 7,
+        "length": 15
+      },
+      {
+        "plate": "H5518",
+        "heji_candidate": "5518",
+        "group_index": 2,
+        "text": "史人于岳",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

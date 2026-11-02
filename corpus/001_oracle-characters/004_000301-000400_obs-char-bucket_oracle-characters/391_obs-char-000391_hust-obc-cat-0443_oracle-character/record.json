@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖱",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "w4frb60x9v"
+    ],
+    "occurrences": 39,
+    "plates": 34,
+    "plate_list_head": [
+      "H146",
+      "H4109",
+      "H4248",
+      "H7878",
+      "H7881",
+      "H7882",
+      "H7884",
+      "H7885",
+      "H7886",
+      "H9080",
+      "H9291",
+      "H9766"
+    ],
+    "by_category": {
+      "卜辞句": 39
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 20
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 10
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 8
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 7
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 6
+      },
+      {
+        "text": "受",
+        "uid": "52a130pcmy",
+        "count": 6
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H4109",
+        "heji_candidate": "4109",
+        "group_index": 2,
+        "text": "王于尋奠",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "H4248",
+        "heji_candidate": "4248",
+        "group_index": 4,
+        "text": "貞奠于丘𫦎",
+        "position": 2,
+        "length": 5
+      }
+    ]
   }
 }

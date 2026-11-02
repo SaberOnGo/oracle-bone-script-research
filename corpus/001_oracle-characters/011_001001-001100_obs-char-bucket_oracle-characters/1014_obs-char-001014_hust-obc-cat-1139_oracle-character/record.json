@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡩",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "47ioadp9wd"
+    ],
+    "occurrences": 15,
+    "plates": 11,
+    "plate_list_head": [
+      "H229",
+      "H2957",
+      "H4091",
+      "H4425",
+      "H20332",
+      "H21828",
+      "H32929",
+      "H33367",
+      "HD226",
+      "HD446",
+      "HD505"
+    ],
+    "by_category": {
+      "卜辞句": 15
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 3
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 3
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H229",
+        "heji_candidate": "229",
+        "group_index": 1,
+        "text": "辛巳□賓貞□甲申用目來羌自□",
+        "position": 10,
+        "length": 14
+      },
+      {
+        "plate": "H2957",
+        "heji_candidate": "2957",
+        "group_index": 1,
+        "text": "貞◇商弗其目□",
+        "position": 6,
+        "length": 7
+      }
+    ]
   }
 }

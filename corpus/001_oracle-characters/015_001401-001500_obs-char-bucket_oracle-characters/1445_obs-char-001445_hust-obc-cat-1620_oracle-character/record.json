@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -95,5 +95,63 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩊",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "jshaxuelhn"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H8132",
+      "H14584",
+      "H16851",
+      "H21524"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 2
+      },
+      {
+        "text": "𫹉",
+        "uid": "hclsl73wg4",
+        "count": 1
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 1
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H14584",
+        "heji_candidate": "14584",
+        "group_index": 1,
+        "text": "乙巳卜貞叀辛亥𫹉□◇在鬥",
+        "position": 12,
+        "length": 12
+      }
+    ]
   }
 }

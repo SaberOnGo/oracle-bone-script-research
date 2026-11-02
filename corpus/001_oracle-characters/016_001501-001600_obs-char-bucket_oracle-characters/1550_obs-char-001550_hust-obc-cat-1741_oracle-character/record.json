@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,55 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㫃",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "5zjto89nh6"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H33154"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "圣",
+        "uid": "vk0iw3x90b",
+        "count": 1
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 1
+      },
+      {
+        "text": "來",
+        "uid": "rlx0knkq0v",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H33154",
+        "heji_candidate": "33154",
+        "group_index": 1,
+        "text": "□丑卜□圣焦于來",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

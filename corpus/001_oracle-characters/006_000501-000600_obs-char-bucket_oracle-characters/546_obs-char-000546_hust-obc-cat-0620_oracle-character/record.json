@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙢",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "4noufqnl4f"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H2516",
+      "H30276",
+      "H32996",
+      "HD492"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "匕",
+        "uid": "i3lktxnh52",
+        "count": 1
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 1
+      },
+      {
+        "text": "眉",
+        "uid": "fbmole6hwm",
+        "count": 1
+      },
+      {
+        "text": "巛",
+        "uid": "3wku1ohk1p",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2516",
+        "heji_candidate": "2516",
+        "group_index": 1,
+        "text": "單弗其匕眉",
+        "position": 1,
+        "length": 5
+      },
+      {
+        "plate": "H30276",
+        "heji_candidate": "30276",
+        "group_index": 1,
+        "text": "□◇單亡巛",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

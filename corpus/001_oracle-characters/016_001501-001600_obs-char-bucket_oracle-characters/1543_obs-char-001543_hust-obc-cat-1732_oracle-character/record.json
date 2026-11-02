@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,74 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㪺",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "gfyngwaipo"
+    ],
+    "occurrences": 7,
+    "plates": 7,
+    "plate_list_head": [
+      "H552",
+      "H2807",
+      "H4212",
+      "H8134",
+      "H32292",
+      "H33034",
+      "H33037"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 2
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 2
+      },
+      {
+        "text": "臿",
+        "uid": "kz1rfdj0ws",
+        "count": 2
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 2
+      },
+      {
+        "text": "寇",
+        "uid": "r26j6lro1i",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H552",
+        "heji_candidate": "552",
+        "group_index": 1,
+        "text": "貞勿乎𣎳以寇",
+        "position": 4,
+        "length": 6
+      },
+      {
+        "plate": "H2807",
+        "heji_candidate": "2807",
+        "group_index": 1,
+        "text": "庚戌卜貞翌壬子𣎳帚鼠□出□",
+        "position": 8,
+        "length": 13
+      }
+    ]
   }
 }

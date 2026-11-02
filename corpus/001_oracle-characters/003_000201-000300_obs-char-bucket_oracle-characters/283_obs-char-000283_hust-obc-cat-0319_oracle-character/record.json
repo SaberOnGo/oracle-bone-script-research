@@ -97,5 +97,31 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔵",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "5obxbuubdk"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H8279"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "望",
+        "uid": "jcsf6ohzo1",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

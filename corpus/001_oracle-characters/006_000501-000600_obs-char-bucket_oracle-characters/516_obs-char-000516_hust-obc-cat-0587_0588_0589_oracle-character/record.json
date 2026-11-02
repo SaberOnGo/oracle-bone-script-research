@@ -100,5 +100,31 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙁㙂㙃",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "avcjspsyib"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H8344"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "宅",
+        "uid": "ix033niy64",
+        "count": 1
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

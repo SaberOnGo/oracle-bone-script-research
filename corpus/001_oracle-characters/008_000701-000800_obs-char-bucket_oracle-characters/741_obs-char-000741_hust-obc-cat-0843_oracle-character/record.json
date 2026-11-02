@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㝁",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "0kg5dhdk4s"
+    ],
+    "occurrences": 51,
+    "plates": 50,
+    "plate_list_head": [
+      "H801",
+      "H4213",
+      "H4214",
+      "H4277",
+      "H5662",
+      "H6906",
+      "H7089",
+      "H7090",
+      "H8325",
+      "H8345",
+      "H8946",
+      "H10409"
+    ],
+    "by_category": {
+      "卜辞句": 51
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 22
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 19
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 18
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 13
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 5
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H801",
+        "heji_candidate": "801",
+        "group_index": 3,
+        "text": "貞牛涉于東畀",
+        "position": 5,
+        "length": 6
+      },
+      {
+        "plate": "H4213",
+        "heji_candidate": "4213",
+        "group_index": 1,
+        "text": "貞令師般比□東",
+        "position": 7,
+        "length": 7
+      }
+    ]
   }
 }

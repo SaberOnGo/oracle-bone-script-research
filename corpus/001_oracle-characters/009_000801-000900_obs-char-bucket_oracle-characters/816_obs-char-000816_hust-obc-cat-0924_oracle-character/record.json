@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞒",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "u13qoz09bs"
+    ],
+    "occurrences": 43,
+    "plates": 43,
+    "plate_list_head": [
+      "H4036",
+      "H5413",
+      "H7148",
+      "H7180",
+      "H7188",
+      "H7436",
+      "H7871",
+      "H9383",
+      "H9391",
+      "H9392",
+      "H9401",
+      "H9402"
+    ],
+    "by_category": {
+      "卜辞句": 42,
+      "兆序": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "自",
+        "uid": "0cwxw7rveh",
+        "count": 17
+      },
+      {
+        "text": "𫹉",
+        "uid": "hclsl73wg4",
+        "count": 13
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 11
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "翌",
+        "uid": "hlxb5g91kc",
+        "count": 10
+      },
+      {
+        "text": "㘡",
+        "uid": "mfe79ij88l",
+        "count": 10
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H4036",
+        "heji_candidate": "4036",
+        "group_index": 2,
+        "text": "□未卜爭貞王气令畢□",
+        "position": 7,
+        "length": 10
+      },
+      {
+        "plate": "H5413",
+        "heji_candidate": "5413",
+        "group_index": 1,
+        "text": "□丑卜爭貞王气令曰翌□庚寅宜□",
+        "position": 7,
+        "length": 15
+      }
+    ]
   }
 }

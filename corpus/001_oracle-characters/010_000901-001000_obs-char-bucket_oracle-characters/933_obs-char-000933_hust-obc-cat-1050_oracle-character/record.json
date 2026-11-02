@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠐",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "h204u5h9ms"
+    ],
+    "occurrences": 49,
+    "plates": 36,
+    "plate_list_head": [
+      "H2565",
+      "H3140",
+      "H15096",
+      "H15481",
+      "H22575",
+      "H22904",
+      "H22996",
+      "H23055",
+      "H23098",
+      "H23411",
+      "H25168",
+      "H25183"
+    ],
+    "by_category": {
+      "卜辞句": 49
+    },
+    "top_cooccurring": [
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 36
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 21
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 15
+      },
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 15
+      },
+      {
+        "text": "◇",
+        "uid": "gbq6n25ye0",
+        "count": 14
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 11
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2565",
+        "heji_candidate": "2565",
+        "group_index": 1,
+        "text": "□晦庚牡",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "H3140",
+        "heji_candidate": "3140",
+        "group_index": 1,
+        "text": "□◇就◇◇牡二□",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

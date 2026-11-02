@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -96,5 +96,62 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤲",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "2i3zpwl5a9"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H5426",
+      "H20626",
+      "H33201"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 1
+      },
+      {
+        "text": "午",
+        "uid": "89m3dkhxyy",
+        "count": 1
+      },
+      {
+        "text": "往",
+        "uid": "m6szz2tcxv",
+        "count": 1
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "kwa7t0ray4",
+        "count": 1
+      },
+      {
+        "text": "酉",
+        "uid": "4r0g6bx5rc",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H33201",
+        "heji_candidate": "33201",
+        "group_index": 2,
+        "text": "丁亥卜□汏人□玨乎苞召㚔在四月卜",
+        "position": 10,
+        "length": 16
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩑",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "tvnicmgqzf"
+    ],
+    "occurrences": 16,
+    "plates": 16,
+    "plate_list_head": [
+      "H5577",
+      "H14275",
+      "H14278",
+      "H14289",
+      "H14290",
+      "H14291",
+      "H16882",
+      "H24986",
+      "H24992",
+      "H24998",
+      "H24999",
+      "H25000"
+    ],
+    "by_category": {
+      "卜辞句": 16
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 9
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 7
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 2
+      },
+      {
+        "text": "祸",
+        "uid": "tp5ykv5jzh",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H14291",
+        "heji_candidate": "14291",
+        "group_index": 1,
+        "text": "辰卜其□來鬼□聽",
+        "position": 6,
+        "length": 8
+      },
+      {
+        "plate": "H16882",
+        "heji_candidate": "16882",
+        "group_index": 8,
+        "text": "癸丑卜殻貞旬亡祸王占曰茲鬼□◇□",
+        "position": 13,
+        "length": 16
+      }
+    ]
   }
 }

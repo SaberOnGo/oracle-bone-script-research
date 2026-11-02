@@ -96,5 +96,41 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㫠",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "q3hrv2vesz"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H32663"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 1
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 1
+      },
+      {
+        "text": "父",
+        "uid": "m9q3n9zj10",
+        "count": 1
+      },
+      {
+        "text": "眔",
+        "uid": "z8s6u45g2k",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒬",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "n0bfvspr0d"
+    ],
+    "occurrences": 11,
+    "plates": 11,
+    "plate_list_head": [
+      "H239",
+      "H4489",
+      "H10301",
+      "H14823",
+      "H14828",
+      "H14830",
+      "H15335",
+      "H16876",
+      "H17399",
+      "H17970",
+      "H20333"
+    ],
+    "by_category": {
+      "卜辞句": 11
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 4
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 2
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 2
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H4489",
+        "heji_candidate": "4489",
+        "group_index": 1,
+        "text": "丙寅卜令紷比元□",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H14823",
+        "heji_candidate": "14823",
+        "group_index": 1,
+        "text": "貞勿肇元示◇",
+        "position": 4,
+        "length": 6
+      }
+    ]
   }
 }

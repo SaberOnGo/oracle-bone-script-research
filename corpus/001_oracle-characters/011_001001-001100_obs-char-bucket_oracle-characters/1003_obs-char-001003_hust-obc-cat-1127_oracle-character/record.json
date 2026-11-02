@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,74 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡝",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fu6caa5q2a"
+    ],
+    "occurrences": 7,
+    "plates": 7,
+    "plate_list_head": [
+      "H29781",
+      "H30044",
+      "H30065",
+      "H30211",
+      "H30270",
+      "H30271",
+      "H31014"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 4
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 3
+      },
+      {
+        "text": "大",
+        "uid": "s9y9vbblxa",
+        "count": 3
+      },
+      {
+        "text": "田",
+        "uid": "pzvzykmf5e",
+        "count": 2
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "bh6mqc68g2",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30044",
+        "heji_candidate": "30044",
+        "group_index": 1,
+        "text": "皆□二田喪盂佑大雨",
+        "position": 6,
+        "length": 9
+      },
+      {
+        "plate": "H30065",
+        "heji_candidate": "30065",
+        "group_index": 1,
+        "text": "□其畐禱□雨在盂◇佑大雨",
+        "position": 8,
+        "length": 12
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -94,5 +94,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕬",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "m7l429tjt8"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "HD255"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "◇",
+        "uid": "1rnh5muox4",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "虞",
+        "uid": "er8jkra4dx",
+        "count": 1
+      },
+      {
+        "text": "侃",
+        "uid": "wfyy86f1n0",
+        "count": 1
+      },
+      {
+        "text": "戊",
+        "uid": "u7v6rlhp81",
+        "count": 1
+      },
+      {
+        "text": "告",
+        "uid": "fmdym8mxmv",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD255",
+        "heji_candidate": "D255",
+        "group_index": 8,
+        "text": "戊寅卜舟嚨告◇弗虞侃",
+        "position": 5,
+        "length": 10
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒶",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "gu3h3yqtk3"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H7893",
+      "H9061",
+      "H14681"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "n52ssmqnda",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 1
+      },
+      {
+        "text": "申",
+        "uid": "rzfokwkc7a",
+        "count": 1
+      },
+      {
+        "text": "尸",
+        "uid": "1yymlqlzl6",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7893",
+        "heji_candidate": "7893",
+        "group_index": 1,
+        "text": "庚申卜◇貞兒尸□",
+        "position": 6,
+        "length": 8
+      },
+      {
+        "plate": "H9061",
+        "heji_candidate": "9061",
+        "group_index": 1,
+        "text": "貞兒以㞢□人",
+        "position": 2,
+        "length": 6
+      }
+    ]
   }
 }

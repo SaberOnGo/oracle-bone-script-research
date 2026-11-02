@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,75 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㗨",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "rxvyya07z2"
+    ],
+    "occurrences": 8,
+    "plates": 8,
+    "plate_list_head": [
+      "H2535",
+      "H2809",
+      "H2897",
+      "H5592",
+      "H14791",
+      "H14792",
+      "H14796",
+      "HD290"
+    ],
+    "by_category": {
+      "卜辞句": 8
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "晦",
+        "uid": "sdos1cdyy4",
+        "count": 1
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 1
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 1
+      },
+      {
+        "text": "己",
+        "uid": "mdwfmpr3c8",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2535",
+        "heji_candidate": "2535",
+        "group_index": 1,
+        "text": "貞晦丙卯媚□",
+        "position": 5,
+        "length": 6
+      },
+      {
+        "plate": "H2809",
+        "heji_candidate": "2809",
+        "group_index": 1,
+        "text": "翌己酉帚媚㞢□",
+        "position": 5,
+        "length": 7
+      }
+    ]
   }
 }

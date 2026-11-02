@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -96,5 +96,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㟝",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "5t6au2olk9"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H15866",
+      "H35681"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "cdd4p6xm9e",
+        "count": 1
+      },
+      {
+        "text": "唐",
+        "uid": "4cylbd0s3d",
+        "count": 1
+      },
+      {
+        "text": "翌",
+        "uid": "hlxb5g91kc",
+        "count": 1
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H35681",
+        "heji_candidate": "35681",
+        "group_index": 1,
+        "text": "乙卯卜貞王賓◇濩□",
+        "position": 8,
+        "length": 9
+      }
+    ]
   }
 }

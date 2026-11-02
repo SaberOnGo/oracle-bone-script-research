@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,74 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑅",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "n9qxfnupux"
+    ],
+    "occurrences": 7,
+    "plates": 7,
+    "plate_list_head": [
+      "H5623",
+      "H15872",
+      "H15873",
+      "H15874",
+      "H15882",
+      "H30728",
+      "HD446"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 2
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 2
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 2
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 2
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5623",
+        "heji_candidate": "5623",
+        "group_index": 1,
+        "text": "丁亥卜賓貞令䵼𠱫㞢尹工于垂□",
+        "position": 7,
+        "length": 14
+      },
+      {
+        "plate": "H15873",
+        "heji_candidate": "15873",
+        "group_index": 1,
+        "text": "□勿乎出日䵼",
+        "position": 6,
+        "length": 6
+      }
+    ]
   }
 }

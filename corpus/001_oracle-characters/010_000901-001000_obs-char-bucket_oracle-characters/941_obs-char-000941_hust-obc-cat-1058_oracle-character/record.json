@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠘",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "h9hoshfwwj"
+    ],
+    "occurrences": 83,
+    "plates": 76,
+    "plate_list_head": [
+      "H298",
+      "H565",
+      "H1903",
+      "H1926",
+      "H2585",
+      "H2829",
+      "H3011",
+      "H3190",
+      "H5667",
+      "H5670",
+      "H5671",
+      "H5672"
+    ],
+    "by_category": {
+      "卜辞句": 83
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 26
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 25
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 19
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 15
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 15
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 13
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H565",
+        "heji_candidate": "565",
+        "group_index": 2,
+        "text": "貞隹備犬寇",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "H2585",
+        "heji_candidate": "2585",
+        "group_index": 1,
+        "text": "貞㞢于晦◇犬三羊三豕□卯□",
+        "position": 6,
+        "length": 13
+      }
+    ]
   }
 }

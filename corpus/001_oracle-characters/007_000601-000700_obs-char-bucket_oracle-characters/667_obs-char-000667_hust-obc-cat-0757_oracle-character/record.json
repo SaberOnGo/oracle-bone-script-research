@@ -96,5 +96,31 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛫",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "9vm0d7txqd"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H21342"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "比",
+        "uid": "d15m8dd17h",
+        "count": 1
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

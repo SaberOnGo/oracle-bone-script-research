@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓸㓹",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "i3lktxnh52"
+    ],
+    "occurrences": 165,
+    "plates": 134,
+    "plate_list_head": [
+      "H5",
+      "H33",
+      "H40",
+      "H279",
+      "H331",
+      "H429",
+      "H441",
+      "H565",
+      "H630",
+      "H699",
+      "H700",
+      "H726"
+    ],
+    "by_category": {
+      "卜辞句": 165
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 62
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 53
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 51
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 40
+      },
+      {
+        "text": "己",
+        "uid": "mdwfmpr3c8",
+        "count": 32
+      },
+      {
+        "text": "御",
+        "uid": "o6m37o3l7o",
+        "count": 23
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5",
+        "heji_candidate": "5",
+        "group_index": 2,
+        "text": "□殻貞王大令眾匕曰□",
+        "position": 8,
+        "length": 10
+      },
+      {
+        "plate": "H33",
+        "heji_candidate": "33",
+        "group_index": 2,
+        "text": "壬御卜◇貞㞢于高匕己匕庚小牢",
+        "position": 9,
+        "length": 14
+      }
+    ]
   }
 }

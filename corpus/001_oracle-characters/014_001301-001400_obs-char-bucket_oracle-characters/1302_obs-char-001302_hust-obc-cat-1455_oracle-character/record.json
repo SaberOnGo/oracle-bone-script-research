@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -94,5 +94,62 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦥",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "0fjs8401bp"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H4478",
+      "H15113",
+      "H17980"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "御",
+        "uid": "o6m37o3l7o",
+        "count": 2
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "匕",
+        "uid": "i3lktxnh52",
+        "count": 1
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 1
+      },
+      {
+        "text": "狩",
+        "uid": "sj4e2q73so",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H17980",
+        "heji_candidate": "17980",
+        "group_index": 1,
+        "text": "貞身□其狩",
+        "position": 2,
+        "length": 5
+      }
+    ]
   }
 }

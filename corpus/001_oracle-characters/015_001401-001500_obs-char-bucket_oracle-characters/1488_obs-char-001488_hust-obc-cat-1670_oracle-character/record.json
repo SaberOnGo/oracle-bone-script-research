@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "wf1lpsb2vj"
+    ],
+    "occurrences": 9,
+    "plates": 9,
+    "plate_list_head": [
+      "H2804",
+      "H2807",
+      "H2808",
+      "H14063",
+      "H14118",
+      "H14119",
+      "H14120",
+      "H19989",
+      "H19991"
+    ],
+    "by_category": {
+      "卜辞句": 9
+    },
+    "top_cooccurring": [
+      {
+        "text": "帚",
+        "uid": "qe26dg343r",
+        "count": 8
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 5
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 3
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 3
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2804",
+        "heji_candidate": "2804",
+        "group_index": 1,
+        "text": "己亥卜王余曰帚鼠晦祝",
+        "position": 8,
+        "length": 10
+      },
+      {
+        "plate": "H2807",
+        "heji_candidate": "2807",
+        "group_index": 1,
+        "text": "庚戌卜貞翌壬子𣎳帚鼠□出□",
+        "position": 10,
+        "length": 13
+      }
+    ]
   }
 }

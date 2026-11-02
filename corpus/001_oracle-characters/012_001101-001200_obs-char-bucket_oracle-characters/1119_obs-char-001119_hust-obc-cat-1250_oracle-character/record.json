@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㣘",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "aoaipuy20h"
+    ],
+    "occurrences": 133,
+    "plates": 123,
+    "plate_list_head": [
+      "H331",
+      "H713",
+      "H884",
+      "H1207",
+      "H1214",
+      "H1216",
+      "H1417",
+      "H1474",
+      "H1639",
+      "H1664",
+      "H1830",
+      "H1904"
+    ],
+    "by_category": {
+      "卜辞句": 132,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 46
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 30
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 30
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 27
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 20
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 17
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H713",
+        "heji_candidate": "713",
+        "group_index": 1,
+        "text": "貞御◇漁于父乙嚮羊𰇑𠬝",
+        "position": 9,
+        "length": 11
+      },
+      {
+        "plate": "H1474",
+        "heji_candidate": "1474",
+        "group_index": 1,
+        "text": "□大甲大庚中丁且乙且辛一羊一南□",
+        "position": 13,
+        "length": 16
+      }
+    ]
   }
 }

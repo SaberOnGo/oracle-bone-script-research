@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘞",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "r26j6lro1i"
+    ],
+    "occurrences": 36,
+    "plates": 33,
+    "plate_list_head": [
+      "H138",
+      "H537",
+      "H542",
+      "H547",
+      "H549",
+      "H551",
+      "H552",
+      "H553",
+      "H558",
+      "H565",
+      "H566",
+      "H567"
+    ],
+    "by_category": {
+      "卜辞句": 36
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 25
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 12
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 10
+      },
+      {
+        "text": "㚔",
+        "uid": "65i2zmqjqy",
+        "count": 6
+      },
+      {
+        "text": "𢀛",
+        "uid": "b2n32mdq0u",
+        "count": 5
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H138",
+        "heji_candidate": "138",
+        "group_index": 1,
+        "text": "□嚮己未寇◇芻逸自爻圉□",
+        "position": 5,
+        "length": 12
+      },
+      {
+        "plate": "H537",
+        "heji_candidate": "537",
+        "group_index": 1,
+        "text": "貞乎寇伐𢀛",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

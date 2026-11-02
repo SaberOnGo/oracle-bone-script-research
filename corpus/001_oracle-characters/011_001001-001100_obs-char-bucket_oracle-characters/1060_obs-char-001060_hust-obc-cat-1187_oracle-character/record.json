@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢙",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "om61e8d11r"
+    ],
+    "occurrences": 127,
+    "plates": 79,
+    "plate_list_head": [
+      "H4359",
+      "H17297",
+      "H20575",
+      "H22536",
+      "H31969",
+      "H32176",
+      "H32211",
+      "H32298",
+      "H32778",
+      "H32911",
+      "H32938",
+      "H33209"
+    ],
+    "by_category": {
+      "卜辞句": 127
+    },
+    "top_cooccurring": [
+      {
+        "text": "禱",
+        "uid": "1wismy95hz",
+        "count": 73
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 70
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 60
+      },
+      {
+        "text": "受",
+        "uid": "52a130pcmy",
+        "count": 34
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 22
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 22
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H22536",
+        "heji_candidate": "22536",
+        "group_index": 1,
+        "text": "丙辰◇禾",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "H31969",
+        "heji_candidate": "31969",
+        "group_index": 1,
+        "text": "丁亥卜令眾◇田受禾",
+        "position": 9,
+        "length": 9
+      }
+    ]
   }
 }

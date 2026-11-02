@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦤",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "hunv1ff3gy"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H9084",
+      "H9380"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 1
+      },
+      {
+        "text": "己",
+        "uid": "mdwfmpr3c8",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 1
+      },
+      {
+        "text": "貯",
+        "uid": "iuzkqe17tf",
+        "count": 1
+      },
+      {
+        "text": "入",
+        "uid": "a8n7ywfrd3",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H9084",
+        "heji_candidate": "9084",
+        "group_index": 2,
+        "text": "己未卜躋以",
+        "position": 4,
+        "length": 5
+      }
+    ]
   }
 }

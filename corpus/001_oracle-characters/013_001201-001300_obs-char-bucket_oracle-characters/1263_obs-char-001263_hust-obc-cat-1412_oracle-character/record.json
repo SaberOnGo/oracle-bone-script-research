@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㥺",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "vzb2hyntyq"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H30428"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 1
+      },
+      {
+        "text": "𫹉",
+        "uid": "hclsl73wg4",
+        "count": 1
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 1
+      },
+      {
+        "text": "河",
+        "uid": "yfnx5cwgq6",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30428",
+        "heji_candidate": "30428",
+        "group_index": 1,
+        "text": "癸亥卜其𫹉誅于河",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

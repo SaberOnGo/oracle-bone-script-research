@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜯㜰",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "jcsf6ohzo1"
+    ],
+    "occurrences": 34,
+    "plates": 30,
+    "plate_list_head": [
+      "H171",
+      "H172",
+      "H173",
+      "H237",
+      "H547",
+      "H549",
+      "H2985",
+      "H3994",
+      "H3996",
+      "H3997",
+      "H3999",
+      "H4000"
+    ],
+    "by_category": {
+      "卜辞句": 34
+    },
+    "top_cooccurring": [
+      {
+        "text": "乘",
+        "uid": "qhmhxv0zyb",
+        "count": 22
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 16
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 12
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 9
+      },
+      {
+        "text": "比",
+        "uid": "d15m8dd17h",
+        "count": 8
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 6
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H237",
+        "heji_candidate": "237",
+        "group_index": 1,
+        "text": "癸酉卜貞望乘來羌",
+        "position": 5,
+        "length": 8
+      },
+      {
+        "plate": "H547",
+        "heji_candidate": "547",
+        "group_index": 2,
+        "text": "貞勿擇多寇乎望𢀛方其橐",
+        "position": 7,
+        "length": 11
+      }
+    ]
   }
 }

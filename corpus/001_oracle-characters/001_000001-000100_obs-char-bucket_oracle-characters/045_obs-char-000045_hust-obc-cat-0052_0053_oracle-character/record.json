@@ -99,5 +99,54 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐪㐫",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "5t9tgx32x2"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H3019",
+      "H5605",
+      "H5606",
+      "H5610"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "央",
+        "uid": "g7a146vwlb",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 1
+      },
+      {
+        "text": "隹",
+        "uid": "y0f5gu3q0a",
+        "count": 1
+      },
+      {
+        "text": "人",
+        "uid": "p6uj3n0aze",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

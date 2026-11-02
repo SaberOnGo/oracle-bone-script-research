@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -100,5 +100,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔷㔸㔹",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "h3nw474wwr"
+    ],
+    "occurrences": 173,
+    "plates": 156,
+    "plate_list_head": [
+      "H177",
+      "H673",
+      "H1672",
+      "H1945",
+      "H1973",
+      "H2592",
+      "H3730",
+      "H3881",
+      "H3882",
+      "H3884",
+      "H3998",
+      "H4065"
+    ],
+    "by_category": {
+      "卜辞句": 172,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 83
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 74
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 44
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 27
+      },
+      {
+        "text": "叶",
+        "uid": "r424gd7pwf",
+        "count": 26
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 25
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H177",
+        "heji_candidate": "177",
+        "group_index": 1,
+        "text": "己丑卜爭貞◇叶王史",
+        "position": 9,
+        "length": 9
+      },
+      {
+        "plate": "H177",
+        "heji_candidate": "177",
+        "group_index": 2,
+        "text": "貞◇叶王史",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

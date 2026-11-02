@@ -97,5 +97,36 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕚",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ge4xfsbtgz"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H18312"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 1
+      },
+      {
+        "text": "受",
+        "uid": "52a130pcmy",
+        "count": 1
+      },
+      {
+        "text": "己",
+        "uid": "mdwfmpr3c8",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

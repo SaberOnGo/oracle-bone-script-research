@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㫞",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "31gq0i3w4d"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H346",
+      "H5479",
+      "H30392",
+      "H30393"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "wo1cwyb0pt",
+        "count": 1
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 1
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H346",
+        "heji_candidate": "346",
+        "group_index": 2,
+        "text": "貞勿令𩎴◇",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "H5479",
+        "heji_candidate": "5479",
+        "group_index": 3,
+        "text": "貞叀𩎴令往于徵",
+        "position": 3,
+        "length": 7
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘬",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "x9y4slwu2b"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H7694",
+      "H7698",
+      "H18426",
+      "H32287"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 3
+      },
+      {
+        "text": "石",
+        "uid": "xh47ul1r1k",
+        "count": 2
+      },
+      {
+        "text": "申",
+        "uid": "rzfokwkc7a",
+        "count": 2
+      },
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 2
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "戉",
+        "uid": "yuucprnzb5",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7694",
+        "heji_candidate": "7694",
+        "group_index": 1,
+        "text": "丙申卜爭貞戉㞢石一封其翦",
+        "position": 10,
+        "length": 12
+      },
+      {
+        "plate": "H7698",
+        "heji_candidate": "7698",
+        "group_index": 1,
+        "text": "□戉㞢石一封弗其□",
+        "position": 6,
+        "length": 9
+      }
+    ]
   }
 }

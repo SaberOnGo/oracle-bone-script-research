@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㗋",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "csyhzui9uc"
+    ],
+    "occurrences": 16,
+    "plates": 13,
+    "plate_list_head": [
+      "H657",
+      "H659",
+      "H660",
+      "H661",
+      "H662",
+      "H755",
+      "H2863",
+      "H14036",
+      "H32164",
+      "H32165",
+      "HD265",
+      "HD409"
+    ],
+    "by_category": {
+      "卜辞句": 16
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 6
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 5
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 4
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 4
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H657",
+        "heji_candidate": "657",
+        "group_index": 1,
+        "text": "□爭貞取汏妾",
+        "position": 6,
+        "length": 6
+      },
+      {
+        "plate": "H659",
+        "heji_candidate": "659",
+        "group_index": 1,
+        "text": "貞訊州妾徝",
+        "position": 4,
+        "length": 5
+      }
+    ]
   }
 }

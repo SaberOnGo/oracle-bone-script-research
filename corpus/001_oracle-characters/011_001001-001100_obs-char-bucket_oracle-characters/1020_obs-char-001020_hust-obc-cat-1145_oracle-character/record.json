@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,72 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡯",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fbmole6hwm"
+    ],
+    "occurrences": 6,
+    "plates": 5,
+    "plate_list_head": [
+      "H673",
+      "H2516",
+      "H3197",
+      "H3198",
+      "H9005"
+    ],
+    "by_category": {
+      "卜辞句": 6
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "及",
+        "uid": "ce7ek63y0o",
+        "count": 2
+      },
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 2
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 2
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 2
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H673",
+        "heji_candidate": "673",
+        "group_index": 3,
+        "text": "戊午卜眉以及不",
+        "position": 4,
+        "length": 7
+      },
+      {
+        "plate": "H673",
+        "heji_candidate": "673",
+        "group_index": 4,
+        "text": "眉弗其以及不",
+        "position": 1,
+        "length": 6
+      }
+    ]
   }
 }

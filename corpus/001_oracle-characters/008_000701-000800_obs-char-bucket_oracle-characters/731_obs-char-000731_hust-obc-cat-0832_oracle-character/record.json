@@ -97,5 +97,36 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜶",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "r09trgtxjq"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H33298"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "酉",
+        "uid": "4r0g6bx5rc",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

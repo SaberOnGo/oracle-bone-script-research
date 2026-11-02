@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㪵㪶",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "u7j8pvl5zq"
+    ],
+    "occurrences": 71,
+    "plates": 48,
+    "plate_list_head": [
+      "H306",
+      "H466",
+      "H467",
+      "H471",
+      "H1314",
+      "H4261",
+      "H8306",
+      "H14299",
+      "H15887",
+      "H17391",
+      "H22438",
+      "H22601"
+    ],
+    "by_category": {
+      "卜辞句": 71
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 39
+      },
+      {
+        "text": "◇",
+        "uid": "gbq6n25ye0",
+        "count": 21
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 17
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 15
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 15
+      },
+      {
+        "text": "牛",
+        "uid": "66iowpdbuc",
+        "count": 12
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H306",
+        "heji_candidate": "306",
+        "group_index": 1,
+        "text": "□卜賓□百羌殺◇",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H466",
+        "heji_candidate": "466",
+        "group_index": 1,
+        "text": "丙辰卜古貞其殺羌",
+        "position": 7,
+        "length": 8
+      }
+    ]
   }
 }

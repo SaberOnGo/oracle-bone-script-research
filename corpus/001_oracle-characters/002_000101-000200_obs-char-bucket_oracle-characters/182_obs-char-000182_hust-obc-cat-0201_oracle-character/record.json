@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,81 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒿",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "phjj09b89l"
+    ],
+    "occurrences": 127,
+    "plates": 118,
+    "plate_list_head": [
+      "H258",
+      "H362",
+      "H363",
+      "H372",
+      "H750",
+      "H995",
+      "H1201",
+      "H1374",
+      "H1412",
+      "H1613",
+      "H1752",
+      "H1926"
+    ],
+    "by_category": {
+      "卜辞句": 89,
+      "兆序": 34,
+      "未定": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 28
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 27
+      },
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 21
+      },
+      {
+        "text": "五",
+        "uid": "s2e076ohb1",
+        "count": 18
+      },
+      {
+        "text": "夕",
+        "uid": "no4gdlajf6",
+        "count": 17
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 14
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H258",
+        "heji_candidate": "258",
+        "group_index": 1,
+        "text": "乙未卜貞𫯦獲◇◇允獲十六以羌六",
+        "position": 12,
+        "length": 15
+      },
+      {
+        "plate": "H362",
+        "heji_candidate": "362",
+        "group_index": 2,
+        "text": "用六羌卯牢",
+        "position": 2,
+        "length": 5
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,75 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛞",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "9y6qgnclpk"
+    ],
+    "occurrences": 8,
+    "plates": 8,
+    "plate_list_head": [
+      "H194",
+      "H3090",
+      "H3092",
+      "H3094",
+      "H3095",
+      "H8140",
+      "H10337",
+      "H20048"
+    ],
+    "by_category": {
+      "卜辞句": 8
+    },
+    "top_cooccurring": [
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 4
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "獲",
+        "uid": "dgw10rc4gi",
+        "count": 1
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3090",
+        "heji_candidate": "3090",
+        "group_index": 1,
+        "text": "丁卯卜爭貞令◇效□□于□",
+        "position": 8,
+        "length": 12
+      },
+      {
+        "plate": "H3092",
+        "heji_candidate": "3092",
+        "group_index": 1,
+        "text": "叀◇效□",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

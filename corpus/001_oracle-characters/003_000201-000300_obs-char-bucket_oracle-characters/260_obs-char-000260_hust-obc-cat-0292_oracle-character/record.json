@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -94,5 +94,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔚",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "13cqabljgi",
+      "zfar0aaflb"
+    ],
+    "occurrences": 8,
+    "plates": 8,
+    "plate_list_head": [
+      "H30",
+      "H4006",
+      "H18022",
+      "H32700",
+      "H33189",
+      "H33190",
+      "HD363",
+      "HD450"
+    ],
+    "by_category": {
+      "卜辞句": 8
+    },
+    "top_cooccurring": [
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 2
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 2
+      },
+      {
+        "text": "侃",
+        "uid": "wfyy86f1n0",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H4006",
+        "heji_candidate": "4006",
+        "group_index": 1,
+        "text": "□卜韋貞令◇求厀甗□",
+        "position": 8,
+        "length": 10
+      },
+      {
+        "plate": "H18022",
+        "heji_candidate": "18022",
+        "group_index": 1,
+        "text": "□㞢隹厀",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

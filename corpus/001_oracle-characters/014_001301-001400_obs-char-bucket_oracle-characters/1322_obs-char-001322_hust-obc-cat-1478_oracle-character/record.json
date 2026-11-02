@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -96,5 +96,62 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "c771nmkmb8"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H20521",
+      "H20522",
+      "HD441"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "牛",
+        "uid": "66iowpdbuc",
+        "count": 1
+      },
+      {
+        "text": "𰇑",
+        "uid": "h82z1bo3i3",
+        "count": 1
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 1
+      },
+      {
+        "text": "辰",
+        "uid": "4lgdy5a4ta",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "98p045fecs",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H20522",
+        "heji_candidate": "20522",
+        "group_index": 1,
+        "text": "辛未卜王㚔通",
+        "position": 6,
+        "length": 6
+      }
+    ]
   }
 }

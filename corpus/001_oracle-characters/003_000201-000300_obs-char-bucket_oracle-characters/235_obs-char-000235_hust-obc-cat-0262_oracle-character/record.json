@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "oho66symg6"
+    ],
+    "occurrences": 48,
+    "plates": 45,
+    "plate_list_head": [
+      "H356",
+      "H1250",
+      "H1286",
+      "H1432",
+      "H1944",
+      "H1945",
+      "H1946",
+      "H1947",
+      "H1951",
+      "H1972",
+      "H2607",
+      "H3113"
+    ],
+    "by_category": {
+      "卜辞句": 48
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 26
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 20
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 14
+      },
+      {
+        "text": "𫹉",
+        "uid": "hclsl73wg4",
+        "count": 11
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 11
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 10
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H356",
+        "heji_candidate": "356",
+        "group_index": 2,
+        "text": "□𫹉匚于㘡九羌卯◇□",
+        "position": 3,
+        "length": 10
+      },
+      {
+        "plate": "H1250",
+        "heji_candidate": "1250",
+        "group_index": 1,
+        "text": "㞢于匚丁",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,51 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "5fsjukjyjt"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H7841",
+      "H32675"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "御",
+        "uid": "o6m37o3l7o",
+        "count": 1
+      },
+      {
+        "text": "土",
+        "uid": "pkibwuo4bv",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H32675",
+        "heji_candidate": "32675",
+        "group_index": 4,
+        "text": "于亳土御",
+        "position": 2,
+        "length": 4
+      }
+    ]
   }
 }

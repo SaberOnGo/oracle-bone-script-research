@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,68 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔦㔧",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "i5iv3migqj"
+    ],
+    "occurrences": 5,
+    "plates": 1,
+    "plate_list_head": [
+      "HD267"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "祭",
+        "uid": "xjoc12tti2",
+        "count": 5
+      },
+      {
+        "text": "友",
+        "uid": "kgfsb68wnb",
+        "count": 4
+      },
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 4
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 3
+      },
+      {
+        "text": "辰",
+        "uid": "4lgdy5a4ta",
+        "count": 3
+      },
+      {
+        "text": "◇",
+        "uid": "nms96pmn1w",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD267",
+        "heji_candidate": "D267",
+        "group_index": 3,
+        "text": "甲辰卜叉祭且甲叀巳祝",
+        "position": 4,
+        "length": 10
+      },
+      {
+        "plate": "HD267",
+        "heji_candidate": "D267",
+        "group_index": 4,
+        "text": "甲辰叉祭◇友◇一",
+        "position": 3,
+        "length": 8
+      }
+    ]
   }
 }

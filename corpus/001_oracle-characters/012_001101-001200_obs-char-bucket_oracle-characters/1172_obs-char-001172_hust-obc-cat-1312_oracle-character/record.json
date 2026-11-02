@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,68 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤖",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "avzjpgqkym"
+    ],
+    "occurrences": 2,
+    "plates": 1,
+    "plate_list_head": [
+      "H7066"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "取",
+        "uid": "hvm3m8ypgu",
+        "count": 2
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 1
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7066",
+        "heji_candidate": "7066",
+        "group_index": 1,
+        "text": "辛亥卜賓貞取臭□",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H7066",
+        "heji_candidate": "7066",
+        "group_index": 2,
+        "text": "貞勿取臭眔◇",
+        "position": 4,
+        "length": 6
+      }
+    ]
   }
 }

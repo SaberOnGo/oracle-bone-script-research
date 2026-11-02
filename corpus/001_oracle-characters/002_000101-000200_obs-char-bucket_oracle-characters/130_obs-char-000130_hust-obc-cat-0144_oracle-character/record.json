@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -96,5 +96,50 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒆",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "bjuu7rps2w"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H11651"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "今",
+        "uid": "ihsuhqgmdc",
+        "count": 1
+      },
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H11651",
+        "heji_candidate": "11651",
+        "group_index": 1,
+        "text": "貞今日月企",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

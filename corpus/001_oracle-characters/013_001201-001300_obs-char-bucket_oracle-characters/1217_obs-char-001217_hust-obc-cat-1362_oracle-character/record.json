@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㥈",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "l72ae71syd"
+    ],
+    "occurrences": 13,
+    "plates": 13,
+    "plate_list_head": [
+      "H1535",
+      "H2018",
+      "H5297",
+      "H10131",
+      "H10801",
+      "H12892",
+      "H14049",
+      "H17346",
+      "H17347",
+      "H17348",
+      "H17351",
+      "H17380"
+    ],
+    "by_category": {
+      "卜辞句": 13
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "隹",
+        "uid": "y0f5gu3q0a",
+        "count": 8
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 7
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 3
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 2
+      },
+      {
+        "text": "茲",
+        "uid": "jgofpoxdpd",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2018",
+        "heji_candidate": "2018",
+        "group_index": 1,
+        "text": "□申卜殻貞于南庚御薛",
+        "position": 10,
+        "length": 10
+      },
+      {
+        "plate": "H5297",
+        "heji_candidate": "5297",
+        "group_index": 1,
+        "text": "庚戌□貞王心若◇其隹薛□",
+        "position": 11,
+        "length": 12
+      }
+    ]
   }
 }

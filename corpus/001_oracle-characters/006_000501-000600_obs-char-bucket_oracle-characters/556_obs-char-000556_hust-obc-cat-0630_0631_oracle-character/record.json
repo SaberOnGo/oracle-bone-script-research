@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙬㙭",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "b3fudy3nhc"
+    ],
+    "occurrences": 45,
+    "plates": 34,
+    "plate_list_head": [
+      "H35355",
+      "H35371",
+      "H35803",
+      "H35859",
+      "H35955",
+      "H35966",
+      "H35968",
+      "H35970",
+      "H35972",
+      "H35975",
+      "H35978",
+      "H35979"
+    ],
+    "by_category": {
+      "卜辞句": 45
+    },
+    "top_cooccurring": [
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 39
+      },
+      {
+        "text": "◇",
+        "uid": "vh510bocta",
+        "count": 34
+      },
+      {
+        "text": "牢",
+        "uid": "w4mg32kjp4",
+        "count": 32
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 31
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 26
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 23
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H35803",
+        "heji_candidate": "35803",
+        "group_index": 1,
+        "text": "甲辰卜貞王賓禱◇◇◇康◇◇卒亡尤",
+        "position": 11,
+        "length": 16
+      },
+      {
+        "plate": "H35955",
+        "heji_candidate": "35955",
+        "group_index": 1,
+        "text": "丁卯卜貞王賓康◇◇亡尤",
+        "position": 7,
+        "length": 11
+      }
+    ]
   }
 }

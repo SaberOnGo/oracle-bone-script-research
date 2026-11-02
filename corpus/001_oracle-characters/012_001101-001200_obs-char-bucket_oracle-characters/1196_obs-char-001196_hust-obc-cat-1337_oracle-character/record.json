@@ -96,5 +96,41 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤯",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "7y2udd7ppm"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H10571"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "往",
+        "uid": "m6szz2tcxv",
+        "count": 1
+      },
+      {
+        "text": "田",
+        "uid": "pzvzykmf5e",
+        "count": 1
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 1
+      },
+      {
+        "text": "伯",
+        "uid": "jn8qw1nhns",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

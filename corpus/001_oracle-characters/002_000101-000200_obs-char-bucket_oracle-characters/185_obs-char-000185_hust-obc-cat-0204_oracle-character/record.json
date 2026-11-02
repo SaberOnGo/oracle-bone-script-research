@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -96,5 +96,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓂",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "x370zr0v88"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H7204"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "出",
+        "uid": "74alaf1szs",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "子",
+        "uid": "r79attbhro",
+        "count": 1
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 1
+      },
+      {
+        "text": "若",
+        "uid": "1k9ogi7w79",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7204",
+        "heji_candidate": "7204",
+        "group_index": 1,
+        "text": "甲子卜□貞出兵若",
+        "position": 7,
+        "length": 8
+      }
+    ]
   }
 }

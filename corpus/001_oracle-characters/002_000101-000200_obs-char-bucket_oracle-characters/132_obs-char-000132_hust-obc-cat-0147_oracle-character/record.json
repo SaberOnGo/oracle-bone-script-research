@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒉",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "jgdbp661hw"
+    ],
+    "occurrences": 35,
+    "plates": 32,
+    "plate_list_head": [
+      "H17368",
+      "H21576",
+      "H23563",
+      "H23818",
+      "H25210",
+      "H30259",
+      "H30451",
+      "H32019",
+      "H32107",
+      "H32344",
+      "H32345",
+      "H32550"
+    ],
+    "by_category": {
+      "卜辞句": 34,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 15
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 14
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 13
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 12
+      },
+      {
+        "text": "尹",
+        "uid": "1l0us6kkug",
+        "count": 9
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 8
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30259",
+        "heji_candidate": "30259",
+        "group_index": 1,
+        "text": "其寧風伊□",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "H30451",
+        "heji_candidate": "30451",
+        "group_index": 1,
+        "text": "其佑蔑眔伊尹",
+        "position": 5,
+        "length": 6
+      }
+    ]
   }
 }

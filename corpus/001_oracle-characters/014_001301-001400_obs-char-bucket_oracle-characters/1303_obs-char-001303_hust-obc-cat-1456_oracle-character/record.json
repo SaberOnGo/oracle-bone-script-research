@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦦",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "m4dq2q9jiv"
+    ],
+    "occurrences": 5,
+    "plates": 4,
+    "plate_list_head": [
+      "H10728",
+      "H11455",
+      "H11456",
+      "HD416"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 2
+      },
+      {
+        "text": "若",
+        "uid": "1k9ogi7w79",
+        "count": 2
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 2
+      },
+      {
+        "text": "取",
+        "uid": "hvm3m8ypgu",
+        "count": 2
+      },
+      {
+        "text": "發",
+        "uid": "6x8v1c8903",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD416",
+        "heji_candidate": "D416",
+        "group_index": 10,
+        "text": "壬辰卜巳乎射發◇取佑車若",
+        "position": 11,
+        "length": 12
+      },
+      {
+        "plate": "HD416",
+        "heji_candidate": "D416",
+        "group_index": 11,
+        "text": "癸巳卜◇叀大令乎比發取佑車若",
+        "position": 13,
+        "length": 14
+      }
+    ]
   }
 }

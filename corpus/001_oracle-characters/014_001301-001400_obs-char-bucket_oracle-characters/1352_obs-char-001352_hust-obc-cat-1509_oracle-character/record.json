@@ -97,5 +97,37 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧛",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "7z5dh17d4b"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H12810",
+      "H18159"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "大",
+        "uid": "s9y9vbblxa",
+        "count": 1
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

@@ -96,5 +96,36 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞐",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "zjs0019zm2"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H18272"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 1
+      },
+      {
+        "text": "口",
+        "uid": "4ytix1aozf",
+        "count": 1
+      },
+      {
+        "text": "伇",
+        "uid": "u6bkwnepiv",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖨",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "g7a146vwlb"
+    ],
+    "occurrences": 21,
+    "plates": 17,
+    "plate_list_head": [
+      "H3007",
+      "H3009",
+      "H3011",
+      "H3013",
+      "H3014",
+      "H3015",
+      "H3016",
+      "H3017",
+      "H3019",
+      "H3021",
+      "H3022",
+      "H3024"
+    ],
+    "by_category": {
+      "卜辞句": 21
+    },
+    "top_cooccurring": [
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 12
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 10
+      },
+      {
+        "text": "御",
+        "uid": "o6m37o3l7o",
+        "count": 9
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 8
+      },
+      {
+        "text": "𫹉",
+        "uid": "hclsl73wg4",
+        "count": 7
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3007",
+        "heji_candidate": "3007",
+        "group_index": 1,
+        "text": "貞御◇央于𣎆甲",
+        "position": 4,
+        "length": 7
+      },
+      {
+        "plate": "H3009",
+        "heji_candidate": "3009",
+        "group_index": 1,
+        "text": "□戌卜□御◇央于晦己二◇□",
+        "position": 7,
+        "length": 13
+      }
+    ]
   }
 }

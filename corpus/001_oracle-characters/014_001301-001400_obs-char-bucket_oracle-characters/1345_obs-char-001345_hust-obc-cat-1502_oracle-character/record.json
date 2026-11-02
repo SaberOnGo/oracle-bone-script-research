@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧔",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "4r0g6bx5rc"
+    ],
+    "occurrences": 688,
+    "plates": 614,
+    "plate_list_head": [
+      "H33",
+      "H44",
+      "H165",
+      "H166",
+      "H237",
+      "H239",
+      "H301",
+      "H313",
+      "H352",
+      "H383",
+      "H394",
+      "H453"
+    ],
+    "by_category": {
+      "卜辞句": 687,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 449
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 329
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 187
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 180
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 148
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 131
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H33",
+        "heji_candidate": "33",
+        "group_index": 1,
+        "text": "癸酉卜賓貞翌戊令眾人□",
+        "position": 2,
+        "length": 11
+      },
+      {
+        "plate": "H165",
+        "heji_candidate": "165",
+        "group_index": 1,
+        "text": "乙酉卜◇貞射臿獲羌",
+        "position": 2,
+        "length": 9
+      }
+    ]
   }
 }

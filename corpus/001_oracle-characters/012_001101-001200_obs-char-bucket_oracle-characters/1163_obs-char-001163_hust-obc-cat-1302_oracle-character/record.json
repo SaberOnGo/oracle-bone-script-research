@@ -97,5 +97,47 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤌",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "lyy6c5kh8d"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H7926",
+      "H18269"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "子",
+        "uid": "r79attbhro",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

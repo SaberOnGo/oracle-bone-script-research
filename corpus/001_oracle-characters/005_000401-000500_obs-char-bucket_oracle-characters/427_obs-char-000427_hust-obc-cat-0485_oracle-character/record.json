@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㗛",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "pqtlskkq5f"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H2812",
+      "H3803",
+      "H14064"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "帚",
+        "uid": "qe26dg343r",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "昷",
+        "uid": "yrxflndwvy",
+        "count": 1
+      },
+      {
+        "text": "殻",
+        "uid": "5k1l85d8n2",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2812",
+        "heji_candidate": "2812",
+        "group_index": 1,
+        "text": "□午卜殻□帚娕◇不昷",
+        "position": 7,
+        "length": 10
+      },
+      {
+        "plate": "H14064",
+        "heji_candidate": "14064",
+        "group_index": 1,
+        "text": "貞帚娕嘉",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡏",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "h32m5ulkit"
+    ],
+    "occurrences": 1262,
+    "plates": 897,
+    "plate_list_head": [
+      "H7",
+      "H33",
+      "H64",
+      "H89",
+      "H237",
+      "H292",
+      "H313",
+      "H352",
+      "H394",
+      "H439",
+      "H542",
+      "H553"
+    ],
+    "by_category": {
+      "卜辞句": 1261,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 747
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 740
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 441
+      },
+      {
+        "text": "旬",
+        "uid": "nak4ioxpg1",
+        "count": 440
+      },
+      {
+        "text": "祸",
+        "uid": "tp5ykv5jzh",
+        "count": 320
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 241
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7",
+        "heji_candidate": "7",
+        "group_index": 1,
+        "text": "癸未卜爭貞王在茲◇咸狩",
+        "position": 1,
+        "length": 11
+      },
+      {
+        "plate": "H33",
+        "heji_candidate": "33",
+        "group_index": 1,
+        "text": "癸酉卜賓貞翌戊令眾人□",
+        "position": 1,
+        "length": 11
+      }
+    ]
   }
 }

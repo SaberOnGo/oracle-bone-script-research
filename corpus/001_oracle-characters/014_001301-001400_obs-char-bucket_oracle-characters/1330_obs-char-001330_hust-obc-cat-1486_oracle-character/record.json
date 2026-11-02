@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,56 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧄",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "u878nsmv98"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H8277",
+      "H30085"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 1
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "wo1cwyb0pt",
+        "count": 1
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8277",
+        "heji_candidate": "8277",
+        "group_index": 1,
+        "text": "癸丑貞于遠◇",
+        "position": 5,
+        "length": 6
+      }
+    ]
   }
 }

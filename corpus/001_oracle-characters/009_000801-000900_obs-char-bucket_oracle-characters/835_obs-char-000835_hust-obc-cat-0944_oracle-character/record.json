@@ -97,5 +97,36 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞦",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "92dfbxlxeh"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H22450"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "辰",
+        "uid": "4lgdy5a4ta",
+        "count": 1
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 1
+      },
+      {
+        "text": "來",
+        "uid": "rlx0knkq0v",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

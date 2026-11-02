@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,73 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓺",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "s73v9sbqaz"
+    ],
+    "occurrences": 7,
+    "plates": 6,
+    "plate_list_head": [
+      "H2786",
+      "H4177",
+      "H4179",
+      "H5441",
+      "H7647",
+      "H33195"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "𬅶",
+        "uid": "oi9nd1nd9n",
+        "count": 4
+      },
+      {
+        "text": "臿",
+        "uid": "kz1rfdj0ws",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "祸",
+        "uid": "tp5ykv5jzh",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H4177",
+        "heji_candidate": "4177",
+        "group_index": 1,
+        "text": "臿𬅶化其□",
+        "position": 3,
+        "length": 5
+      },
+      {
+        "plate": "H4179",
+        "heji_candidate": "4179",
+        "group_index": 1,
+        "text": "丁未卜爭貞臿𬅶化亡祸",
+        "position": 8,
+        "length": 10
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚍",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "2s666tklgo"
+    ],
+    "occurrences": 13,
+    "plates": 11,
+    "plate_list_head": [
+      "H8283",
+      "H29949",
+      "H30090",
+      "H30282",
+      "H30345",
+      "H30347",
+      "H30537",
+      "H30564",
+      "H30596",
+      "H30766",
+      "H32663"
+    ],
+    "by_category": {
+      "卜辞句": 13
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 12
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 8
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 5
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 4
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 4
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8283",
+        "heji_candidate": "8283",
+        "group_index": 1,
+        "text": "貞勿令師般取朿于彭龍",
+        "position": 9,
+        "length": 10
+      },
+      {
+        "plate": "H30090",
+        "heji_candidate": "30090",
+        "group_index": 1,
+        "text": "丁未卜彭□",
+        "position": 4,
+        "length": 5
+      }
+    ]
   }
 }

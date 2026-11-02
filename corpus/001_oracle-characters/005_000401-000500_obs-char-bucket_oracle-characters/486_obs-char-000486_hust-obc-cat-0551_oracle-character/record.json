@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘝",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "u3lh7tekno"
+    ],
+    "occurrences": 519,
+    "plates": 451,
+    "plate_list_head": [
+      "H10",
+      "H18",
+      "H36",
+      "H70",
+      "H156",
+      "H194",
+      "H242",
+      "H445",
+      "H511",
+      "H608",
+      "H801",
+      "H831"
+    ],
+    "by_category": {
+      "卜辞句": 519
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 321
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 215
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 145
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 123
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 103
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 92
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10",
+        "heji_candidate": "10",
+        "group_index": 1,
+        "text": "戊寅卜賓貞王往以眾黍于囧",
+        "position": 2,
+        "length": 12
+      },
+      {
+        "plate": "H18",
+        "heji_candidate": "18",
+        "group_index": 1,
+        "text": "戌寅卜爭貞今春眾㞢工◇",
+        "position": 2,
+        "length": 11
+      }
+    ]
   }
 }

@@ -97,5 +97,31 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖿",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "twk4rdk9gc"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "HD241"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 1
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

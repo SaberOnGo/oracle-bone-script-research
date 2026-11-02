@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓨",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "j0cf8hrkjw"
+    ],
+    "occurrences": 12,
+    "plates": 11,
+    "plate_list_head": [
+      "H3236",
+      "H8203",
+      "H18592",
+      "H32161",
+      "H32486",
+      "H32487",
+      "H32518",
+      "H32725",
+      "H32726",
+      "H32727",
+      "H33210"
+    ],
+    "by_category": {
+      "卜辞句": 12
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 8
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "辰",
+        "uid": "4lgdy5a4ta",
+        "count": 3
+      },
+      {
+        "text": "己",
+        "uid": "mdwfmpr3c8",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8203",
+        "heji_candidate": "8203",
+        "group_index": 1,
+        "text": "己卯卜剛于◇",
+        "position": 4,
+        "length": 6
+      },
+      {
+        "plate": "H32161",
+        "heji_candidate": "32161",
+        "group_index": 3,
+        "text": "己未卜其剛羊十于西南",
+        "position": 5,
+        "length": 10
+      }
+    ]
   }
 }

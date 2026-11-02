@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠤",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "hftl4m18q0"
+    ],
+    "occurrences": 2708,
+    "plates": 2176,
+    "plate_list_head": [
+      "H5",
+      "H7",
+      "H10",
+      "H12",
+      "H28",
+      "H45",
+      "H52",
+      "H75",
+      "H122",
+      "H132",
+      "H169",
+      "H171"
+    ],
+    "by_category": {
+      "卜辞句": 2705,
+      "未定": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1456
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1338
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 618
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 576
+      },
+      {
+        "text": "尤",
+        "uid": "hhr47shesw",
+        "count": 266
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 258
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5",
+        "heji_candidate": "5",
+        "group_index": 2,
+        "text": "□殻貞王大令眾匕曰□",
+        "position": 4,
+        "length": 10
+      },
+      {
+        "plate": "H7",
+        "heji_candidate": "7",
+        "group_index": 1,
+        "text": "癸未卜爭貞王在茲◇咸狩",
+        "position": 6,
+        "length": 11
+      }
+    ]
   }
 }

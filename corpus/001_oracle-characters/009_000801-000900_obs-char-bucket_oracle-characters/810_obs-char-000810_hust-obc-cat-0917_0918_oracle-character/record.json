@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞋㞌",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "wex7jm17pb"
+    ],
+    "occurrences": 54,
+    "plates": 52,
+    "plate_list_head": [
+      "H279",
+      "H346",
+      "H1249",
+      "H1952",
+      "H3105",
+      "H14851",
+      "H14852",
+      "H14853",
+      "H14856",
+      "H14857",
+      "H17053",
+      "H20689"
+    ],
+    "by_category": {
+      "卜辞句": 54
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 22
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 19
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 19
+      },
+      {
+        "text": "◇",
+        "uid": "htn7736sjm",
+        "count": 16
+      },
+      {
+        "text": "至",
+        "uid": "q4rk3syf2x",
+        "count": 13
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 13
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H279",
+        "heji_candidate": "279",
+        "group_index": 1,
+        "text": "貞◇以羌◇自高匕己匕庚于毓匕己",
+        "position": 13,
+        "length": 15
+      },
+      {
+        "plate": "H346",
+        "heji_candidate": "346",
+        "group_index": 1,
+        "text": "□毓十羌卯三牢",
+        "position": 2,
+        "length": 7
+      }
+    ]
   }
 }

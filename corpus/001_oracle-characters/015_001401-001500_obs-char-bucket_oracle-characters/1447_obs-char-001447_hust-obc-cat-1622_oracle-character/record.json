@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩌",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "l4lq5esn5g"
+    ],
+    "occurrences": 108,
+    "plates": 72,
+    "plate_list_head": [
+      "H301",
+      "H384",
+      "H399",
+      "H1563",
+      "H2019",
+      "H2929",
+      "H10824",
+      "H15425",
+      "H15767",
+      "H15789",
+      "H15790",
+      "H15791"
+    ],
+    "by_category": {
+      "卜辞句": 108
+    },
+    "top_cooccurring": [
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 36
+      },
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 35
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 32
+      },
+      {
+        "text": "祐",
+        "uid": "zyzqoa0xlj",
+        "count": 32
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 28
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 21
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1563",
+        "heji_candidate": "1563",
+        "group_index": 1,
+        "text": "貞㞢□且乙□㞢鬯",
+        "position": 8,
+        "length": 8
+      },
+      {
+        "plate": "H2019",
+        "heji_candidate": "2019",
+        "group_index": 1,
+        "text": "庚申卜賓貞南庚□㞢鬯",
+        "position": 10,
+        "length": 10
+      }
+    ]
   }
 }

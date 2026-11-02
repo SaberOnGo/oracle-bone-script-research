@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜷",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "kyjr61sdkq"
+    ],
+    "occurrences": 28,
+    "plates": 27,
+    "plate_list_head": [
+      "H169",
+      "H1662",
+      "H4089",
+      "H5128",
+      "H5133",
+      "H5135",
+      "H5136",
+      "H5138",
+      "H5140",
+      "H5144",
+      "H5146",
+      "H5157"
+    ],
+    "by_category": {
+      "卜辞句": 28
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 15
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 11
+      },
+      {
+        "text": "去",
+        "uid": "c13j4nmoij",
+        "count": 8
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 5
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 4
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H169",
+        "heji_candidate": "169",
+        "group_index": 4,
+        "text": "貞王勿去朿",
+        "position": 5,
+        "length": 5
+      },
+      {
+        "plate": "H4089",
+        "heji_candidate": "4089",
+        "group_index": 1,
+        "text": "壬子卜貞自今六日㞢至自朿",
+        "position": 12,
+        "length": 12
+      }
+    ]
   }
 }

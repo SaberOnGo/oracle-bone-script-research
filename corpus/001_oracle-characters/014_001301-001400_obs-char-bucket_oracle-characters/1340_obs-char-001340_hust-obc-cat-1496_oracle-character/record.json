@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧎",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "x4t1t00zpg"
+    ],
+    "occurrences": 59,
+    "plates": 54,
+    "plate_list_head": [
+      "H799",
+      "H1339",
+      "H2895",
+      "H3280",
+      "H4466",
+      "H4473",
+      "H4474",
+      "H4476",
+      "H5596",
+      "H6678",
+      "H6798",
+      "H7070"
+    ],
+    "by_category": {
+      "卜辞句": 59
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 32
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 22
+      },
+      {
+        "text": "乍",
+        "uid": "c7qvt9bwt5",
+        "count": 20
+      },
+      {
+        "text": "我",
+        "uid": "1rzrhj2j4j",
+        "count": 15
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 11
+      },
+      {
+        "text": "茲",
+        "uid": "jgofpoxdpd",
+        "count": 11
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2895",
+        "heji_candidate": "2895",
+        "group_index": 3,
+        "text": "貞邑來告五月",
+        "position": 2,
+        "length": 6
+      },
+      {
+        "plate": "H2895",
+        "heji_candidate": "2895",
+        "group_index": 4,
+        "text": "貞邑不其來告",
+        "position": 2,
+        "length": 6
+      }
+    ]
   }
 }

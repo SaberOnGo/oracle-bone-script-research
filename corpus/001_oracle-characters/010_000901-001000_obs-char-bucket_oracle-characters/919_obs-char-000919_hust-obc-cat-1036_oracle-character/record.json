@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠂",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "mtje7qh8jp"
+    ],
+    "occurrences": 40,
+    "plates": 33,
+    "plate_list_head": [
+      "H18",
+      "H6406",
+      "H7276",
+      "H7393",
+      "H7395",
+      "H7397",
+      "H7401",
+      "H7406",
+      "H7413",
+      "H7417",
+      "H7428",
+      "H7429"
+    ],
+    "by_category": {
+      "卜辞句": 40
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 12
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 11
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 10
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 10
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 10
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6406",
+        "heji_candidate": "6406",
+        "group_index": 1,
+        "text": "□貞沚𪭑尋爯□土方我受□",
+        "position": 6,
+        "length": 12
+      },
+      {
+        "plate": "H7393",
+        "heji_candidate": "7393",
+        "group_index": 1,
+        "text": "□沚𪭑爯冊王比",
+        "position": 4,
+        "length": 7
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡁",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "m74006xplh"
+    ],
+    "occurrences": 33,
+    "plates": 30,
+    "plate_list_head": [
+      "H646",
+      "H2824",
+      "H3030",
+      "H3031",
+      "H3034",
+      "H3035",
+      "H3036",
+      "H3039",
+      "H3046",
+      "H3047",
+      "H3048",
+      "H3049"
+    ],
+    "by_category": {
+      "卜辞句": 33
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 17
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 11
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 9
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 7
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 7
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2824",
+        "heji_candidate": "2824",
+        "group_index": 3,
+        "text": "貞帚◇𰇑冊畫◇",
+        "position": 6,
+        "length": 7
+      },
+      {
+        "plate": "H3030",
+        "heji_candidate": "3030",
+        "group_index": 1,
+        "text": "貞叀◇畫往□",
+        "position": 4,
+        "length": 6
+      }
+    ]
   }
 }

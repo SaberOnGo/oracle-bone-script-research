@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒽",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "2r051ups8k"
+    ],
+    "occurrences": 51,
+    "plates": 49,
+    "plate_list_head": [
+      "H39",
+      "H985",
+      "H2786",
+      "H5280",
+      "H5490",
+      "H6676",
+      "H6757",
+      "H7101",
+      "H7668",
+      "H7784",
+      "H7801",
+      "H9724"
+    ],
+    "by_category": {
+      "卜辞句": 38,
+      "兆序": 13
+    },
+    "top_cooccurring": [
+      {
+        "text": "夕",
+        "uid": "no4gdlajf6",
+        "count": 19
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 13
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 12
+      },
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 10
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 10
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 8
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H39",
+        "heji_candidate": "39",
+        "group_index": 1,
+        "text": "貞翌丁未𫹉尞于丁十◇卯十勿牛八夕",
+        "position": 15,
+        "length": 16
+      },
+      {
+        "plate": "H985",
+        "heji_candidate": "985",
+        "group_index": 1,
+        "text": "貞勿㞢◇伐八月",
+        "position": 6,
+        "length": 7
+      }
+    ]
   }
 }

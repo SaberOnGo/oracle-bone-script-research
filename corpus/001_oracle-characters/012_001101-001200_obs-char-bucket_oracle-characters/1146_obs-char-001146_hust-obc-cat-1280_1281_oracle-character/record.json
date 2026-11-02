@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,72 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㣶㣷",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "y7e97sd82a"
+    ],
+    "occurrences": 6,
+    "plates": 5,
+    "plate_list_head": [
+      "H32176",
+      "H32721",
+      "HD203",
+      "HD475",
+      "HD480"
+    ],
+    "by_category": {
+      "卜辞句": 6
+    },
+    "top_cooccurring": [
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 4
+      },
+      {
+        "text": "爯",
+        "uid": "mtje7qh8jp",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "圭",
+        "uid": "j6pe4lu59v",
+        "count": 3
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 2
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H32176",
+        "heji_candidate": "32176",
+        "group_index": 3,
+        "text": "甲子不聯雨",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "HD203",
+        "heji_candidate": "D203",
+        "group_index": 9,
+        "text": "丙卜叀巳◇圭用眔聯爯丁用",
+        "position": 9,
+        "length": 12
+      }
+    ]
   }
 }

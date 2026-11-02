@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔋",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "qmsdu51da8"
+    ],
+    "occurrences": 101,
+    "plates": 91,
+    "plate_list_head": [
+      "H435",
+      "H668",
+      "H806",
+      "H1474",
+      "H1481",
+      "H1742",
+      "H1776",
+      "H1842",
+      "H1998",
+      "H2000",
+      "H2004",
+      "H2005"
+    ],
+    "by_category": {
+      "卜辞句": 101
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 42
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 39
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 38
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 29
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 13
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 11
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H668",
+        "heji_candidate": "668",
+        "group_index": 1,
+        "text": "貞其來女□南",
+        "position": 6,
+        "length": 6
+      },
+      {
+        "plate": "H806",
+        "heji_candidate": "806",
+        "group_index": 1,
+        "text": "貞告鞠于室南◇",
+        "position": 6,
+        "length": 7
+      }
+    ]
   }
 }

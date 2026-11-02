@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,81 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑈",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "l7cyvm7kbt"
+    ],
+    "occurrences": 1427,
+    "plates": 1137,
+    "plate_list_head": [
+      "H8",
+      "H26",
+      "H27",
+      "H30",
+      "H39",
+      "H239",
+      "H257",
+      "H262",
+      "H277",
+      "H281",
+      "H300",
+      "H301"
+    ],
+    "by_category": {
+      "卜辞句": 1420,
+      "未定": 6,
+      "兆序": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 706
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 548
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 364
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 234
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 210
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 198
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8",
+        "heji_candidate": "8",
+        "group_index": 2,
+        "text": "□卜貞肇丁帝十牢",
+        "position": 5,
+        "length": 8
+      },
+      {
+        "plate": "H26",
+        "heji_candidate": "26",
+        "group_index": 1,
+        "text": "丁未卜爭貞勿令畢以眾伐𢀛",
+        "position": 1,
+        "length": 12
+      }
+    ]
   }
 }

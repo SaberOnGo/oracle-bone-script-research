@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛾",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "nak4ioxpg1"
+    ],
+    "occurrences": 561,
+    "plates": 319,
+    "plate_list_head": [
+      "H1001",
+      "H3263",
+      "H3730",
+      "H3738",
+      "H3755",
+      "H3756",
+      "H3833",
+      "H3884",
+      "H3913",
+      "H4983",
+      "H6621",
+      "H6669"
+    ],
+    "by_category": {
+      "卜辞句": 561
+    },
+    "top_cooccurring": [
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 440
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 440
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 416
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 402
+      },
+      {
+        "text": "祸",
+        "uid": "tp5ykv5jzh",
+        "count": 320
+      },
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 98
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3755",
+        "heji_candidate": "3755",
+        "group_index": 1,
+        "text": "癸未卜爭◇貞旬亡祸",
+        "position": 7,
+        "length": 9
+      },
+      {
+        "plate": "H3756",
+        "heji_candidate": "3756",
+        "group_index": 1,
+        "text": "□爭◇貞旬亡祸壬辰雨",
+        "position": 5,
+        "length": 10
+      }
+    ]
   }
 }

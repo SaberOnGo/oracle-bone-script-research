@@ -100,5 +100,26 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩝㩞㩟",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "papxu0m6p6"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H21983"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

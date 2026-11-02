@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,82 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑪",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "8gxzzbv7w8"
+    ],
+    "occurrences": 1450,
+    "plates": 1048,
+    "plate_list_head": [
+      "H8",
+      "H10",
+      "H12",
+      "H33",
+      "H48",
+      "H105",
+      "H118",
+      "H122",
+      "H149",
+      "H165",
+      "H187",
+      "H206"
+    ],
+    "by_category": {
+      "兆序": 1104,
+      "卜辞句": 270,
+      "验辞": 56,
+      "未定": 20
+    },
+    "top_cooccurring": [
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 226
+      },
+      {
+        "text": "三",
+        "uid": "p77d58vew4",
+        "count": 144
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 96
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 85
+      },
+      {
+        "text": "告",
+        "uid": "fmdym8mxmv",
+        "count": 67
+      },
+      {
+        "text": "四",
+        "uid": "tx3m8otqgw",
+        "count": 52
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H187",
+        "heji_candidate": "187",
+        "group_index": 1,
+        "text": "乙丑卜弜獲圍羌二月",
+        "position": 8,
+        "length": 9
+      },
+      {
+        "plate": "H499",
+        "heji_candidate": "499",
+        "group_index": 1,
+        "text": "□兔允㚔羌獲廿㞢五馘二",
+        "position": 11,
+        "length": 11
+      }
+    ]
   }
 }

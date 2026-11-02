@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -95,5 +95,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㗔",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "tdznjmpywo"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H14067",
+      "H18055"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "嘉",
+        "uid": "5xzg937unb",
+        "count": 1
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "娩",
+        "uid": "r90d2o0i9y",
+        "count": 1
+      },
+      {
+        "text": "壬",
+        "uid": "oesivb520y",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H14067",
+        "heji_candidate": "14067",
+        "group_index": 1,
+        "text": "丁卯卜貞帚姪娩嘉壬",
+        "position": 6,
+        "length": 9
+      }
+    ]
   }
 }

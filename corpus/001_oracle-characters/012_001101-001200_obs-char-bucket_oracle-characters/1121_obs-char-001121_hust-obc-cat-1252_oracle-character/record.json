@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㣚",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "6p9s6p6wyb"
+    ],
+    "occurrences": 430,
+    "plates": 375,
+    "plate_list_head": [
+      "H7",
+      "H30",
+      "H155",
+      "H156",
+      "H157",
+      "H159",
+      "H164",
+      "H165",
+      "H166",
+      "H167",
+      "H168",
+      "H169"
+    ],
+    "by_category": {
+      "卜辞句": 430
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 180
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 108
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 81
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 66
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 60
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 57
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H155",
+        "heji_candidate": "155",
+        "group_index": 1,
+        "text": "貞乎多羌逐□獲",
+        "position": 4,
+        "length": 7
+      },
+      {
+        "plate": "H156",
+        "heji_candidate": "156",
+        "group_index": 1,
+        "text": "貞㞢羌□",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

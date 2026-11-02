@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠵",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "rzfokwkc7a"
+    ],
+    "occurrences": 499,
+    "plates": 455,
+    "plate_list_head": [
+      "H118",
+      "H169",
+      "H229",
+      "H242",
+      "H277",
+      "H298",
+      "H369",
+      "H372",
+      "H404",
+      "H466",
+      "H469",
+      "H515"
+    ],
+    "by_category": {
+      "卜辞句": 499
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 334
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 231
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 126
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 117
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 92
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 88
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H118",
+        "heji_candidate": "118",
+        "group_index": 1,
+        "text": "戊申卜賓令◇取析芻",
+        "position": 2,
+        "length": 9
+      },
+      {
+        "plate": "H169",
+        "heji_candidate": "169",
+        "group_index": 5,
+        "text": "貞于翌庚申出",
+        "position": 5,
+        "length": 6
+      }
+    ]
   }
 }

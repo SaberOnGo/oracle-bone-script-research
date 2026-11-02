@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛻",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "p8w7ujqanz"
+    ],
+    "occurrences": 735,
+    "plates": 642,
+    "plate_list_head": [
+      "H225",
+      "H460",
+      "H511",
+      "H1210",
+      "H1304",
+      "H1371",
+      "H1375",
+      "H1405",
+      "H1764",
+      "H1831",
+      "H1884",
+      "H2593"
+    ],
+    "by_category": {
+      "卜辞句": 734,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 276
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 257
+      },
+      {
+        "text": "今",
+        "uid": "ihsuhqgmdc",
+        "count": 209
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 158
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 136
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 133
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H460",
+        "heji_candidate": "460",
+        "group_index": 2,
+        "text": "己亥卜貞今日月奏晦庚◇",
+        "position": 6,
+        "length": 11
+      },
+      {
+        "plate": "H511",
+        "heji_candidate": "511",
+        "group_index": 2,
+        "text": "辛丑卜亘貞今日其雨",
+        "position": 7,
+        "length": 9
+      }
+    ]
   }
 }

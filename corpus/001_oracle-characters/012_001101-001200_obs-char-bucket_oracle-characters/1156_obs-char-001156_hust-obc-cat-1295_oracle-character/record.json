@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤅",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "79c9fojxw0"
+    ],
+    "occurrences": 59,
+    "plates": 50,
+    "plate_list_head": [
+      "H3236",
+      "H4151",
+      "H6823",
+      "H14381",
+      "H17170",
+      "H17954",
+      "H19700",
+      "H20330",
+      "H21051",
+      "H21301",
+      "H21307",
+      "H21319"
+    ],
+    "by_category": {
+      "卜辞句": 59
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 33
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 30
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 24
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 19
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 14
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 11
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H4151",
+        "heji_candidate": "4151",
+        "group_index": 1,
+        "text": "乙酉卜貞雀弗其肩",
+        "position": 8,
+        "length": 8
+      },
+      {
+        "plate": "H14381",
+        "heji_candidate": "14381",
+        "group_index": 1,
+        "text": "賓美肩㞢",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

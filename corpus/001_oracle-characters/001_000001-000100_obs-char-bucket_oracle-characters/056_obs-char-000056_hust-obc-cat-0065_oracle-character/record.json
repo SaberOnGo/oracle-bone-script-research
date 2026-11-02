@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐷",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "u6dc7i5is6"
+    ],
+    "occurrences": 10,
+    "plates": 8,
+    "plate_list_head": [
+      "H7009",
+      "H14698",
+      "H14700",
+      "H14702",
+      "H14703",
+      "H14704",
+      "H14705",
+      "H20970"
+    ],
+    "by_category": {
+      "卜辞句": 9,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 9
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 7
+      },
+      {
+        "text": "尞",
+        "uid": "h44zkm9mt8",
+        "count": 7
+      },
+      {
+        "text": "豖",
+        "uid": "1ie27xm4md",
+        "count": 3
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 3
+      },
+      {
+        "text": "羊",
+        "uid": "aoaipuy20h",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H14698",
+        "heji_candidate": "14698",
+        "group_index": 1,
+        "text": "今日尞豖于䖵",
+        "position": 6,
+        "length": 6
+      },
+      {
+        "plate": "H14702",
+        "heji_candidate": "14702",
+        "group_index": 1,
+        "text": "壬辰卜翌甲午尞于䖵羊㞢豖",
+        "position": 9,
+        "length": 12
+      }
+    ]
   }
 }

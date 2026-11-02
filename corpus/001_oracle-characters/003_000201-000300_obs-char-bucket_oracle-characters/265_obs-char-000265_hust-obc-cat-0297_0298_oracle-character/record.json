@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,73 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔟㔠",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "cun5nm7d0f"
+    ],
+    "occurrences": 5,
+    "plates": 5,
+    "plate_list_head": [
+      "H10419",
+      "H10420",
+      "H10421",
+      "H21565",
+      "H25443"
+    ],
+    "by_category": {
+      "卜辞句": 4,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "獲",
+        "uid": "dgw10rc4gi",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "兕",
+        "uid": "fmv0hxp7i5",
+        "count": 2
+      },
+      {
+        "text": "射",
+        "uid": "k0pxsd02si",
+        "count": 2
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10419",
+        "heji_candidate": "10419",
+        "group_index": 1,
+        "text": "辛亥卜爭貞王不其獲厷射兕",
+        "position": 10,
+        "length": 12
+      },
+      {
+        "plate": "H10420",
+        "heji_candidate": "10420",
+        "group_index": 1,
+        "text": "貞王不其獲厷□",
+        "position": 6,
+        "length": 7
+      }
+    ]
   }
 }

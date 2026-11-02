@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,74 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘱",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fr8d5xn4ih"
+    ],
+    "occurrences": 7,
+    "plates": 7,
+    "plate_list_head": [
+      "H5414",
+      "H18496",
+      "H18497",
+      "H19488",
+      "H19531",
+      "H20575",
+      "H30106"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 4
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 2
+      },
+      {
+        "text": "受",
+        "uid": "52a130pcmy",
+        "count": 1
+      },
+      {
+        "text": "占",
+        "uid": "73ru6libmk",
+        "count": 1
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H18497",
+        "heji_candidate": "18497",
+        "group_index": 1,
+        "text": "□不其專",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "H30106",
+        "heji_candidate": "30106",
+        "group_index": 1,
+        "text": "戊寅卜專貞王不冓雨",
+        "position": 4,
+        "length": 9
+      }
+    ]
   }
 }

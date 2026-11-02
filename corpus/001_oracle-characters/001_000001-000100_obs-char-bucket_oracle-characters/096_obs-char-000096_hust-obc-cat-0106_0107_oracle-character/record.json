@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑠㑡",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "c7qvt9bwt5"
+    ],
+    "occurrences": 87,
+    "plates": 77,
+    "plate_list_head": [
+      "H8",
+      "H277",
+      "H377",
+      "H1404",
+      "H3797",
+      "H5023",
+      "H5476",
+      "H5616",
+      "H6666",
+      "H6922",
+      "H6923",
+      "H7188"
+    ],
+    "by_category": {
+      "卜辞句": 87
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 45
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 37
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 26
+      },
+      {
+        "text": "邑",
+        "uid": "x4t1t00zpg",
+        "count": 20
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 16
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 15
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H377",
+        "heji_candidate": "377",
+        "group_index": 2,
+        "text": "庚辰卜貞卒◇歲乍◇自且乙至于丁◇",
+        "position": 8,
+        "length": 16
+      },
+      {
+        "plate": "H1404",
+        "heji_candidate": "1404",
+        "group_index": 1,
+        "text": "庚申卜爭貞乍大丁□",
+        "position": 6,
+        "length": 9
+      }
+    ]
   }
 }

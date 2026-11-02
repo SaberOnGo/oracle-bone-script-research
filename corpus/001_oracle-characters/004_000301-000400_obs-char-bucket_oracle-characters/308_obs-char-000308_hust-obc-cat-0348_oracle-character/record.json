@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕒",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "qdft7im9cb"
+    ],
+    "occurrences": 13,
+    "plates": 12,
+    "plate_list_head": [
+      "H2816",
+      "H6817",
+      "H6819",
+      "H6821",
+      "H6823",
+      "H6824",
+      "H8115",
+      "H15909",
+      "H32885",
+      "H33200",
+      "HD102",
+      "HD108"
+    ],
+    "by_category": {
+      "卜辞句": 13
+    },
+    "top_cooccurring": [
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 6
+      },
+      {
+        "text": "璞",
+        "uid": "gcbnox9x1n",
+        "count": 4
+      },
+      {
+        "text": "侯",
+        "uid": "e8qibnliym",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 3
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6821",
+        "heji_candidate": "6821",
+        "group_index": 1,
+        "text": "臿令□侯璞周五夕",
+        "position": 6,
+        "length": 8
+      },
+      {
+        "plate": "H6824",
+        "heji_candidate": "6824",
+        "group_index": 1,
+        "text": "□未卜□弗敦周◇",
+        "position": 7,
+        "length": 8
+      }
+    ]
   }
 }

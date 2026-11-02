@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦷",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "16xzhmtg43"
+    ],
+    "occurrences": 17,
+    "plates": 16,
+    "plate_list_head": [
+      "H491",
+      "H494",
+      "H566",
+      "H869",
+      "H872",
+      "H874",
+      "H5756",
+      "H6873",
+      "H6874",
+      "H8971",
+      "H14454",
+      "H15899"
+    ],
+    "by_category": {
+      "卜辞句": 17
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 9
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "牛",
+        "uid": "66iowpdbuc",
+        "count": 3
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 2
+      },
+      {
+        "text": "畢",
+        "uid": "zk0j4pcnzj",
+        "count": 2
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H566",
+        "heji_candidate": "566",
+        "group_index": 1,
+        "text": "貞乎追寇及",
+        "position": 3,
+        "length": 5
+      },
+      {
+        "plate": "H869",
+        "heji_candidate": "869",
+        "group_index": 1,
+        "text": "辛亥卜古貞追不逸",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

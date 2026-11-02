@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㟹",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fzdfz5gkld"
+    ],
+    "occurrences": 7,
+    "plates": 4,
+    "plate_list_head": [
+      "H15667",
+      "H30693",
+      "H32083",
+      "H32536"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 6
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 5
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 3
+      },
+      {
+        "text": "◇",
+        "uid": "htn7736sjm",
+        "count": 2
+      },
+      {
+        "text": "酉",
+        "uid": "4r0g6bx5rc",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30693",
+        "heji_candidate": "30693",
+        "group_index": 1,
+        "text": "癸丑卜叀雈熹用",
+        "position": 6,
+        "length": 7
+      },
+      {
+        "plate": "H30693",
+        "heji_candidate": "30693",
+        "group_index": 2,
+        "text": "叀新熹用大吉",
+        "position": 3,
+        "length": 6
+      }
+    ]
   }
 }

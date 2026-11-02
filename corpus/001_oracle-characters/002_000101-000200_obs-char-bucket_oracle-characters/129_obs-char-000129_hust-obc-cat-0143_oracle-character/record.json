@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,62 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒅",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "u54u515u56"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H3929",
+      "H6799",
+      "H32048"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "戈",
+        "uid": "yunhitgxgx",
+        "count": 2
+      },
+      {
+        "text": "盧",
+        "uid": "fcooblbqyz",
+        "count": 1
+      },
+      {
+        "text": "疒",
+        "uid": "qmspt85dhp",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 1
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3929",
+        "heji_candidate": "3929",
+        "group_index": 1,
+        "text": "□盧貞戈任疒亡□",
+        "position": 5,
+        "length": 8
+      }
+    ]
   }
 }

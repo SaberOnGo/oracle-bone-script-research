@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑎",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "zz00qbgu3m"
+    ],
+    "occurrences": 28,
+    "plates": 27,
+    "plate_list_head": [
+      "H426",
+      "H1239",
+      "H1335",
+      "H1664",
+      "H1665",
+      "H1667",
+      "H1671",
+      "H1672",
+      "H1673",
+      "H1675",
+      "H6488",
+      "H6492"
+    ],
+    "by_category": {
+      "卜辞句": 27,
+      "兆序": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 16
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 11
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 7
+      },
+      {
+        "text": "伐",
+        "uid": "zr3h63w2fy",
+        "count": 7
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 6
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1335",
+        "heji_candidate": "1335",
+        "group_index": 1,
+        "text": "貞唐于下乙◇在□",
+        "position": 4,
+        "length": 8
+      },
+      {
+        "plate": "H1664",
+        "heji_candidate": "1664",
+        "group_index": 2,
+        "text": "貞㞢于下乙牢",
+        "position": 4,
+        "length": 6
+      }
+    ]
   }
 }

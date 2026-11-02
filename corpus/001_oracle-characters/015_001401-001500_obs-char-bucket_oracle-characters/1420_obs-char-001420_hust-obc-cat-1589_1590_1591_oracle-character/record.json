@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -100,5 +100,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨫㨬㨭",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "x0wt5y5bs2"
+    ],
+    "occurrences": 83,
+    "plates": 63,
+    "plate_list_head": [
+      "H5373",
+      "H5659",
+      "H7371",
+      "H10131",
+      "H10372",
+      "H10743",
+      "H13334",
+      "H13337",
+      "H13339",
+      "H13340",
+      "H13343",
+      "H13344"
+    ],
+    "by_category": {
+      "卜辞句": 83
+    },
+    "top_cooccurring": [
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 20
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 18
+      },
+      {
+        "text": "大",
+        "uid": "s9y9vbblxa",
+        "count": 18
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 17
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 15
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 14
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5373",
+        "heji_candidate": "5373",
+        "group_index": 1,
+        "text": "癸酉卜爭貞王風不□亡延",
+        "position": 7,
+        "length": 11
+      },
+      {
+        "plate": "H7371",
+        "heji_candidate": "7371",
+        "group_index": 1,
+        "text": "□其立中亡風□亡風易日",
+        "position": 6,
+        "length": 11
+      }
+    ]
   }
 }

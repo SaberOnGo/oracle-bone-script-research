@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒐",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "rlx0knkq0v"
+    ],
+    "occurrences": 346,
+    "plates": 317,
+    "plate_list_head": [
+      "H12",
+      "H107",
+      "H156",
+      "H229",
+      "H230",
+      "H233",
+      "H237",
+      "H238",
+      "H239",
+      "H242",
+      "H244",
+      "H246"
+    ],
+    "by_category": {
+      "卜辞句": 345,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 135
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 93
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 71
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 62
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 52
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 48
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H12",
+        "heji_candidate": "12",
+        "group_index": 3,
+        "text": "貞王心□亡來□自一夕",
+        "position": 6,
+        "length": 10
+      },
+      {
+        "plate": "H156",
+        "heji_candidate": "156",
+        "group_index": 5,
+        "text": "貞擒乎來",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㗑",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "vl6bxvyj5s"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H18066"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "成",
+        "uid": "mqfyrz6sen",
+        "count": 1
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 1
+      },
+      {
+        "text": "京",
+        "uid": "akt7yld9xk",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "翌",
+        "uid": "hlxb5g91kc",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H18066",
+        "heji_candidate": "18066",
+        "group_index": 1,
+        "text": "貞翌庚成姛于□㞢从京",
+        "position": 5,
+        "length": 10
+      }
+    ]
   }
 }

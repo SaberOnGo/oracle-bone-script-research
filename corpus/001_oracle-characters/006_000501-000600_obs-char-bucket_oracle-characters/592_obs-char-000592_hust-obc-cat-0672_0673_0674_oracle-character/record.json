@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -101,5 +101,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚖㚗㚘",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "e19hd5tm0i"
+    ],
+    "occurrences": 41,
+    "plates": 35,
+    "plate_list_head": [
+      "H66",
+      "H131",
+      "H134",
+      "H439",
+      "H503",
+      "H508",
+      "H519",
+      "H520",
+      "H855",
+      "H856",
+      "H2824",
+      "H3734"
+    ],
+    "by_category": {
+      "卜辞句": 41
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 27
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 16
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 14
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 8
+      },
+      {
+        "text": "戌",
+        "uid": "7gvythc7mi",
+        "count": 8
+      },
+      {
+        "text": "逸",
+        "uid": "2sdz63p9g6",
+        "count": 6
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H66",
+        "heji_candidate": "66",
+        "group_index": 1,
+        "text": "貞◇屰眾人㝵",
+        "position": 6,
+        "length": 6
+      },
+      {
+        "plate": "H131",
+        "heji_candidate": "131",
+        "group_index": 1,
+        "text": "貞逸芻不其㝵",
+        "position": 6,
+        "length": 6
+      }
+    ]
   }
 }

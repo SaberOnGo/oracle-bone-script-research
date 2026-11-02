@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨈",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "kfdhplatyr"
+    ],
+    "occurrences": 9,
+    "plates": 4,
+    "plate_list_head": [
+      "H35344",
+      "H35345",
+      "H35346",
+      "H35347"
+    ],
+    "by_category": {
+      "卜辞句": 9
+    },
+    "top_cooccurring": [
+      {
+        "text": "眾",
+        "uid": "aetgi1oyaa",
+        "count": 9
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 5
+      },
+      {
+        "text": "吉",
+        "uid": "xlscyddubk",
+        "count": 5
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 4
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 3
+      },
+      {
+        "text": "曰",
+        "uid": "9xhq4zclpe",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H35345",
+        "heji_candidate": "35345",
+        "group_index": 2,
+        "text": "不雉眾王占曰引吉",
+        "position": 2,
+        "length": 8
+      },
+      {
+        "plate": "H35345",
+        "heji_candidate": "35345",
+        "group_index": 3,
+        "text": "其雉眾吉",
+        "position": 2,
+        "length": 4
+      }
+    ]
   }
 }

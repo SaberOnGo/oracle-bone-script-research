@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐏㐐",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "5n30uigzj6"
+    ],
+    "occurrences": 272,
+    "plates": 235,
+    "plate_list_head": [
+      "H10",
+      "H26",
+      "H27",
+      "H28",
+      "H30",
+      "H31",
+      "H36",
+      "H95",
+      "H100",
+      "H104",
+      "H105",
+      "H257"
+    ],
+    "by_category": {
+      "卜辞句": 271,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 128
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 66
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 60
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 56
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 31
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 29
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10",
+        "heji_candidate": "10",
+        "group_index": 1,
+        "text": "戊寅卜賓貞王往以眾黍于囧",
+        "position": 8,
+        "length": 12
+      },
+      {
+        "plate": "H26",
+        "heji_candidate": "26",
+        "group_index": 1,
+        "text": "丁未卜爭貞勿令畢以眾伐𢀛",
+        "position": 9,
+        "length": 12
+      }
+    ]
   }
 }

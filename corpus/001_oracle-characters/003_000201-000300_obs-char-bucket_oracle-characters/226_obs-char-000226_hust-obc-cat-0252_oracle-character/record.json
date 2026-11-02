@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓲",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "clwxtgnjpw"
+    ],
+    "occurrences": 26,
+    "plates": 25,
+    "plate_list_head": [
+      "H24282",
+      "H24283",
+      "H24285",
+      "H24289",
+      "H24291",
+      "H24292",
+      "H24294",
+      "H24295",
+      "H24297",
+      "H24298",
+      "H24299",
+      "H24300"
+    ],
+    "by_category": {
+      "卜辞句": 25,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 24
+      },
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 22
+      },
+      {
+        "text": "師",
+        "uid": "0avi2tcy0g",
+        "count": 19
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 16
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 3
+      },
+      {
+        "text": "戌",
+        "uid": "7gvythc7mi",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H24282",
+        "heji_candidate": "24282",
+        "group_index": 1,
+        "text": "庚御卜王在師勞卜",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H24283",
+        "heji_candidate": "24283",
+        "group_index": 1,
+        "text": "甲戌卜王□勞",
+        "position": 6,
+        "length": 6
+      }
+    ]
   }
 }

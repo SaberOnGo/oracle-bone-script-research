@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠆",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "m9q3n9zj10"
+    ],
+    "occurrences": 161,
+    "plates": 153,
+    "plate_list_head": [
+      "H414",
+      "H435",
+      "H437",
+      "H713",
+      "H714",
+      "H813",
+      "H886",
+      "H964",
+      "H968",
+      "H969",
+      "H1373",
+      "H1651"
+    ],
+    "by_category": {
+      "卜辞句": 161
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 87
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 63
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 59
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 50
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 46
+      },
+      {
+        "text": "牛",
+        "uid": "66iowpdbuc",
+        "count": 26
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H437",
+        "heji_candidate": "437",
+        "group_index": 1,
+        "text": "□㞢羌父乙卯小牢",
+        "position": 4,
+        "length": 8
+      },
+      {
+        "plate": "H713",
+        "heji_candidate": "713",
+        "group_index": 1,
+        "text": "貞御◇漁于父乙嚮羊𰇑𠬝",
+        "position": 6,
+        "length": 11
+      }
+    ]
   }
 }

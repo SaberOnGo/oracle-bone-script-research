@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦵㦶",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "90zmojjf7j"
+    ],
+    "occurrences": 49,
+    "plates": 46,
+    "plate_list_head": [
+      "H1733",
+      "H1989",
+      "H5181",
+      "H5417",
+      "H6989",
+      "H8007",
+      "H8232",
+      "H8270",
+      "H8271",
+      "H9590",
+      "H15583",
+      "H15807"
+    ],
+    "by_category": {
+      "卜辞句": 49
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 19
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 9
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 9
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 8
+      },
+      {
+        "text": "先",
+        "uid": "h8exoqnpru",
+        "count": 7
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 7
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1989",
+        "heji_candidate": "1989",
+        "group_index": 1,
+        "text": "□廼其置用于丁",
+        "position": 2,
+        "length": 7
+      },
+      {
+        "plate": "H8232",
+        "heji_candidate": "8232",
+        "group_index": 1,
+        "text": "□廼往◇",
+        "position": 2,
+        "length": 4
+      }
+    ]
   }
 }

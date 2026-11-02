@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚙",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "nf3yu2ct27"
+    ],
+    "occurrences": 41,
+    "plates": 40,
+    "plate_list_head": [
+      "H558",
+      "H659",
+      "H1752",
+      "H5146",
+      "H5479",
+      "H6389",
+      "H6391",
+      "H6395",
+      "H6535",
+      "H6545",
+      "H6557",
+      "H6734"
+    ],
+    "by_category": {
+      "卜辞句": 41
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 26
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 15
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 8
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 8
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 8
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 7
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H659",
+        "heji_candidate": "659",
+        "group_index": 1,
+        "text": "貞訊州妾徝",
+        "position": 5,
+        "length": 5
+      },
+      {
+        "plate": "H1752",
+        "heji_candidate": "1752",
+        "group_index": 1,
+        "text": "貞引且辛徝自□",
+        "position": 5,
+        "length": 7
+      }
+    ]
   }
 }

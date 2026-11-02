@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒏",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "wfyy86f1n0"
+    ],
+    "occurrences": 81,
+    "plates": 62,
+    "plate_list_head": [
+      "H239",
+      "H1836",
+      "H3176",
+      "H3887",
+      "H3888",
+      "H3891",
+      "H3893",
+      "H3899",
+      "H4234",
+      "H5834",
+      "H7186",
+      "H8233"
+    ],
+    "by_category": {
+      "卜辞句": 81
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 64
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 31
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 29
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 24
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 21
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 21
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1836",
+        "heji_candidate": "1836",
+        "group_index": 1,
+        "text": "丁亥卜侃",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "H3887",
+        "heji_candidate": "3887",
+        "group_index": 1,
+        "text": "庚辰卜侃貞若",
+        "position": 4,
+        "length": 6
+      }
+    ]
   }
 }

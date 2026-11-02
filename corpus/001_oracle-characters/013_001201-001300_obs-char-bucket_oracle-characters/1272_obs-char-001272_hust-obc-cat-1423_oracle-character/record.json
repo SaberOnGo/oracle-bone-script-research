@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦅",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "h920pdxci1"
+    ],
+    "occurrences": 112,
+    "plates": 98,
+    "plate_list_head": [
+      "H995",
+      "H1214",
+      "H1346",
+      "H1412",
+      "H1413",
+      "H1456",
+      "H1497",
+      "H1811",
+      "H1831",
+      "H2585",
+      "H2871",
+      "H2916"
+    ],
+    "by_category": {
+      "卜辞句": 112
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 41
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 22
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 17
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 16
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 15
+      },
+      {
+        "text": "獲",
+        "uid": "dgw10rc4gi",
+        "count": 13
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H995",
+        "heji_candidate": "995",
+        "group_index": 1,
+        "text": "□◇𫹉伐六牢隹伯豕",
+        "position": 9,
+        "length": 9
+      },
+      {
+        "plate": "H1456",
+        "heji_candidate": "1456",
+        "group_index": 1,
+        "text": "□大甲三豕◇",
+        "position": 5,
+        "length": 6
+      }
+    ]
   }
 }

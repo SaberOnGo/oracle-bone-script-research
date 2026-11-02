@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜭㜮",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "3kadgutgs9"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H8104",
+      "H11580",
+      "H20717"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 2
+      },
+      {
+        "text": "五",
+        "uid": "s2e076ohb1",
+        "count": 2
+      },
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 2
+      },
+      {
+        "text": "若",
+        "uid": "1k9ogi7w79",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8104",
+        "heji_candidate": "8104",
+        "group_index": 2,
+        "text": "貞不若五月在明",
+        "position": 7,
+        "length": 7
+      },
+      {
+        "plate": "H11580",
+        "heji_candidate": "11580",
+        "group_index": 1,
+        "text": "貞不□五月在明",
+        "position": 7,
+        "length": 7
+      }
+    ]
   }
 }

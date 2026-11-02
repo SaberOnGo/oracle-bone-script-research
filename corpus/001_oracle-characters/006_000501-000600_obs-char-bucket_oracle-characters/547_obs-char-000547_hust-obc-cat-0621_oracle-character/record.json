@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙣",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "xkubtjk815"
+    ],
+    "occurrences": 167,
+    "plates": 149,
+    "plate_list_head": [
+      "H2",
+      "H8",
+      "H787",
+      "H801",
+      "H839",
+      "H1546",
+      "H2012",
+      "H2523",
+      "H2777",
+      "H2872",
+      "H5246",
+      "H5524"
+    ],
+    "by_category": {
+      "卜辞句": 167
+    },
+    "top_cooccurring": [
+      {
+        "text": "受",
+        "uid": "52a130pcmy",
+        "count": 109
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 71
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 53
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 38
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 37
+      },
+      {
+        "text": "我",
+        "uid": "1rzrhj2j4j",
+        "count": 33
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2",
+        "heji_candidate": "2",
+        "group_index": 1,
+        "text": "曰協田其受年◇",
+        "position": 6,
+        "length": 7
+      },
+      {
+        "plate": "H787",
+        "heji_candidate": "787",
+        "group_index": 7,
+        "text": "癸亥卜爭貞我黍受㞢年◇",
+        "position": 10,
+        "length": 11
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢘",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "67yxx2eqp0"
+    ],
+    "occurrences": 107,
+    "plates": 91,
+    "plate_list_head": [
+      "H16",
+      "H17",
+      "H79",
+      "H156",
+      "H196",
+      "H1498",
+      "H3025",
+      "H3127",
+      "H4104",
+      "H4106",
+      "H4163",
+      "H5524"
+    ],
+    "by_category": {
+      "卜辞句": 107
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 34
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 33
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 31
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 12
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 11
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 9
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H16",
+        "heji_candidate": "16",
+        "group_index": 1,
+        "text": "貞眾尸亡其擒◇",
+        "position": 6,
+        "length": 7
+      },
+      {
+        "plate": "H17",
+        "heji_candidate": "17",
+        "group_index": 1,
+        "text": "辛亥卜□貞眾□往臿□㞢擒",
+        "position": 12,
+        "length": 12
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓀",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "d5c5afq5ue"
+    ],
+    "occurrences": 11,
+    "plates": 9,
+    "plate_list_head": [
+      "H24388",
+      "H29794",
+      "H29796",
+      "H29801",
+      "H30198",
+      "H32344",
+      "H35343",
+      "H35344",
+      "HD384"
+    ],
+    "by_category": {
+      "卜辞句": 11
+    },
+    "top_cooccurring": [
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 6
+      },
+      {
+        "text": "至",
+        "uid": "q4rk3syf2x",
+        "count": 5
+      },
+      {
+        "text": "墉",
+        "uid": "wujt49n5q0",
+        "count": 5
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 3
+      },
+      {
+        "text": "昏",
+        "uid": "6wyn6yddb6",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H29794",
+        "heji_candidate": "29794",
+        "group_index": 1,
+        "text": "墉兮至昏不雨",
+        "position": 2,
+        "length": 6
+      },
+      {
+        "plate": "H29796",
+        "heji_candidate": "29796",
+        "group_index": 1,
+        "text": "墉兮不雨",
+        "position": 2,
+        "length": 4
+      }
+    ]
   }
 }

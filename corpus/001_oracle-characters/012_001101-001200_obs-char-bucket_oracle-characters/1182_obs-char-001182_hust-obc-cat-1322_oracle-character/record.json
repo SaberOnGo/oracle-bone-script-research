@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤠",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "mrz7t6gxh0"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H2561",
+      "H9511",
+      "H14049",
+      "H14523"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 1
+      },
+      {
+        "text": "古",
+        "uid": "fgo9aomfqj",
+        "count": 1
+      },
+      {
+        "text": "辰",
+        "uid": "4lgdy5a4ta",
+        "count": 1
+      },
+      {
+        "text": "晦",
+        "uid": "sdos1cdyy4",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2561",
+        "heji_candidate": "2561",
+        "group_index": 1,
+        "text": "庚辰卜古貞舌晦庚",
+        "position": 6,
+        "length": 8
+      },
+      {
+        "plate": "H14049",
+        "heji_candidate": "14049",
+        "group_index": 2,
+        "text": "貞不◇薛二舌",
+        "position": 6,
+        "length": 6
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,62 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞭",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ks7w8e60q3"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H2611",
+      "H10156",
+      "HD484"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "隹",
+        "uid": "y0f5gu3q0a",
+        "count": 1
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 1
+      },
+      {
+        "text": "好",
+        "uid": "oaaqvh5dtf",
+        "count": 1
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "今",
+        "uid": "ihsuhqgmdc",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10156",
+        "heji_candidate": "10156",
+        "group_index": 1,
+        "text": "乙卯卜貞今早泉來水羨五月",
+        "position": 7,
+        "length": 12
+      }
+    ]
   }
 }

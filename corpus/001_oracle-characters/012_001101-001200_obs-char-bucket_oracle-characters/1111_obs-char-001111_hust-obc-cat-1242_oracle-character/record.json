@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㣐",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "0kcfgksim7"
+    ],
+    "occurrences": 20,
+    "plates": 20,
+    "plate_list_head": [
+      "H756",
+      "H4490",
+      "H6861",
+      "H6863",
+      "H6870",
+      "H6873",
+      "H6874",
+      "H6875",
+      "H6989",
+      "H7979",
+      "H9408",
+      "H10240"
+    ],
+    "by_category": {
+      "卜辞句": 20
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 8
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 6
+      },
+      {
+        "text": "殻",
+        "uid": "5k1l85d8n2",
+        "count": 4
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 4
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 3
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6861",
+        "heji_candidate": "6861",
+        "group_index": 1,
+        "text": "丁卯卜殻貞王敦缶于𦉶",
+        "position": 8,
+        "length": 10
+      },
+      {
+        "plate": "H6863",
+        "heji_candidate": "6863",
+        "group_index": 1,
+        "text": "丁卯卜殻貞王敦缶于𦉶二夕",
+        "position": 8,
+        "length": 12
+      }
+    ]
   }
 }

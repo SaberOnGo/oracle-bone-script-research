@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㗾",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "bke9bjpf9r"
+    ],
+    "occurrences": 15,
+    "plates": 14,
+    "plate_list_head": [
+      "H2482",
+      "H3983",
+      "H3984",
+      "H4116",
+      "H7406",
+      "H7413",
+      "H17338",
+      "H17339",
+      "H17342",
+      "H17343",
+      "H17345",
+      "H17352"
+    ],
+    "by_category": {
+      "卜辞句": 15
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 8
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 5
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 3
+      },
+      {
+        "text": "𪭑",
+        "uid": "foufn9pt88",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2482",
+        "heji_candidate": "2482",
+        "group_index": 1,
+        "text": "貞匕庚孽王",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "H7413",
+        "heji_candidate": "7413",
+        "group_index": 1,
+        "text": "□爯冊王孽",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

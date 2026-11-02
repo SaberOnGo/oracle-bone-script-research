@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚹",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "1rzrhj2j4j"
+    ],
+    "occurrences": 227,
+    "plates": 215,
+    "plate_list_head": [
+      "H16",
+      "H95",
+      "H107",
+      "H147",
+      "H644",
+      "H646",
+      "H660",
+      "H673",
+      "H756",
+      "H787",
+      "H796",
+      "H801"
+    ],
+    "by_category": {
+      "卜辞句": 227
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 143
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 78
+      },
+      {
+        "text": "受",
+        "uid": "52a130pcmy",
+        "count": 46
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 45
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 45
+      },
+      {
+        "text": "年",
+        "uid": "xkubtjk815",
+        "count": 33
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H16",
+        "heji_candidate": "16",
+        "group_index": 2,
+        "text": "辛丑卜爭貞我卜多不吉勿□",
+        "position": 6,
+        "length": 12
+      },
+      {
+        "plate": "H95",
+        "heji_candidate": "95",
+        "group_index": 1,
+        "text": "貞且辛不我害",
+        "position": 5,
+        "length": 6
+      }
+    ]
   }
 }

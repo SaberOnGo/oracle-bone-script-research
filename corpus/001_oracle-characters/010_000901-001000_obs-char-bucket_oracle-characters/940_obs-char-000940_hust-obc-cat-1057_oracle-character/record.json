@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,55 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠗",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ksurlnymq4"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H24507"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "馬",
+        "uid": "lv9rlaeib9",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 1
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 1
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H24507",
+        "heji_candidate": "24507",
+        "group_index": 1,
+        "text": "□貞佑馬其不犗□",
+        "position": 7,
+        "length": 8
+      }
+    ]
   }
 }

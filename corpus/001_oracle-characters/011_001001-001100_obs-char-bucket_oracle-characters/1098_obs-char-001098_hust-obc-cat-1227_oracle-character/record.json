@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㣁",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "d31znlyylh"
+    ],
+    "occurrences": 5,
+    "plates": 3,
+    "plate_list_head": [
+      "H30173",
+      "HD292",
+      "HD437"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 3
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 2
+      },
+      {
+        "text": "延",
+        "uid": "akwyl4gzy2",
+        "count": 2
+      },
+      {
+        "text": "申",
+        "uid": "rzfokwkc7a",
+        "count": 2
+      },
+      {
+        "text": "弜",
+        "uid": "cv483h1fw2",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30173",
+        "heji_candidate": "30173",
+        "group_index": 4,
+        "text": "庚午卜貞埜丁至于紤◇入峀",
+        "position": 9,
+        "length": 12
+      },
+      {
+        "plate": "HD292",
+        "heji_candidate": "D292",
+        "group_index": 1,
+        "text": "叀大紤其乍宗",
+        "position": 3,
+        "length": 6
+      }
+    ]
   }
 }

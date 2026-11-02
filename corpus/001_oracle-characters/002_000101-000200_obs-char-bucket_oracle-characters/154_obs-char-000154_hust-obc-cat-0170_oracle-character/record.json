@@ -97,5 +97,51 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒠",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "trwck67730"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H12"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 1
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 1
+      },
+      {
+        "text": "己",
+        "uid": "mdwfmpr3c8",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 1
+      },
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

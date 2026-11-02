@@ -96,5 +96,41 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖦",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "izzmxjxqh6"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H5181"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "廼",
+        "uid": "90zmojjf7j",
+        "count": 1
+      },
+      {
+        "text": "卒",
+        "uid": "ggmxiphq64",
+        "count": 1
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 1
+      },
+      {
+        "text": "入",
+        "uid": "a8n7ywfrd3",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

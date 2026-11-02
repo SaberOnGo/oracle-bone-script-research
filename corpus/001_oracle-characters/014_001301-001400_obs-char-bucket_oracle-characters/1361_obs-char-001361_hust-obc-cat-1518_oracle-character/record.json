@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,72 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧤",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "0y6gjyc5xl"
+    ],
+    "occurrences": 5,
+    "plates": 5,
+    "plate_list_head": [
+      "H257",
+      "H15945",
+      "H32922",
+      "H33348",
+      "HD377"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 2
+      },
+      {
+        "text": "十",
+        "uid": "5ntior2ch1",
+        "count": 1
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 1
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H257",
+        "heji_candidate": "257",
+        "group_index": 1,
+        "text": "丁亥卜貞用鑊以羌十丁",
+        "position": 6,
+        "length": 10
+      },
+      {
+        "plate": "HD377",
+        "heji_candidate": "D377",
+        "group_index": 1,
+        "text": "新鑊乃𰌣",
+        "position": 2,
+        "length": 4
+      }
+    ]
   }
 }

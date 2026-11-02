@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞡㞢",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "8xhrt6fscw"
+    ],
+    "occurrences": 12,
+    "plates": 11,
+    "plate_list_head": [
+      "H5548",
+      "H14607",
+      "H18445",
+      "H30436",
+      "H32161",
+      "H33276",
+      "H33277",
+      "H33278",
+      "H33282",
+      "H33284",
+      "H33292"
+    ],
+    "by_category": {
+      "卜辞句": 12
+    },
+    "top_cooccurring": [
+      {
+        "text": "河",
+        "uid": "yfnx5cwgq6",
+        "count": 10
+      },
+      {
+        "text": "三",
+        "uid": "p77d58vew4",
+        "count": 8
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 8
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 8
+      },
+      {
+        "text": "牢",
+        "uid": "w4mg32kjp4",
+        "count": 7
+      },
+      {
+        "text": "尞",
+        "uid": "h44zkm9mt8",
+        "count": 7
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H32161",
+        "heji_candidate": "32161",
+        "group_index": 2,
+        "text": "丁巳卜其尞于河牢沈◇",
+        "position": 9,
+        "length": 10
+      },
+      {
+        "plate": "H33277",
+        "heji_candidate": "33277",
+        "group_index": 1,
+        "text": "壬申貞禱禾于河尞三牛沈三牛",
+        "position": 11,
+        "length": 13
+      }
+    ]
   }
 }

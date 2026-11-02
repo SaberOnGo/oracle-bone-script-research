@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㪁",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "nq3neh9i5i"
+    ],
+    "occurrences": 15,
+    "plates": 15,
+    "plate_list_head": [
+      "H5459",
+      "H6586",
+      "H6587",
+      "H6590",
+      "H6632",
+      "H6634",
+      "H7850",
+      "H8283",
+      "H10187",
+      "H13002",
+      "H16940",
+      "H31972"
+    ],
+    "by_category": {
+      "卜辞句": 15
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "翦",
+        "uid": "egf0h3s4xh",
+        "count": 4
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 4
+      },
+      {
+        "text": "取",
+        "uid": "hvm3m8ypgu",
+        "count": 3
+      },
+      {
+        "text": "般",
+        "uid": "6k62imdisa",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5459",
+        "heji_candidate": "5459",
+        "group_index": 2,
+        "text": "庚申卜殻貞◇叶王史龍",
+        "position": 10,
+        "length": 10
+      },
+      {
+        "plate": "H6587",
+        "heji_candidate": "6587",
+        "group_index": 1,
+        "text": "乎師般取龍",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

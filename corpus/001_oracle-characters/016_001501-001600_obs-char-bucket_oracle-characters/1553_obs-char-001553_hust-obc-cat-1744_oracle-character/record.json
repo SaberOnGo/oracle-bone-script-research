@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,72 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㫆",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ake9481rl7"
+    ],
+    "occurrences": 5,
+    "plates": 5,
+    "plate_list_head": [
+      "H8229",
+      "H23046",
+      "HD294",
+      "HD449",
+      "HD450"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 3
+      },
+      {
+        "text": "宅",
+        "uid": "ix033niy64",
+        "count": 2
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 2
+      },
+      {
+        "text": "龜",
+        "uid": "ghaj284ctb",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "2bcusrt88g",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8229",
+        "heji_candidate": "8229",
+        "group_index": 1,
+        "text": "□𥁑宅◇",
+        "position": 2,
+        "length": 4
+      },
+      {
+        "plate": "HD449",
+        "heji_candidate": "D449",
+        "group_index": 6,
+        "text": "乙亥弜◇𫩁𥁑龜于室用",
+        "position": 6,
+        "length": 10
+      }
+    ]
   }
 }

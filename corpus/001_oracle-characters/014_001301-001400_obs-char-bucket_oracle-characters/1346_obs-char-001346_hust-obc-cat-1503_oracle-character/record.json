@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧕",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "riyuog5dwt"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H26039"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卒",
+        "uid": "ggmxiphq64",
+        "count": 1
+      },
+      {
+        "text": "三",
+        "uid": "p77d58vew4",
+        "count": 1
+      },
+      {
+        "text": "子",
+        "uid": "r79attbhro",
+        "count": 1
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 1
+      },
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 1
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H26039",
+        "heji_candidate": "26039",
+        "group_index": 1,
+        "text": "甲子□□貞翌乙丑我酌卒□害三月",
+        "position": 10,
+        "length": 15
+      }
+    ]
   }
 }

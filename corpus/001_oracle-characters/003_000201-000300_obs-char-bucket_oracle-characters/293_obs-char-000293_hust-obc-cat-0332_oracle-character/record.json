@@ -97,5 +97,51 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕂",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "1axafi8r7u"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H32048"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 1
+      },
+      {
+        "text": "石",
+        "uid": "xh47ul1r1k",
+        "count": 1
+      },
+      {
+        "text": "曾",
+        "uid": "h1yvqbcpot",
+        "count": 1
+      },
+      {
+        "text": "比",
+        "uid": "d15m8dd17h",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "2lep30tiiz",
+        "count": 1
+      },
+      {
+        "text": "任",
+        "uid": "u54u515u56",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

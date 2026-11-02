@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦽",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "wcl42s7y1r"
+    ],
+    "occurrences": 21,
+    "plates": 12,
+    "plate_list_head": [
+      "H30025",
+      "HD124",
+      "HD180",
+      "HD248",
+      "HD288",
+      "HD294",
+      "HD371",
+      "HD420",
+      "HD446",
+      "HD454",
+      "HD475",
+      "HD501"
+    ],
+    "by_category": {
+      "卜辞句": 21
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 18
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 13
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 9
+      },
+      {
+        "text": "弜",
+        "uid": "cv483h1fw2",
+        "count": 9
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 9
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 8
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30025",
+        "heji_candidate": "30025",
+        "group_index": 1,
+        "text": "叀速至大雨",
+        "position": 2,
+        "length": 5
+      },
+      {
+        "plate": "HD124",
+        "heji_candidate": "D124",
+        "group_index": 13,
+        "text": "辛卜其速丁",
+        "position": 4,
+        "length": 5
+      }
+    ]
   }
 }

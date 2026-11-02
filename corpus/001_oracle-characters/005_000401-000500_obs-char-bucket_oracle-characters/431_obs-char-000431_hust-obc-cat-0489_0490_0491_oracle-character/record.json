@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㗟㗠㗡",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "r90d2o0i9y"
+    ],
+    "occurrences": 18,
+    "plates": 18,
+    "plate_list_head": [
+      "H181",
+      "H7842",
+      "H7843",
+      "H7844",
+      "H7846",
+      "H7847",
+      "H7848",
+      "H7850",
+      "H13458",
+      "H14036",
+      "H14038",
+      "H14040"
+    ],
+    "by_category": {
+      "卜辞句": 18
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 10
+      },
+      {
+        "text": "嘉",
+        "uid": "5xzg937unb",
+        "count": 9
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 7
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 6
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 6
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H181",
+        "heji_candidate": "181",
+        "group_index": 1,
+        "text": "乙巳卜賓貞帚妌娩𰋶□帚妌",
+        "position": 8,
+        "length": 12
+      },
+      {
+        "plate": "H7843",
+        "heji_candidate": "7843",
+        "group_index": 1,
+        "text": "丁酉卜殻貞來乙巳王入于娩",
+        "position": 12,
+        "length": 12
+      }
+    ]
   }
 }

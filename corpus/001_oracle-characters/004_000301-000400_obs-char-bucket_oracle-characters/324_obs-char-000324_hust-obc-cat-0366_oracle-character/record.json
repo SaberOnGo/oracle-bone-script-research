@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,56 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕤",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "jthh3lgecc"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H9432",
+      "H9433"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "气",
+        "uid": "u13qoz09bs",
+        "count": 2
+      },
+      {
+        "text": "自",
+        "uid": "0cwxw7rveh",
+        "count": 2
+      },
+      {
+        "text": "廿",
+        "uid": "fd6c02qezd",
+        "count": 1
+      },
+      {
+        "text": "屯",
+        "uid": "j904v6fm79",
+        "count": 1
+      },
+      {
+        "text": "允",
+        "uid": "rc6s5fhd2k",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H9432",
+        "heji_candidate": "9432",
+        "group_index": 1,
+        "text": "□气自喦廿屯",
+        "position": 4,
+        "length": 6
+      }
+    ]
   }
 }

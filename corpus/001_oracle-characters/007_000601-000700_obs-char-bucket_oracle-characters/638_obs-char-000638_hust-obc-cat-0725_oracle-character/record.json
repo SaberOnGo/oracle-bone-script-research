@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛋",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "2h3rwms23l"
+    ],
+    "occurrences": 8,
+    "plates": 4,
+    "plate_list_head": [
+      "H18182",
+      "HD181",
+      "HD293",
+      "HD474"
+    ],
+    "by_category": {
+      "卜辞句": 8
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "舞",
+        "uid": "ih7qa28rb3",
+        "count": 6
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 5
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 4
+      },
+      {
+        "text": "◇",
+        "uid": "gbq6n25ye0",
+        "count": 3
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD181",
+        "heji_candidate": "D181",
+        "group_index": 7,
+        "text": "己卜弜佑示◇其戝抔",
+        "position": 9,
+        "length": 9
+      },
+      {
+        "plate": "HD181",
+        "heji_candidate": "D181",
+        "group_index": 22,
+        "text": "辛卜御巳舞抔眢一牛◇𰇑牢佑鬯",
+        "position": 6,
+        "length": 14
+      }
+    ]
   }
 }

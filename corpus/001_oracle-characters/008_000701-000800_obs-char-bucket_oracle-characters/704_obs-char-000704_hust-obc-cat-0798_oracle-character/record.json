@@ -97,5 +97,56 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜔",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "6kf650i4zk"
+    ],
+    "occurrences": 7,
+    "plates": 6,
+    "plate_list_head": [
+      "H7923",
+      "H13046",
+      "H13047",
+      "H13048",
+      "H13049",
+      "H20984"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 2
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 2
+      },
+      {
+        "text": "折",
+        "uid": "7tn35swync",
+        "count": 1
+      },
+      {
+        "text": "延",
+        "uid": "akwyl4gzy2",
+        "count": 1
+      },
+      {
+        "text": "子",
+        "uid": "r79attbhro",
+        "count": 1
+      },
+      {
+        "text": "陰",
+        "uid": "ah10xtkbxp",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

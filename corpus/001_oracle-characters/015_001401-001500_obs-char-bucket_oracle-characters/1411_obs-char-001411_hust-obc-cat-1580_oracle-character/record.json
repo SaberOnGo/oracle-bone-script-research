@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,68 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨢",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "usqcyemfku"
+    ],
+    "occurrences": 2,
+    "plates": 1,
+    "plate_list_head": [
+      "HD474"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "𣐺",
+        "uid": "bp9xhteuj9",
+        "count": 1
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "gbq6n25ye0",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "告",
+        "uid": "fmdym8mxmv",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD474",
+        "heji_candidate": "D474",
+        "group_index": 4,
+        "text": "己巳卜巳祼告其𣐺革于◇",
+        "position": 9,
+        "length": 11
+      },
+      {
+        "plate": "HD474",
+        "heji_candidate": "D474",
+        "group_index": 5,
+        "text": "率𫹉革不用",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

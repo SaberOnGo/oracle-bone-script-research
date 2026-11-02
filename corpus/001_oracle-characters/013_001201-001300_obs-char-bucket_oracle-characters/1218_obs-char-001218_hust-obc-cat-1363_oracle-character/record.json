@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㥉",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "xdjmj3ywdf"
+    ],
+    "occurrences": 12,
+    "plates": 11,
+    "plate_list_head": [
+      "H30949",
+      "H35554",
+      "H35594",
+      "H35605",
+      "H35624",
+      "H35665",
+      "H35689",
+      "H35734",
+      "H35872",
+      "H35905",
+      "H35906"
+    ],
+    "by_category": {
+      "卜辞句": 12
+    },
+    "top_cooccurring": [
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 11
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 11
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 10
+      },
+      {
+        "text": "尤",
+        "uid": "hhr47shesw",
+        "count": 9
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 8
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30949",
+        "heji_candidate": "30949",
+        "group_index": 1,
+        "text": "祼薦王弗賓",
+        "position": 2,
+        "length": 5
+      },
+      {
+        "plate": "H35554",
+        "heji_candidate": "35554",
+        "group_index": 1,
+        "text": "丙辰卜貞王賓◇薦亡尤",
+        "position": 8,
+        "length": 10
+      }
+    ]
   }
 }

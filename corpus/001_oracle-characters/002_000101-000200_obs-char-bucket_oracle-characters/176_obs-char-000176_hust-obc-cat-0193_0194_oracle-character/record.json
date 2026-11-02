@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒷㒸",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fmv0hxp7i5"
+    ],
+    "occurrences": 54,
+    "plates": 36,
+    "plate_list_head": [
+      "H10297",
+      "H10364",
+      "H10398",
+      "H10400",
+      "H10401",
+      "H10402",
+      "H10403",
+      "H10409",
+      "H10411",
+      "H10412",
+      "H10413",
+      "H10414"
+    ],
+    "by_category": {
+      "卜辞句": 54
+    },
+    "top_cooccurring": [
+      {
+        "text": "獲",
+        "uid": "dgw10rc4gi",
+        "count": 20
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 16
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 15
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 14
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "允",
+        "uid": "rc6s5fhd2k",
+        "count": 6
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10400",
+        "heji_candidate": "10400",
+        "group_index": 1,
+        "text": "□亥卜殻貞其逐兕獲",
+        "position": 8,
+        "length": 9
+      },
+      {
+        "plate": "H10401",
+        "heji_candidate": "10401",
+        "group_index": 1,
+        "text": "貞翌辛巳王勿往逐兕弗其獲",
+        "position": 9,
+        "length": 12
+      }
+    ]
   }
 }

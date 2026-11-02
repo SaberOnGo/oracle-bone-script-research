@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕙",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "4cylbd0s3d"
+    ],
+    "occurrences": 54,
+    "plates": 51,
+    "plate_list_head": [
+      "H300",
+      "H313",
+      "H422",
+      "H542",
+      "H951",
+      "H1275",
+      "H1278",
+      "H1279",
+      "H1281",
+      "H1282",
+      "H1283",
+      "H1286"
+    ],
+    "by_category": {
+      "卜辞句": 54
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 37
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 22
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 13
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 12
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 11
+      },
+      {
+        "text": "自",
+        "uid": "0cwxw7rveh",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H300",
+        "heji_candidate": "300",
+        "group_index": 3,
+        "text": "貞御自唐大甲大丁且乙百羌百牢",
+        "position": 4,
+        "length": 14
+      },
+      {
+        "plate": "H313",
+        "heji_candidate": "313",
+        "group_index": 2,
+        "text": "貞翌乙亥㞢◇歲于唐卌羌卯卅牛◇",
+        "position": 9,
+        "length": 15
+      }
+    ]
   }
 }

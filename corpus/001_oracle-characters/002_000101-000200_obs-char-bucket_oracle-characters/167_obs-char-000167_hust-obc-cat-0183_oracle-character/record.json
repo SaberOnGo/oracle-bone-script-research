@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒭",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "bh3e3oql61"
+    ],
+    "occurrences": 76,
+    "plates": 76,
+    "plate_list_head": [
+      "H439",
+      "H1807",
+      "H1809",
+      "H1904",
+      "H2503",
+      "H2510",
+      "H2537",
+      "H2870",
+      "H2871",
+      "H2872",
+      "H2873",
+      "H2874"
+    ],
+    "by_category": {
+      "卜辞句": 76
+    },
+    "top_cooccurring": [
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 39
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 25
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 22
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 19
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 16
+      },
+      {
+        "text": "戊",
+        "uid": "u7v6rlhp81",
+        "count": 13
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H439",
+        "heji_candidate": "439",
+        "group_index": 4,
+        "text": "卜賓貞兄丁羌用",
+        "position": 4,
+        "length": 7
+      },
+      {
+        "plate": "H1807",
+        "heji_candidate": "1807",
+        "group_index": 1,
+        "text": "丁未卜古貞㞢于兄丁",
+        "position": 8,
+        "length": 9
+      }
+    ]
   }
 }

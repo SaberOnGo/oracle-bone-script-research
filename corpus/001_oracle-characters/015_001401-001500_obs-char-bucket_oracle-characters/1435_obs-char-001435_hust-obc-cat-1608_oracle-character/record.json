@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -96,5 +96,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨾",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "jstya23ki5"
+    ],
+    "occurrences": 3,
+    "plates": 1,
+    "plate_list_head": [
+      "HD191"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "◇",
+        "uid": "gjgujysmue",
+        "count": 3
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 2
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      },
+      {
+        "text": "戌",
+        "uid": "7gvythc7mi",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD191",
+        "heji_candidate": "D191",
+        "group_index": 2,
+        "text": "戌卜其日用騩不◇",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤫",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fn6hszube7"
+    ],
+    "occurrences": 43,
+    "plates": 43,
+    "plate_list_head": [
+      "H199",
+      "H3998",
+      "H5058",
+      "H5059",
+      "H5517",
+      "H6358",
+      "H6410",
+      "H6428",
+      "H6429",
+      "H6488",
+      "H6492",
+      "H6494"
+    ],
+    "by_category": {
+      "卜辞句": 43
+    },
+    "top_cooccurring": [
+      {
+        "text": "今",
+        "uid": "ihsuhqgmdc",
+        "count": 29
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 22
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 21
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 17
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 13
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 11
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5058",
+        "heji_candidate": "5058",
+        "group_index": 1,
+        "text": "□殻貞今早王出",
+        "position": 5,
+        "length": 7
+      },
+      {
+        "plate": "H5059",
+        "heji_candidate": "5059",
+        "group_index": 1,
+        "text": "貞今早王勿出",
+        "position": 3,
+        "length": 6
+      }
+    ]
   }
 }

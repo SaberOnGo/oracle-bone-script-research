@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒒",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "rdt31ynd6t"
+    ],
+    "occurrences": 14,
+    "plates": 13,
+    "plate_list_head": [
+      "H22730",
+      "H22789",
+      "H22882",
+      "H25750",
+      "H25751",
+      "H25752",
+      "H25753",
+      "H25755",
+      "H25756",
+      "H25757",
+      "H25758",
+      "H25759"
+    ],
+    "by_category": {
+      "卜辞句": 14
+    },
+    "top_cooccurring": [
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 11
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 9
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 8
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 8
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 8
+      },
+      {
+        "text": "祸",
+        "uid": "tp5ykv5jzh",
+        "count": 6
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H22789",
+        "heji_candidate": "22789",
+        "group_index": 2,
+        "text": "□□◇彡龠𫩀亡尤在◇",
+        "position": 5,
+        "length": 10
+      },
+      {
+        "plate": "H22882",
+        "heji_candidate": "22882",
+        "group_index": 1,
+        "text": "乙巳卜旅貞王賓戔彡龠𫩀□□",
+        "position": 10,
+        "length": 13
+      }
+    ]
   }
 }

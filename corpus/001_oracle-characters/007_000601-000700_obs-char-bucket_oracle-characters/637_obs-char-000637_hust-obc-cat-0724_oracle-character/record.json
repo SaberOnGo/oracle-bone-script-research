@@ -96,5 +96,31 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛊",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "rrua1697nb"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H4094"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 1
+      },
+      {
+        "text": "畢",
+        "uid": "zk0j4pcnzj",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

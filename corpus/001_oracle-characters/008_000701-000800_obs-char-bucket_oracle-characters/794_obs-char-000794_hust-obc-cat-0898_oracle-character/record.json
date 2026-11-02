@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㝸",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "6dnfyfs9ol"
+    ],
+    "occurrences": 101,
+    "plates": 85,
+    "plate_list_head": [
+      "H37",
+      "H39",
+      "H70",
+      "H132",
+      "H495",
+      "H908",
+      "H3128",
+      "H3246",
+      "H4114",
+      "H4312",
+      "H5201",
+      "H5202"
+    ],
+    "by_category": {
+      "卜辞句": 101
+    },
+    "top_cooccurring": [
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 42
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 35
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 33
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 30
+      },
+      {
+        "text": "翌",
+        "uid": "hlxb5g91kc",
+        "count": 23
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 14
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H37",
+        "heji_candidate": "37",
+        "group_index": 1,
+        "text": "□今◇乎眾人步□",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H39",
+        "heji_candidate": "39",
+        "group_index": 2,
+        "text": "貞尞告眾步于丁十□",
+        "position": 5,
+        "length": 9
+      }
+    ]
   }
 }

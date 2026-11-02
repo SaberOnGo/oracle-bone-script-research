@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑢",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "1s5t2e9cdw"
+    ],
+    "occurrences": 382,
+    "plates": 329,
+    "plate_list_head": [
+      "H15",
+      "H37",
+      "H40",
+      "H41",
+      "H120",
+      "H142",
+      "H148",
+      "H155",
+      "H156",
+      "H176",
+      "H177",
+      "H261"
+    ],
+    "by_category": {
+      "卜辞句": 382
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 181
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 123
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 56
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 54
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 33
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 32
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H15",
+        "heji_candidate": "15",
+        "group_index": 1,
+        "text": "貞乎眾人出麋克",
+        "position": 2,
+        "length": 7
+      },
+      {
+        "plate": "H37",
+        "heji_candidate": "37",
+        "group_index": 1,
+        "text": "□今◇乎眾人步□",
+        "position": 4,
+        "length": 8
+      }
+    ]
   }
 }

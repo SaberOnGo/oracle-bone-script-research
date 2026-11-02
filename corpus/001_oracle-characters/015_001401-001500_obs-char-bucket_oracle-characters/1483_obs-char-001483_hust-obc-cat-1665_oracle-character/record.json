@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -94,5 +94,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩷",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "u6h3c0iftd"
+    ],
+    "occurrences": 34,
+    "plates": 33,
+    "plate_list_head": [
+      "H184",
+      "H451",
+      "H452",
+      "H547",
+      "H579",
+      "H2626",
+      "H3857",
+      "H4248",
+      "H5159",
+      "H5479",
+      "H6312",
+      "H7304"
+    ],
+    "by_category": {
+      "卜辞句": 20,
+      "验辞": 14
+    },
+    "top_cooccurring": [
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 30
+      },
+      {
+        "text": "◇",
+        "uid": "crck62eltz",
+        "count": 27
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "河",
+        "uid": "yfnx5cwgq6",
+        "count": 3
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H451",
+        "heji_candidate": "451",
+        "group_index": 1,
+        "text": "貞其用竹鼄羌叀𫹉彡用",
+        "position": 5,
+        "length": 10
+      },
+      {
+        "plate": "H452",
+        "heji_candidate": "452",
+        "group_index": 1,
+        "text": "竹鼄羌□眔□伯人歸于河",
+        "position": 2,
+        "length": 11
+      }
+    ]
   }
 }

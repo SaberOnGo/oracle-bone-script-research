@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡮",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "npl316l4j0"
+    ],
+    "occurrences": 20,
+    "plates": 17,
+    "plate_list_head": [
+      "H1434",
+      "H5119",
+      "H5120",
+      "H5121",
+      "H5123",
+      "H7950",
+      "H10545",
+      "H10546",
+      "H21524",
+      "H29910",
+      "H29917",
+      "H30059"
+    ],
+    "by_category": {
+      "卜辞句": 20
+    },
+    "top_cooccurring": [
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 7
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 6
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 5
+      },
+      {
+        "text": "往",
+        "uid": "m6szz2tcxv",
+        "count": 5
+      },
+      {
+        "text": "田",
+        "uid": "pzvzykmf5e",
+        "count": 5
+      },
+      {
+        "text": "㐭",
+        "uid": "dxvqlu3dcd",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1434",
+        "heji_candidate": "1434",
+        "group_index": 1,
+        "text": "□卜韋貞王往省从西告于大甲",
+        "position": 7,
+        "length": 13
+      },
+      {
+        "plate": "H5119",
+        "heji_candidate": "5119",
+        "group_index": 2,
+        "text": "王往省从誖",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

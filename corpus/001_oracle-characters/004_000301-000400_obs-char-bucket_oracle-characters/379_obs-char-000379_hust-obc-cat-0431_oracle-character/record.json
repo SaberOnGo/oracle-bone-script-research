@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖥",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "61p261idyu"
+    ],
+    "occurrences": 11,
+    "plates": 11,
+    "plate_list_head": [
+      "H109",
+      "H4138",
+      "H4413",
+      "H4414",
+      "H7898",
+      "H10194",
+      "H14850",
+      "H18592",
+      "H19613",
+      "H30600",
+      "H30940"
+    ],
+    "by_category": {
+      "卜辞句": 11
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 3
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 3
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 2
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 2
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H109",
+        "heji_candidate": "109",
+        "group_index": 1,
+        "text": "勿取夫芻于膺",
+        "position": 3,
+        "length": 6
+      },
+      {
+        "plate": "H4414",
+        "heji_candidate": "4414",
+        "group_index": 1,
+        "text": "□卯卜王勿令夫爰若",
+        "position": 7,
+        "length": 9
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦃㦄",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "8q6evmyn2i"
+    ],
+    "occurrences": 17,
+    "plates": 12,
+    "plate_list_head": [
+      "H3955",
+      "H14625",
+      "H15818",
+      "H30660",
+      "H30725",
+      "H30961",
+      "H31021",
+      "H31047",
+      "H32536",
+      "H32557",
+      "HD501",
+      "HD505"
+    ],
+    "by_category": {
+      "卜辞句": 17
+    },
+    "top_cooccurring": [
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 8
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 6
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 6
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 5
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "茲",
+        "uid": "jgofpoxdpd",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3955",
+        "heji_candidate": "3955",
+        "group_index": 1,
+        "text": "貞沚𪭑往豐其□",
+        "position": 5,
+        "length": 7
+      },
+      {
+        "plate": "H15818",
+        "heji_candidate": "15818",
+        "group_index": 1,
+        "text": "癸未卜貞◇豐叀㞢𫹉用◇",
+        "position": 6,
+        "length": 11
+      }
+    ]
   }
 }

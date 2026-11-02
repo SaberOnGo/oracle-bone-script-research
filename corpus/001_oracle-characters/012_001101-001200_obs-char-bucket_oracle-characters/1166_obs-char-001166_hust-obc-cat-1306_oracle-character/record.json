@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤐",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "vqo5659li5"
+    ],
+    "occurrences": 34,
+    "plates": 30,
+    "plate_list_head": [
+      "H614",
+      "H615",
+      "H618",
+      "H619",
+      "H620",
+      "H621",
+      "H638",
+      "H5567",
+      "H5570",
+      "H5581",
+      "H5584",
+      "H5588"
+    ],
+    "by_category": {
+      "卜辞句": 34
+    },
+    "top_cooccurring": [
+      {
+        "text": "多",
+        "uid": "ex96ntmoie",
+        "count": 12
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 12
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 10
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 9
+      },
+      {
+        "text": "小",
+        "uid": "dp8imn8ze4",
+        "count": 9
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 6
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H614",
+        "heji_candidate": "614",
+        "group_index": 4,
+        "text": "乎多臣伐𢀛方",
+        "position": 3,
+        "length": 6
+      },
+      {
+        "plate": "H615",
+        "heji_candidate": "615",
+        "group_index": 4,
+        "text": "貞乎多臣伐𢀛方",
+        "position": 4,
+        "length": 7
+      }
+    ]
   }
 }

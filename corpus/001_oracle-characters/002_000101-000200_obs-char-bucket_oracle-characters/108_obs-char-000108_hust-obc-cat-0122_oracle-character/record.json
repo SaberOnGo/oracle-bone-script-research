@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑰",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "8ggcq3obcu"
+    ],
+    "occurrences": 15,
+    "plates": 15,
+    "plate_list_head": [
+      "H1339",
+      "H2756",
+      "H2758",
+      "H2762",
+      "H2767",
+      "H2769",
+      "H5436",
+      "H6796",
+      "H9391",
+      "H9392",
+      "H9393",
+      "H10481"
+    ],
+    "by_category": {
+      "卜辞句": 15
+    },
+    "top_cooccurring": [
+      {
+        "text": "帚",
+        "uid": "qe26dg343r",
+        "count": 10
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 9
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "自",
+        "uid": "0cwxw7rveh",
+        "count": 3
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1339",
+        "heji_candidate": "1339",
+        "group_index": 1,
+        "text": "癸卯卜賓貞井方于唐宗彘",
+        "position": 6,
+        "length": 11
+      },
+      {
+        "plate": "H2756",
+        "heji_candidate": "2756",
+        "group_index": 1,
+        "text": "貞御帚井于晦庚",
+        "position": 4,
+        "length": 7
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢪㢫",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "e5kvpngkc8"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H8955",
+      "H20716",
+      "H24278",
+      "H24330"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "師",
+        "uid": "0avi2tcy0g",
+        "count": 2
+      },
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 2
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 1
+      },
+      {
+        "text": "子",
+        "uid": "r79attbhro",
+        "count": 1
+      },
+      {
+        "text": "弜",
+        "uid": "cv483h1fw2",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H24278",
+        "heji_candidate": "24278",
+        "group_index": 1,
+        "text": "癸丑卜王在師寮卜",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H24330",
+        "heji_candidate": "24330",
+        "group_index": 1,
+        "text": "□在師寮",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

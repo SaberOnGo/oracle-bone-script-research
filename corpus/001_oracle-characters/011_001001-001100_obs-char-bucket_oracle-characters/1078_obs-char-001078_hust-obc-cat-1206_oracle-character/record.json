@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢬",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "i44zmo51c7"
+    ],
+    "occurrences": 28,
+    "plates": 27,
+    "plate_list_head": [
+      "H4065",
+      "H4109",
+      "H5507",
+      "H5508",
+      "H5513",
+      "H5514",
+      "H5515",
+      "H5517",
+      "H5683",
+      "H6742",
+      "H7365",
+      "H7371"
+    ],
+    "by_category": {
+      "卜辞句": 28
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 11
+      },
+      {
+        "text": "史",
+        "uid": "h3nw474wwr",
+        "count": 6
+      },
+      {
+        "text": "中",
+        "uid": "knps4jrxz3",
+        "count": 6
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 5
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H4065",
+        "heji_candidate": "4065",
+        "group_index": 1,
+        "text": "貞畢勿立史",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "H5507",
+        "heji_candidate": "5507",
+        "group_index": 1,
+        "text": "乙亥□貞立二史㞢橐舟",
+        "position": 5,
+        "length": 10
+      }
+    ]
   }
 }

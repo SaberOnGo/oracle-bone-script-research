@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㟙",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "c4xexj4nho",
+      "v8blfuvx4g"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "HD255",
+      "HD352"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "牝",
+        "uid": "nllrzldww6",
+        "count": 2
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 2
+      },
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 2
+      },
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 2
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 2
+      },
+      {
+        "text": "御",
+        "uid": "o6m37o3l7o",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD255",
+        "heji_candidate": "D255",
+        "group_index": 7,
+        "text": "己丑歲◇一牝巳往澫御興",
+        "position": 9,
+        "length": 11
+      },
+      {
+        "plate": "HD352",
+        "heji_candidate": "D352",
+        "group_index": 1,
+        "text": "己丑歲匕庚牝一巳往于澫御",
+        "position": 11,
+        "length": 12
+      }
+    ]
   }
 }

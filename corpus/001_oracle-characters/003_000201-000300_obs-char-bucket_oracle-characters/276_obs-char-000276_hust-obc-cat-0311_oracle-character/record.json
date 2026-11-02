@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔭",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "52a130pcmy"
+    ],
+    "occurrences": 344,
+    "plates": 284,
+    "plate_list_head": [
+      "H2",
+      "H5",
+      "H64",
+      "H446",
+      "H542",
+      "H547",
+      "H787",
+      "H801",
+      "H839",
+      "H1992",
+      "H2479",
+      "H2750"
+    ],
+    "by_category": {
+      "卜辞句": 342,
+      "未定": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 120
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 117
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 113
+      },
+      {
+        "text": "年",
+        "uid": "xkubtjk815",
+        "count": 109
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 78
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 64
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2",
+        "heji_candidate": "2",
+        "group_index": 1,
+        "text": "曰協田其受年◇",
+        "position": 5,
+        "length": 7
+      },
+      {
+        "plate": "H64",
+        "heji_candidate": "64",
+        "group_index": 1,
+        "text": "辛巳□◇貞□喪眾受方佑",
+        "position": 9,
+        "length": 11
+      }
+    ]
   }
 }

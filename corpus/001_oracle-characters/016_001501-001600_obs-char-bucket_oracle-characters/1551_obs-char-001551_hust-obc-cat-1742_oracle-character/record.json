@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㫄",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "hk9f0607uj"
+    ],
+    "occurrences": 17,
+    "plates": 16,
+    "plate_list_head": [
+      "H301",
+      "H473",
+      "H511",
+      "H1973",
+      "H3755",
+      "H3903",
+      "H3904",
+      "H3905",
+      "H3906",
+      "H3909",
+      "H3910",
+      "H5803"
+    ],
+    "by_category": {
+      "卜辞句": 17
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 10
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 4
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 4
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 3
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H473",
+        "heji_candidate": "473",
+        "group_index": 1,
+        "text": "丁亥卜□辛卯㞢□三牢箙羌",
+        "position": 11,
+        "length": 12
+      },
+      {
+        "plate": "H511",
+        "heji_candidate": "511",
+        "group_index": 1,
+        "text": "乙未卜箙貞逸羌□",
+        "position": 4,
+        "length": 8
+      }
+    ]
   }
 }

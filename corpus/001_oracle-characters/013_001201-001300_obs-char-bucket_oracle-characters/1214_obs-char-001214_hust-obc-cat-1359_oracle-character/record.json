@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㥅",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "0tk0pmitom"
+    ],
+    "occurrences": 19,
+    "plates": 17,
+    "plate_list_head": [
+      "H686",
+      "H970",
+      "H5021",
+      "H6611",
+      "H8308",
+      "H12895",
+      "H13038",
+      "H14801",
+      "H14806",
+      "H14808",
+      "H14810",
+      "H14813"
+    ],
+    "by_category": {
+      "卜辞句": 19
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 10
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 8
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 6
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 6
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H970",
+        "heji_candidate": "970",
+        "group_index": 1,
+        "text": "己亥卜殻貞㞢伐于□尹亦㞢于蔑",
+        "position": 14,
+        "length": 14
+      },
+      {
+        "plate": "H6611",
+        "heji_candidate": "6611",
+        "group_index": 2,
+        "text": "貞戉亡其蔑羌",
+        "position": 5,
+        "length": 6
+      }
+    ]
   }
 }

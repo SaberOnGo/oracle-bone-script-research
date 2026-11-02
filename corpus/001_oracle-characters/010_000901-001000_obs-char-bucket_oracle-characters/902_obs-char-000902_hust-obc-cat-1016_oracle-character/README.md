@@ -1,6 +1,6 @@
 # obs-char-000902 甲骨字档案
 
-状态：已释字候选（HUST-OBC 数据集类别，未经交叉复核） | 释读史：未收集 | 例句：0 | 更新：2026-11-02
+状态：已释字候选（HUST-OBC 数据集类别，未经交叉复核） | 释读史：未收集 | 例句：1 | 更新：2026-11-02
 
 ## 1 字形与观察
 
@@ -15,6 +15,21 @@
 - OBIMD 主字表中有 1 个字形被隶定为同一字（UID：lpjmcjuz4z），可据此查找卜辞字例〔来源 src-obimd 主字表〕。
 - EvoBC 有 1 个类别标为同一字（evobc-evo-cat-05065），可用于跨时期字形比较〔来源 src-evobc〕。
 - 更正：本档案 2026-11-02 合并时曾写作“㟮”。那是早期流程把本类号错接到 HUST-OBC OCR 字表的结果，已按官方对照表更正。
+
+## 4 卜辞例句
+
+以下例句取自 OBIMD 标注，按其阅读顺序排列；□ 为未识别或残缺字，◇ 为 OBIMD 自造字。片号 H 后的数字推定为《合集》号，尚待逐片核对（见案件 `case-h2-heji2`）。
+
+| OBIMD 片号 | 释文（OBIMD） | 本字位置 | 来源 |
+| --- | --- | --- | --- |
+| H32885 | 叀烓令周 | 第 2/4 字 | src-obimd H32885 句组 2 |
+
+## 5 分布
+
+- OBIMD 中共 1 个字例，见于 1 片甲骨；按句组类别：卜辞句 1〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
+- 同一句组中最常一起出现的字：叀（1）、令（1）、周（1）。
+- OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
+
 ## 10 来源与权利
 
 - 来源 src-hust-obc，图片资产 `asset-000907`，权利状态 `source_marked_risk_noted`。HUST-OBC 的 Figshare 与期刊页面许可表述不一致，详见来源档案 `corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/`。
@@ -22,5 +37,5 @@
 
 ## 11 待查项
 
-- 从 OBIMD 卜辞语料中取出这些 UID 的全部字例，抄录带著录号的例句，统计分期与共现字。
+- 在拓片上核对例句中本字的写法是否与本档案字形图一致；OBIMD 把它们隶定为同一字，不等于字形相同。
 - 在小学堂甲骨文字编中查找字头“烓”，核对字形是否与本类样本一致，记录释读、提出者和出处。

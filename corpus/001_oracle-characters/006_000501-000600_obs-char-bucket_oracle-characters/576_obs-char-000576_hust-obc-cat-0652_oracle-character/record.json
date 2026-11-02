@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,72 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚂",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "rfhhuaqrts"
+    ],
+    "occurrences": 5,
+    "plates": 5,
+    "plate_list_head": [
+      "H3272",
+      "H3784",
+      "H10458",
+      "H18477",
+      "HD252"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "延",
+        "uid": "akwyl4gzy2",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 1
+      },
+      {
+        "text": "君",
+        "uid": "hed7mevt31",
+        "count": 1
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3272",
+        "heji_candidate": "3272",
+        "group_index": 1,
+        "text": "□卜貞□君◇乎彈",
+        "position": 8,
+        "length": 8
+      },
+      {
+        "plate": "H10458",
+        "heji_candidate": "10458",
+        "group_index": 1,
+        "text": "丙午卜貞彈延兔",
+        "position": 5,
+        "length": 7
+      }
+    ]
   }
 }

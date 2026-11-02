@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡹",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "medazzhc49"
+    ],
+    "occurrences": 16,
+    "plates": 15,
+    "plate_list_head": [
+      "H69",
+      "H1210",
+      "H5699",
+      "H10521",
+      "H11683",
+      "H12091",
+      "H15393",
+      "H15746",
+      "H19717",
+      "H20546",
+      "H21319",
+      "H23283"
+    ],
+    "by_category": {
+      "卜辞句": 16
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 12
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 9
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 4
+      },
+      {
+        "text": "翌",
+        "uid": "hlxb5g91kc",
+        "count": 3
+      },
+      {
+        "text": "多",
+        "uid": "ex96ntmoie",
+        "count": 2
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H69",
+        "heji_candidate": "69",
+        "group_index": 1,
+        "text": "貞多射不矢眾",
+        "position": 5,
+        "length": 6
+      },
+      {
+        "plate": "H1210",
+        "heji_candidate": "1210",
+        "group_index": 2,
+        "text": "翌庚矢易日",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

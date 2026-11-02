@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㥯",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "vgtvawlq60"
+    ],
+    "occurrences": 31,
+    "plates": 24,
+    "plate_list_head": [
+      "H3303",
+      "H4009",
+      "H4220",
+      "H4221",
+      "H4416",
+      "H5806",
+      "H6741",
+      "H6742",
+      "H6743",
+      "H6786",
+      "H6789",
+      "H6804"
+    ],
+    "by_category": {
+      "卜辞句": 31
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "貯",
+        "uid": "iuzkqe17tf",
+        "count": 11
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 10
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 8
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 8
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 7
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H4009",
+        "heji_candidate": "4009",
+        "group_index": 1,
+        "text": "庚戌卜爭貞□乎視◇",
+        "position": 8,
+        "length": 9
+      },
+      {
+        "plate": "H4221",
+        "heji_candidate": "4221",
+        "group_index": 1,
+        "text": "貞乎視師般",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

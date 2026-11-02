@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕰",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "wexkkj22qu"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H24967",
+      "HD401",
+      "HD409"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 1
+      },
+      {
+        "text": "非",
+        "uid": "4j5hjsdkwc",
+        "count": 1
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 1
+      },
+      {
+        "text": "吉",
+        "uid": "xlscyddubk",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD401",
+        "heji_candidate": "D401",
+        "group_index": 12,
+        "text": "丙卜丁乎多臣复囟非□不若隹吉乎行",
+        "position": 8,
+        "length": 16
+      },
+      {
+        "plate": "HD409",
+        "heji_candidate": "D409",
+        "group_index": 18,
+        "text": "丁卜巳令囟心",
+        "position": 5,
+        "length": 6
+      }
+    ]
   }
 }

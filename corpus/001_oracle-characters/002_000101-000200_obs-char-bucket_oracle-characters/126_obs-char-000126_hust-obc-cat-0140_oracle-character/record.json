@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒂",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fd2xhqwsjk"
+    ],
+    "occurrences": 72,
+    "plates": 66,
+    "plate_list_head": [
+      "H169",
+      "H199",
+      "H357",
+      "H369",
+      "H1434",
+      "H2050",
+      "H5061",
+      "H5086",
+      "H5087",
+      "H5114",
+      "H5119",
+      "H5420"
+    ],
+    "by_category": {
+      "卜辞句": 72
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 30
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 29
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 24
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 17
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 16
+      },
+      {
+        "text": "往",
+        "uid": "m6szz2tcxv",
+        "count": 12
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H169",
+        "heji_candidate": "169",
+        "group_index": 3,
+        "text": "◇漁㞢从",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "H369",
+        "heji_candidate": "369",
+        "group_index": 3,
+        "text": "貞◇漁亡其从",
+        "position": 6,
+        "length": 6
+      }
+    ]
   }
 }

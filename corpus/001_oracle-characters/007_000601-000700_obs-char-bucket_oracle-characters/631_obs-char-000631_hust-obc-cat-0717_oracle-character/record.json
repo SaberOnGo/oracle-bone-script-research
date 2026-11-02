@@ -93,5 +93,36 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛃",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "qxiorvfxji"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H4410"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "韋",
+        "uid": "rbnqxy5oij",
+        "count": 1
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

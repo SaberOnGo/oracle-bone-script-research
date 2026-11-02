@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -95,5 +95,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠫㠬",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "xel4l5p8v6"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H2862",
+      "HD493"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "帚",
+        "uid": "qe26dg343r",
+        "count": 1
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 1
+      },
+      {
+        "text": "嚮",
+        "uid": "zi2pxt9kk6",
+        "count": 1
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "至",
+        "uid": "q4rk3syf2x",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD493",
+        "heji_candidate": "D493",
+        "group_index": 6,
+        "text": "壬辰卜嚮癸巳夢丁祼巳用瓒□至艱",
+        "position": 12,
+        "length": 15
+      }
+    ]
   }
 }

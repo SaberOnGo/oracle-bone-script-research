@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚏",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "m6szz2tcxv"
+    ],
+    "occurrences": 281,
+    "plates": 244,
+    "plate_list_head": [
+      "H10",
+      "H17",
+      "H614",
+      "H615",
+      "H699",
+      "H787",
+      "H967",
+      "H1434",
+      "H1665",
+      "H2641",
+      "H2642",
+      "H2643"
+    ],
+    "by_category": {
+      "卜辞句": 281
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 130
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 117
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 113
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 64
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 38
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 37
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10",
+        "heji_candidate": "10",
+        "group_index": 1,
+        "text": "戊寅卜賓貞王往以眾黍于囧",
+        "position": 7,
+        "length": 12
+      },
+      {
+        "plate": "H17",
+        "heji_candidate": "17",
+        "group_index": 1,
+        "text": "辛亥卜□貞眾□往臿□㞢擒",
+        "position": 8,
+        "length": 12
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑤",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "jbgbxt897u"
+    ],
+    "occurrences": 1149,
+    "plates": 907,
+    "plate_list_head": [
+      "H5",
+      "H11",
+      "H88",
+      "H165",
+      "H175",
+      "H181",
+      "H183",
+      "H187",
+      "H215",
+      "H239",
+      "H242",
+      "H258"
+    ],
+    "by_category": {
+      "卜辞句": 1144,
+      "未定": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 537
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 434
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 268
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 210
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 176
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 164
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5",
+        "heji_candidate": "5",
+        "group_index": 1,
+        "text": "乙巳卜殻貞□",
+        "position": 1,
+        "length": 6
+      },
+      {
+        "plate": "H165",
+        "heji_candidate": "165",
+        "group_index": 1,
+        "text": "乙酉卜◇貞射臿獲羌",
+        "position": 1,
+        "length": 9
+      }
+    ]
   }
 }

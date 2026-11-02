@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,74 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩴",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "xeawj1t30j"
+    ],
+    "occurrences": 7,
+    "plates": 7,
+    "plate_list_head": [
+      "H525",
+      "H8284",
+      "H8285",
+      "H8286",
+      "H21159",
+      "HD363",
+      "HD480"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 2
+      },
+      {
+        "text": "狩",
+        "uid": "sj4e2q73so",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "tq26tb9tj9",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "97dgghy3oj",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8284",
+        "heji_candidate": "8284",
+        "group_index": 1,
+        "text": "癸未卜賓貞王往于黹",
+        "position": 9,
+        "length": 9
+      },
+      {
+        "plate": "HD363",
+        "heji_candidate": "D363",
+        "group_index": 4,
+        "text": "丁卯卜巳勞□□黹圭在◇狩□◇",
+        "position": 8,
+        "length": 14
+      }
+    ]
   }
 }

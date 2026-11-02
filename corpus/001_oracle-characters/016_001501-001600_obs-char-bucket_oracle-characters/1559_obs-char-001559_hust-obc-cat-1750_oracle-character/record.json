@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㫌",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "dvqszc5g50"
+    ],
+    "occurrences": 5,
+    "plates": 4,
+    "plate_list_head": [
+      "H8202",
+      "H21673",
+      "H29767",
+      "HD371"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 2
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 2
+      },
+      {
+        "text": "告",
+        "uid": "fmdym8mxmv",
+        "count": 2
+      },
+      {
+        "text": "吉",
+        "uid": "xlscyddubk",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H21673",
+        "heji_candidate": "21673",
+        "group_index": 1,
+        "text": "庚申卜我今𣏮佑史",
+        "position": 6,
+        "length": 8
+      },
+      {
+        "plate": "HD371",
+        "heji_candidate": "D371",
+        "group_index": 3,
+        "text": "庚子卜巳告其𣏮于帚",
+        "position": 7,
+        "length": 9
+      }
+    ]
   }
 }

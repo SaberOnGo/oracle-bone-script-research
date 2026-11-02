@@ -93,5 +93,43 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛓",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "h24amfz7mm"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H15273",
+      "H20119",
+      "H33127"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 1
+      },
+      {
+        "text": "田",
+        "uid": "pzvzykmf5e",
+        "count": 1
+      },
+      {
+        "text": "自",
+        "uid": "0cwxw7rveh",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "ymikxh8lgo",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

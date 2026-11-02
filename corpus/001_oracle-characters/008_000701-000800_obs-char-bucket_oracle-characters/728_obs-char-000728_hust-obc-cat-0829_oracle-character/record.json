@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜳",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "j29igjvgwl"
+    ],
+    "occurrences": 13,
+    "plates": 11,
+    "plate_list_head": [
+      "H5749",
+      "H14424",
+      "H20647",
+      "H24271",
+      "H32216",
+      "H32243",
+      "H32349",
+      "H32806",
+      "H32885",
+      "H32940",
+      "H33015"
+    ],
+    "by_category": {
+      "卜辞句": 13
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 8
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 5
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 3
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5749",
+        "heji_candidate": "5749",
+        "group_index": 3,
+        "text": "□午卜古貞蓺木",
+        "position": 7,
+        "length": 7
+      },
+      {
+        "plate": "H20647",
+        "heji_candidate": "20647",
+        "group_index": 1,
+        "text": "□亥木止□其易多射",
+        "position": 3,
+        "length": 9
+      }
+    ]
   }
 }

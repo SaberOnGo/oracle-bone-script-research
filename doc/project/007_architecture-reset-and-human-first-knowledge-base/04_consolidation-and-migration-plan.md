@@ -138,6 +138,24 @@ The inscription text layer is the most important step. Priority sources are
 ranked by rights feasibility and text quality. Start with a thousand-entry
 pilot on Heji 1 to 1000.
 
+执行记录（2026-11-02，第 4 步）：
+
+- 与原设计的差异：原计划把释文语料 `inscriptions.jsonl` 放进仓库。因 OBIMD
+  有效权利为 `metadata_only_until_verified`，且用户决定只在本地研究使用，
+  完整释文改放本地忽略区 `external_local_archive/derived/obimd-inscriptions/`，
+  公开仓库只放统计表和每字最多 2 条例句。
+- 新工具 `tools/008_inscription-text-layer/`：从已登记的 OBIMD `data.json`
+  重建 10,077 片、21,941 个句组、115,319 个字例的释文层，并写出片索引与
+  字形出现统计。
+- 948 份已释字档案新增第 4 节"卜辞例句"和第 5 节"分布"：例句、字位、
+  出现次数、所在片数、句组类别、高频共现字。
+- 仍缺：分期与组类（OBIMD 无此字段）、H 片号与《合集》号的逐片核对、
+  未释字的字例（未释字没有 OBIMD 隶定，需要字形比对后才能挂接）。
+
+Execution record (step 4): the full OBIMD transcription layer is built locally
+because of its rights status; 948 dossiers now carry cited examples and
+distribution statistics.
+
 ## 第 5 步：100 字深度试点 / One-Hundred-Character Deep Pilot
 
 从已释字中选 100 个：高频、有多条卜辞例句、有金文对应、释读史清楚。

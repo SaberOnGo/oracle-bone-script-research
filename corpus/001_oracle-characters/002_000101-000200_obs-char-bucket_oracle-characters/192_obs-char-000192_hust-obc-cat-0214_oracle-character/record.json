@@ -96,5 +96,26 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓌",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "9wi6zvt4h3"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H7660"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "允",
+        "uid": "rc6s5fhd2k",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

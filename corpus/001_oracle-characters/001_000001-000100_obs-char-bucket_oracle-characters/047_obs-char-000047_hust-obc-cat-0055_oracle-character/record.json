@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐭",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "sq81wh8r3p"
+    ],
+    "occurrences": 15,
+    "plates": 15,
+    "plate_list_head": [
+      "H10187",
+      "H10188",
+      "H14175",
+      "H14178",
+      "H14180",
+      "H15377",
+      "H17297",
+      "H17312",
+      "H19627",
+      "H19628",
+      "H19630",
+      "H21300"
+    ],
+    "by_category": {
+      "卜辞句": 15
+    },
+    "top_cooccurring": [
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 6
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "帝",
+        "uid": "tp2kuz956n",
+        "count": 4
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10187",
+        "heji_candidate": "10187",
+        "group_index": 1,
+        "text": "丁未卜□龍方□降艱",
+        "position": 8,
+        "length": 9
+      },
+      {
+        "plate": "H10188",
+        "heji_candidate": "10188",
+        "group_index": 1,
+        "text": "不隹降艱",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐞",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "5k1l85d8n2"
+    ],
+    "occurrences": 344,
+    "plates": 304,
+    "plate_list_head": [
+      "H5",
+      "H52",
+      "H71",
+      "H166",
+      "H171",
+      "H177",
+      "H183",
+      "H215",
+      "H301",
+      "H369",
+      "H446",
+      "H511"
+    ],
+    "by_category": {
+      "卜辞句": 344
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 266
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 256
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 65
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 59
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 44
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 38
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5",
+        "heji_candidate": "5",
+        "group_index": 1,
+        "text": "乙巳卜殻貞□",
+        "position": 4,
+        "length": 6
+      },
+      {
+        "plate": "H5",
+        "heji_candidate": "5",
+        "group_index": 2,
+        "text": "□殻貞王大令眾匕曰□",
+        "position": 2,
+        "length": 10
+      }
+    ]
   }
 }

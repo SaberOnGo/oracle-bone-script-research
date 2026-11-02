@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑿",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ihsuhqgmdc"
+    ],
+    "occurrences": 740,
+    "plates": 706,
+    "plate_list_head": [
+      "H18",
+      "H37",
+      "H199",
+      "H255",
+      "H460",
+      "H474",
+      "H511",
+      "H629",
+      "H733",
+      "H799",
+      "H1001",
+      "H1371"
+    ],
+    "by_category": {
+      "卜辞句": 740
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 410
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 348
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 265
+      },
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 263
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 209
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 168
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H18",
+        "heji_candidate": "18",
+        "group_index": 1,
+        "text": "戌寅卜爭貞今春眾㞢工◇",
+        "position": 6,
+        "length": 11
+      },
+      {
+        "plate": "H37",
+        "heji_candidate": "37",
+        "group_index": 1,
+        "text": "□今◇乎眾人步□",
+        "position": 2,
+        "length": 8
+      }
+    ]
   }
 }

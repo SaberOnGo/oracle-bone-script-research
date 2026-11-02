@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔎",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "73ru6libmk"
+    ],
+    "occurrences": 136,
+    "plates": 100,
+    "plate_list_head": [
+      "H199",
+      "H1609",
+      "H2496",
+      "H2740",
+      "H2800",
+      "H3230",
+      "H3771",
+      "H3866",
+      "H4186",
+      "H4355",
+      "H5063",
+      "H5064"
+    ],
+    "by_category": {
+      "卜辞句": 136
+    },
+    "top_cooccurring": [
+      {
+        "text": "曰",
+        "uid": "9xhq4zclpe",
+        "count": 117
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 88
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 73
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 53
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 46
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 45
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3771",
+        "heji_candidate": "3771",
+        "group_index": 3,
+        "text": "王占曰其□𰙠隹示□",
+        "position": 2,
+        "length": 9
+      },
+      {
+        "plate": "H3866",
+        "heji_candidate": "3866",
+        "group_index": 1,
+        "text": "乙卯卜◇□王占曰其□",
+        "position": 7,
+        "length": 10
+      }
+    ]
   }
 }

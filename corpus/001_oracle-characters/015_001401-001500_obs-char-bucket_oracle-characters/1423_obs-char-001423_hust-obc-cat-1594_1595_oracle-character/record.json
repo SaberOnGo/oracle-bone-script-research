@@ -99,5 +99,52 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨰㨱",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "h521w0m697"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H18014",
+      "H19326"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "午",
+        "uid": "89m3dkhxyy",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "出",
+        "uid": "74alaf1szs",
+        "count": 1
+      },
+      {
+        "text": "申",
+        "uid": "rzfokwkc7a",
+        "count": 1
+      },
+      {
+        "text": "昃",
+        "uid": "hq2zgeaqqf",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

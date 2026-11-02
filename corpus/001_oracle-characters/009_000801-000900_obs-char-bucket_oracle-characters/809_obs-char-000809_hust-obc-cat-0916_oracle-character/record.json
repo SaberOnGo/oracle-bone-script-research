@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞊",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "x4mvyzj0ob"
+    ],
+    "occurrences": 21,
+    "plates": 18,
+    "plate_list_head": [
+      "H22457",
+      "H29752",
+      "H29754",
+      "H29780",
+      "H29808",
+      "H29870",
+      "H30190",
+      "H30284",
+      "H30285",
+      "H30864",
+      "H31030",
+      "H31050"
+    ],
+    "by_category": {
+      "卜辞句": 21
+    },
+    "top_cooccurring": [
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 7
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 7
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 6
+      },
+      {
+        "text": "弜",
+        "uid": "cv483h1fw2",
+        "count": 5
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H29754",
+        "heji_candidate": "29754",
+        "group_index": 2,
+        "text": "□日其悔",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "H29780",
+        "heji_candidate": "29780",
+        "group_index": 1,
+        "text": "于旦王廼□□悔不雨",
+        "position": 7,
+        "length": 9
+      }
+    ]
   }
 }

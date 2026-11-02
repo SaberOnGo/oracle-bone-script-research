@@ -96,5 +96,51 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓅",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "vgvqkrxgz3"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "HD481"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "吉",
+        "uid": "xlscyddubk",
+        "count": 1
+      },
+      {
+        "text": "侃",
+        "uid": "wfyy86f1n0",
+        "count": 1
+      },
+      {
+        "text": "若",
+        "uid": "1k9ogi7w79",
+        "count": 1
+      },
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 1
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 1
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

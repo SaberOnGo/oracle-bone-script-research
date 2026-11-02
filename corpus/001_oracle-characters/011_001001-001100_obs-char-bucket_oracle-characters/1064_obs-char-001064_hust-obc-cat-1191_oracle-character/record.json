@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢝",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "1b3rdlleou"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H30339",
+      "H30416",
+      "H32742"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 3
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 2
+      },
+      {
+        "text": "弜",
+        "uid": "cv483h1fw2",
+        "count": 2
+      },
+      {
+        "text": "宗",
+        "uid": "z0pbcna9kk",
+        "count": 2
+      },
+      {
+        "text": "匕",
+        "uid": "i3lktxnh52",
+        "count": 2
+      },
+      {
+        "text": "𠯑",
+        "uid": "bor1nhz1d4",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30339",
+        "heji_candidate": "30339",
+        "group_index": 3,
+        "text": "于匕庚𠯑弜秦宗",
+        "position": 6,
+        "length": 7
+      },
+      {
+        "plate": "H32742",
+        "heji_candidate": "32742",
+        "group_index": 3,
+        "text": "弜秦宗于匕庚",
+        "position": 2,
+        "length": 6
+      }
+    ]
   }
 }

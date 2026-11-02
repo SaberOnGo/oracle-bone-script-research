@@ -97,5 +97,51 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜸",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "35mlsnk38c"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H862"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 1
+      },
+      {
+        "text": "隹",
+        "uid": "y0f5gu3q0a",
+        "count": 1
+      },
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 1
+      },
+      {
+        "text": "逸",
+        "uid": "2sdz63p9g6",
+        "count": 1
+      },
+      {
+        "text": "帝",
+        "uid": "tp2kuz956n",
+        "count": 1
+      },
+      {
+        "text": "彗",
+        "uid": "k6l649jf98",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

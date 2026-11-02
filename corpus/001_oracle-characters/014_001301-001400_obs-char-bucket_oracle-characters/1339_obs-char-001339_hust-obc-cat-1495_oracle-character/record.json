@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -96,5 +96,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧍",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "k488tbxgjl"
+    ],
+    "occurrences": 4,
+    "plates": 2,
+    "plate_list_head": [
+      "H8244",
+      "H33114"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 1
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 1
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 1
+      },
+      {
+        "text": "允",
+        "uid": "rc6s5fhd2k",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H33114",
+        "heji_candidate": "33114",
+        "group_index": 1,
+        "text": "辛未□□方其邍允邍",
+        "position": 7,
+        "length": 9
+      }
+    ]
   }
 }

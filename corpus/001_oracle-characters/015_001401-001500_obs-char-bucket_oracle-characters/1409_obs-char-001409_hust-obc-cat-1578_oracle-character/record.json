@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨠",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "4j5hjsdkwc"
+    ],
+    "occurrences": 18,
+    "plates": 17,
+    "plate_list_head": [
+      "H8134",
+      "H8136",
+      "H10149",
+      "H15836",
+      "H16927",
+      "H24342",
+      "H29696",
+      "H32126",
+      "H32683",
+      "H32722",
+      "HD161",
+      "HD181"
+    ],
+    "by_category": {
+      "卜辞句": 18
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 8
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 4
+      },
+      {
+        "text": "隹",
+        "uid": "y0f5gu3q0a",
+        "count": 4
+      },
+      {
+        "text": "曰",
+        "uid": "9xhq4zclpe",
+        "count": 4
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 4
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8136",
+        "heji_candidate": "8136",
+        "group_index": 1,
+        "text": "一卯卜貞□𢽟非乎歸",
+        "position": 7,
+        "length": 9
+      },
+      {
+        "plate": "H24342",
+        "heji_candidate": "24342",
+        "group_index": 1,
+        "text": "王在師非◇",
+        "position": 4,
+        "length": 5
+      }
+    ]
   }
 }

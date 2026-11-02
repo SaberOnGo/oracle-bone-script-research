@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦩",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "m2w1k92a5a"
+    ],
+    "occurrences": 777,
+    "plates": 667,
+    "plate_list_head": [
+      "H7",
+      "H16",
+      "H17",
+      "H64",
+      "H95",
+      "H183",
+      "H214",
+      "H229",
+      "H261",
+      "H357",
+      "H369",
+      "H384"
+    ],
+    "by_category": {
+      "卜辞句": 776,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 354
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 320
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 164
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 144
+      },
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 112
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 112
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7",
+        "heji_candidate": "7",
+        "group_index": 2,
+        "text": "辛卯令眾絴◇",
+        "position": 1,
+        "length": 6
+      },
+      {
+        "plate": "H16",
+        "heji_candidate": "16",
+        "group_index": 2,
+        "text": "辛丑卜爭貞我卜多不吉勿□",
+        "position": 1,
+        "length": 12
+      }
+    ]
   }
 }

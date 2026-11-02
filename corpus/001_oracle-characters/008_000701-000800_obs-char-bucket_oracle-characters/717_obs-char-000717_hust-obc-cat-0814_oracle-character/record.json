@@ -95,5 +95,43 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜤",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "a2jmt1e3cp",
+      "krhtv9twvr"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H18553",
+      "H30956"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "廼",
+        "uid": "90zmojjf7j",
+        "count": 1
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 1
+      },
+      {
+        "text": "𫹉",
+        "uid": "hclsl73wg4",
+        "count": 1
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

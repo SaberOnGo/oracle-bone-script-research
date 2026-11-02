@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚠",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "lv32d9tz8g"
+    ],
+    "occurrences": 18,
+    "plates": 13,
+    "plate_list_head": [
+      "H495",
+      "H5455",
+      "H5479",
+      "H6367",
+      "H6368",
+      "H13017",
+      "HD208",
+      "HD220",
+      "HD226",
+      "HD255",
+      "HD288",
+      "HD290"
+    ],
+    "by_category": {
+      "卜辞句": 18
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 10
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 6
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 5
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 5
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H495",
+        "heji_candidate": "495",
+        "group_index": 1,
+        "text": "丙御卜爭貞徵其係羌□□□",
+        "position": 6,
+        "length": 12
+      },
+      {
+        "plate": "H5455",
+        "heji_candidate": "5455",
+        "group_index": 7,
+        "text": "貞𪦾及◇徵",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

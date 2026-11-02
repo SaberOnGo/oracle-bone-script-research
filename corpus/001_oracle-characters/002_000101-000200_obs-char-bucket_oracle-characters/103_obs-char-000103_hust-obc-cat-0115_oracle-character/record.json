@@ -93,5 +93,20 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑩",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "o764sfprik"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H23279"
+    ],
+    "by_category": {
+      "未定": 1
+    },
+    "top_cooccurring": [],
+    "examples": []
   }
 }

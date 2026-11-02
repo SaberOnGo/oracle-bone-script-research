@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤹㤺",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "jgofpoxdpd"
+    ],
+    "occurrences": 265,
+    "plates": 228,
+    "plate_list_head": [
+      "H7",
+      "H2510",
+      "H2573",
+      "H4220",
+      "H5414",
+      "H5581",
+      "H5600",
+      "H6678",
+      "H6882",
+      "H7276",
+      "H7853",
+      "H7857"
+    ],
+    "by_category": {
+      "卜辞句": 193,
+      "验辞": 72
+    },
+    "top_cooccurring": [
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 156
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 69
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 62
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 42
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 28
+      },
+      {
+        "text": "牢",
+        "uid": "w4mg32kjp4",
+        "count": 28
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7",
+        "heji_candidate": "7",
+        "group_index": 1,
+        "text": "癸未卜爭貞王在茲◇咸狩",
+        "position": 8,
+        "length": 11
+      },
+      {
+        "plate": "H2510",
+        "heji_candidate": "2510",
+        "group_index": 2,
+        "text": "丁卯卜貞茲匕丹不□",
+        "position": 5,
+        "length": 9
+      }
+    ]
   }
 }

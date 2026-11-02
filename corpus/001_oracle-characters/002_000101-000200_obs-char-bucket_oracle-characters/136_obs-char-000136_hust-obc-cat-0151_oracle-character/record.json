@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒍",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "llttpz4l8h"
+    ],
+    "occurrences": 44,
+    "plates": 36,
+    "plate_list_head": [
+      "H6789",
+      "H17378",
+      "H20239",
+      "H29706",
+      "H29717",
+      "H29724",
+      "H29725",
+      "H29727",
+      "H29730",
+      "H29819",
+      "H29934",
+      "H29937"
+    ],
+    "by_category": {
+      "卜辞句": 44
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 32
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 30
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 16
+      },
+      {
+        "text": "冓",
+        "uid": "d91rup9lkj",
+        "count": 15
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 14
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 13
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6789",
+        "heji_candidate": "6789",
+        "group_index": 1,
+        "text": "壬辰卜方其敦視何",
+        "position": 8,
+        "length": 8
+      },
+      {
+        "plate": "H6789",
+        "heji_candidate": "6789",
+        "group_index": 2,
+        "text": "貞方其敦視何",
+        "position": 6,
+        "length": 6
+      }
+    ]
   }
 }

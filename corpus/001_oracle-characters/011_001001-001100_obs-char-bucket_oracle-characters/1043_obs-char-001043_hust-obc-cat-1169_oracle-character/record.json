@@ -97,5 +97,54 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢇",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "1cqtj1q73a"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H2020",
+      "H13551",
+      "H14685",
+      "H15216"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "亥",
+        "uid": "q71z8tnnc6",
+        "count": 1
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "殻",
+        "uid": "5k1l85d8n2",
+        "count": 1
+      },
+      {
+        "text": "南",
+        "uid": "qmsdu51da8",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

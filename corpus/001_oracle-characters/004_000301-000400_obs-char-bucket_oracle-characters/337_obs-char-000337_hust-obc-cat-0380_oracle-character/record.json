@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕲",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "9mg6ifqmny"
+    ],
+    "occurrences": 10,
+    "plates": 9,
+    "plate_list_head": [
+      "H10",
+      "H695",
+      "H8103",
+      "H9546",
+      "H9547",
+      "H20041",
+      "H21374",
+      "H32543",
+      "H32963"
+    ],
+    "by_category": {
+      "卜辞句": 10
+    },
+    "top_cooccurring": [
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 5
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "黍",
+        "uid": "g8k12dfmg6",
+        "count": 3
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10",
+        "heji_candidate": "10",
+        "group_index": 1,
+        "text": "戊寅卜賓貞王往以眾黍于囧",
+        "position": 12,
+        "length": 12
+      },
+      {
+        "plate": "H9546",
+        "heji_candidate": "9546",
+        "group_index": 1,
+        "text": "丙午卜□令□黍于囧",
+        "position": 9,
+        "length": 9
+      }
+    ]
   }
 }

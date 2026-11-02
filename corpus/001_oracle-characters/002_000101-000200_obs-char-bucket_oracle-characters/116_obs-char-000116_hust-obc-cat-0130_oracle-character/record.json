@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑸",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "f7hrrl0bh9"
+    ],
+    "occurrences": 42,
+    "plates": 40,
+    "plate_list_head": [
+      "H970",
+      "H1450",
+      "H2477",
+      "H3856",
+      "H3931",
+      "H4328",
+      "H4441",
+      "H5520",
+      "H5837",
+      "H5838",
+      "H6673",
+      "H6683"
+    ],
+    "by_category": {
+      "卜辞句": 42
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 13
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 12
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 8
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 7
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 6
+      },
+      {
+        "text": "戌",
+        "uid": "7gvythc7mi",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H970",
+        "heji_candidate": "970",
+        "group_index": 1,
+        "text": "己亥卜殻貞㞢伐于□尹亦㞢于蔑",
+        "position": 11,
+        "length": 14
+      },
+      {
+        "plate": "H1450",
+        "heji_candidate": "1450",
+        "group_index": 1,
+        "text": "戊戌卜賓貞束于大甲亦于□",
+        "position": 10,
+        "length": 12
+      }
+    ]
   }
 }

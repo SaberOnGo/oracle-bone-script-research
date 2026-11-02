@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -95,5 +95,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡐",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ogt487t2u1"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H8006",
+      "H9085"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "子",
+        "uid": "r79attbhro",
+        "count": 1
+      },
+      {
+        "text": "戊",
+        "uid": "u7v6rlhp81",
+        "count": 1
+      },
+      {
+        "text": "雀",
+        "uid": "ecbetcendb",
+        "count": 1
+      },
+      {
+        "text": "師",
+        "uid": "0avi2tcy0g",
+        "count": 1
+      },
+      {
+        "text": "往",
+        "uid": "m6szz2tcxv",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8006",
+        "heji_candidate": "8006",
+        "group_index": 1,
+        "text": "戊子卜令癹往雀師",
+        "position": 5,
+        "length": 8
+      }
+    ]
   }
 }

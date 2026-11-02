@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜴",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "pa13rewdd9"
+    ],
+    "occurrences": 661,
+    "plates": 583,
+    "plate_list_head": [
+      "H7",
+      "H26",
+      "H27",
+      "H39",
+      "H120",
+      "H138",
+      "H215",
+      "H242",
+      "H258",
+      "H292",
+      "H313",
+      "H381"
+    ],
+    "by_category": {
+      "卜辞句": 661
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 408
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 314
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 163
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 132
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 131
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 130
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7",
+        "heji_candidate": "7",
+        "group_index": 1,
+        "text": "癸未卜爭貞王在茲◇咸狩",
+        "position": 2,
+        "length": 11
+      },
+      {
+        "plate": "H26",
+        "heji_candidate": "26",
+        "group_index": 1,
+        "text": "丁未卜爭貞勿令畢以眾伐𢀛",
+        "position": 2,
+        "length": 12
+      }
+    ]
   }
 }

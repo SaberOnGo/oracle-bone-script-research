@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,73 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔘",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "947jc8d4sh"
+    ],
+    "occurrences": 7,
+    "plates": 6,
+    "plate_list_head": [
+      "H32571",
+      "HD179",
+      "HD237",
+      "HD262",
+      "HD416",
+      "HD449"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 5
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 4
+      },
+      {
+        "text": "戓",
+        "uid": "f7hr5ku09c",
+        "count": 3
+      },
+      {
+        "text": "伯",
+        "uid": "jn8qw1nhns",
+        "count": 3
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H32571",
+        "heji_candidate": "32571",
+        "group_index": 4,
+        "text": "□羊用于卲若",
+        "position": 5,
+        "length": 6
+      },
+      {
+        "plate": "HD179",
+        "heji_candidate": "D179",
+        "group_index": 5,
+        "text": "丁未卜叀卲乎匄貯◇",
+        "position": 5,
+        "length": 9
+      }
+    ]
   }
 }

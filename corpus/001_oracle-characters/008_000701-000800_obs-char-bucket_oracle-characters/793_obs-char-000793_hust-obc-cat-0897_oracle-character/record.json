@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㝷",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "rvr9wfrhx5"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H5524",
+      "H22330",
+      "H30789",
+      "H32300"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 3
+      },
+      {
+        "text": "焚",
+        "uid": "t4tioxlhov",
+        "count": 2
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "史",
+        "uid": "h3nw474wwr",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5524",
+        "heji_candidate": "5524",
+        "group_index": 3,
+        "text": "貞史人于此",
+        "position": 5,
+        "length": 5
+      },
+      {
+        "plate": "H32300",
+        "heji_candidate": "32300",
+        "group_index": 4,
+        "text": "其焚此佑雨",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

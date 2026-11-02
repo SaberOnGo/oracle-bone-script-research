@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,63 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦑",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "kn438rbkpd"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H3295",
+      "H3302",
+      "H3303",
+      "H14376"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "侯",
+        "uid": "e8qibnliym",
+        "count": 2
+      },
+      {
+        "text": "壴",
+        "uid": "8lxqk97zyh",
+        "count": 1
+      },
+      {
+        "text": "𰇑",
+        "uid": "h82z1bo3i3",
+        "count": 1
+      },
+      {
+        "text": "來",
+        "uid": "rlx0knkq0v",
+        "count": 1
+      },
+      {
+        "text": "允",
+        "uid": "rc6s5fhd2k",
+        "count": 1
+      },
+      {
+        "text": "五",
+        "uid": "s2e076ohb1",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3295",
+        "heji_candidate": "3295",
+        "group_index": 1,
+        "text": "□侯豹允來𰇑㞢㞢壴五月",
+        "position": 3,
+        "length": 11
+      }
+    ]
   }
 }

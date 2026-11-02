@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,75 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕆㕇",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "7wp6czwrw0"
+    ],
+    "occurrences": 12,
+    "plates": 8,
+    "plate_list_head": [
+      "H3823",
+      "H6779",
+      "H30354",
+      "HD276",
+      "HD284",
+      "HD401",
+      "HD409",
+      "HD467"
+    ],
+    "by_category": {
+      "卜辞句": 12
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 10
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 6
+      },
+      {
+        "text": "◇",
+        "uid": "gbq6n25ye0",
+        "count": 6
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 6
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 5
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3823",
+        "heji_candidate": "3823",
+        "group_index": 1,
+        "text": "癸未卜古貞□令◇易皀吕",
+        "position": 11,
+        "length": 11
+      },
+      {
+        "plate": "H30354",
+        "heji_candidate": "30354",
+        "group_index": 2,
+        "text": "叀歸愆吕用且丁升",
+        "position": 4,
+        "length": 8
+      }
+    ]
   }
 }

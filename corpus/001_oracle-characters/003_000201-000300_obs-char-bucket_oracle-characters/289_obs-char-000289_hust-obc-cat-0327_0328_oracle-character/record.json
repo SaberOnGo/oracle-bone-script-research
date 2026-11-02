@@ -95,5 +95,51 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔽㔾",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "9nd2ajl4nx"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H15351"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "埶",
+        "uid": "1u3e5w4k2u",
+        "count": 1
+      },
+      {
+        "text": "往",
+        "uid": "m6szz2tcxv",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "允",
+        "uid": "rc6s5fhd2k",
+        "count": 1
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

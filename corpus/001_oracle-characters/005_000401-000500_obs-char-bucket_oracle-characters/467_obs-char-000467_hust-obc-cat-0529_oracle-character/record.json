@@ -93,5 +93,52 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘇",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "81k3ssygt1"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H115",
+      "H3740"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "取",
+        "uid": "hvm3m8ypgu",
+        "count": 1
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 1
+      },
+      {
+        "text": "芻",
+        "uid": "27jl2n6uoo",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "爭",
+        "uid": "50oggjbzcs",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

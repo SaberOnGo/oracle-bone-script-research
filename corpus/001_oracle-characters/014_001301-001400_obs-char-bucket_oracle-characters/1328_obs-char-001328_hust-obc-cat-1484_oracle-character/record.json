@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧂",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "d91rup9lkj"
+    ],
+    "occurrences": 172,
+    "plates": 137,
+    "plate_list_head": [
+      "H11",
+      "H175",
+      "H569",
+      "H577",
+      "H1972",
+      "H3250",
+      "H3813",
+      "H5087",
+      "H5174",
+      "H5250",
+      "H5349",
+      "H5712"
+    ],
+    "by_category": {
+      "卜辞句": 172
+    },
+    "top_cooccurring": [
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 84
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 68
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 64
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 54
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 42
+      },
+      {
+        "text": "大",
+        "uid": "s9y9vbblxa",
+        "count": 32
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H11",
+        "heji_candidate": "11",
+        "group_index": 1,
+        "text": "貞弗其冓",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "H175",
+        "heji_candidate": "175",
+        "group_index": 3,
+        "text": "貞戉不其冓戎",
+        "position": 5,
+        "length": 6
+      }
+    ]
   }
 }

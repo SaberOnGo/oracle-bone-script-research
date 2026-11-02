@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢑",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "xjoc12tti2"
+    ],
+    "occurrences": 91,
+    "plates": 77,
+    "plate_list_head": [
+      "H1652",
+      "H4064",
+      "H7821",
+      "H7904",
+      "H15023",
+      "H15887",
+      "H22672",
+      "H22692",
+      "H22788",
+      "H22800",
+      "H22811",
+      "H22838"
+    ],
+    "by_category": {
+      "卜辞句": 91
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 57
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 56
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 52
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 49
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 31
+      },
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 29
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7904",
+        "heji_candidate": "7904",
+        "group_index": 1,
+        "text": "貞翌庚子勿◇在祭",
+        "position": 8,
+        "length": 8
+      },
+      {
+        "plate": "H22692",
+        "heji_candidate": "22692",
+        "group_index": 1,
+        "text": "乙卯卜即貞王賓◇祭亡祸",
+        "position": 9,
+        "length": 11
+      }
+    ]
   }
 }

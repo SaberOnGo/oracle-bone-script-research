@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㥴㥵",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "t1wd9fiznl"
+    ],
+    "occurrences": 22,
+    "plates": 18,
+    "plate_list_head": [
+      "H3095",
+      "H10163",
+      "H15286",
+      "H19551",
+      "H19552",
+      "H21246",
+      "H30595",
+      "H30619",
+      "H30638",
+      "H30639",
+      "H30697",
+      "HD181"
+    ],
+    "by_category": {
+      "卜辞句": 22
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 8
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 5
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 5
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 4
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3095",
+        "heji_candidate": "3095",
+        "group_index": 1,
+        "text": "貞隹效言",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "H10163",
+        "heji_candidate": "10163",
+        "group_index": 2,
+        "text": "□㞢◇言五夕",
+        "position": 4,
+        "length": 6
+      }
+    ]
   }
 }

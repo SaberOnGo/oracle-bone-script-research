@@ -96,5 +96,53 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕷",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "kz4u69knjf"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H524",
+      "H857",
+      "H2674"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 1
+      },
+      {
+        "text": "逸",
+        "uid": "2sdz63p9g6",
+        "count": 1
+      },
+      {
+        "text": "自",
+        "uid": "0cwxw7rveh",
+        "count": 1
+      },
+      {
+        "text": "我",
+        "uid": "1rzrhj2j4j",
+        "count": 1
+      },
+      {
+        "text": "好",
+        "uid": "oaaqvh5dtf",
+        "count": 1
+      },
+      {
+        "text": "帚",
+        "uid": "qe26dg343r",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

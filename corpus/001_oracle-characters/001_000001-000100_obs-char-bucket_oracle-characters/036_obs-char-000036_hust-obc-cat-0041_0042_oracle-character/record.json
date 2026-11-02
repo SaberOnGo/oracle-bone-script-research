@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐟㐠",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "exg6lsn5w7"
+    ],
+    "occurrences": 21,
+    "plates": 20,
+    "plate_list_head": [
+      "H199",
+      "H202",
+      "H233",
+      "H477",
+      "H499",
+      "H4617",
+      "H5463",
+      "H10385",
+      "H10456",
+      "H10457",
+      "H10458",
+      "H10461"
+    ],
+    "by_category": {
+      "卜辞句": 20,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 10
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 5
+      },
+      {
+        "text": "獲",
+        "uid": "dgw10rc4gi",
+        "count": 4
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H202",
+        "heji_candidate": "202",
+        "group_index": 1,
+        "text": "貞兔不其多獲羌",
+        "position": 2,
+        "length": 7
+      },
+      {
+        "plate": "H233",
+        "heji_candidate": "233",
+        "group_index": 1,
+        "text": "貞勿◇兔來羌",
+        "position": 4,
+        "length": 6
+      }
+    ]
   }
 }

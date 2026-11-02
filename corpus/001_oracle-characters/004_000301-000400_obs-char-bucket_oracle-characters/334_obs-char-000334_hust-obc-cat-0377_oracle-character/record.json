@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,82 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕯",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "tx3m8otqgw"
+    ],
+    "occurrences": 250,
+    "plates": 217,
+    "plate_list_head": [
+      "H118",
+      "H122",
+      "H127",
+      "H225",
+      "H255",
+      "H300",
+      "H405",
+      "H466",
+      "H468",
+      "H469",
+      "H519",
+      "H565"
+    ],
+    "by_category": {
+      "兆序": 159,
+      "卜辞句": 87,
+      "验辞": 3,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "三",
+        "uid": "p77d58vew4",
+        "count": 65
+      },
+      {
+        "text": "二",
+        "uid": "8gxzzbv7w8",
+        "count": 52
+      },
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 43
+      },
+      {
+        "text": "五",
+        "uid": "s2e076ohb1",
+        "count": 35
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 34
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 33
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H127",
+        "heji_candidate": "127",
+        "group_index": 1,
+        "text": "貞弗其㚔工芻四月",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H519",
+        "heji_candidate": "519",
+        "group_index": 1,
+        "text": "□㝵四羌在秉◇",
+        "position": 3,
+        "length": 7
+      }
+    ]
   }
 }

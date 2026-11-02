@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧁",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "2sdz63p9g6"
+    ],
+    "occurrences": 27,
+    "plates": 27,
+    "plate_list_head": [
+      "H120",
+      "H131",
+      "H132",
+      "H134",
+      "H138",
+      "H496",
+      "H497",
+      "H503",
+      "H508",
+      "H511",
+      "H515",
+      "H516"
+    ],
+    "by_category": {
+      "卜辞句": 27
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 12
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 7
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 7
+      },
+      {
+        "text": "㝵",
+        "uid": "e19hd5tm0i",
+        "count": 6
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 6
+      },
+      {
+        "text": "芻",
+        "uid": "27jl2n6uoo",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H120",
+        "heji_candidate": "120",
+        "group_index": 1,
+        "text": "己未卜□貞乎彗□◇◇逸芻◇",
+        "position": 11,
+        "length": 13
+      },
+      {
+        "plate": "H131",
+        "heji_candidate": "131",
+        "group_index": 1,
+        "text": "貞逸芻不其㝵",
+        "position": 2,
+        "length": 6
+      }
+    ]
   }
 }

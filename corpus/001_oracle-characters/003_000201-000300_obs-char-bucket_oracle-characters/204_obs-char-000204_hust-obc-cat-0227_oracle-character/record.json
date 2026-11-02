@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,75 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓙",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "8p0clmx851"
+    ],
+    "occurrences": 9,
+    "plates": 8,
+    "plate_list_head": [
+      "H20349",
+      "H22376",
+      "H22474",
+      "H32625",
+      "H33033",
+      "H33034",
+      "H33036",
+      "H33037"
+    ],
+    "by_category": {
+      "卜辞句": 9
+    },
+    "top_cooccurring": [
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 4
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H20349",
+        "heji_candidate": "20349",
+        "group_index": 1,
+        "text": "乙佑史今八夕刀",
+        "position": 7,
+        "length": 7
+      },
+      {
+        "plate": "H33033",
+        "heji_candidate": "33033",
+        "group_index": 3,
+        "text": "癸卯卜刀方其出",
+        "position": 4,
+        "length": 7
+      }
+    ]
   }
 }

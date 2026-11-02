@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐙",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "mm49eilaqb"
+    ],
+    "occurrences": 4,
+    "plates": 3,
+    "plate_list_head": [
+      "H31023",
+      "H31133",
+      "H31136"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "o75vmzxbse",
+        "count": 2
+      },
+      {
+        "text": "比",
+        "uid": "d15m8dd17h",
+        "count": 1
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 1
+      },
+      {
+        "text": "敢",
+        "uid": "tbecf7rhkr",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "wpbo51inbu",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H31133",
+        "heji_candidate": "31133",
+        "group_index": 1,
+        "text": "其◇敢㫃叀□",
+        "position": 4,
+        "length": 6
+      },
+      {
+        "plate": "H31136",
+        "heji_candidate": "31136",
+        "group_index": 2,
+        "text": "于疐◇㫃",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

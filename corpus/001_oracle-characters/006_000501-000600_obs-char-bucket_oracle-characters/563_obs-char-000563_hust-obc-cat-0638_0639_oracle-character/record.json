@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙴㙵",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "59km3f155u"
+    ],
+    "occurrences": 37,
+    "plates": 35,
+    "plate_list_head": [
+      "H20",
+      "H647",
+      "H879",
+      "H3864",
+      "H4032",
+      "H5742",
+      "H5803",
+      "H6414",
+      "H6467",
+      "H6747",
+      "H6859",
+      "H7281"
+    ],
+    "by_category": {
+      "卜辞句": 37
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 21
+      },
+      {
+        "text": "人",
+        "uid": "p6uj3n0aze",
+        "count": 10
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 8
+      },
+      {
+        "text": "牛",
+        "uid": "66iowpdbuc",
+        "count": 8
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 8
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 7
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H879",
+        "heji_candidate": "879",
+        "group_index": 1,
+        "text": "戊寅卜殻貞収伐翌庚辰用",
+        "position": 6,
+        "length": 11
+      },
+      {
+        "plate": "H3864",
+        "heji_candidate": "3864",
+        "group_index": 1,
+        "text": "庚申卜◇貞収牛□",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

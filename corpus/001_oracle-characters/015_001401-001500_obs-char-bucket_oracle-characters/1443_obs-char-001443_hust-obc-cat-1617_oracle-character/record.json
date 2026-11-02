@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩇",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fp0gk2d44n"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H3100",
+      "H3105"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 1
+      },
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 1
+      },
+      {
+        "text": "見",
+        "uid": "r9cvuw9v1t",
+        "count": 1
+      },
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 1
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3100",
+        "heji_candidate": "3100",
+        "group_index": 1,
+        "text": "□◇髦見以歲于丁",
+        "position": 3,
+        "length": 8
+      }
+    ]
   }
 }

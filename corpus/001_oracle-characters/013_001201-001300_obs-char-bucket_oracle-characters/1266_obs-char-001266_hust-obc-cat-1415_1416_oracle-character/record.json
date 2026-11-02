@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㥽㥾",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ajjda965yb"
+    ],
+    "occurrences": 50,
+    "plates": 49,
+    "plate_list_head": [
+      "H787",
+      "H1667",
+      "H1673",
+      "H1751",
+      "H1905",
+      "H2040",
+      "H2050",
+      "H2524",
+      "H2627",
+      "H2628",
+      "H2934",
+      "H2942"
+    ],
+    "by_category": {
+      "卜辞句": 50
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 21
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 21
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 16
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 13
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 6
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H787",
+        "heji_candidate": "787",
+        "group_index": 6,
+        "text": "貞勿◇用",
+        "position": 3,
+        "length": 4
+      },
+      {
+        "plate": "H787",
+        "heji_candidate": "787",
+        "group_index": 8,
+        "text": "貞勿◇黍受㞢年",
+        "position": 3,
+        "length": 7
+      }
+    ]
   }
 }

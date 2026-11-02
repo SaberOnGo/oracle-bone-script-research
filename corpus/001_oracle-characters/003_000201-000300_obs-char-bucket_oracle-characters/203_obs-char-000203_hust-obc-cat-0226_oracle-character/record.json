@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓘",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "74alaf1szs"
+    ],
+    "occurrences": 238,
+    "plates": 216,
+    "plate_list_head": [
+      "H15",
+      "H30",
+      "H169",
+      "H651",
+      "H1258",
+      "H1465",
+      "H1583",
+      "H1665",
+      "H1799",
+      "H2807",
+      "H3193",
+      "H3776"
+    ],
+    "by_category": {
+      "卜辞句": 238
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 108
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 107
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 74
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 39
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 38
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 31
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H15",
+        "heji_candidate": "15",
+        "group_index": 1,
+        "text": "貞乎眾人出麋克",
+        "position": 5,
+        "length": 7
+      },
+      {
+        "plate": "H169",
+        "heji_candidate": "169",
+        "group_index": 5,
+        "text": "貞于翌庚申出",
+        "position": 6,
+        "length": 6
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㥮",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "r9cvuw9v1t"
+    ],
+    "occurrences": 42,
+    "plates": 36,
+    "plate_list_head": [
+      "H799",
+      "H3100",
+      "H4608",
+      "H6455",
+      "H6797",
+      "H8043",
+      "H9267",
+      "H9427",
+      "H16941",
+      "H17330",
+      "H19402",
+      "H19404"
+    ],
+    "by_category": {
+      "卜辞句": 42
+    },
+    "top_cooccurring": [
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 15
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 13
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 9
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 8
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 8
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 7
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3100",
+        "heji_candidate": "3100",
+        "group_index": 1,
+        "text": "□◇髦見以歲于丁",
+        "position": 4,
+        "length": 8
+      },
+      {
+        "plate": "H9267",
+        "heji_candidate": "9267",
+        "group_index": 1,
+        "text": "庭見入三",
+        "position": 2,
+        "length": 4
+      }
+    ]
   }
 }

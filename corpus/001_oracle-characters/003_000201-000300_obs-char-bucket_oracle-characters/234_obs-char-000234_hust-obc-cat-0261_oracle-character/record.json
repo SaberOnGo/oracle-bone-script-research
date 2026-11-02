@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓻",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "um3hp76w21"
+    ],
+    "occurrences": 28,
+    "plates": 27,
+    "plate_list_head": [
+      "H146",
+      "H6625",
+      "H6627",
+      "H6628",
+      "H7119",
+      "H7122",
+      "H12875",
+      "H14332",
+      "H14333",
+      "H15733",
+      "H15765",
+      "H15784"
+    ],
+    "by_category": {
+      "卜辞句": 28
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 6
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 6
+      },
+      {
+        "text": "奠",
+        "uid": "w4frb60x9v",
+        "count": 4
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6625",
+        "heji_candidate": "6625",
+        "group_index": 1,
+        "text": "貞北羌㞢告曰戎",
+        "position": 2,
+        "length": 7
+      },
+      {
+        "plate": "H6627",
+        "heji_candidate": "6627",
+        "group_index": 1,
+        "text": "己酉卜殻貞王叀北羌伐",
+        "position": 8,
+        "length": 10
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑱",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "kkt3pdctdg"
+    ],
+    "occurrences": 106,
+    "plates": 98,
+    "plate_list_head": [
+      "H114",
+      "H148",
+      "H224",
+      "H307",
+      "H511",
+      "H575",
+      "H845",
+      "H1184",
+      "H1319",
+      "H1439",
+      "H1734",
+      "H1753"
+    ],
+    "by_category": {
+      "卜辞句": 106
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 90
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 82
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 17
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 14
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 14
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 13
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H224",
+        "heji_candidate": "224",
+        "group_index": 1,
+        "text": "□卜亘貞敢羌",
+        "position": 3,
+        "length": 6
+      },
+      {
+        "plate": "H511",
+        "heji_candidate": "511",
+        "group_index": 2,
+        "text": "辛丑卜亘貞今日其雨",
+        "position": 4,
+        "length": 9
+      }
+    ]
   }
 }

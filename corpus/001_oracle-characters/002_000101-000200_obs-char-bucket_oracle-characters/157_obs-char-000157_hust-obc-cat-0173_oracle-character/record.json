@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,73 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒣",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "dcc90z03il"
+    ],
+    "occurrences": 6,
+    "plates": 6,
+    "plate_list_head": [
+      "H3935",
+      "H11760",
+      "H15929",
+      "H17956",
+      "H25020",
+      "H33363"
+    ],
+    "by_category": {
+      "卜辞句": 6
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 2
+      },
+      {
+        "text": "䧅",
+        "uid": "x8dr6vkpa0",
+        "count": 1
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 1
+      },
+      {
+        "text": "午",
+        "uid": "89m3dkhxyy",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H11760",
+        "heji_candidate": "11760",
+        "group_index": 1,
+        "text": "庚午卜偁貞雨",
+        "position": 4,
+        "length": 6
+      },
+      {
+        "plate": "H15929",
+        "heji_candidate": "15929",
+        "group_index": 1,
+        "text": "貞牛畀偁□□二告",
+        "position": 4,
+        "length": 8
+      }
+    ]
   }
 }

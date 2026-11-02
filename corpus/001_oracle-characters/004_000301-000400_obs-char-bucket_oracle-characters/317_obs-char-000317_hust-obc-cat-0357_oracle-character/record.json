@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕛",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "26cn9edtxb",
+      "y0f5gu3q0a"
+    ],
+    "occurrences": 314,
+    "plates": 288,
+    "plate_list_head": [
+      "H122",
+      "H149",
+      "H214",
+      "H225",
+      "H565",
+      "H567",
+      "H599",
+      "H600",
+      "H614",
+      "H615",
+      "H620",
+      "H621"
+    ],
+    "by_category": {
+      "卜辞句": 314
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 145
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 75
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 72
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 65
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 38
+      },
+      {
+        "text": "害",
+        "uid": "446qjw4xgi",
+        "count": 32
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H122",
+        "heji_candidate": "122",
+        "group_index": 1,
+        "text": "貞王夢啟隹祸",
+        "position": 5,
+        "length": 6
+      },
+      {
+        "plate": "H122",
+        "heji_candidate": "122",
+        "group_index": 2,
+        "text": "王夢啟不隹祸",
+        "position": 5,
+        "length": 6
+      }
+    ]
   }
 }

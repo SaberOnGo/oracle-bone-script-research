@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨤",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "rbnqxy5oij"
+    ],
+    "occurrences": 27,
+    "plates": 26,
+    "plate_list_head": [
+      "H515",
+      "H1434",
+      "H1876",
+      "H2638",
+      "H3755",
+      "H3847",
+      "H3853",
+      "H3854",
+      "H3856",
+      "H3857",
+      "H3858",
+      "H4006"
+    ],
+    "by_category": {
+      "卜辞句": 27
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 22
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 19
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 4
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 4
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 4
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H515",
+        "heji_candidate": "515",
+        "group_index": 1,
+        "text": "甲午卜韋貞逸羌不□",
+        "position": 4,
+        "length": 9
+      },
+      {
+        "plate": "H1434",
+        "heji_candidate": "1434",
+        "group_index": 1,
+        "text": "□卜韋貞王往省从西告于大甲",
+        "position": 3,
+        "length": 13
+      }
+    ]
   }
 }

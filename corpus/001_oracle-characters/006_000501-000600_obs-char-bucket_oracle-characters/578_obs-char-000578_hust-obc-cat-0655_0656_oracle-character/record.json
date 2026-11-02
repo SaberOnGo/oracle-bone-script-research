@@ -99,5 +99,53 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚅㚆",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "uhk4plz1rm"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H33177",
+      "H35344",
+      "HD161"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "九",
+        "uid": "8pu7n71zyl",
+        "count": 1
+      },
+      {
+        "text": "北",
+        "uid": "um3hp76w21",
+        "count": 1
+      },
+      {
+        "text": "滳",
+        "uid": "33r901db0e",
+        "count": 1
+      },
+      {
+        "text": "戌",
+        "uid": "7gvythc7mi",
+        "count": 1
+      },
+      {
+        "text": "戍",
+        "uid": "nclwec7ns3",
+        "count": 1
+      },
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

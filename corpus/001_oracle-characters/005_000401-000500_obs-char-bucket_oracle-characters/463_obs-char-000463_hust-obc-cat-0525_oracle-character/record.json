@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,77 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘃",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ix033niy64"
+    ],
+    "occurrences": 10,
+    "plates": 10,
+    "plate_list_head": [
+      "H8229",
+      "H8344",
+      "H13570",
+      "H19531",
+      "H19532",
+      "H19533",
+      "H19534",
+      "H20327",
+      "H21031",
+      "HD294"
+    ],
+    "by_category": {
+      "卜辞句": 10
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "𥁑",
+        "uid": "ake9481rl7",
+        "count": 2
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 2
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "寅",
+        "uid": "u3lh7tekno",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8229",
+        "heji_candidate": "8229",
+        "group_index": 1,
+        "text": "□𥁑宅◇",
+        "position": 3,
+        "length": 4
+      },
+      {
+        "plate": "H13570",
+        "heji_candidate": "13570",
+        "group_index": 1,
+        "text": "癸巳卜賓貞叀今二月宅東寢",
+        "position": 10,
+        "length": 12
+      }
+    ]
   }
 }

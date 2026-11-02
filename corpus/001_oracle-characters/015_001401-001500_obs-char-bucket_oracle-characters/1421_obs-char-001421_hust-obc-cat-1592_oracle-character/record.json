@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨮",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "i2m9i5ytbg"
+    ],
+    "occurrences": 9,
+    "plates": 9,
+    "plate_list_head": [
+      "H19503",
+      "H19504",
+      "H19505",
+      "H20134",
+      "H20791",
+      "H20956",
+      "H29783",
+      "H29786",
+      "H31990"
+    ],
+    "by_category": {
+      "卜辞句": 9
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 2
+      },
+      {
+        "text": "人",
+        "uid": "p6uj3n0aze",
+        "count": 2
+      },
+      {
+        "text": "大",
+        "uid": "s9y9vbblxa",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H19503",
+        "heji_candidate": "19503",
+        "group_index": 1,
+        "text": "丁卯卜賓貞勿食",
+        "position": 7,
+        "length": 7
+      },
+      {
+        "plate": "H19504",
+        "heji_candidate": "19504",
+        "group_index": 1,
+        "text": "□弗其比食",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

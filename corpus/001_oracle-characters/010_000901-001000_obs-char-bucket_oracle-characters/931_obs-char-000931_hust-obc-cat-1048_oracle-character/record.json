@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠎",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "nllrzldww6"
+    ],
+    "occurrences": 67,
+    "plates": 50,
+    "plate_list_head": [
+      "H14992",
+      "H19972",
+      "H19974",
+      "H21213",
+      "H21269",
+      "H22945",
+      "H22996",
+      "H23006",
+      "H23441",
+      "H23443",
+      "H24097",
+      "H24533"
+    ],
+    "by_category": {
+      "卜辞句": 67
+    },
+    "top_cooccurring": [
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 25
+      },
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 23
+      },
+      {
+        "text": "◇",
+        "uid": "gbq6n25ye0",
+        "count": 23
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 16
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 15
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 14
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H14992",
+        "heji_candidate": "14992",
+        "group_index": 1,
+        "text": "㞢大晦牝用",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "H19972",
+        "heji_candidate": "19972",
+        "group_index": 1,
+        "text": "㞢大晦牝用",
+        "position": 4,
+        "length": 5
+      }
+    ]
   }
 }

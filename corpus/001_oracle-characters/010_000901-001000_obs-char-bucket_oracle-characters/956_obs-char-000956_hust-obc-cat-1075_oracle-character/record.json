@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,63 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠩",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "gcbnox9x1n"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H6817",
+      "H6819",
+      "H6821",
+      "H6823"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "周",
+        "uid": "qdft7im9cb",
+        "count": 4
+      },
+      {
+        "text": "侯",
+        "uid": "e8qibnliym",
+        "count": 3
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 3
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "夕",
+        "uid": "no4gdlajf6",
+        "count": 2
+      },
+      {
+        "text": "叶",
+        "uid": "r424gd7pwf",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6821",
+        "heji_candidate": "6821",
+        "group_index": 1,
+        "text": "臿令□侯璞周五夕",
+        "position": 5,
+        "length": 8
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,68 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚿",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "7qrer294i2"
+    ],
+    "occurrences": 3,
+    "plates": 1,
+    "plate_list_head": [
+      "H31036"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 2
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      },
+      {
+        "text": "奏",
+        "uid": "qzgadtxm9i",
+        "count": 2
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "yjzpdsoyyo",
+        "count": 1
+      },
+      {
+        "text": "弜",
+        "uid": "cv483h1fw2",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H31036",
+        "heji_candidate": "31036",
+        "group_index": 1,
+        "text": "乙弜◇戚其雨",
+        "position": 4,
+        "length": 6
+      },
+      {
+        "plate": "H31036",
+        "heji_candidate": "31036",
+        "group_index": 2,
+        "text": "于丁亥奏戚不雨",
+        "position": 5,
+        "length": 7
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘐",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "wik93edkn9"
+    ],
+    "occurrences": 21,
+    "plates": 21,
+    "plate_list_head": [
+      "H806",
+      "H1014",
+      "H5329",
+      "H7915",
+      "H13559",
+      "H13562",
+      "H13566",
+      "H23433",
+      "H24939",
+      "H24940",
+      "H24942",
+      "H24948"
+    ],
+    "by_category": {
+      "卜辞句": 21
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 9
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 9
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 8
+      },
+      {
+        "text": "告",
+        "uid": "fmdym8mxmv",
+        "count": 5
+      },
+      {
+        "text": "大",
+        "uid": "s9y9vbblxa",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H806",
+        "heji_candidate": "806",
+        "group_index": 1,
+        "text": "貞告鞠于室南◇",
+        "position": 5,
+        "length": 7
+      },
+      {
+        "plate": "H5329",
+        "heji_candidate": "5329",
+        "group_index": 1,
+        "text": "甲御卜王貞室獲家不其□",
+        "position": 6,
+        "length": 11
+      }
+    ]
   }
 }

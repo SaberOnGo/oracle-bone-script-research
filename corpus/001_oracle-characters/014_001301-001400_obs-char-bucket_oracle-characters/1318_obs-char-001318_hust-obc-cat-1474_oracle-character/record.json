@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦸",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "i1qbimwfk6"
+    ],
+    "occurrences": 9,
+    "plates": 9,
+    "plate_list_head": [
+      "H567",
+      "H4450",
+      "H4451",
+      "H7054",
+      "H7058",
+      "H17099",
+      "H32036",
+      "H32038",
+      "H32155"
+    ],
+    "by_category": {
+      "卜辞句": 9
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 3
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 2
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 2
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "寇",
+        "uid": "r26j6lro1i",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H567",
+        "heji_candidate": "567",
+        "group_index": 1,
+        "text": "貞隹□逆寇",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "H4451",
+        "heji_candidate": "4451",
+        "group_index": 1,
+        "text": "貞勿令逆",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

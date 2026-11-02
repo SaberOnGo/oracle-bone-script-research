@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕘",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "7nw813njs0"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H2644",
+      "H2668",
+      "H2808",
+      "H23705"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 2
+      },
+      {
+        "text": "好",
+        "uid": "oaaqvh5dtf",
+        "count": 2
+      },
+      {
+        "text": "帚",
+        "uid": "qe26dg343r",
+        "count": 2
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2644",
+        "heji_candidate": "2644",
+        "group_index": 1,
+        "text": "貞帚好弗其賓哭□",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H2668",
+        "heji_candidate": "2668",
+        "group_index": 1,
+        "text": "貞哭好于敦",
+        "position": 2,
+        "length": 5
+      }
+    ]
   }
 }

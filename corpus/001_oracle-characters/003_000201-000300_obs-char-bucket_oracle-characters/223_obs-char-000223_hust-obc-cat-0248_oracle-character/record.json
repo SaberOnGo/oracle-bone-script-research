@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -95,5 +95,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㓮",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "kh67ey65hl"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "HD288"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "子",
+        "uid": "r79attbhro",
+        "count": 1
+      },
+      {
+        "text": "馬",
+        "uid": "lv9rlaeib9",
+        "count": 1
+      },
+      {
+        "text": "戊",
+        "uid": "u7v6rlhp81",
+        "count": 1
+      },
+      {
+        "text": "匄",
+        "uid": "cvxsbiqy4g",
+        "count": 1
+      },
+      {
+        "text": "引",
+        "uid": "c4uzt5w1qm",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD288",
+        "heji_candidate": "D288",
+        "group_index": 5,
+        "text": "戊子卜其匄馬佑力引",
+        "position": 8,
+        "length": 9
+      }
+    ]
   }
 }

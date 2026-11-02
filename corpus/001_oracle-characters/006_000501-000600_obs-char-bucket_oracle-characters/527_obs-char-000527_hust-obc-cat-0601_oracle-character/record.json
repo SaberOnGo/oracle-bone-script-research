@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙏",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "reqn09rgft"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H33226"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "戌",
+        "uid": "7gvythc7mi",
+        "count": 1
+      },
+      {
+        "text": "壬",
+        "uid": "oesivb520y",
+        "count": 1
+      },
+      {
+        "text": "告",
+        "uid": "fmdym8mxmv",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "龝",
+        "uid": "bey28jrhwu",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H33226",
+        "heji_candidate": "33226",
+        "group_index": 1,
+        "text": "壬戌貞其告龝◇于高□",
+        "position": 7,
+        "length": 10
+      }
+    ]
   }
 }

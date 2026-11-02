@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㣩",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "egf0h3s4xh"
+    ],
+    "occurrences": 138,
+    "plates": 124,
+    "plate_list_head": [
+      "H3057",
+      "H3787",
+      "H3806",
+      "H5053",
+      "H5104",
+      "H5809",
+      "H6309",
+      "H6361",
+      "H6364",
+      "H6367",
+      "H6368",
+      "H6372"
+    ],
+    "by_category": {
+      "卜辞句": 136,
+      "未定": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 45
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 42
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 36
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 36
+      },
+      {
+        "text": "我",
+        "uid": "1rzrhj2j4j",
+        "count": 12
+      },
+      {
+        "text": "戉",
+        "uid": "yuucprnzb5",
+        "count": 12
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3806",
+        "heji_candidate": "3806",
+        "group_index": 1,
+        "text": "□戈翦亘",
+        "position": 3,
+        "length": 4
+      },
+      {
+        "plate": "H5104",
+        "heji_candidate": "5104",
+        "group_index": 2,
+        "text": "□不翦◇",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

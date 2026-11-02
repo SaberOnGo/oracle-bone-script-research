@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙈",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "y1fizk7ybg"
+    ],
+    "occurrences": 16,
+    "plates": 14,
+    "plate_list_head": [
+      "H66",
+      "H3934",
+      "H6878",
+      "H6880",
+      "H8207",
+      "H14626",
+      "H15611",
+      "H15828",
+      "H21627",
+      "H24400",
+      "H33230",
+      "HD294"
+    ],
+    "by_category": {
+      "卜辞句": 16
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 9
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 7
+      },
+      {
+        "text": "壬",
+        "uid": "oesivb520y",
+        "count": 4
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 4
+      },
+      {
+        "text": "◇",
+        "uid": "dlpctjqwqf",
+        "count": 3
+      },
+      {
+        "text": "若",
+        "uid": "1k9ogi7w79",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H66",
+        "heji_candidate": "66",
+        "group_index": 1,
+        "text": "貞◇屰眾人㝵",
+        "position": 3,
+        "length": 6
+      },
+      {
+        "plate": "H3934",
+        "heji_candidate": "3934",
+        "group_index": 1,
+        "text": "壬御卜屰貞今月亡□",
+        "position": 4,
+        "length": 9
+      }
+    ]
   }
 }

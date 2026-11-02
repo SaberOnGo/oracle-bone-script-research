@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘁",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "orpiitt449"
+    ],
+    "occurrences": 5,
+    "plates": 4,
+    "plate_list_head": [
+      "H10063",
+      "H10065",
+      "H32033",
+      "H32509"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "mepmffeebh",
+        "uid": "mepmffeebh",
+        "count": 2
+      },
+      {
+        "text": "求",
+        "uid": "aki498y6jc",
+        "count": 2
+      },
+      {
+        "text": "㝵",
+        "uid": "e19hd5tm0i",
+        "count": 2
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H32033",
+        "heji_candidate": "32033",
+        "group_index": 2,
+        "text": "丙寅貞叀示以羌眔它于◇示用",
+        "position": 9,
+        "length": 13
+      },
+      {
+        "plate": "H32509",
+        "heji_candidate": "32509",
+        "group_index": 3,
+        "text": "庚午貞令霝以在它求□㝵",
+        "position": 8,
+        "length": 11
+      }
+    ]
   }
 }

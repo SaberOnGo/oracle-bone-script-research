@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "l12a906yri"
+    ],
+    "occurrences": 25,
+    "plates": 14,
+    "plate_list_head": [
+      "H13171",
+      "H22001",
+      "H29802",
+      "H30032",
+      "H30570",
+      "H33348",
+      "HD142",
+      "HD169",
+      "HD181",
+      "HD288",
+      "HD34",
+      "HD420"
+    ],
+    "by_category": {
+      "卜辞句": 25
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 16
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 16
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 12
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 7
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 5
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H22001",
+        "heji_candidate": "22001",
+        "group_index": 1,
+        "text": "己未祸各若",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "H29802",
+        "heji_candidate": "29802",
+        "group_index": 1,
+        "text": "𠨘各日王受佑",
+        "position": 2,
+        "length": 6
+      }
+    ]
   }
 }

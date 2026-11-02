@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㝿",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "xbypbgiy9z"
+    ],
+    "occurrences": 58,
+    "plates": 52,
+    "plate_list_head": [
+      "H452",
+      "H1949",
+      "H3294",
+      "H3303",
+      "H3948",
+      "H4002",
+      "H4014",
+      "H4077",
+      "H4078",
+      "H4194",
+      "H4305",
+      "H4380"
+    ],
+    "by_category": {
+      "卜辞句": 58
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 25
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 12
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 11
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 11
+      },
+      {
+        "text": "人",
+        "uid": "p6uj3n0aze",
+        "count": 6
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 6
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H452",
+        "heji_candidate": "452",
+        "group_index": 1,
+        "text": "竹鼄羌□眔□伯人歸于河",
+        "position": 9,
+        "length": 11
+      },
+      {
+        "plate": "H1949",
+        "heji_candidate": "1949",
+        "group_index": 1,
+        "text": "□歸告于丁一牛",
+        "position": 2,
+        "length": 7
+      }
+    ]
   }
 }

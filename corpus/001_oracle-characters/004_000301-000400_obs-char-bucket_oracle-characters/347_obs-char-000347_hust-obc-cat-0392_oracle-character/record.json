@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,73 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕾",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "j6pe4lu59v"
+    ],
+    "occurrences": 7,
+    "plates": 6,
+    "plate_list_head": [
+      "HD193",
+      "HD203",
+      "HD363",
+      "HD475",
+      "HD480",
+      "HD490"
+    ],
+    "by_category": {
+      "卜辞句": 7
+    },
+    "top_cooccurring": [
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 6
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 5
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 5
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 4
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD193",
+        "heji_candidate": "D193",
+        "group_index": 1,
+        "text": "乙亥巳叀伯圭爯用隹巳若",
+        "position": 6,
+        "length": 11
+      },
+      {
+        "plate": "HD203",
+        "heji_candidate": "D203",
+        "group_index": 9,
+        "text": "丙卜叀巳◇圭用眔聯爯丁用",
+        "position": 6,
+        "length": 12
+      }
+    ]
   }
 }

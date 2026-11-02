@@ -95,5 +95,52 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㪝",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "myoqtwlezn"
+    ],
+    "occurrences": 25,
+    "plates": 24,
+    "plate_list_head": [
+      "H29783",
+      "H30003",
+      "H30019",
+      "H30047",
+      "H30169",
+      "H30173",
+      "H30246",
+      "H30287",
+      "H30334",
+      "H30444",
+      "H30503",
+      "H30505"
+    ],
+    "by_category": {
+      "卜辞句": 25
+    },
+    "top_cooccurring": [
+      {
+        "text": "𫩁",
+        "uid": "7fhnqn7giq",
+        "count": 19
+      },
+      {
+        "text": "待",
+        "uid": "p6gn06lpie",
+        "count": 1
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "xhh4txsh2g",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

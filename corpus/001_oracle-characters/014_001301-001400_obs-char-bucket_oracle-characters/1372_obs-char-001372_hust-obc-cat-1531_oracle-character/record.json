@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧱",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "0r2vse8o96"
+    ],
+    "occurrences": 15,
+    "plates": 14,
+    "plate_list_head": [
+      "H1667",
+      "H6981",
+      "H14792",
+      "H15364",
+      "H15365",
+      "H15366",
+      "H15369",
+      "H15377",
+      "H15378",
+      "H15380",
+      "H15465",
+      "H32029"
+    ],
+    "by_category": {
+      "卜辞句": 15
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 4
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 4
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 3
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1667",
+        "heji_candidate": "1667",
+        "group_index": 1,
+        "text": "□勿◇陟用于下乙丁未允用◇",
+        "position": 4,
+        "length": 13
+      },
+      {
+        "plate": "H6981",
+        "heji_candidate": "6981",
+        "group_index": 1,
+        "text": "庚□雀弗其翦陟",
+        "position": 7,
+        "length": 7
+      }
+    ]
   }
 }

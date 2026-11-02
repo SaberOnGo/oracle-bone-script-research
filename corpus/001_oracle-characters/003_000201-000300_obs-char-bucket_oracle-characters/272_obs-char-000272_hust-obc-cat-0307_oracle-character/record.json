@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔩",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "kgfsb68wnb"
+    ],
+    "occurrences": 20,
+    "plates": 14,
+    "plate_list_head": [
+      "H4380",
+      "H6595",
+      "H8202",
+      "H8239",
+      "H8294",
+      "H10769",
+      "H19613",
+      "H20689",
+      "HD179",
+      "HD2",
+      "HD267",
+      "HD39"
+    ],
+    "by_category": {
+      "卜辞句": 20
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "彘",
+        "uid": "bcsv0dsf6i",
+        "count": 4
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 4
+      },
+      {
+        "text": "祭",
+        "uid": "xjoc12tti2",
+        "count": 4
+      },
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 4
+      },
+      {
+        "text": "叉",
+        "uid": "i5iv3migqj",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6595",
+        "heji_candidate": "6595",
+        "group_index": 1,
+        "text": "□乎臿取龔友于◇庶以",
+        "position": 6,
+        "length": 10
+      },
+      {
+        "plate": "H8239",
+        "heji_candidate": "8239",
+        "group_index": 1,
+        "text": "□取叶友隹□于鳥",
+        "position": 4,
+        "length": 8
+      }
+    ]
   }
 }

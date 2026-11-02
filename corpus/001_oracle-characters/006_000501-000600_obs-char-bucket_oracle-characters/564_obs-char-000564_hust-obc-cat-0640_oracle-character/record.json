@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙶",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fd6c02qezd"
+    ],
+    "occurrences": 23,
+    "plates": 23,
+    "plate_list_head": [
+      "H286",
+      "H499",
+      "H894",
+      "H4099",
+      "H5580",
+      "H6798",
+      "H9334",
+      "H9432",
+      "H9460",
+      "H15305",
+      "H21213",
+      "H21551"
+    ],
+    "by_category": {
+      "卜辞句": 23
+    },
+    "top_cooccurring": [
+      {
+        "text": "伐",
+        "uid": "zr3h63w2fy",
+        "count": 8
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "牢",
+        "uid": "w4mg32kjp4",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 3
+      },
+      {
+        "text": "𫹉",
+        "uid": "hclsl73wg4",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H499",
+        "heji_candidate": "499",
+        "group_index": 1,
+        "text": "□兔允㚔羌獲廿㞢五馘二",
+        "position": 7,
+        "length": 11
+      },
+      {
+        "plate": "H894",
+        "heji_candidate": "894",
+        "group_index": 4,
+        "text": "廿伐卯□牢",
+        "position": 1,
+        "length": 5
+      }
+    ]
   }
 }

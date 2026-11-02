@@ -97,5 +97,47 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦟",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "d20ybazw7f"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H15679",
+      "H33003"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 1
+      },
+      {
+        "text": "比",
+        "uid": "d15m8dd17h",
+        "count": 1
+      },
+      {
+        "text": "射",
+        "uid": "k0pxsd02si",
+        "count": 1
+      },
+      {
+        "text": "寅",
+        "uid": "u3lh7tekno",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

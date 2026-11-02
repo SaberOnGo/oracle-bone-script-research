@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,45 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛬",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "y7ndywj3w5"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H21504"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 1
+      },
+      {
+        "text": "戌",
+        "uid": "7gvythc7mi",
+        "count": 1
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H21504",
+        "heji_candidate": "21504",
+        "group_index": 1,
+        "text": "甲戌□亡斝",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙽",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "4jn67lbqhb"
+    ],
+    "occurrences": 284,
+    "plates": 270,
+    "plate_list_head": [
+      "H11",
+      "H107",
+      "H127",
+      "H177",
+      "H183",
+      "H520",
+      "H547",
+      "H574",
+      "H575",
+      "H579",
+      "H618",
+      "H673"
+    ],
+    "by_category": {
+      "卜辞句": 284
+    },
+    "top_cooccurring": [
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 143
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 122
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 58
+      },
+      {
+        "text": "翦",
+        "uid": "egf0h3s4xh",
+        "count": 36
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 32
+      },
+      {
+        "text": "獲",
+        "uid": "dgw10rc4gi",
+        "count": 25
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H11",
+        "heji_candidate": "11",
+        "group_index": 1,
+        "text": "貞弗其冓",
+        "position": 2,
+        "length": 4
+      },
+      {
+        "plate": "H127",
+        "heji_candidate": "127",
+        "group_index": 1,
+        "text": "貞弗其㚔工芻四月",
+        "position": 2,
+        "length": 8
+      }
+    ]
   }
 }

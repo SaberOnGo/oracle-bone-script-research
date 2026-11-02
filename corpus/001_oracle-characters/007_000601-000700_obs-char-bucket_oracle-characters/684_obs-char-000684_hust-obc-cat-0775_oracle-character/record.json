@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛽",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fg2clh0hsl"
+    ],
+    "occurrences": 5,
+    "plates": 3,
+    "plate_list_head": [
+      "H5479",
+      "H7309",
+      "H15629"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "叶",
+        "uid": "r424gd7pwf",
+        "count": 2
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "史",
+        "uid": "h3nw474wwr",
+        "count": 2
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5479",
+        "heji_candidate": "5479",
+        "group_index": 1,
+        "text": "丙午卜賓貞旨弗其叶王史",
+        "position": 6,
+        "length": 11
+      },
+      {
+        "plate": "H5479",
+        "heji_candidate": "5479",
+        "group_index": 2,
+        "text": "貞旨叶王史",
+        "position": 2,
+        "length": 5
+      }
+    ]
   }
 }

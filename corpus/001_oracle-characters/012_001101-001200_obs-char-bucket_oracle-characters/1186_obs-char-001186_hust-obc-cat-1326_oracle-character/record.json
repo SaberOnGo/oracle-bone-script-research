@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㤤",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "wf3aejbrt3"
+    ],
+    "occurrences": 19,
+    "plates": 18,
+    "plate_list_head": [
+      "H1221",
+      "H3039",
+      "H5507",
+      "H7416",
+      "H9772",
+      "H11461",
+      "H13533",
+      "H16940",
+      "H21430",
+      "H32522",
+      "H32555",
+      "H32851"
+    ],
+    "by_category": {
+      "卜辞句": 19
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 8
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 5
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 4
+      },
+      {
+        "text": "𭮹",
+        "uid": "cdwgyw3kul",
+        "count": 3
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 2
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5507",
+        "heji_candidate": "5507",
+        "group_index": 1,
+        "text": "乙亥□貞立二史㞢橐舟",
+        "position": 10,
+        "length": 10
+      },
+      {
+        "plate": "H7416",
+        "heji_candidate": "7416",
+        "group_index": 1,
+        "text": "貞商□舟若",
+        "position": 4,
+        "length": 5
+      }
+    ]
   }
 }

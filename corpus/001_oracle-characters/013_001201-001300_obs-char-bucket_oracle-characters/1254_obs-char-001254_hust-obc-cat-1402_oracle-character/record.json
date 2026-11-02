@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㥰",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "hbltymdyef"
+    ],
+    "occurrences": 5,
+    "plates": 4,
+    "plate_list_head": [
+      "H670",
+      "H5495",
+      "H10467",
+      "HD181"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "獲",
+        "uid": "dgw10rc4gi",
+        "count": 2
+      },
+      {
+        "text": "女",
+        "uid": "sbjf4foazl",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "2lep30tiiz",
+        "count": 1
+      },
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H670",
+        "heji_candidate": "670",
+        "group_index": 1,
+        "text": "貞◇□角女一",
+        "position": 4,
+        "length": 6
+      },
+      {
+        "plate": "H5495",
+        "heji_candidate": "5495",
+        "group_index": 2,
+        "text": "甲戌卜王余令角帚叶朕史",
+        "position": 7,
+        "length": 11
+      }
+    ]
   }
 }

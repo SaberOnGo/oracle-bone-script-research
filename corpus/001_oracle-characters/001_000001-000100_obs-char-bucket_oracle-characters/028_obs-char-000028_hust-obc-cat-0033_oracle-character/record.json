@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,69 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐗",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "vha0ssegay"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H20167",
+      "H24550"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "g9e7qyy71p",
+        "count": 1
+      },
+      {
+        "text": "曰",
+        "uid": "9xhq4zclpe",
+        "count": 1
+      },
+      {
+        "text": "雀",
+        "uid": "ecbetcendb",
+        "count": 1
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 1
+      },
+      {
+        "text": "己",
+        "uid": "mdwfmpr3c8",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H20167",
+        "heji_candidate": "20167",
+        "group_index": 1,
+        "text": "己丑卜◇曰雀㣙",
+        "position": 7,
+        "length": 7
+      },
+      {
+        "plate": "H24550",
+        "heji_candidate": "24550",
+        "group_index": 1,
+        "text": "貞勿㣙□",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

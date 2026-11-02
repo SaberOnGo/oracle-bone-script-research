@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞠",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "jh1gwh4n7f"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H20738"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 1
+      },
+      {
+        "text": "出",
+        "uid": "74alaf1szs",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 1
+      },
+      {
+        "text": "九",
+        "uid": "8pu7n71zyl",
+        "count": 1
+      },
+      {
+        "text": "魚",
+        "uid": "lzfy8o1b7b",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H20738",
+        "heji_candidate": "20738",
+        "group_index": 1,
+        "text": "乙卯卜丙𫯦出魚不沁九月",
+        "position": 9,
+        "length": 11
+      }
+    ]
   }
 }

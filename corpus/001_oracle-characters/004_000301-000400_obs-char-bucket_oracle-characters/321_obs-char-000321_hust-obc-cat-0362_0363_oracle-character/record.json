@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -99,5 +99,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕠㕡",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "pmwfonj2ag"
+    ],
+    "occurrences": 153,
+    "plates": 123,
+    "plate_list_head": [
+      "H18",
+      "H52",
+      "H122",
+      "H4113",
+      "H5458",
+      "H6332",
+      "H7438",
+      "H7915",
+      "H9339",
+      "H10309",
+      "H10557",
+      "H10625"
+    ],
+    "by_category": {
+      "卜辞句": 153
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 50
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 46
+      },
+      {
+        "text": "今",
+        "uid": "ihsuhqgmdc",
+        "count": 39
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 38
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 37
+      },
+      {
+        "text": "翌",
+        "uid": "hlxb5g91kc",
+        "count": 29
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H18",
+        "heji_candidate": "18",
+        "group_index": 4,
+        "text": "貞臿啟叶",
+        "position": 3,
+        "length": 4
+      },
+      {
+        "plate": "H18",
+        "heji_candidate": "18",
+        "group_index": 5,
+        "text": "臿啟不其叶",
+        "position": 2,
+        "length": 5
+      }
+    ]
   }
 }

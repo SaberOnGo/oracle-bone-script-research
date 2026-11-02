@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡲",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "v0vpglxpcz"
+    ],
+    "occurrences": 6,
+    "plates": 4,
+    "plate_list_head": [
+      "H15881",
+      "H30693",
+      "H32603",
+      "H32718"
+    ],
+    "by_category": {
+      "卜辞句": 6
+    },
+    "top_cooccurring": [
+      {
+        "text": "兕",
+        "uid": "fmv0hxp7i5",
+        "count": 3
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "vh510bocta",
+        "count": 2
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "syc1ih4v1p",
+        "count": 2
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H15881",
+        "heji_candidate": "15881",
+        "group_index": 1,
+        "text": "貞勿令眞𠱫□",
+        "position": 4,
+        "length": 6
+      },
+      {
+        "plate": "H30693",
+        "heji_candidate": "30693",
+        "group_index": 3,
+        "text": "眞叀龢◇用",
+        "position": 1,
+        "length": 5
+      }
+    ]
   }
 }

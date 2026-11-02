@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,75 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "65l1kwga5y"
+    ],
+    "occurrences": 7,
+    "plates": 7,
+    "plate_list_head": [
+      "H5342",
+      "H7766",
+      "H15435",
+      "H22882",
+      "H25339",
+      "H25353",
+      "H35636"
+    ],
+    "by_category": {
+      "卜辞句": 6,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 5
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 3
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 3
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 3
+      },
+      {
+        "text": "尤",
+        "uid": "hhr47shesw",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7766",
+        "heji_candidate": "7766",
+        "group_index": 2,
+        "text": "丙申卜貞勿延戔師令",
+        "position": 7,
+        "length": 9
+      },
+      {
+        "plate": "H15435",
+        "heji_candidate": "15435",
+        "group_index": 2,
+        "text": "丑卜戔□",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

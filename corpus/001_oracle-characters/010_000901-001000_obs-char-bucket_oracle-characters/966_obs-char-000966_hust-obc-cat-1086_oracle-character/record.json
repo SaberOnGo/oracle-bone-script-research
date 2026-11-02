@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,81 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠴",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "a1lmo1xxj5"
+    ],
+    "occurrences": 1029,
+    "plates": 812,
+    "plate_list_head": [
+      "H30",
+      "H142",
+      "H156",
+      "H177",
+      "H183",
+      "H229",
+      "H242",
+      "H277",
+      "H300",
+      "H301",
+      "H421",
+      "H445"
+    ],
+    "by_category": {
+      "卜辞句": 1020,
+      "未定": 7,
+      "兆序": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 516
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 443
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 258
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 177
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 162
+      },
+      {
+        "text": "辰",
+        "uid": "4lgdy5a4ta",
+        "count": 131
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H142",
+        "heji_candidate": "142",
+        "group_index": 1,
+        "text": "甲午卜古貞在□戓芻乎□",
+        "position": 1,
+        "length": 11
+      },
+      {
+        "plate": "H156",
+        "heji_candidate": "156",
+        "group_index": 4,
+        "text": "貞翌甲寅不雨",
+        "position": 3,
+        "length": 6
+      }
+    ]
   }
 }

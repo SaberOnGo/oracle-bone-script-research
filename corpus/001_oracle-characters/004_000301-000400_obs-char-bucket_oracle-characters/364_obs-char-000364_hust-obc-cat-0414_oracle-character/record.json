@@ -97,5 +97,37 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖔",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "3lizt17yhy"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H18560",
+      "H18562"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 1
+      },
+      {
+        "text": "亢",
+        "uid": "uzw48xncgx",
+        "count": 1
+      },
+      {
+        "text": "𠬝",
+        "uid": "cvzszyp6bm",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

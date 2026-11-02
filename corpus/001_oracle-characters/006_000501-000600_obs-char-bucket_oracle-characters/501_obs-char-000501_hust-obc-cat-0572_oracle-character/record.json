@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘲",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "8u1hzbiq2w"
+    ],
+    "occurrences": 17,
+    "plates": 16,
+    "plate_list_head": [
+      "H999",
+      "H6903",
+      "H8148",
+      "H9869",
+      "H15706",
+      "H15807",
+      "H15809",
+      "H15811",
+      "H15814",
+      "H15828",
+      "H15856",
+      "H30306"
+    ],
+    "by_category": {
+      "卜辞句": 17
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 4
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 4
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 4
+      },
+      {
+        "text": "宜",
+        "uid": "f0j9ho8ua2",
+        "count": 4
+      },
+      {
+        "text": "申",
+        "uid": "rzfokwkc7a",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H999",
+        "heji_candidate": "999",
+        "group_index": 1,
+        "text": "貞尊伐□",
+        "position": 2,
+        "length": 4
+      },
+      {
+        "plate": "H15706",
+        "heji_candidate": "15706",
+        "group_index": 1,
+        "text": "庚寅卜□貞翌其𫹉于丁尊鬲",
+        "position": 11,
+        "length": 12
+      }
+    ]
   }
 }

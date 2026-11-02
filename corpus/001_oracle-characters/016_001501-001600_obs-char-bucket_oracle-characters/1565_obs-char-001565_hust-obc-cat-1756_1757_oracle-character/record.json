@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㫒㫓",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "m32ngscsu1"
+    ],
+    "occurrences": 32,
+    "plates": 27,
+    "plate_list_head": [
+      "H2865",
+      "H3007",
+      "H3117",
+      "H3212",
+      "H3858",
+      "H4118",
+      "H4128",
+      "H5470",
+      "H10125",
+      "H10711",
+      "H11502",
+      "H14118"
+    ],
+    "by_category": {
+      "卜辞句": 32
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 16
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 8
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 6
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 6
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 5
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2865",
+        "heji_candidate": "2865",
+        "group_index": 1,
+        "text": "貞御霝妃于𣎆□",
+        "position": 6,
+        "length": 7
+      },
+      {
+        "plate": "H3007",
+        "heji_candidate": "3007",
+        "group_index": 1,
+        "text": "貞御◇央于𣎆甲",
+        "position": 6,
+        "length": 7
+      }
+    ]
   }
 }

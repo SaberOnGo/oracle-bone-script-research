@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞯",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "oxa0ylq9ay"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H11477",
+      "H11478",
+      "H20272",
+      "H20273"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 3
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 3
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 2
+      },
+      {
+        "text": "巳",
+        "uid": "d7mczw6osp",
+        "count": 1
+      },
+      {
+        "text": "戌",
+        "uid": "7gvythc7mi",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H11477",
+        "heji_candidate": "11477",
+        "group_index": 1,
+        "text": "甲戌卜爭貞來辛巳其乇洀",
+        "position": 11,
+        "length": 11
+      },
+      {
+        "plate": "H20272",
+        "heji_candidate": "20272",
+        "group_index": 1,
+        "text": "庚寅卜王洀辛卯易日",
+        "position": 5,
+        "length": 9
+      }
+    ]
   }
 }

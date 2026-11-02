@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩨",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "54s1u855x9"
+    ],
+    "occurrences": 31,
+    "plates": 27,
+    "plate_list_head": [
+      "H15",
+      "H5524",
+      "H5686",
+      "H10351",
+      "H10352",
+      "H10353",
+      "H10357",
+      "H10358",
+      "H10359",
+      "H10361",
+      "H10363",
+      "H10364"
+    ],
+    "by_category": {
+      "卜辞句": 31
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 9
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 7
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 6
+      },
+      {
+        "text": "擒",
+        "uid": "67yxx2eqp0",
+        "count": 6
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "獲",
+        "uid": "dgw10rc4gi",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H15",
+        "heji_candidate": "15",
+        "group_index": 1,
+        "text": "貞乎眾人出麋克",
+        "position": 6,
+        "length": 7
+      },
+      {
+        "plate": "H10352",
+        "heji_candidate": "10352",
+        "group_index": 1,
+        "text": "壬戌卜賓貞雀擒麋",
+        "position": 8,
+        "length": 8
+      }
+    ]
   }
 }

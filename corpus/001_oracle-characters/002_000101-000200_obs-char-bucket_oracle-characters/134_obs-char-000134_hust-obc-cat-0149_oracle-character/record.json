@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒋",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "784pq6tqo8"
+    ],
+    "occurrences": 17,
+    "plates": 15,
+    "plate_list_head": [
+      "H8154",
+      "H8155",
+      "H8157",
+      "H8158",
+      "H8159",
+      "H8160",
+      "H8161",
+      "H8162",
+      "H8163",
+      "H8164",
+      "H8165",
+      "H8166"
+    ],
+    "by_category": {
+      "卜辞句": 17
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 13
+      },
+      {
+        "text": "往",
+        "uid": "m6szz2tcxv",
+        "count": 12
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 10
+      },
+      {
+        "text": "延",
+        "uid": "akwyl4gzy2",
+        "count": 5
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H8154",
+        "heji_candidate": "8154",
+        "group_index": 1,
+        "text": "丙午卜爭貞王往休",
+        "position": 8,
+        "length": 8
+      },
+      {
+        "plate": "H8155",
+        "heji_candidate": "8155",
+        "group_index": 1,
+        "text": "庚子卜賓貞王往休亡□",
+        "position": 8,
+        "length": 10
+      }
+    ]
   }
 }

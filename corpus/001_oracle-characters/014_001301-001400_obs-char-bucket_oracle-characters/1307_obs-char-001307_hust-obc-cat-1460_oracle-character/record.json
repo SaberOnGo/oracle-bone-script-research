@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦪",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "9fv82qyced"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H4278",
+      "H5200",
+      "H5584",
+      "H20820"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 1
+      },
+      {
+        "text": "比",
+        "uid": "d15m8dd17h",
+        "count": 1
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5584",
+        "heji_candidate": "5584",
+        "group_index": 1,
+        "text": "貞小臣辟王",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "H20820",
+        "heji_candidate": "20820",
+        "group_index": 2,
+        "text": "壬申卜貞辟□二",
+        "position": 5,
+        "length": 7
+      }
+    ]
   }
 }

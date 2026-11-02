@@ -97,5 +97,53 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㝗",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "lyugdv49gk"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H10058",
+      "H35435",
+      "H35584"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "◇",
+        "uid": "0bcpbg0geh",
+        "count": 2
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 2
+      },
+      {
+        "text": "爾",
+        "uid": "n3oe6amcoo",
+        "count": 1
+      },
+      {
+        "text": "寅",
+        "uid": "u3lh7tekno",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

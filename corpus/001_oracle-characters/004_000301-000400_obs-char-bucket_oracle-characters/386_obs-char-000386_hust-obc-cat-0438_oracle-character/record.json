@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,72 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖬",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "c0j4lyz6aj"
+    ],
+    "occurrences": 5,
+    "plates": 5,
+    "plate_list_head": [
+      "H20187",
+      "H24240",
+      "H24241",
+      "H24242",
+      "H24244"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 4
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 3
+      },
+      {
+        "text": "弜",
+        "uid": "cv483h1fw2",
+        "count": 1
+      },
+      {
+        "text": "伐",
+        "uid": "zr3h63w2fy",
+        "count": 1
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H24240",
+        "heji_candidate": "24240",
+        "group_index": 1,
+        "text": "丁丑卜王在夾卜",
+        "position": 6,
+        "length": 7
+      },
+      {
+        "plate": "H24241",
+        "heji_candidate": "24241",
+        "group_index": 1,
+        "text": "戊寅卜王在夾卜",
+        "position": 6,
+        "length": 7
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔓",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ay8mkydpb2"
+    ],
+    "occurrences": 929,
+    "plates": 818,
+    "plate_list_head": [
+      "H7",
+      "H39",
+      "H59",
+      "H60",
+      "H89",
+      "H199",
+      "H238",
+      "H277",
+      "H292",
+      "H301",
+      "H313",
+      "H314"
+    ],
+    "by_category": {
+      "卜辞句": 927,
+      "未定": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 539
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 448
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 217
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 213
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 187
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 167
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7",
+        "heji_candidate": "7",
+        "group_index": 2,
+        "text": "辛卯令眾絴◇",
+        "position": 2,
+        "length": 6
+      },
+      {
+        "plate": "H39",
+        "heji_candidate": "39",
+        "group_index": 1,
+        "text": "貞翌丁未𫹉尞于丁十◇卯十勿牛八夕",
+        "position": 11,
+        "length": 16
+      }
+    ]
   }
 }

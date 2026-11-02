@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖚",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "aoxhv8jrax"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H22438"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 1
+      },
+      {
+        "text": "百",
+        "uid": "vwahtur1cj",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "qtih3ae3j0",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "豕",
+        "uid": "h920pdxci1",
+        "count": 1
+      },
+      {
+        "text": "盧",
+        "uid": "fcooblbqyz",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H22438",
+        "heji_candidate": "22438",
+        "group_index": 1,
+        "text": "癸酉卜◇殺盧豕百望◇夗",
+        "position": 11,
+        "length": 11
+      }
+    ]
   }
 }

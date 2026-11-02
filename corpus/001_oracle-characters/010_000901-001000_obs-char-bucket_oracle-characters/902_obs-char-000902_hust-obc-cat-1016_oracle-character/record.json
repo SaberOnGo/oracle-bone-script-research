@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,45 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㟮",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "lpjmcjuz4z"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H32885"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 1
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 1
+      },
+      {
+        "text": "周",
+        "uid": "qdft7im9cb",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H32885",
+        "heji_candidate": "32885",
+        "group_index": 2,
+        "text": "叀烓令周",
+        "position": 2,
+        "length": 4
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,74 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖢",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "zapprwvtx9"
+    ],
+    "occurrences": 11,
+    "plates": 7,
+    "plate_list_head": [
+      "H16846",
+      "H30222",
+      "HD169",
+      "HD264",
+      "HD290",
+      "HD34",
+      "HD420"
+    ],
+    "by_category": {
+      "卜辞句": 11
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 7
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 5
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 5
+      },
+      {
+        "text": "我",
+        "uid": "1rzrhj2j4j",
+        "count": 5
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 5
+      },
+      {
+        "text": "翌",
+        "uid": "hlxb5g91kc",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H16846",
+        "heji_candidate": "16846",
+        "group_index": 6,
+        "text": "癸酉卜侃貞旬亡祸王□率夨于卜十",
+        "position": 12,
+        "length": 15
+      },
+      {
+        "plate": "HD169",
+        "heji_candidate": "D169",
+        "group_index": 1,
+        "text": "甲辰卜丁各夨于我翌日于◇",
+        "position": 6,
+        "length": 12
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㪴",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "306br54upg"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H7018",
+      "H18031",
+      "H29783"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 1
+      },
+      {
+        "text": "敦",
+        "uid": "6wyksx413f",
+        "count": 1
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 1
+      },
+      {
+        "text": "余",
+        "uid": "ctejf56of8",
+        "count": 1
+      },
+      {
+        "text": "夌",
+        "uid": "akl0kdke8r",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7018",
+        "heji_candidate": "7018",
+        "group_index": 1,
+        "text": "□貞余勿乎□敦夌𢦚",
+        "position": 9,
+        "length": 9
+      },
+      {
+        "plate": "H29783",
+        "heji_candidate": "29783",
+        "group_index": 1,
+        "text": "其𢦚戈一◇九佑□",
+        "position": 2,
+        "length": 8
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㩠㩡",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "30vdsr9swu"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H5268",
+      "H5269",
+      "H5270",
+      "H18342"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 3
+      },
+      {
+        "text": "吉",
+        "uid": "xlscyddubk",
+        "count": 3
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "gx21ndp7yy",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "l2i17obgyi",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5268",
+        "heji_candidate": "5268",
+        "group_index": 1,
+        "text": "□貞□◇叀吉雞用",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H5269",
+        "heji_candidate": "5269",
+        "group_index": 1,
+        "text": "□叀吉雞用",
+        "position": 4,
+        "length": 5
+      }
+    ]
   }
 }

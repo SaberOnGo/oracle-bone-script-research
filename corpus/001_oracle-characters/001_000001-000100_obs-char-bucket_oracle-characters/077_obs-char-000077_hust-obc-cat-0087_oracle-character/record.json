@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑍",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "gvea18bccm"
+    ],
+    "occurrences": 23,
+    "plates": 23,
+    "plate_list_head": [
+      "H1259",
+      "H1270",
+      "H6804",
+      "H6819",
+      "H7428",
+      "H8084",
+      "H10393",
+      "H10712",
+      "H11510",
+      "H11837",
+      "H14261",
+      "H14262"
+    ],
+    "by_category": {
+      "兆序": 12,
+      "卜辞句": 11
+    },
+    "top_cooccurring": [
+      {
+        "text": "下",
+        "uid": "zz00qbgu3m",
+        "count": 6
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "若",
+        "uid": "1k9ogi7w79",
+        "count": 5
+      },
+      {
+        "text": "五",
+        "uid": "s2e076ohb1",
+        "count": 2
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 2
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6804",
+        "heji_candidate": "6804",
+        "group_index": 1,
+        "text": "貞□方出勿自視下上□",
+        "position": 9,
+        "length": 10
+      },
+      {
+        "plate": "H7428",
+        "heji_candidate": "7428",
+        "group_index": 1,
+        "text": "□爯冊王比下上若受我佑",
+        "position": 7,
+        "length": 11
+      }
+    ]
   }
 }

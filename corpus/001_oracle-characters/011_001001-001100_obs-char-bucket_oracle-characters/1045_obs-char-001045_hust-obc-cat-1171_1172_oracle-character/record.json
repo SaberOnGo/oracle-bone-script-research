@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢉㢊",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "z640bkv6r7"
+    ],
+    "occurrences": 383,
+    "plates": 352,
+    "plate_list_head": [
+      "H27",
+      "H95",
+      "H175",
+      "H176",
+      "H183",
+      "H300",
+      "H301",
+      "H314",
+      "H356",
+      "H377",
+      "H380",
+      "H427"
+    ],
+    "by_category": {
+      "卜辞句": 383
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 176
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 148
+      },
+      {
+        "text": "乙",
+        "uid": "jbgbxt897u",
+        "count": 138
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 107
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 104
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 84
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H95",
+        "heji_candidate": "95",
+        "group_index": 1,
+        "text": "貞且辛不我害",
+        "position": 2,
+        "length": 6
+      },
+      {
+        "plate": "H95",
+        "heji_candidate": "95",
+        "group_index": 2,
+        "text": "貞且辛害我",
+        "position": 2,
+        "length": 5
+      }
+    ]
   }
 }

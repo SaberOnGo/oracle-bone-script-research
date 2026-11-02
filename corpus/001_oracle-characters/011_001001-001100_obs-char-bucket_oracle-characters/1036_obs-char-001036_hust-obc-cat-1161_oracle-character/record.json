@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡿",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "kdx7k2ou1m"
+    ],
+    "occurrences": 14,
+    "plates": 13,
+    "plate_list_head": [
+      "H317",
+      "H1751",
+      "H8032",
+      "H8033",
+      "H8034",
+      "H8035",
+      "H8038",
+      "H9339",
+      "H15807",
+      "H20588",
+      "H25213",
+      "H32262"
+    ],
+    "by_category": {
+      "卜辞句": 14
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 8
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 5
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "京",
+        "uid": "akt7yld9xk",
+        "count": 4
+      },
+      {
+        "text": "宜",
+        "uid": "f0j9ho8ua2",
+        "count": 4
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H317",
+        "heji_candidate": "317",
+        "group_index": 1,
+        "text": "□于砓京羌卅卯□牛",
+        "position": 3,
+        "length": 9
+      },
+      {
+        "plate": "H8032",
+        "heji_candidate": "8032",
+        "group_index": 1,
+        "text": "癸酉◇于砓十牛",
+        "position": 5,
+        "length": 7
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖆",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "1u3e5w4k2u"
+    ],
+    "occurrences": 93,
+    "plates": 90,
+    "plate_list_head": [
+      "H319",
+      "H2543",
+      "H3131",
+      "H6992",
+      "H15351",
+      "H15353",
+      "H15469",
+      "H15470",
+      "H21851",
+      "H22615",
+      "H22719",
+      "H24095"
+    ],
+    "by_category": {
+      "卜辞句": 93
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 64
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 58
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 53
+      },
+      {
+        "text": "祼",
+        "uid": "v7qghw0r67",
+        "count": 53
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 47
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 44
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2543",
+        "heji_candidate": "2543",
+        "group_index": 2,
+        "text": "甲辰卜貞翌乙巳埶㞢于晦庚牢",
+        "position": 8,
+        "length": 13
+      },
+      {
+        "plate": "H3131",
+        "heji_candidate": "3131",
+        "group_index": 1,
+        "text": "丙寅卜□貞埶用□雝歲",
+        "position": 6,
+        "length": 10
+      }
+    ]
   }
 }

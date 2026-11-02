@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠀㠁",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "50oggjbzcs"
+    ],
+    "occurrences": 256,
+    "plates": 226,
+    "plate_list_head": [
+      "H7",
+      "H16",
+      "H18",
+      "H26",
+      "H27",
+      "H40",
+      "H41",
+      "H79",
+      "H177",
+      "H199",
+      "H225",
+      "H239"
+    ],
+    "by_category": {
+      "卜辞句": 256
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 209
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 191
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 62
+      },
+      {
+        "text": "祸",
+        "uid": "tp5ykv5jzh",
+        "count": 45
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 42
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 42
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H7",
+        "heji_candidate": "7",
+        "group_index": 1,
+        "text": "癸未卜爭貞王在茲◇咸狩",
+        "position": 4,
+        "length": 11
+      },
+      {
+        "plate": "H16",
+        "heji_candidate": "16",
+        "group_index": 2,
+        "text": "辛丑卜爭貞我卜多不吉勿□",
+        "position": 4,
+        "length": 12
+      }
+    ]
   }
 }

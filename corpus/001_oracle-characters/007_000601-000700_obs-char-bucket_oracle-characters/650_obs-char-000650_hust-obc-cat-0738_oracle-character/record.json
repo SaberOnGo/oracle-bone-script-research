@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,78 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛘",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "dcn46ntz0p"
+    ],
+    "occurrences": 19,
+    "plates": 11,
+    "plate_list_head": [
+      "H122",
+      "H126",
+      "H176",
+      "H406",
+      "H547",
+      "H549",
+      "H692",
+      "H9335",
+      "H32057",
+      "H33202",
+      "HD262"
+    ],
+    "by_category": {
+      "卜辞句": 19
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 10
+      },
+      {
+        "text": "乎",
+        "uid": "1s5t2e9cdw",
+        "count": 8
+      },
+      {
+        "text": "芻",
+        "uid": "27jl2n6uoo",
+        "count": 5
+      },
+      {
+        "text": "雝",
+        "uid": "8gro2b24ja",
+        "count": 4
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 4
+      },
+      {
+        "text": "帚",
+        "uid": "qe26dg343r",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H122",
+        "heji_candidate": "122",
+        "group_index": 4,
+        "text": "貞擇雝芻",
+        "position": 2,
+        "length": 4
+      },
+      {
+        "plate": "H122",
+        "heji_candidate": "122",
+        "group_index": 5,
+        "text": "貞勿擇雝芻",
+        "position": 3,
+        "length": 5
+      }
+    ]
   }
 }

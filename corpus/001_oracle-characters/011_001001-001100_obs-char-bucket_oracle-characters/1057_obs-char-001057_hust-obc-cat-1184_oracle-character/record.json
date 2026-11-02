@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -94,5 +94,81 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢖",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "1wismy95hz",
+      "pc4pnbwanm"
+    ],
+    "occurrences": 224,
+    "plates": 172,
+    "plate_list_head": [
+      "H695",
+      "H801",
+      "H1264",
+      "H1270",
+      "H1345",
+      "H1358",
+      "H1416",
+      "H1435",
+      "H1437",
+      "H1439",
+      "H1466",
+      "H1483"
+    ],
+    "by_category": {
+      "卜辞句": 223,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 126
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 97
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 75
+      },
+      {
+        "text": "禾",
+        "uid": "om61e8d11r",
+        "count": 73
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 48
+      },
+      {
+        "text": "牛",
+        "uid": "66iowpdbuc",
+        "count": 32
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H801",
+        "heji_candidate": "801",
+        "group_index": 1,
+        "text": "甲子卜爭貞禱于大□",
+        "position": 6,
+        "length": 9
+      },
+      {
+        "plate": "H801",
+        "heji_candidate": "801",
+        "group_index": 2,
+        "text": "貞禱于大甲尞◇◇卯二",
+        "position": 2,
+        "length": 10
+      }
+    ]
   }
 }

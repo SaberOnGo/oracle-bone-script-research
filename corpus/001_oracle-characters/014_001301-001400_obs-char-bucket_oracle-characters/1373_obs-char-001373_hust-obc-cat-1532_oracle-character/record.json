@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,69 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧲",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "fy8197yoy0"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H33149",
+      "H33150"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "步",
+        "uid": "6dnfyfs9ol",
+        "count": 2
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "枼",
+        "uid": "991ix0j4pd",
+        "count": 2
+      },
+      {
+        "text": "自",
+        "uid": "0cwxw7rveh",
+        "count": 2
+      },
+      {
+        "text": "三",
+        "uid": "p77d58vew4",
+        "count": 1
+      },
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H33149",
+        "heji_candidate": "33149",
+        "group_index": 2,
+        "text": "王月步自枼三陮",
+        "position": 7,
+        "length": 7
+      },
+      {
+        "plate": "H33150",
+        "heji_candidate": "33150",
+        "group_index": 1,
+        "text": "辛巳貞王叀癸未步自枼陮",
+        "position": 11,
+        "length": 11
+      }
+    ]
   }
 }

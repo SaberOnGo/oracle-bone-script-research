@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡂",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "6m1qvxsh3e",
+      "ld0qrctsbb"
+    ],
+    "occurrences": 18,
+    "plates": 18,
+    "plate_list_head": [
+      "H3193",
+      "H4412",
+      "H8121",
+      "H11507",
+      "H13006",
+      "H13559",
+      "H17269",
+      "H17270",
+      "H17272",
+      "H17273",
+      "H17278",
+      "H17279"
+    ],
+    "by_category": {
+      "卜辞句": 18
+    },
+    "top_cooccurring": [
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 8
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 7
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 7
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 6
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 2
+      },
+      {
+        "text": "申",
+        "uid": "rzfokwkc7a",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3193",
+        "heji_candidate": "3193",
+        "group_index": 1,
+        "text": "乙丑卜貞出□◇異",
+        "position": 8,
+        "length": 8
+      },
+      {
+        "plate": "H13006",
+        "heji_candidate": "13006",
+        "group_index": 1,
+        "text": "□申卜貞異不其雨",
+        "position": 5,
+        "length": 8
+      }
+    ]
   }
 }

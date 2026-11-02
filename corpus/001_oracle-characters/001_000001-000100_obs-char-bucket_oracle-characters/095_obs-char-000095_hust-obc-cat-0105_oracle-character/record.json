@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑟",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "d9r8vouxue"
+    ],
+    "occurrences": 102,
+    "plates": 97,
+    "plate_list_head": [
+      "H2932",
+      "H3729",
+      "H3910",
+      "H5087",
+      "H5281",
+      "H5349",
+      "H5365",
+      "H6797",
+      "H7268",
+      "H7438",
+      "H7915",
+      "H7932"
+    ],
+    "by_category": {
+      "卜辞句": 102
+    },
+    "top_cooccurring": [
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 36
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 32
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 28
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 24
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 23
+      },
+      {
+        "text": "月",
+        "uid": "0wfbo7ml5k",
+        "count": 20
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3729",
+        "heji_candidate": "3729",
+        "group_index": 1,
+        "text": "丁未卜爭貞叀之令□",
+        "position": 7,
+        "length": 9
+      },
+      {
+        "plate": "H5349",
+        "heji_candidate": "5349",
+        "group_index": 1,
+        "text": "庚子卜爭貞王用其冓之日用冓雨五夕",
+        "position": 10,
+        "length": 16
+      }
+    ]
   }
 }

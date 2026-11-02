@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙻",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "28p358130o"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H4227",
+      "H4306",
+      "H10294"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "師",
+        "uid": "0avi2tcy0g",
+        "count": 1
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 1
+      },
+      {
+        "text": "般",
+        "uid": "6k62imdisa",
+        "count": 1
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "兄",
+        "uid": "bh3e3oql61",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H4227",
+        "heji_candidate": "4227",
+        "group_index": 1,
+        "text": "貞師般弔㞢□",
+        "position": 4,
+        "length": 6
+      },
+      {
+        "plate": "H4306",
+        "heji_candidate": "4306",
+        "group_index": 1,
+        "text": "貞御弔于兄丁",
+        "position": 3,
+        "length": 6
+      }
+    ]
   }
 }

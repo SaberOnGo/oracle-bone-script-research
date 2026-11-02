@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -93,5 +93,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㠭",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "zgocda0mov"
+    ],
+    "occurrences": 10,
+    "plates": 9,
+    "plate_list_head": [
+      "H629",
+      "H630",
+      "H863",
+      "H3088",
+      "H3089",
+      "H4006",
+      "H18564",
+      "H32125",
+      "H32694"
+    ],
+    "by_category": {
+      "卜辞句": 10
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 8
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 3
+      },
+      {
+        "text": "卅",
+        "uid": "jfc5ld8k0t",
+        "count": 3
+      },
+      {
+        "text": "◇",
+        "uid": "3hnh7lscve",
+        "count": 2
+      },
+      {
+        "text": "帚",
+        "uid": "qe26dg343r",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H629",
+        "heji_candidate": "629",
+        "group_index": 1,
+        "text": "貞今庚辰月用甗◇卅◇卅于帚◇",
+        "position": 7,
+        "length": 14
+      },
+      {
+        "plate": "H630",
+        "heji_candidate": "630",
+        "group_index": 1,
+        "text": "癸酉卜貞多匕甗◇卅◇卅□帚",
+        "position": 7,
+        "length": 13
+      }
+    ]
   }
 }

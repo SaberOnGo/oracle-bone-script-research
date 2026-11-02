@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,70 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛴",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "7wrt6jfhfq"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H6666",
+      "H14627",
+      "H33198"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 1
+      },
+      {
+        "text": "戎",
+        "uid": "iuouekyjwj",
+        "count": 1
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6666",
+        "heji_candidate": "6666",
+        "group_index": 1,
+        "text": "庚午卜賓貞旁方其圉乍戎",
+        "position": 6,
+        "length": 11
+      },
+      {
+        "plate": "H33198",
+        "heji_candidate": "33198",
+        "group_index": 1,
+        "text": "己卯貞旁不□",
+        "position": 4,
+        "length": 6
+      }
+    ]
   }
 }

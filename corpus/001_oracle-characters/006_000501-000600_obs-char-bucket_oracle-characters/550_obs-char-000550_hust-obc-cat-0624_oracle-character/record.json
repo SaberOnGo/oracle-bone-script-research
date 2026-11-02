@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,72 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㙦",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "kggb6goupa"
+    ],
+    "occurrences": 8,
+    "plates": 5,
+    "plate_list_head": [
+      "H14331",
+      "H20846",
+      "HD198",
+      "HD237",
+      "HD34"
+    ],
+    "by_category": {
+      "卜辞句": 8
+    },
+    "top_cooccurring": [
+      {
+        "text": "廌",
+        "uid": "nqghhf5br6",
+        "count": 6
+      },
+      {
+        "text": "伯",
+        "uid": "jn8qw1nhns",
+        "count": 5
+      },
+      {
+        "text": "祐",
+        "uid": "zyzqoa0xlj",
+        "count": 4
+      },
+      {
+        "text": "牢",
+        "uid": "w4mg32kjp4",
+        "count": 4
+      },
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 4
+      },
+      {
+        "text": "鬯",
+        "uid": "l4lq5esn5g",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H14331",
+        "heji_candidate": "14331",
+        "group_index": 2,
+        "text": "西◇犬尞伯□幽□",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H20846",
+        "heji_candidate": "20846",
+        "group_index": 2,
+        "text": "子卜幽口",
+        "position": 3,
+        "length": 4
+      }
+    ]
   }
 }

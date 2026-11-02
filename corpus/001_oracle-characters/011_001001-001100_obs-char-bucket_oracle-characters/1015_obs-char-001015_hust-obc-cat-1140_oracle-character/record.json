@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡪",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "x40w6mop83"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H32877"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "戓",
+        "uid": "f7hr5ku09c",
+        "count": 1
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 1
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 1
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 1
+      },
+      {
+        "text": "乍",
+        "uid": "c7qvt9bwt5",
+        "count": 1
+      },
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H32877",
+        "heji_candidate": "32877",
+        "group_index": 1,
+        "text": "辛未□王乍令戓不直",
+        "position": 9,
+        "length": 9
+      }
+    ]
   }
 }

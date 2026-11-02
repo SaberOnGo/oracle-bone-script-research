@@ -93,5 +93,51 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "⺼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "0n73hvtfpr"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H3073"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "𫹉",
+        "uid": "hclsl73wg4",
+        "count": 1
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 1
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 1
+      },
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 1
+      },
+      {
+        "text": "四",
+        "uid": "tx3m8otqgw",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

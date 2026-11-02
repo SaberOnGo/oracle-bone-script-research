@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢋",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "6vao0zrbrv"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H33128",
+      "HD206"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 1
+      },
+      {
+        "text": "奏",
+        "uid": "qzgadtxm9i",
+        "count": 1
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "川",
+        "uid": "yvbokzhzmz",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 1
+      },
+      {
+        "text": "万",
+        "uid": "q8n2xmqs1o",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "HD206",
+        "heji_candidate": "D206",
+        "group_index": 2,
+        "text": "◇弜助舞戉于之若用多万佑川引祈",
+        "position": 15,
+        "length": 15
+      }
+    ]
   }
 }

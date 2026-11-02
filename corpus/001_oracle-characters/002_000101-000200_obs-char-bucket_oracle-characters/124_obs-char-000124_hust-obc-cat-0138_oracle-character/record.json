@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,69 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒀",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "lr27sngh2z"
+    ],
+    "occurrences": 3,
+    "plates": 2,
+    "plate_list_head": [
+      "H2927",
+      "HD142"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "牛",
+        "uid": "66iowpdbuc",
+        "count": 2
+      },
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 2
+      },
+      {
+        "text": "一",
+        "uid": "jrzjjh3g1r",
+        "count": 2
+      },
+      {
+        "text": "伯",
+        "uid": "jn8qw1nhns",
+        "count": 2
+      },
+      {
+        "text": "祝",
+        "uid": "xvt1om20u0",
+        "count": 2
+      },
+      {
+        "text": "◇",
+        "uid": "htn7736sjm",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2927",
+        "heji_candidate": "2927",
+        "group_index": 1,
+        "text": "貞不多介兄",
+        "position": 4,
+        "length": 5
+      },
+      {
+        "plate": "HD142",
+        "heji_candidate": "D142",
+        "group_index": 2,
+        "text": "祝于伯一牛用介歲◇用◇祝",
+        "position": 7,
+        "length": 12
+      }
+    ]
   }
 }

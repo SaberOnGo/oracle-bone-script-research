@@ -136,10 +136,11 @@ Reset completion is judged by these criteria, not by a schedule.
 | 抽样其余行比例 | 13.2% | 41.2% |
 | 符合档案标准的单字档案 | 0 | 10,986 |
 | 有释读史的已释字档案 | 0 | 0 |
-| 卜辞释文记录 | 0 | 0 |
+| 卜辞释文记录（本地层） | 0 | 21,941 个句组 |
 | 全量测试时长 | 约 33 分钟 | 约 1.5 分钟 |
 
-释读史、卜辞例句和学术关系边仍为 0，需要第 4 至 6 步。
+有卜辞例句的已释字档案：948 份（第 4 步）。释读史和学术关系边仍为 0，需要
+第 5、6 步。
 
 Reading histories, example sentences, and scholarly edges are still zero and
 depend on steps 4 to 6.

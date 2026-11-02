@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,81 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖡",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "s9y9vbblxa"
+    ],
+    "occurrences": 624,
+    "plates": 510,
+    "plate_list_head": [
+      "H5",
+      "H183",
+      "H242",
+      "H300",
+      "H301",
+      "H422",
+      "H553",
+      "H651",
+      "H801",
+      "H830",
+      "H887",
+      "H908"
+    ],
+    "by_category": {
+      "卜辞句": 585,
+      "验辞": 34,
+      "未定": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 189
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 161
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 131
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 120
+      },
+      {
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 118
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 110
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5",
+        "heji_candidate": "5",
+        "group_index": 2,
+        "text": "□殻貞王大令眾匕曰□",
+        "position": 5,
+        "length": 10
+      },
+      {
+        "plate": "H183",
+        "heji_candidate": "183",
+        "group_index": 4,
+        "text": "告于大甲且乙",
+        "position": 3,
+        "length": 6
+      }
+    ]
   }
 }

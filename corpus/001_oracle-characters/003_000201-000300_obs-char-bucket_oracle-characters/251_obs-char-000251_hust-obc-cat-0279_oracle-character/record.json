@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,81 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔍",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "h0gzv3styy"
+    ],
+    "occurrences": 5283,
+    "plates": 3979,
+    "plate_list_head": [
+      "H5",
+      "H7",
+      "H8",
+      "H10",
+      "H11",
+      "H16",
+      "H17",
+      "H18",
+      "H26",
+      "H27",
+      "H33",
+      "H36"
+    ],
+    "by_category": {
+      "卜辞句": 5265,
+      "未定": 17,
+      "兆序": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2364
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 1456
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 931
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 808
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 740
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 712
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5",
+        "heji_candidate": "5",
+        "group_index": 1,
+        "text": "乙巳卜殻貞□",
+        "position": 3,
+        "length": 6
+      },
+      {
+        "plate": "H7",
+        "heji_candidate": "7",
+        "group_index": 1,
+        "text": "癸未卜爭貞王在茲◇咸狩",
+        "position": 3,
+        "length": 11
+      }
+    ]
   }
 }

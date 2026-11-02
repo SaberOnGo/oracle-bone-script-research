@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "tqko7h2wrh"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H32958",
+      "H32960"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "田",
+        "uid": "pzvzykmf5e",
+        "count": 2
+      },
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 1
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 1
+      },
+      {
+        "text": "鞠",
+        "uid": "0yj8abtf8t",
+        "count": 1
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H32958",
+        "heji_candidate": "32958",
+        "group_index": 1,
+        "text": "癸未□王杕鞠于田",
+        "position": 5,
+        "length": 8
+      }
+    ]
   }
 }

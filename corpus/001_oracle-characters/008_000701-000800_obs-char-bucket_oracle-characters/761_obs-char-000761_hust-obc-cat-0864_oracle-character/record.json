@@ -96,5 +96,26 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㝖",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "gxqbf8g1vc"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H3914"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "狩",
+        "uid": "sj4e2q73so",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

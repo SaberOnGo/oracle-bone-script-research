@@ -96,5 +96,41 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑗",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ehcz1jiv3d"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H7168"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "來",
+        "uid": "rlx0knkq0v",
+        "count": 1
+      },
+      {
+        "text": "艱",
+        "uid": "jpxofd3gmu",
+        "count": 1
+      },
+      {
+        "text": "㞢",
+        "uid": "0uhj5zj3ce",
+        "count": 1
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

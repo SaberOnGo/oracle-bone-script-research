@@ -99,5 +99,32 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛌㛍",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "7tn35swync"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H7923",
+      "H7924"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "暈",
+        "uid": "6kf650i4zk",
+        "count": 1
+      },
+      {
+        "text": "在",
+        "uid": "4n6v7cj6m9",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

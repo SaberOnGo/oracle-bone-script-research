@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐊",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ojtpg03v54"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H30386"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "癸",
+        "uid": "h32m5ulkit",
+        "count": 1
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "kk9zxal8u7",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "02fjn8nulq",
+        "count": 1
+      },
+      {
+        "text": "翊",
+        "uid": "bwcuiuwtaz",
+        "count": 1
+      },
+      {
+        "text": "辛",
+        "uid": "m2w1k92a5a",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30386",
+        "heji_candidate": "30386",
+        "group_index": 1,
+        "text": "癸亥卜翊日辛帝降其入于◇大◇在㝡",
+        "position": 16,
+        "length": 16
+      }
+    ]
   }
 }

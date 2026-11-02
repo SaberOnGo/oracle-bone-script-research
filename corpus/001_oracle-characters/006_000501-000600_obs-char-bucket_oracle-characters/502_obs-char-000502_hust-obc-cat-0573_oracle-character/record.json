@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘳",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "upv9mf4trj"
+    ],
+    "occurrences": 32,
+    "plates": 30,
+    "plate_list_head": [
+      "H261",
+      "H804",
+      "H3108",
+      "H3807",
+      "H4109",
+      "H4139",
+      "H6406",
+      "H6718",
+      "H8116",
+      "H8127",
+      "H8128",
+      "H8130"
+    ],
+    "by_category": {
+      "卜辞句": 31,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 14
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 13
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 6
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 6
+      },
+      {
+        "text": "禱",
+        "uid": "1wismy95hz",
+        "count": 5
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 5
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H261",
+        "heji_candidate": "261",
+        "group_index": 1,
+        "text": "辛丑卜貞畢以羌王于門尋",
+        "position": 11,
+        "length": 11
+      },
+      {
+        "plate": "H804",
+        "heji_candidate": "804",
+        "group_index": 1,
+        "text": "□王尋畢以執",
+        "position": 3,
+        "length": 6
+      }
+    ]
   }
 }

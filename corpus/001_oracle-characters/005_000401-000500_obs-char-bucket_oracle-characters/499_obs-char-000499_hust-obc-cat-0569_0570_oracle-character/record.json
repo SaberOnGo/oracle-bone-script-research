@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㘯㘰",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "5u17bmbs6p"
+    ],
+    "occurrences": 27,
+    "plates": 25,
+    "plate_list_head": [
+      "H2799",
+      "H13524",
+      "H13525",
+      "H13526",
+      "H13527",
+      "H13528",
+      "H13529",
+      "H13530",
+      "H13532",
+      "H19560",
+      "H19562",
+      "H19565"
+    ],
+    "by_category": {
+      "卜辞句": 27
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 14
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 11
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 8
+      },
+      {
+        "text": "邑",
+        "uid": "x4t1t00zpg",
+        "count": 7
+      },
+      {
+        "text": "勿",
+        "uid": "6ewkk2w7r1",
+        "count": 7
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 7
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H2799",
+        "heji_candidate": "2799",
+        "group_index": 1,
+        "text": "乙酉卜賓貞翌丁亥將帚妊□",
+        "position": 9,
+        "length": 12
+      },
+      {
+        "plate": "H13525",
+        "heji_candidate": "13525",
+        "group_index": 1,
+        "text": "甲戌卜爭貞我勿將自茲邑◇賓巳乍若",
+        "position": 8,
+        "length": 16
+      }
+    ]
   }
 }

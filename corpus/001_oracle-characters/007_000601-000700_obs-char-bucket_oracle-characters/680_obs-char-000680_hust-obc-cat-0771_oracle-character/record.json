@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,51 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛹",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "qeqvpjsnyn"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H1751",
+      "H18006"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "砓",
+        "uid": "kdx7k2ou1m",
+        "count": 1
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "乍",
+        "uid": "c7qvt9bwt5",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H18006",
+        "heji_candidate": "18006",
+        "group_index": 1,
+        "text": "貞亡乍旡",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

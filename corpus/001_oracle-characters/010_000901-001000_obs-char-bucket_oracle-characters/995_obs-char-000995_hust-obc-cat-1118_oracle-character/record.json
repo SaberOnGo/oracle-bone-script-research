@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡔",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "jn8qw1nhns"
+    ],
+    "occurrences": 65,
+    "plates": 48,
+    "plate_list_head": [
+      "H452",
+      "H995",
+      "H2496",
+      "H4143",
+      "H7413",
+      "H7850",
+      "H9079",
+      "H10544",
+      "H10571",
+      "H14331",
+      "H14724",
+      "H14953"
+    ],
+    "by_category": {
+      "卜辞句": 64,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 14
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 13
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 13
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 13
+      },
+      {
+        "text": "豭",
+        "uid": "jvuf4ut3c5",
+        "count": 13
+      },
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 13
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H452",
+        "heji_candidate": "452",
+        "group_index": 1,
+        "text": "竹鼄羌□眔□伯人歸于河",
+        "position": 7,
+        "length": 11
+      },
+      {
+        "plate": "H995",
+        "heji_candidate": "995",
+        "group_index": 1,
+        "text": "□◇𫹉伐六牢隹伯豕",
+        "position": 8,
+        "length": 9
+      }
+    ]
   }
 }

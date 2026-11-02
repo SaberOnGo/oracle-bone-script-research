@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,77 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒱",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "1ttzl6vlzs"
+    ],
+    "occurrences": 10,
+    "plates": 10,
+    "plate_list_head": [
+      "H182",
+      "H183",
+      "H184",
+      "H2811",
+      "H4482",
+      "H4484",
+      "H4485",
+      "H4487",
+      "H7008",
+      "H20227"
+    ],
+    "by_category": {
+      "卜辞句": 10
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "獲",
+        "uid": "dgw10rc4gi",
+        "count": 3
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 3
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 3
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 2
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H182",
+        "heji_candidate": "182",
+        "group_index": 1,
+        "text": "貞光獲羌",
+        "position": 2,
+        "length": 4
+      },
+      {
+        "plate": "H183",
+        "heji_candidate": "183",
+        "group_index": 1,
+        "text": "光不其獲羌",
+        "position": 1,
+        "length": 5
+      }
+    ]
   }
 }

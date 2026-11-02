@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦛",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "iuzkqe17tf"
+    ],
+    "occurrences": 57,
+    "plates": 44,
+    "plate_list_head": [
+      "H3099",
+      "H4136",
+      "H6870",
+      "H7060",
+      "H7062",
+      "H8942",
+      "H9380",
+      "H10125",
+      "H10844",
+      "H13006",
+      "H18381",
+      "H20060"
+    ],
+    "by_category": {
+      "卜辞句": 57
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 31
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 15
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 14
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 11
+      },
+      {
+        "text": "視",
+        "uid": "vgtvawlq60",
+        "count": 11
+      },
+      {
+        "text": "用",
+        "uid": "353gxm6hd4",
+        "count": 10
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H3099",
+        "heji_candidate": "3099",
+        "group_index": 1,
+        "text": "丙寅卜古貞叀引令取◇貯三月",
+        "position": 11,
+        "length": 13
+      },
+      {
+        "plate": "H7060",
+        "heji_candidate": "7060",
+        "group_index": 1,
+        "text": "□戒取貯",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

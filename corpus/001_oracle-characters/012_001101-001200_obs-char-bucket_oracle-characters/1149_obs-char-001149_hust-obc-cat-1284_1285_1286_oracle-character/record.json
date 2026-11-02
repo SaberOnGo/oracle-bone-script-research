@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -101,5 +101,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㣺㣻㣼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "rddtpyuik3"
+    ],
+    "occurrences": 13,
+    "plates": 13,
+    "plate_list_head": [
+      "H5303",
+      "H5304",
+      "H5306",
+      "H5307",
+      "H5309",
+      "H5310",
+      "H5311",
+      "H5312",
+      "H5313",
+      "H8017",
+      "H9376",
+      "H14291"
+    ],
+    "by_category": {
+      "卜辞句": 13
+    },
+    "top_cooccurring": [
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 9
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 6
+      },
+      {
+        "text": "隹",
+        "uid": "y0f5gu3q0a",
+        "count": 5
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "害",
+        "uid": "446qjw4xgi",
+        "count": 3
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5303",
+        "heji_candidate": "5303",
+        "group_index": 1,
+        "text": "□聽其祸",
+        "position": 2,
+        "length": 4
+      },
+      {
+        "plate": "H5304",
+        "heji_candidate": "5304",
+        "group_index": 1,
+        "text": "癸亥□殻貞聽隹害",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

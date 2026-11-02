@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,63 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡜",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "51p2xxpvps"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H5742",
+      "H15286",
+      "H21246",
+      "H23552"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "言",
+        "uid": "t1wd9fiznl",
+        "count": 2
+      },
+      {
+        "text": "収",
+        "uid": "59km3f155u",
+        "count": 1
+      },
+      {
+        "text": "射",
+        "uid": "k0pxsd02si",
+        "count": 1
+      },
+      {
+        "text": "多",
+        "uid": "ex96ntmoie",
+        "count": 1
+      },
+      {
+        "text": "人",
+        "uid": "p6uj3n0aze",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5742",
+        "heji_candidate": "5742",
+        "group_index": 1,
+        "text": "□多射収人于皿",
+        "position": 7,
+        "length": 7
+      }
+    ]
   }
 }

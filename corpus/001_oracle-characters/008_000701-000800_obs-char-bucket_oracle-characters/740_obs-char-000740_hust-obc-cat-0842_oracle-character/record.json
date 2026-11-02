@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,72 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㝀",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ebp3zxjwi7"
+    ],
+    "occurrences": 5,
+    "plates": 5,
+    "plate_list_head": [
+      "H335",
+      "H1450",
+      "H1866",
+      "H8084",
+      "H15365"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 3
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "十",
+        "uid": "5ntior2ch1",
+        "count": 1
+      },
+      {
+        "text": "羌",
+        "uid": "6p9s6p6wyb",
+        "count": 1
+      },
+      {
+        "text": "牢",
+        "uid": "w4mg32kjp4",
+        "count": 1
+      },
+      {
+        "text": "畢",
+        "uid": "zk0j4pcnzj",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H335",
+        "heji_candidate": "335",
+        "group_index": 1,
+        "text": "貞翌□◇畢其束◇十羌十牢□",
+        "position": 7,
+        "length": 13
+      },
+      {
+        "plate": "H1450",
+        "heji_candidate": "1450",
+        "group_index": 1,
+        "text": "戊戌卜賓貞束于大甲亦于□",
+        "position": 6,
+        "length": 12
+      }
+    ]
   }
 }

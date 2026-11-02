@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒃",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ji97td3npi"
+    ],
+    "occurrences": 399,
+    "plates": 337,
+    "plate_list_head": [
+      "H5",
+      "H7",
+      "H12",
+      "H26",
+      "H27",
+      "H28",
+      "H30",
+      "H33",
+      "H36",
+      "H44",
+      "H52",
+      "H71"
+    ],
+    "by_category": {
+      "卜辞句": 399
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 202
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 121
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 78
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 60
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 43
+      },
+      {
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 41
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5",
+        "heji_candidate": "5",
+        "group_index": 2,
+        "text": "□殻貞王大令眾匕曰□",
+        "position": 6,
+        "length": 10
+      },
+      {
+        "plate": "H7",
+        "heji_candidate": "7",
+        "group_index": 2,
+        "text": "辛卯令眾絴◇",
+        "position": 3,
+        "length": 6
+      }
+    ]
   }
 }

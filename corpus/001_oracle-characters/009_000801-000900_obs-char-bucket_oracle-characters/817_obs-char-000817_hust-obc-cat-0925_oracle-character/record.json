@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞓",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "08fa78pdp8"
+    ],
+    "occurrences": 24,
+    "plates": 22,
+    "plate_list_head": [
+      "H10149",
+      "H10150",
+      "H10152",
+      "H10153",
+      "H10154",
+      "H10156",
+      "H10157",
+      "H10158",
+      "H10159",
+      "H10162",
+      "H10163",
+      "H20615"
+    ],
+    "by_category": {
+      "卜辞句": 24
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 12
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 10
+      },
+      {
+        "text": "大",
+        "uid": "s9y9vbblxa",
+        "count": 7
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 5
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 5
+      },
+      {
+        "text": "來",
+        "uid": "rlx0knkq0v",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10150",
+        "heji_candidate": "10150",
+        "group_index": 1,
+        "text": "貞其㞢大水",
+        "position": 5,
+        "length": 5
+      },
+      {
+        "plate": "H10152",
+        "heji_candidate": "10152",
+        "group_index": 1,
+        "text": "辛酉卜御水于□",
+        "position": 5,
+        "length": 7
+      }
+    ]
   }
 }

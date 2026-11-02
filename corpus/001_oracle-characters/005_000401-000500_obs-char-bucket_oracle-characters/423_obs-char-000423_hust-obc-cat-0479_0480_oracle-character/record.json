@@ -96,5 +96,54 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㗕㗖",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "g546qlgz9n",
+      "z052z9k6c1"
+    ],
+    "occurrences": 4,
+    "plates": 3,
+    "plate_list_head": [
+      "H18034",
+      "H20815",
+      "H35361"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 2
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 2
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 2
+      },
+      {
+        "text": "尤",
+        "uid": "hhr47shesw",
+        "count": 2
+      },
+      {
+        "text": "奭",
+        "uid": "0cyukofrr8",
+        "count": 2
+      }
+    ],
+    "examples": []
   }
 }

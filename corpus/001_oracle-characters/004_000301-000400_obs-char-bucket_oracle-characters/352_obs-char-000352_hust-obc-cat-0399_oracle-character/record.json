@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,69 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖅",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "b6f7lj4wbb"
+    ],
+    "occurrences": 3,
+    "plates": 2,
+    "plate_list_head": [
+      "H18006",
+      "H30173"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 2
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "峀",
+        "uid": "86d04i30jc",
+        "count": 2
+      },
+      {
+        "text": "遭",
+        "uid": "d0hauaf16v",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H30173",
+        "heji_candidate": "30173",
+        "group_index": 4,
+        "text": "庚午卜貞埜丁至于紤◇入峀",
+        "position": 5,
+        "length": 12
+      },
+      {
+        "plate": "H30173",
+        "heji_candidate": "30173",
+        "group_index": 5,
+        "text": "埜弜于峀◇乎爵",
+        "position": 1,
+        "length": 7
+      }
+    ]
   }
 }

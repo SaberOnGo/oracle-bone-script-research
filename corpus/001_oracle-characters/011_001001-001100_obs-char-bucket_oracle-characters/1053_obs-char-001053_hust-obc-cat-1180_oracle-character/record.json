@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㢒",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "v7qghw0r67"
+    ],
+    "occurrences": 274,
+    "plates": 257,
+    "plate_list_head": [
+      "H473",
+      "H1958",
+      "H2501",
+      "H2885",
+      "H4116",
+      "H5291",
+      "H5334",
+      "H10572",
+      "H15829",
+      "H15833",
+      "H15835",
+      "H15836"
+    ],
+    "by_category": {
+      "卜辞句": 274
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 171
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 166
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 158
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 142
+      },
+      {
+        "text": "祸",
+        "uid": "tp5ykv5jzh",
+        "count": 117
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 111
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1958",
+        "heji_candidate": "1958",
+        "group_index": 1,
+        "text": "貞祼告王◇于丁三夕",
+        "position": 2,
+        "length": 9
+      },
+      {
+        "plate": "H2501",
+        "heji_candidate": "2501",
+        "group_index": 1,
+        "text": "貞祼于匕癸𰇑三小牢",
+        "position": 2,
+        "length": 9
+      }
+    ]
   }
 }

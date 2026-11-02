@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㫩㫪",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "6wyksx413f"
+    ],
+    "occurrences": 65,
+    "plates": 61,
+    "plate_list_head": [
+      "H839",
+      "H2668",
+      "H2984",
+      "H2986",
+      "H5128",
+      "H6355",
+      "H6358",
+      "H6359",
+      "H6786",
+      "H6789",
+      "H6824",
+      "H6841"
+    ],
+    "by_category": {
+      "卜辞句": 65
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 28
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 22
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 20
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 18
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 11
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 7
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H839",
+        "heji_candidate": "839",
+        "group_index": 1,
+        "text": "乎師般取逸自敦",
+        "position": 7,
+        "length": 7
+      },
+      {
+        "plate": "H2668",
+        "heji_candidate": "2668",
+        "group_index": 1,
+        "text": "貞哭好于敦",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

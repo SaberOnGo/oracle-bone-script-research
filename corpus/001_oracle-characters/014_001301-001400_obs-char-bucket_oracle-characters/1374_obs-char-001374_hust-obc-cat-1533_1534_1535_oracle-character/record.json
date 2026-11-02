@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -100,5 +100,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧳㧴㧵",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ah10xtkbxp"
+    ],
+    "occurrences": 15,
+    "plates": 15,
+    "plate_list_head": [
+      "H12926",
+      "H13046",
+      "H13231",
+      "H13382",
+      "H13448",
+      "H13451",
+      "H13452",
+      "H13454",
+      "H13457",
+      "H13458",
+      "H13461",
+      "H13462"
+    ],
+    "by_category": {
+      "卜辞句": 15
+    },
+    "top_cooccurring": [
+      {
+        "text": "允",
+        "uid": "rc6s5fhd2k",
+        "count": 4
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 4
+      },
+      {
+        "text": "翌",
+        "uid": "hlxb5g91kc",
+        "count": 4
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 4
+      },
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H13448",
+        "heji_candidate": "13448",
+        "group_index": 1,
+        "text": "□日允雨乙◇陰",
+        "position": 7,
+        "length": 7
+      },
+      {
+        "plate": "H13451",
+        "heji_candidate": "13451",
+        "group_index": 1,
+        "text": "□日其雨至于丙辰陰不雨",
+        "position": 9,
+        "length": 11
+      }
+    ]
   }
 }

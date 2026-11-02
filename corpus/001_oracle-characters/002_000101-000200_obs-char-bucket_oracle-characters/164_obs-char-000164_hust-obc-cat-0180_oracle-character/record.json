@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㒪",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "rc6s5fhd2k"
+    ],
+    "occurrences": 216,
+    "plates": 211,
+    "plate_list_head": [
+      "H214",
+      "H258",
+      "H499",
+      "H542",
+      "H872",
+      "H1184",
+      "H1346",
+      "H1614",
+      "H1667",
+      "H1799",
+      "H1875",
+      "H3242"
+    ],
+    "by_category": {
+      "卜辞句": 215,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 67
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 59
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 55
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 32
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 31
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 28
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H214",
+        "heji_candidate": "214",
+        "group_index": 1,
+        "text": "□曰吉隹己辛允獲羌",
+        "position": 7,
+        "length": 9
+      },
+      {
+        "plate": "H258",
+        "heji_candidate": "258",
+        "group_index": 1,
+        "text": "乙未卜貞𫯦獲◇◇允獲十六以羌六",
+        "position": 9,
+        "length": 15
+      }
+    ]
   }
 }

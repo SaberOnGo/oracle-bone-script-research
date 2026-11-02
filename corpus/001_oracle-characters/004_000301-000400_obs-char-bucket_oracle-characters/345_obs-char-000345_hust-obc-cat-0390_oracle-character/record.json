@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㕼",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "pkibwuo4bv"
+    ],
+    "occurrences": 55,
+    "plates": 52,
+    "plate_list_head": [
+      "H558",
+      "H1996",
+      "H4248",
+      "H6386",
+      "H6388",
+      "H6389",
+      "H6391",
+      "H6395",
+      "H6406",
+      "H6411",
+      "H6414",
+      "H6419"
+    ],
+    "by_category": {
+      "卜辞句": 54,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 22
+      },
+      {
+        "text": "方",
+        "uid": "zsc0qawq79",
+        "count": 17
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 15
+      },
+      {
+        "text": "伐",
+        "uid": "zr3h63w2fy",
+        "count": 12
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 12
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 11
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H6386",
+        "heji_candidate": "6386",
+        "group_index": 3,
+        "text": "貞告土方于㘡",
+        "position": 3,
+        "length": 6
+      },
+      {
+        "plate": "H6388",
+        "heji_candidate": "6388",
+        "group_index": 2,
+        "text": "貞告土方于唐",
+        "position": 3,
+        "length": 6
+      }
+    ]
   }
 }

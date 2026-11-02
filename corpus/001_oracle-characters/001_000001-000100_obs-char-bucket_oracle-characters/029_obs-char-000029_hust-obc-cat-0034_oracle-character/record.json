@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐘",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "pmx01iziy9"
+    ],
+    "occurrences": 11,
+    "plates": 9,
+    "plate_list_head": [
+      "H5736",
+      "H10768",
+      "H31984",
+      "H32033",
+      "H32886",
+      "H32920",
+      "H32996",
+      "H32997",
+      "H33110"
+    ],
+    "by_category": {
+      "卜辞句": 11
+    },
+    "top_cooccurring": [
+      {
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 8
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 7
+      },
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 4
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 4
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 3
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H5736",
+        "heji_candidate": "5736",
+        "group_index": 1,
+        "text": "壬子卜賓貞令㦰眔多射",
+        "position": 7,
+        "length": 10
+      },
+      {
+        "plate": "H10768",
+        "heji_candidate": "10768",
+        "group_index": 1,
+        "text": "庚寅卜賓貞㦰㞢擒",
+        "position": 6,
+        "length": 8
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -97,5 +97,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㣾",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "el7xh0v2ov"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H32791"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "三",
+        "uid": "p77d58vew4",
+        "count": 1
+      },
+      {
+        "text": "牢",
+        "uid": "w4mg32kjp4",
+        "count": 1
+      },
+      {
+        "text": "歲",
+        "uid": "ghln7uplih",
+        "count": 1
+      },
+      {
+        "text": "丑",
+        "uid": "0u6c7rk2ux",
+        "count": 1
+      },
+      {
+        "text": "伊",
+        "uid": "jgdbp661hw",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H32791",
+        "heji_candidate": "32791",
+        "group_index": 3,
+        "text": "丁丑卜伊聿歲三牢",
+        "position": 5,
+        "length": 8
+      }
+    ]
   }
 }

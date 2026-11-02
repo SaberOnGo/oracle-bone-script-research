@@ -96,5 +96,41 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨗",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "y8lurw2s08"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H18257"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "午",
+        "uid": "89m3dkhxyy",
+        "count": 1
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 1
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 1
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

@@ -97,5 +97,52 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㑵",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "uzw48xncgx"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H7882",
+      "H18562"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "乍",
+        "uid": "c7qvt9bwt5",
+        "count": 1
+      },
+      {
+        "text": "丯",
+        "uid": "8om7bxkb13",
+        "count": 1
+      },
+      {
+        "text": "壺",
+        "uid": "3lizt17yhy",
+        "count": 1
+      },
+      {
+        "text": "弗",
+        "uid": "4jn67lbqhb",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

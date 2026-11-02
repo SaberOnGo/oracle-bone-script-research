@@ -94,5 +94,46 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㞄",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "tsa3qlzed1"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H17057"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "六",
+        "uid": "phjj09b89l",
+        "count": 1
+      },
+      {
+        "text": "夕",
+        "uid": "no4gdlajf6",
+        "count": 1
+      },
+      {
+        "text": "日",
+        "uid": "p8w7ujqanz",
+        "count": 1
+      },
+      {
+        "text": "壬",
+        "uid": "oesivb520y",
+        "count": 1
+      },
+      {
+        "text": "旬",
+        "uid": "nak4ioxpg1",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

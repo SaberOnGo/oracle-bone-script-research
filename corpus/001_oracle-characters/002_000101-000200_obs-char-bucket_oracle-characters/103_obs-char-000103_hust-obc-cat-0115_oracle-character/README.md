@@ -15,6 +15,16 @@
 - OBIMD 主字表中有 1 个字形被隶定为同一字（UID：o764sfprik），可据此查找卜辞字例〔来源 src-obimd 主字表〕。
 - EvoBC 有 1 个类别标为同一字（evobc-evo-cat-00678），可用于跨时期字形比较〔来源 src-evobc〕。
 - 更正：本档案 2026-11-02 合并时曾写作“㑩”。那是早期流程把本类号错接到 HUST-OBC OCR 字表的结果，已按官方对照表更正。
+
+## 4 卜辞例句
+
+- 其他字例所在甲骨：H23279〔来源 src-obimd〕。
+
+## 5 分布
+
+- OBIMD 中共 1 个字例，见于 1 片甲骨；按句组类别：未定 1〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
+- OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
+
 ## 10 来源与权利
 
 - 来源 src-hust-obc，图片资产 `asset-000108`，权利状态 `source_marked_risk_noted`。HUST-OBC 的 Figshare 与期刊页面许可表述不一致，详见来源档案 `corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/`。
@@ -22,5 +32,5 @@
 
 ## 11 待查项
 
-- 从 OBIMD 卜辞语料中取出这些 UID 的全部字例，抄录带著录号的例句，统计分期与共现字。
+- 在拓片上核对例句中本字的写法是否与本档案字形图一致；OBIMD 把它们隶定为同一字，不等于字形相同。
 - 在小学堂甲骨文字编中查找字头“亅”，核对字形是否与本类样本一致，记录释读、提出者和出处。

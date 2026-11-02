@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -96,5 +96,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㟭",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "t4tioxlhov"
+    ],
+    "occurrences": 38,
+    "plates": 30,
+    "plate_list_head": [
+      "H7602",
+      "H10402",
+      "H10677",
+      "H10680",
+      "H10685",
+      "H10686",
+      "H10688",
+      "H10690",
+      "H15675",
+      "H15677",
+      "H15681",
+      "H19442"
+    ],
+    "by_category": {
+      "卜辞句": 38
+    },
+    "top_cooccurring": [
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 16
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 10
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 9
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 7
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 6
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 6
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10402",
+        "heji_candidate": "10402",
+        "group_index": 2,
+        "text": "辛卯卜貞其狩焚擒",
+        "position": 7,
+        "length": 8
+      },
+      {
+        "plate": "H15675",
+        "heji_candidate": "15675",
+        "group_index": 2,
+        "text": "甲子卜貞焚于㞢从雨",
+        "position": 5,
+        "length": 9
+      }
+    ]
   }
 }

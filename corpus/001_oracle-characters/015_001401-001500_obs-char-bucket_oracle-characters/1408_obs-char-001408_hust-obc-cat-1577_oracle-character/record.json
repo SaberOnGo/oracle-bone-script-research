@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -95,5 +95,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㨟",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "7udfap69mj"
+    ],
+    "occurrences": 4,
+    "plates": 4,
+    "plate_list_head": [
+      "H13465",
+      "H13466",
+      "H13468",
+      "H13470"
+    ],
+    "by_category": {
+      "卜辞句": 4
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
+      },
+      {
+        "text": "卯",
+        "uid": "ay8mkydpb2",
+        "count": 2
+      },
+      {
+        "text": "隹",
+        "uid": "y0f5gu3q0a",
+        "count": 1
+      },
+      {
+        "text": "疑",
+        "uid": "e165xleaqt",
+        "count": 1
+      },
+      {
+        "text": "己",
+        "uid": "mdwfmpr3c8",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H13465",
+        "heji_candidate": "13465",
+        "group_index": 2,
+        "text": "己酉卜爭貞疑隹㞢霾",
+        "position": 9,
+        "length": 9
+      },
+      {
+        "plate": "H13466",
+        "heji_candidate": "13466",
+        "group_index": 1,
+        "text": "癸卯卜□王占曰其□霾甲辰□",
+        "position": 10,
+        "length": 13
+      }
+    ]
   }
 }

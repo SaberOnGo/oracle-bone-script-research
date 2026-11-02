@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -96,5 +96,61 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㟂",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "j5q9a8d49b"
+    ],
+    "occurrences": 2,
+    "plates": 2,
+    "plate_list_head": [
+      "H10163",
+      "H15230"
+    ],
+    "by_category": {
+      "卜辞句": 2
+    },
+    "top_cooccurring": [
+      {
+        "text": "來",
+        "uid": "rlx0knkq0v",
+        "count": 1
+      },
+      {
+        "text": "水",
+        "uid": "08fa78pdp8",
+        "count": 1
+      },
+      {
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 1
+      },
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 1
+      },
+      {
+        "text": "告",
+        "uid": "fmdym8mxmv",
+        "count": 1
+      },
+      {
+        "text": "牛",
+        "uid": "66iowpdbuc",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10163",
+        "heji_candidate": "10163",
+        "group_index": 1,
+        "text": "□淄其來水",
+        "position": 2,
+        "length": 5
+      }
+    ]
   }
 }

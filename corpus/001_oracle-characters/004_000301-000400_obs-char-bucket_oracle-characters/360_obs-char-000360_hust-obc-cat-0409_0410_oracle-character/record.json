@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,79 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㖏㖐",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "wujt49n5q0"
+    ],
+    "occurrences": 17,
+    "plates": 15,
+    "plate_list_head": [
+      "H553",
+      "H1617",
+      "H8235",
+      "H8952",
+      "H9381",
+      "H13516",
+      "H29793",
+      "H29794",
+      "H29796",
+      "H29800",
+      "H29801",
+      "H30198"
+    ],
+    "by_category": {
+      "卜辞句": 17
+    },
+    "top_cooccurring": [
+      {
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 7
+      },
+      {
+        "text": "至",
+        "uid": "q4rk3syf2x",
+        "count": 6
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 5
+      },
+      {
+        "text": "兮",
+        "uid": "d5c5afq5ue",
+        "count": 5
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H553",
+        "heji_candidate": "553",
+        "group_index": 4,
+        "text": "癸丑卜賓貞令彗墉以□執寇七月",
+        "position": 8,
+        "length": 14
+      },
+      {
+        "plate": "H8235",
+        "heji_candidate": "8235",
+        "group_index": 1,
+        "text": "貞彗眔墉弗其以㞢取",
+        "position": 4,
+        "length": 9
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,50 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㚮",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "804dv56eji"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H18385"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "隹",
+        "uid": "y0f5gu3q0a",
+        "count": 1
+      },
+      {
+        "text": "𢽝",
+        "uid": "0xcwx8sf6z",
+        "count": 1
+      },
+      {
+        "text": "不",
+        "uid": "h2mhpxskhk",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H18385",
+        "heji_candidate": "18385",
+        "group_index": 1,
+        "text": "貞𢽝不隹忒",
+        "position": 5,
+        "length": 5
+      }
+    ]
   }
 }

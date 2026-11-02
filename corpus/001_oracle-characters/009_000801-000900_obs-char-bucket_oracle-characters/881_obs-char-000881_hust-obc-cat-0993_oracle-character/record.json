@@ -93,5 +93,53 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㟗",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "did7ayzh7z"
+    ],
+    "occurrences": 3,
+    "plates": 3,
+    "plate_list_head": [
+      "H8350",
+      "H10206",
+      "H10248"
+    ],
+    "by_category": {
+      "卜辞句": 3
+    },
+    "top_cooccurring": [
+      {
+        "text": "妻",
+        "uid": "7p7pi5fxkj",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 1
+      },
+      {
+        "text": "古",
+        "uid": "fgo9aomfqj",
+        "count": 1
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 1
+      },
+      {
+        "text": "虎",
+        "uid": "rnar1q86c5",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,81 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦜㦝",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "cixqnyxp9v"
+    ],
+    "occurrences": 1053,
+    "plates": 902,
+    "plate_list_head": [
+      "H10",
+      "H30",
+      "H33",
+      "H59",
+      "H60",
+      "H88",
+      "H118",
+      "H134",
+      "H181",
+      "H192",
+      "H229",
+      "H242"
+    ],
+    "by_category": {
+      "卜辞句": 1050,
+      "兆序": 2,
+      "未定": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 808
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 725
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 576
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 530
+      },
+      {
+        "text": "尤",
+        "uid": "hhr47shesw",
+        "count": 275
+      },
+      {
+        "text": "祸",
+        "uid": "tp5ykv5jzh",
+        "count": 234
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H10",
+        "heji_candidate": "10",
+        "group_index": 1,
+        "text": "戊寅卜賓貞王往以眾黍于囧",
+        "position": 4,
+        "length": 12
+      },
+      {
+        "plate": "H33",
+        "heji_candidate": "33",
+        "group_index": 1,
+        "text": "癸酉卜賓貞翌戊令眾人□",
+        "position": 4,
+        "length": 11
+      }
+    ]
   }
 }

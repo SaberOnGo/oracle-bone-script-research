@@ -93,5 +93,26 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㔶",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "uho2ds1twg"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H10466"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "兔",
+        "uid": "exg6lsn5w7",
+        "count": 1
+      }
+    ],
+    "examples": []
   }
 }

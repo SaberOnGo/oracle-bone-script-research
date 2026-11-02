@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,71 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛜",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "shhzugl17n"
+    ],
+    "occurrences": 5,
+    "plates": 4,
+    "plate_list_head": [
+      "H553",
+      "H9511",
+      "H32982",
+      "H35345"
+    ],
+    "by_category": {
+      "卜辞句": 5
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "侯",
+        "uid": "e8qibnliym",
+        "count": 3
+      },
+      {
+        "text": "牧",
+        "uid": "lsh0azwee5",
+        "count": 3
+      },
+      {
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 2
+      },
+      {
+        "text": "叶",
+        "uid": "r424gd7pwf",
+        "count": 2
+      },
+      {
+        "text": "啚",
+        "uid": "bg0evhjvox",
+        "count": 2
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H553",
+        "heji_candidate": "553",
+        "group_index": 2,
+        "text": "貞自大□用攸牛",
+        "position": 6,
+        "length": 7
+      },
+      {
+        "plate": "H32982",
+        "heji_candidate": "32982",
+        "group_index": 4,
+        "text": "戊戌貞佑牧于爿攸侯叶啚",
+        "position": 8,
+        "length": 11
+      }
+    ]
   }
 }

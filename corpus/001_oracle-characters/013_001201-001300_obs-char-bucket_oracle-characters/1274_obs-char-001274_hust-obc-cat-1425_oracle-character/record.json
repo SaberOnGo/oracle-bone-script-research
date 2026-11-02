@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -97,5 +97,76 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㦇",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "34ks61j1m8"
+    ],
+    "occurrences": 13,
+    "plates": 9,
+    "plate_list_head": [
+      "H14504",
+      "H14650",
+      "H15638",
+      "H15857",
+      "H30393",
+      "H30411",
+      "H30434",
+      "H30736",
+      "H30867"
+    ],
+    "by_category": {
+      "卜辞句": 13
+    },
+    "top_cooccurring": [
+      {
+        "text": "叀",
+        "uid": "7grlc2aopw",
+        "count": 7
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
+      },
+      {
+        "text": "十",
+        "uid": "5ntior2ch1",
+        "count": 3
+      },
+      {
+        "text": "羊",
+        "uid": "aoaipuy20h",
+        "count": 3
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 3
+      },
+      {
+        "text": "犬",
+        "uid": "h9hoshfwwj",
+        "count": 3
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H14504",
+        "heji_candidate": "14504",
+        "group_index": 1,
+        "text": "于王十豚",
+        "position": 4,
+        "length": 4
+      },
+      {
+        "plate": "H14650",
+        "heji_candidate": "14650",
+        "group_index": 1,
+        "text": "兇羊㞢豚",
+        "position": 4,
+        "length": 4
+      }
+    ]
   }
 }

@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 2
   },
   "sources": [
     {
@@ -98,5 +98,80 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㛀",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "ld0qrctsbb",
+      "p6gn06lpie"
+    ],
+    "occurrences": 136,
+    "plates": 131,
+    "plate_list_head": [
+      "H477",
+      "H1450",
+      "H1535",
+      "H3950",
+      "H4005",
+      "H4044",
+      "H4158",
+      "H5067",
+      "H5165",
+      "H5494",
+      "H7265",
+      "H8121"
+    ],
+    "by_category": {
+      "卜辞句": 136
+    },
+    "top_cooccurring": [
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 78
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 77
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 69
+      },
+      {
+        "text": "亡",
+        "uid": "55qv0winah",
+        "count": 54
+      },
+      {
+        "text": "祸",
+        "uid": "tp5ykv5jzh",
+        "count": 49
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 49
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H1450",
+        "heji_candidate": "1450",
+        "group_index": 2,
+        "text": "貞卯待彘",
+        "position": 3,
+        "length": 4
+      },
+      {
+        "plate": "H1535",
+        "heji_candidate": "1535",
+        "group_index": 3,
+        "text": "貞王勿卒入待",
+        "position": 6,
+        "length": 6
+      }
+    ]
   }
 }

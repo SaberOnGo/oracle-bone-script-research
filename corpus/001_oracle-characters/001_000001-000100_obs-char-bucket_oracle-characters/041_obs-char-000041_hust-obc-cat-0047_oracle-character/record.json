@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 0
+    "example_sentences": 1
   },
   "sources": [
     {
@@ -93,5 +93,60 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㐥",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
+  },
+  "inscription_evidence": {
+    "obimd_main_uids": [
+      "0ppa3hvekl"
+    ],
+    "occurrences": 1,
+    "plates": 1,
+    "plate_list_head": [
+      "H14357"
+    ],
+    "by_category": {
+      "卜辞句": 1
+    },
+    "top_cooccurring": [
+      {
+        "text": "示",
+        "uid": "fom5bv844r",
+        "count": 1
+      },
+      {
+        "text": "賓",
+        "uid": "cixqnyxp9v",
+        "count": 1
+      },
+      {
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 1
+      },
+      {
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 1
+      },
+      {
+        "text": "今",
+        "uid": "ihsuhqgmdc",
+        "count": 1
+      },
+      {
+        "text": "牧",
+        "uid": "lsh0azwee5",
+        "count": 1
+      }
+    ],
+    "examples": [
+      {
+        "plate": "H14357",
+        "heji_candidate": "14357",
+        "group_index": 3,
+        "text": "庚午卜賓貞今牧示㵢",
+        "position": 9,
+        "length": 9
+      }
+    ]
   }
 }

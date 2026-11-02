@@ -187,6 +187,18 @@ masked-known blind test, and the tooling for scaling.
 此时知识库才第一次能回答"某字出现 N 次、全在某期、常与某字共现"这类
 问题，AI 推理层才有可用输入。
 
+执行记录（2026-11-02，第 6 步）：
+
+- 新工具 `tools/009_scholarly-graph/`，图谱写入
+  `corpus/008_relationship-graph/100_scholarly-graph/`：官方标签 1,774 条、
+  同字候选 3,099 条、合集号线索 725 条、共现 7,878 条（同句组 5 次及以上）。
+- 逐字 `occurs_in` 边 91,459 条可还原 OBIMD 全文，只写本地忽略区。
+- 删除建立在错误 HUST 标签上的旧边 `005`、`010`；其余旧路线边保留并标为历史。
+- 仍缺：异体、构件、释读提出与争议等边，需要第 5 步的文献整理。
+
+Execution record (step 6): the scholarly graph replaces route edges for
+research; position-level occurrence edges stay local.
+
 ## 风险与决定点 / Risks And Decision Points
 
 | 决定 | 影响 | 建议 |

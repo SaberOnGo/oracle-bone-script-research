@@ -1,72 +1,48 @@
 # Relationship Graph / 关系图谱
 
-English:
-This directory stores graph edge records for review routes among characters,
-assets, components, variants, inscriptions, sources, topics, and later-form
-correspondence candidates. These files support tracing, comparison, coverage
-checks, and statistics. They are not scholarship conclusions.
-
 简体中文：
-本目录保存单字、图片、构件、异体、卜辞、来源、专题和后世字形
-候选对应之间的图边记录。它们用于追溯、比较、覆盖率检查和统计，
-不是学术结论。
-
-## Human Research Entry Order / 人工研究入口顺序
+本目录保存甲骨文对象之间的关系边。2026-11-02 起，研究用的是
+`100_scholarly-graph/` 中的学术关系边；其余旧文件是早期生成的"路线边"，
+只描述文件之间的引用路线，保留作历史记录。
 
 English:
+Since 2026-11-02 the research graph is `100_scholarly-graph/`. The older files
+are route edges between files, kept for history.
 
-1. Start from the related human dossier or source-object README.
-2. Open the graph edge only after the source and object route is known.
-3. Check the edge source file, source register, and object-local dossier.
-4. Verify the evidence path, external id, rights note, and review status.
-5. Compare related `character-source` and `character-asset` edges.
-6. Compare candidate `character-component` and `character-variant` edges.
-7. Compare `character-inscription` and inscription crosswalk routes.
-8. Compare `cross-source-id` and `evolution/correspondence` routes.
-9. Record only reviewed route outcomes in human-facing notes.
+## 学术关系图谱 / Scholarly Graph
 
-简体中文：
+由 `tools/009_scholarly-graph/build_scholarly_graph.py` 生成。每条边都带
+`source_ref`（来源行或文献定位）、`status` 和 `note`。
 
-1. 先打开相关的人类档案或来源对象 README。
-2. 确认来源和对象路线后，再查看图边文件。
-3. 核对图边来源文件、来源登记和对象本地档案。
-4. 核对证据路径、外部编号、权利说明和复核状态。
-5. 比较相关的 `character-source` 和 `character-asset` 图边。
-6. 比较候选 `character-component` 和 `character-variant` 图边。
-7. 比较 `character-inscription` 和卜辞 crosswalk 路线。
-8. 比较 `cross-source-id` 与 `evolution/correspondence` 路线。
-9. 只把已经复核的路线结果写入人类可读笔记。
+| 边类型 | 含义 | 数量 | 状态 |
+| --- | --- | --- | --- |
+| `dataset_label` | HUST-OBC 已释类 → 官方对照表中的字 | 1,774 | `source_reported` |
+| `same_character_candidate` | 单字档案 → OBIMD 字形或 EvoBC 类别（隶定或标签相同） | 3,099 | `candidate` |
+| `catalog_clue` | 单字档案 → 样本文件名中的合集号 | 725 | `filename_clue` |
+| `co_occurs` | OBIMD 字形 ↔ 字形，同一句组中共现 5 次及以上 | 7,878 | `source_derived_count` |
+| `occurs_in` | OBIMD 字形 → 甲骨片句组与字位 | 91,459 | 只在本地 |
 
-## Current Graph Files / 当前图边文件
+`occurs_in` 边逐字记录位置，合起来就能还原 OBIMD 全文，所以按 OBIMD 权利
+状态只写到本地忽略区 `external_local_archive/derived/graph/`。
 
-| File | Human review use |
-| --- | --- |
-| `004_graph-edges.jsonl` | Early route edges kept for audit comparison. |
-| `005_hust-obc-candidate-graph-edges.jsonl` | HUST-OBC metadata routes. |
-| `006_obimd-component...` | OBIMD component/codepoint routes. |
-| `007_evobc-evolution-graph-edges.jsonl` | EVOBC routes; candidate status is explicit. |
-| `008_cambridge-hopkins...` | Inscription crosswalk routes. |
-| `009_character-asset-graph...` | Character to local asset routes. |
-| `010_cross-source-id-graph-edges.jsonl` | Cross-source id lookup routes. |
-| `011_component-asset-graph...` | Component to local asset routes. |
-| `012_cambridge-hopkins-topic...` | Topic/crosswalk review routes. |
-| `013_character-source-graph...` | Character-to-source routes. |
-| `014_character-variant-graph-edges.jsonl` | Candidate variant review routes. |
-| `015_character-inscription-candidate...` | H2 candidate occurrence routes. |
-| `016_character-component-candidate...` | Cross-source component candidates. |
-| `017_evobc-evolution-correspondence-candidate...` | EVOBC later-era candidate routes. |
+`same_character_candidate` 只表示两个数据集把字隶定或标注为同一个现代字，
+不说明字形相同，也不说明释读正确。
 
-## Edge Dossier Content / 图边档案内容
+## 已删除的旧边 / Removed Legacy Edges
 
-English:
-Each edge should let a reviewer recover the edge type, subject id, object id,
-source row or source file, local dossier path, evidence path, review status,
-missing evidence, and next source to check.
+`005_hust-obc-candidate-graph-edges.jsonl` 与
+`010_cross-source-id-graph-edges.jsonl` 建立在错误的 HUST-OBC 标签上
+（见 `corpus/001_oracle-characters/000_character-registers/README.md`
+"标签更正"一节），2026-11-02 已删除，可从提交 `9a37cb9774c` 恢复。
 
-简体中文：
-每条图边都应让复核者找到图边类型、主体编号、客体编号、来源行或
-来源文件、本地档案路径、证据路径、复核状态、缺失证据和下一步
-待查来源。
+## 旧路线边 / Legacy Route Edges
+
+`004`、`006`--`009`、`011`--`017` 是早期生成的路线边，描述单字、图片、
+构件、来源和对照候选之间的文件路线。其中的路径可能指向已折叠的目录。
+它们不是学术关系，研究时请用 `100_scholarly-graph/`。
+
+Files `004`, `006`--`009`, and `011`--`017` are legacy route edges whose paths
+may point to collapsed directories.
 
 ## Confidence boundary / 置信度边界
 
@@ -107,67 +83,3 @@ OBIMD staging 表和较早的图边可能保留来源历史字段
 当前有效状态是 `metadata_only_until_verified`；在冲突条款完成对账前，
 不得公开再分发或提升派生件。该规则适用于构件、异体、资产和来源包路线。
 图边仍只是候选复核路线，不能授权复制图像、原始包或派生资产。
-
-## Concrete Questions To Check / 具体待查问题
-
-English:
-
-- Which edge points to a character without a human dossier route?
-- Which `character-source` edge lacks a reviewed source object?
-- Which `character-asset` edge lacks a rights or risk note?
-- Which `character-component` edge is only a candidate review route?
-- Which `character-variant` edge is only a candidate review route?
-- Which `character-inscription` edge lacks inscription context?
-- Which inscription edge lacks a plate, text, or catalog route?
-- Which `cross-source-id` edge has conflicting external ids?
-- Which `evolution/correspondence` edge is only a dataset route?
-- Which edge must not be cited as accepted scholarship?
-
-The `014_character-variant-graph-edges.jsonl` file is derived from the
-OBIMD sub-character/main-character staging table. Its rows are dataset
-hierarchy routes only. They require visual comparison, source checking, and
-scholarly review before any variant relation is promoted.
-
-`014_character-variant-graph-edges.jsonl` 来自 OBIMD 子字符/主字符
-staging 表。每行只是数据集层级路线，必须经过字形图像比较、来源核对
-和学术复核，才能考虑提升为异体关系。
-
-简体中文：
-
-- 哪条图边指向还没有人类档案路线的单字？
-- 哪条 `character-source` 图边缺少已复核的来源对象？
-- 哪条 `character-asset` 图边缺少权利或风险说明？
-- 哪条 `character-component` 图边只是候选复核路线？
-- 哪条 `character-variant` 图边只是候选复核路线？
-- 哪条 `character-inscription` 图边缺少卜辞上下文？
-- 哪条卜辞图边缺少图版、文本或著录路线？
-- 哪条 `cross-source-id` 图边存在外部编号冲突？
-- 哪条 `evolution/correspondence` 图边只是数据集路线？
-- 哪条图边绝不能当作已接受的学术结论引用？
-
-## Research Boundary / 研究边界
-
-English:
-Graph edges are review route records. They are not a decipherment conclusion,
-not a component assignment, not a variant judgment, not an inscription identity,
-not a topic assignment, and not an accepted correspondence. Any claim based on
-an edge must return to the image, rubbing, plate, catalog, source register,
-and published discussion before it can enter formal research notes.
-
-简体中文：
-图边只是复核路线记录。它们不是释读结论，不是构件归属，不是异体
-判断，不是卜辞身份确认，不是专题归属，也不是已接受的字形对应。
-任何基于图边的判断，都必须回到实物图像、拓片、图版、著录、来源
-登记和已发表讨论，之后才能进入正式研究笔记。
-
-## Regeneration Notes / 再生成说明
-
-English:
-Generated or refreshed edge files must keep source provenance, stable ids,
-evidence paths, review status, and candidate boundaries. Temporary extraction,
-OCR, unpacked, and cache files must stay in ignored working directories.
-
-简体中文：
-重新生成或刷新图边文件时，必须保留来源追溯、稳定编号、证据路径、
-复核状态和候选边界。临时抽取、OCR、解包和缓存文件必须留在已忽略
-的工作目录中。

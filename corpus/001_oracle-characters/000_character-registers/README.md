@@ -81,3 +81,26 @@ manifest。
 
 本目录中的任何 register 都不能单独创建新的已接受单字身份。正式记录
 需要跨来源复核、来源证据，以及具体对象目录内的人类可读文档。
+
+## 2026-11-02 标签更正 / Label Correction
+
+简体中文：
+`007`、`008`、`011` 三张表中的 HUST-OBC 今字标签全部错误，已被
+`012_hust-obc-official-deciphered-labels.csv` 取代。原因是早期流程把
+已释字类号（如 `0001`）接到了 HUST-OBC OCR 子数据集的字表
+`OCR/ID_to_Chinese.json`（如 `00001`），两者是不同的编号体系。结果是
+1,781 个类全部被标成部首区和扩展 A 区的字，例如 0001 类被写作"⺀"。
+
+正确的对照表是 HUST-OBC 原始包中的
+`HUST-OBC/deciphered/ID_to_chinese.json`（SHA-256
+`f1ac067eae3092d0bf738e9285cd86ac54a57e6d46deb147b87908b1c9eadd34`），
+其中 1,563 个是常用汉字，例如 0100 类是"丹"、0111 类是"九"。用正确标签
+重算后，1,294 个已释类能对上 OBIMD 主字表，1,579 个能对上 EvoBC。
+
+旧表保留作历史记录，不要再用其中的标签和码位对照。
+
+English:
+The HUST-OBC labels in registers `007`, `008`, and `011` are all wrong and are
+superseded by register `012`. The earlier pipeline joined deciphered category
+IDs to the OCR sub-dataset table, a different ID space. The correct table is
+`HUST-OBC/deciphered/ID_to_chinese.json` in the raw package.

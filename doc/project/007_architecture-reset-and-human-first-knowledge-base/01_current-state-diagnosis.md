@@ -184,6 +184,23 @@ Half a million files slow every repository operation. Per-object tests make
 format changes cascade. About two hundred AI queue and scaffold files in
 `corpus/009` and `doc/public/user_research/` are agent workbench residue.
 
+### 5.8 已释字标签全部错接（2026-11-02 发现并更正）
+
+迁移第 2b 步合并单字档案时发现，仓库中 1,781 个 HUST-OBC 已释类的今字
+标签全部错误。早期流程把已释字类号接到了 OCR 子数据集字表
+`OCR/ID_to_Chinese.json`，两者编号体系不同，所以每个类都拿到了 OCR 字表
+里排在同一序号的字：部首区和扩展 A 区的生僻字。正确对照表就在本地
+原始包 `HUST-OBC/deciphered/ID_to_chinese.json` 中。
+
+影响：此前所有基于 HUST 标签的码位对照、OBIMD 与 EvoBC 交叉匹配和相关
+图边都不可靠。修正后能对上 OBIMD 的已释类由 22 个变为 1,294 个。这件事
+说明结构校验通过不等于内容正确：五个月里没有一个检查去看"标签是不是
+一个合理的字"。
+
+The 1,781 HUST-OBC deciphered labels were all wrong because category IDs were
+joined to the OCR table. The correct table was in the local raw package.
+After correction, 1,294 categories match OBIMD instead of 22.
+
 ### 5.7 零散问题
 
 - `corpus/001/.../035_undeciphered-001900_*` 和 `063_*oracle-characters-

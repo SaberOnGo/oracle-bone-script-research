@@ -14,6 +14,16 @@
       "source_id": "src-hust-obc",
       "rights_status": "source_marked_risk_noted",
       "role": "glyph_image_and_dataset_category"
+    },
+    {
+      "source_id": "src-obimd",
+      "rights_status": "metadata_only_until_verified",
+      "role": "main_character_transcription_match"
+    },
+    {
+      "source_id": "src-evobc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "evolution_category_label_match"
     }
   ],
   "images": [
@@ -56,16 +66,24 @@
     "category_member_count": "1"
   },
   "dataset_label": {
-    "label": "㓺",
-    "codepoints": "U+34FA",
-    "status": "dataset_label_candidate_not_accepted_reading"
+    "label": "化",
+    "labels_by_category": {
+      "0260": "化"
+    },
+    "codepoints": "U+5316",
+    "status": "dataset_label_candidate_not_accepted_reading",
+    "source_member": "HUST-OBC/deciphered/ID_to_chinese.json",
+    "source_member_sha256": "f1ac067eae3092d0bf738e9285cd86ac54a57e6d46deb147b87908b1c9eadd34"
   },
   "cross_source_codepoint": {
     "statuses": [
-      "no_obimd_or_evobc_codepoint_match"
+      "recomputed_from_official_label"
     ],
-    "matched_source_ids": [
-      "src-hust-obc"
+    "obimd_main_uids": [
+      "s73v9sbqaz"
+    ],
+    "evobc_category_ids": [
+      "evobc-evo-cat-01336"
     ]
   },
   "provenance": {
@@ -74,5 +92,10 @@
     "former_packet": "01_candidate-character-packet.json",
     "former_packet_id": "hust-obc-candidate-packet-000233",
     "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  },
+  "dataset_label_correction": {
+    "corrected_on": "2026-11-02",
+    "wrong_label": "㓺",
+    "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
   }
 }

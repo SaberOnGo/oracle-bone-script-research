@@ -52,17 +52,21 @@
     "category_member_count": "1"
   },
   "dataset_label": {
-    "label": "㫫",
-    "codepoints": "U+3AEB",
-    "status": "dataset_label_candidate_not_accepted_reading"
+    "label": "𰦖",
+    "labels_by_category": {
+      "1781": "𰦖"
+    },
+    "codepoints": "U+30996",
+    "status": "dataset_label_candidate_not_accepted_reading",
+    "source_member": "HUST-OBC/deciphered/ID_to_chinese.json",
+    "source_member_sha256": "f1ac067eae3092d0bf738e9285cd86ac54a57e6d46deb147b87908b1c9eadd34"
   },
   "cross_source_codepoint": {
     "statuses": [
-      "no_obimd_or_evobc_codepoint_match"
+      "recomputed_from_official_label"
     ],
-    "matched_source_ids": [
-      "src-hust-obc"
-    ]
+    "obimd_main_uids": [],
+    "evobc_category_ids": []
   },
   "provenance": {
     "merged_on": "2026-11-02",
@@ -70,5 +74,10 @@
     "former_packet": "01_candidate-character-packet.json",
     "former_packet_id": "hust-obc-candidate-packet-001588",
     "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  },
+  "dataset_label_correction": {
+    "corrected_on": "2026-11-02",
+    "wrong_label": "㫫",
+    "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
   }
 }

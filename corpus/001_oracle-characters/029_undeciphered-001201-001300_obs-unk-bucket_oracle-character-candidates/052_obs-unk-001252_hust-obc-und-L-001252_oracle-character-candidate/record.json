@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001252",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001252",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002845_hust-obc-und-L-001252_glyph.jpg",
+      "metadata": "images/001_asset-002845_hust-obc-und-L-001252_glyph.yaml",
+      "asset_id": "asset-002845",
+      "source_image_path": "HUST-OBC/undeciphered/L/1252/L_？_13555.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "55",
+      "sha256": "8b9948c9fbfb6482a59588e19c786cdf0e72fac2ccff8b278ab40d2a03a9daa4",
+      "raw_source_sha256": "8b9948c9fbfb6482a59588e19c786cdf0e72fac2ccff8b278ab40d2a03a9daa4",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像显示圆弧上盖、内部横线、侧向回环和右侧下伸线。"
+    ],
+    "en": [
+      "The image shows a rounded cap with inner bars, a curled side loop, and a descending right stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13555.jpg",
+    "prefix": "L",
+    "code": "？_13555"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1252",
+    "source_class_path": "HUST-OBC/undeciphered/L/1252/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1252/L_？_13555.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1252/L_？_13555.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

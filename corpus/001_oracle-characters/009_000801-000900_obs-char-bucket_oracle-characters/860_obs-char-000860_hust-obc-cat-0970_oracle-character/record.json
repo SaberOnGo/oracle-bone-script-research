@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000860",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0970",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000865_hust-obc-cat-0970_glyph.png",
+      "metadata": "images/001_asset-000865_hust-obc-cat-0970_glyph.yaml",
+      "asset_id": "asset-000865",
+      "source_image_path": "HUST-OBC/deciphered/0970/G_0970_合11156賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "50",
+      "pixel_height": "80",
+      "sha256": "7f1700b5947ed161634e467f04052b5d9285396b6a44d68ffbd2e7c6bb3fb162",
+      "raw_source_sha256": "b1b2cceb427d2a22cd8fcdefe2a707d7da247672647f87a24a4c19841b5ff501",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长中央环状痕迹内有交叉笔；长斜向外笔向上下延伸，细连接难辨。"
+    ],
+    "en": [
+      "An elongated central loop contains crossing strokes; long diagonal outer strokes extend above and below, and fine joins are unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0970_合11156賓組.png",
+    "prefix": "G",
+    "heji": "合11156",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0970",
+    "validation_class_id": "859",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟀",
+    "codepoints": "U+37C0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000860",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000766",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0869",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000771_hust-obc-cat-0869_glyph.png",
+      "metadata": "images/001_asset-000771_hust-obc-cat-0869_glyph.yaml",
+      "asset_id": "asset-000771",
+      "source_image_path": "HUST-OBC/deciphered/0869/G_0869_後2.21.14(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "54",
+      "pixel_height": "79",
+      "sha256": "a5b1b9998c80f8322b44878faf2b98315b940f2b0f0c855c5aaa1ef8e3e09c31",
+      "raw_source_sha256": "ca88117e2ca4cecaa55c19022dc56520b7764311d5f4c71afeb5b24de294a6d2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型上部矩形环两侧有分离短痕；其下交叉斜笔充满高长开放框，底部为宽弯槽并带细侧延笔。"
+    ],
+    "en": [
+      "A small upper rectangular loop is flanked by detached short marks; below it, crossed diagonals fill a tall open frame above a broad curved basin and thin side extensions."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0869_後2.21.14(甲).png",
+    "prefix": "G",
+    "old_catalog": "後2.21.14",
+    "old_catalog_abbr": "後",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0869",
+    "validation_class_id": "765",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝛",
+    "codepoints": "U+375B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000766",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

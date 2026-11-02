@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000448",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0508",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000453_hust-obc-cat-0508_glyph.png",
+      "metadata": "images/001_asset-000453_hust-obc-cat-0508_glyph.yaml",
+      "asset_id": "asset-000453",
+      "source_image_path": "HUST-OBC/deciphered/0508/G_0508_乙222合20831𠂤組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "80",
+      "sha256": "6323bb67d96ea71b250b150023130702fb4fd7b8006a3670508f531d6f7e4596",
+      "raw_source_sha256": "80143a283474bb2e4bc67233bfc138541f5815baa5f10bd00c2164c4fa234b41",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三条平行竖笔位于矩形围框上方，框内有两条对角交叉，下方两角各伸出一条短腿。"
+    ],
+    "en": [
+      "Three parallel vertical strokes stand above a rectangular enclosure crossed by two diagonals, with two short legs descending from its lower corners."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0508_乙222合20831𠂤組.png",
+    "prefix": "G",
+    "heji": "合20831",
+    "old_catalog": "乙222",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "𠂤組"
+  },
+  "dataset_category": {
+    "source_category_id": "0508",
+    "validation_class_id": "447",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㗲",
+    "codepoints": "U+35F2",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000448",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

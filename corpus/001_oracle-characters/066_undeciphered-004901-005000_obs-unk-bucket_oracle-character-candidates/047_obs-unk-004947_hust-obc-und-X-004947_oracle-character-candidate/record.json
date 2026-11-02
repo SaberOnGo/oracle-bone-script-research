@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004947",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004947",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006540_hust-obc-und-X-004947_glyph.jpg",
+      "metadata": "images/001_asset-006540_hust-obc-und-X-004947_glyph.yaml",
+      "asset_id": "asset-006540",
+      "source_image_path": "HUST-OBC/undeciphered/X/503/X_？_7486_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "184",
+      "pixel_height": "267",
+      "sha256": "36450a9c0ffe8e92a8eaf4045aeb86f14d00a276e5281f77f5738d931cc447ed",
+      "raw_source_sha256": "36450a9c0ffe8e92a8eaf4045aeb86f14d00a276e5281f77f5738d931cc447ed",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一道宽大的弧形外轮廓从左下方升起并跨过中央。",
+      "弧形外轮廓内部有一处较大的浅色开口。",
+      "左侧连接处向下分出一条短内部分枝。",
+      "左侧外部笔画在内部分枝下方继续延伸。",
+      "右侧末端形成一条长弧形下行笔画。"
+    ],
+    "en": [
+      "A broad arch rises from the lower left and curves over the center.",
+      "The arch encloses a large light interior opening.",
+      "A short inner branch projects downward from the left junction.",
+      "The left outer stroke continues below the inner branch.",
+      "The right side ends in a long curved descending stroke.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7486_1.png",
+    "prefix": "X",
+    "code": "？_7486_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "503",
+    "source_class_path": "HUST-OBC/undeciphered/X/503/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/503/X_？_7486_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/503/X_？_7486_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

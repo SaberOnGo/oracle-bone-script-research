@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001702",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001702",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003295_hust-obc-und-L-001702_glyph.jpg",
+      "metadata": "images/001_asset-003295_hust-obc-und-L-001702_glyph.yaml",
+      "asset_id": "asset-003295",
+      "source_image_path": "HUST-OBC/undeciphered/L/1702/L_？_14688.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "52",
+      "sha256": "cfcf36d871039e4a689730fd12030db58706a8c99a71a3df85ecdcc16899f589",
+      "raw_source_sha256": "cfcf36d871039e4a689730fd12030db58706a8c99a71a3df85ecdcc16899f589",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部斜折笔痕形成紧凑轮廓，交叉线延伸到分叉下部笔画。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "Angular upper strokes form a compact enclosure; crossing lines continue into a forked lower stem."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14688.jpg",
+    "prefix": "L",
+    "code": "？_14688"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1702",
+    "source_class_path": "HUST-OBC/undeciphered/L/1702/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1702/L_？_14688.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1702/L_？_14688.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

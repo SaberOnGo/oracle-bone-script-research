@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004235",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004235",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005828_hust-obc-und-L-004235_glyph.jpg",
+      "metadata": "images/001_asset-005828_hust-obc-und-L-004235_glyph.yaml",
+      "asset_id": "asset-005828",
+      "source_image_path": "HUST-OBC/undeciphered/L/4235/L_？_9297.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "ae5d25c6e44cbd7db44aeb8c0b315bf1ef6276bc02a181722392d05f14a5ad79",
+      "raw_source_sha256": "ae5d25c6e44cbd7db44aeb8c0b315bf1ef6276bc02a181722392d05f14a5ad79",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：左侧竖向痕迹簇内有数条短横笔画。",
+      "中文：长斜向笔画从中央区域向下延伸。",
+      "中文：一条短分支向右下方伸出。",
+      "中文：笔画宽度和下端形态不均一。"
+    ],
+    "en": [
+      "English: A left vertical cluster contains several short bars.",
+      "English: Long diagonal strokes descend from the central area.",
+      "English: A short branch projects toward the lower right.",
+      "English: Stroke widths and lower terminals are uneven."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9297.jpg",
+    "prefix": "L",
+    "code": "？_9297"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4235",
+    "source_class_path": "HUST-OBC/undeciphered/L/4235/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4235/L_？_9297.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4235/L_？_9297.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

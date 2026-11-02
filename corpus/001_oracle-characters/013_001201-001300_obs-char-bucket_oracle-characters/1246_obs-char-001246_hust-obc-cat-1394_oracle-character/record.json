@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001246",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1394",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001251_hust-obc-cat-1394_glyph.png",
+      "metadata": "images/001_asset-001251_hust-obc-cat-1394_glyph.yaml",
+      "asset_id": "asset-001251",
+      "source_image_path": "HUST-OBC/deciphered/1394/L_1394_8272.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "52",
+      "sha256": "1a5a67c66a7e00f0305802759aff676f36ddd167926f302e643c47639f94e47e",
+      "raw_source_sha256": "ed4d489e77330f9766c65fdea0b5d6633e06791f9e16e8c4ff215981ffc2c975",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型密集圆拱笔画群有深色外轮廓、数个内部折角笔画，图像分辨率有限。"
+    ],
+    "en": [
+      "A small dense rounded cluster has a dark outer contour, several inner angular marks, and limited resolution."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1394_8272.jpg",
+    "prefix": "L",
+    "code": "1394_8272"
+  },
+  "dataset_category": {
+    "source_category_id": "1394",
+    "validation_class_id": "1245",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥨",
+    "codepoints": "U+3968",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001246",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

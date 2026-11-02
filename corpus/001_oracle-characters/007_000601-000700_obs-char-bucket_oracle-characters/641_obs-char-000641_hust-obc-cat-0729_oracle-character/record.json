@@ -1,0 +1,79 @@
+{
+  "id": "obs-char-000641",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0729",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000646_hust-obc-cat-0729_glyph.png",
+      "metadata": "images/001_asset-000646_hust-obc-cat-0729_glyph.yaml",
+      "asset_id": "asset-000646",
+      "source_image_path": "HUST-OBC/deciphered/0729/G_0729_前6.51.4合4890賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "22",
+      "pixel_height": "80",
+      "sha256": "eff2c1666ed41d8f79df2a1cf7937c978afc4d5ee414fd9b4f221086e22b31a6",
+      "raw_source_sha256": "9c35dc4f76b4b1b6f106e7957f105dc713075ccd2f177e77e7f57fdf057d98cb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细波折竖笔带小型钩曲上折，中部附近有两条交叉枝，下行段形成狭窄开口环。"
+    ],
+    "en": [
+      "A slender wavering vertical has a small hooked upper turn, two crossing branches near the middle, and a narrow open loop along its lower descent."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0729_前6.51.4合4890賓組.png",
+    "prefix": "G",
+    "heji": "合4890",
+    "old_catalog": "前6.51.4",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0729",
+    "validation_class_id": "640",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛏",
+    "codepoints": "U+36CF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000641",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

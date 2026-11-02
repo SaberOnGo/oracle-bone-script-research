@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000339",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0382_0383",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000344_hust-obc-cat-0382_0383_glyph.png",
+      "metadata": "images/001_asset-000344_hust-obc-cat-0382_0383_glyph.yaml",
+      "asset_id": "asset-000344",
+      "source_image_path": "HUST-OBC/deciphered/0382_0383/0382/L_0382_11323.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "50",
+      "sha256": "60e61361f917f09b04da125c226280f65651ede1ed4316c57721940f65ba4d54",
+      "raw_source_sha256": "da3c6a05fee67cdecdd57bb5237ae6e52699247b982320ca3b79b8aebd4f01b6",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "低对比度灰色图像左侧有紧凑深色圆弧笔画群，右侧有分离的弧形笔画；对比度仍需复核。"
+    ],
+    "en": [
+      "The low-contrast gray image shows a compact dark rounded cluster at the left and a detached curved stroke at the right; contrast needs recheck."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0382_11323.jpg",
+    "prefix": "L",
+    "code": "0382_11323"
+  },
+  "dataset_category": {
+    "source_category_id": "0382_0383",
+    "validation_class_id": "338",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㕴㕵",
+    "codepoints": "U+3574;U+3575",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000339",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

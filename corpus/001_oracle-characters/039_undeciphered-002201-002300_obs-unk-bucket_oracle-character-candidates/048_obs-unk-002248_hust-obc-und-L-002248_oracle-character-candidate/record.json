@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002248",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002248",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003841_hust-obc-und-L-002248_glyph.jpg",
+      "metadata": "images/001_asset-003841_hust-obc-und-L-002248_glyph.yaml",
+      "asset_id": "asset-003841",
+      "source_image_path": "HUST-OBC/undeciphered/L/2248/L_？_2819.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "55",
+      "sha256": "ef0a720add417644e681afa652a531bf0f8d72ad88e0d9676ef1f55cdce9ab46",
+      "raw_source_sha256": "ef0a720add417644e681afa652a531bf0f8d72ad88e0d9676ef1f55cdce9ab46",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数道斜向笔痕在上部相接。中部有较深的横向交叉笔痕，下方伸出一道较长的竖向笔痕及短的下部交叉笔痕。"
+    ],
+    "en": [
+      "Several slanting strokes meet in the upper area. A darker transverse group crosses the centre, and a long upright stroke with a short lower cross-mark extends below it."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2819.jpg",
+    "prefix": "L",
+    "code": "？_2819"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2248",
+    "source_class_path": "HUST-OBC/undeciphered/L/2248/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2248/L_？_2819.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2248/L_？_2819.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

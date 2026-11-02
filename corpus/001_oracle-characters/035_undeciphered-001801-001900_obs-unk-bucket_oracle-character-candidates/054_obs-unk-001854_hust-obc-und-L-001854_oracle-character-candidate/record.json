@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001854",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001854",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003447_hust-obc-und-L-001854_glyph.jpg",
+      "metadata": "images/001_asset-003447_hust-obc-und-L-001854_glyph.yaml",
+      "asset_id": "asset-003447",
+      "source_image_path": "HUST-OBC/undeciphered/L/1854/L_？_15131.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "61",
+      "sha256": "7dac71a2f59c39dc6df13eea468f295c3a70b95889dff17940bf163aff4c0b99",
+      "raw_source_sha256": "7dac71a2f59c39dc6df13eea468f295c3a70b95889dff17940bf163aff4c0b99",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "下部圆转围合内有中央交叉状笔痕和小点状笔痕。上方及两侧聚集短放射笔痕，下方有尖收笔痕。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A rounded lower enclosure contains a central cross-like mark and small interior dots. Short radiating strokes gather above and beside it, with pointed marks below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_15131.jpg",
+    "prefix": "L",
+    "code": "？_15131"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1854",
+    "source_class_path": "HUST-OBC/undeciphered/L/1854/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1854/L_？_15131.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1854/L_？_15131.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

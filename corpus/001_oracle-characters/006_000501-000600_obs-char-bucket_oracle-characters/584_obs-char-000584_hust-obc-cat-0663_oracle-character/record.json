@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000584",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0663",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000589_hust-obc-cat-0663_glyph.png",
+      "metadata": "images/001_asset-000589_hust-obc-cat-0663_glyph.yaml",
+      "asset_id": "asset-000589",
+      "source_image_path": "HUST-OBC/deciphered/0663/G_0663_京津2725合4375賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "60",
+      "pixel_height": "80",
+      "sha256": "eef2022f9376f0cf437f2935e2856e3f84aa3380d5f16958e825095afbc28909",
+      "raw_source_sha256": "758ea6a6178b207c8876ba490680f9cb9f938a75fe7ade289c9be7a45ac58bb5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧紧凑笔群结合两条上竖、中部椭圆环和短下底，右侧另有三条分离斜短痕。"
+    ],
+    "en": [
+      "A compact left cluster combines two upper verticals, a middle oval loop, and a short lower base; three detached diagonal dashes stand at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0663_京津2725合4375賓組.png",
+    "prefix": "G",
+    "heji": "合4375",
+    "old_catalog": "京津2725",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0663",
+    "validation_class_id": "583",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚍",
+    "codepoints": "U+368D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000584",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

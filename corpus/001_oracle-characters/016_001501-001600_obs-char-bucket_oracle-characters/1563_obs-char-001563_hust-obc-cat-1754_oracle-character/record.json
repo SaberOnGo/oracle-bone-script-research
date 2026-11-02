@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001563",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1754",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001568_hust-obc-cat-1754_glyph.png",
+      "metadata": "images/001_asset-001568_hust-obc-cat-1754_glyph.yaml",
+      "asset_id": "asset-001568",
+      "source_image_path": "HUST-OBC/deciphered/1754/X_1754_5946_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "199",
+      "pixel_height": "302",
+      "sha256": "f3c13e9a71cd127475f1c201f629028d44031c2601bbd5bccf1bcf2c2a71f5f7",
+      "raw_source_sha256": "84733aa0aaeaae991dfa2584e8c5678b16cee1666a6140247eb8102160a3a3e5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "严重退化图像保留两个深色不规则笔画群，仅能看见部分轮廓。"
+    ],
+    "en": [
+      "A heavily degraded image preserves two dark irregular clusters with only partial contours visible."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1754_5946_1.png",
+    "prefix": "X",
+    "code": "1754_5946_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1754",
+    "validation_class_id": "1562",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫐",
+    "codepoints": "U+3AD0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001563",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

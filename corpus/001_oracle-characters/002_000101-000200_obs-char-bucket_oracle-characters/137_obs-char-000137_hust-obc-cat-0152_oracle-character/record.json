@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-000137",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0152",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000142_hust-obc-cat-0152_glyph.png",
+      "metadata": "images/001_asset-000142_hust-obc-cat-0152_glyph.yaml",
+      "asset_id": "asset-000142",
+      "source_image_path": "HUST-OBC/deciphered/0152/G_0152_乙1239.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "80",
+      "sha256": "cd8c43bfd8f02c324eab7bbd544c041fcc472718f13616500bbf91619136848e",
+      "raw_source_sha256": "1a69b2bf2d3aba328729ddf17d454770a51ccc66a334442890397bb76bb841ae",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像上部为开放三角形框，内部有横笔，中央向下延伸一条窄而尖的笔画。"
+    ],
+    "en": [
+      "The image shows an open triangular upper frame, a crossbar inside it, and a narrow pointed stroke descending from the center."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0152_乙1239.png",
+    "prefix": "G",
+    "old_catalog": "乙1239",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0152",
+    "validation_class_id": "136",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㒎",
+    "codepoints": "U+348E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000137",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

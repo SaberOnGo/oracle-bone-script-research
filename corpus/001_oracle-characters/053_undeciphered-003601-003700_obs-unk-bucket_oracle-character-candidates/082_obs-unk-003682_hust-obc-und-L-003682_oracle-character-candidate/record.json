@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-003682",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003682",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005275_hust-obc-und-L-003682_glyph.jpg",
+      "metadata": "images/001_asset-005275_hust-obc-und-L-003682_glyph.yaml",
+      "asset_id": "asset-005275",
+      "source_image_path": "HUST-OBC/undeciphered/L/3682/L_？_7552.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "52",
+      "sha256": "3cafab86200323243cf74f66a956c92330c1b8f81386379f6c7ef5703953f8fc",
+      "raw_source_sha256": "3cafab86200323243cf74f66a956c92330c1b8f81386379f6c7ef5703953f8fc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "The small image does not establish whether the contour is closed.简体中文：",
+      "一个尖顶外部轮廓包围上部笔画。",
+      "轮廓内部有一条斜向笔画和数条短竖向笔画。",
+      "中央笔画群下方可见两个小型向下分支。",
+      "外部两侧不均匀地向下延伸至下方角部。",
+      "小尺寸图像无法确认轮廓是否封闭。"
+    ],
+    "en": [
+      "A peaked outer contour surrounds the upper marks.",
+      "A central diagonal and short vertical strokes fill the interior.",
+      "Two small downward branches appear beneath the central group.",
+      "The outer sides descend unevenly toward the lower corners."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_7552.jpg",
+    "prefix": "L",
+    "code": "？_7552"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3682",
+    "source_class_path": "HUST-OBC/undeciphered/L/3682/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3682/L_？_7552.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3682/L_？_7552.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

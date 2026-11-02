@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001250",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1398",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001255_hust-obc-cat-1398_glyph.png",
+      "metadata": "images/001_asset-001255_hust-obc-cat-1398_glyph.yaml",
+      "asset_id": "asset-001255",
+      "source_image_path": "HUST-OBC/deciphered/1398/X_1398_1210_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "180",
+      "pixel_height": "359",
+      "sha256": "549b8e9242787ecf69c26b15844df679fbdba19af078c10ae97b4ee0ab385f31",
+      "raw_source_sha256": "7ba325b2ef0ebab56e6fb477f31108082ce5f3f3c0313a61313bbbd74de5ef6e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高反差图像中，黑色背景上可见大型浅色不规则形体；内部边界部分被遮蔽。"
+    ],
+    "en": [
+      "A high-contrast image shows a large pale irregular figure against a black field; internal boundaries are partly obscured."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1398_1210_1.png",
+    "prefix": "X",
+    "code": "1398_1210_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1398",
+    "validation_class_id": "1249",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥬",
+    "codepoints": "U+396C",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001250",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

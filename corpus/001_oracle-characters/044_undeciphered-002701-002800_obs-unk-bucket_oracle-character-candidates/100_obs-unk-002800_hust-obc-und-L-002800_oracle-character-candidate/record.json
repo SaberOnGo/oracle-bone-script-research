@@ -1,0 +1,69 @@
+{
+  "id": "obs-unk-002800",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002800",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004393_hust-obc-und-L-002800_glyph.jpg",
+      "metadata": "images/001_asset-004393_hust-obc-und-L-002800_glyph.yaml",
+      "asset_id": "asset-004393",
+      "source_image_path": "HUST-OBC/undeciphered/L/2800/L_锛焈4628.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "57",
+      "sha256": "2d1a1718b051507d257fa9ddfccbdadf2c9ef03bcdb682dc575cda1b24f22b3d",
+      "raw_source_sha256": "2d1a1718b051507d257fa9ddfccbdadf2c9ef03bcdb682dc575cda1b24f22b3d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "顶部有一条较长斜向线，下面是紧凑的线迹组。",
+      "下部由分离的竖线和斜线组成，中间留有开口空间。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "A long angled stroke runs across the top of a compact lower cluster.",
+      "The lower cluster contains separated vertical and diagonal strokes with an open central space.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈4628.jpg",
+    "prefix": "L",
+    "code": "锛焈4628"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2800",
+    "source_class_path": "HUST-OBC/undeciphered/L/2800/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2800/L_？_4628.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2800/L_？_4628.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

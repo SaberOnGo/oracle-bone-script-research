@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-004005",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004005",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005598_hust-obc-und-L-004005_glyph.jpg",
+      "metadata": "images/001_asset-005598_hust-obc-und-L-004005_glyph.yaml",
+      "asset_id": "asset-005598",
+      "source_image_path": "HUST-OBC/undeciphered/L/4005/L_？_8495.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "62",
+      "sha256": "4534c770a77a7fb5ad2e6370c496c800f708d29d446b109bba6ab06ec0a6e342",
+      "raw_source_sha256": "4534c770a77a7fb5ad2e6370c496c800f708d29d446b109bba6ab06ec0a6e342",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条直立痕迹由下部横向或弯曲痕迹连接。上端较圆，侧边图像裁切较紧。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005598_hust-obc-und-L-004005_glyph.jpg`",
+      "Two upright traces are joined by a lower horizontal or curved trace. The upper ends are rounded and the side crop is tight."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8495.jpg",
+    "prefix": "L",
+    "code": "？_8495"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4005",
+    "source_class_path": "HUST-OBC/undeciphered/L/4005/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4005/L_？_8495.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4005/L_？_8495.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

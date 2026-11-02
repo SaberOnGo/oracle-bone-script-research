@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000432",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0492",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000437_hust-obc-cat-0492_glyph.png",
+      "metadata": "images/001_asset-000437_hust-obc-cat-0492_glyph.yaml",
+      "asset_id": "asset-000437",
+      "source_image_path": "HUST-OBC/deciphered/0492/G_0492_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "64",
+      "pixel_height": "98",
+      "sha256": "beebd39cc9c0d4246c7a6c668293f5f88877c3aae195c482a4be77630e4101d3",
+      "raw_source_sha256": "ddcddf7b51a33fc61bda38cdd44180a43fdd93c74d1329bf3f786a7c9870dd9f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽弧笔画穿过中央折角笔画群，另有钩曲或弯折延伸向左下方下垂。"
+    ],
+    "en": [
+      "A broad curved stroke crosses a central angular cluster; a separate hooked or bent extension descends toward the lower left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0492_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0492",
+    "validation_class_id": "431",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㗢",
+    "codepoints": "U+35E2",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000432",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

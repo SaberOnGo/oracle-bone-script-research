@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001200",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1341_1342",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001205_hust-obc-cat-1341_1342_glyph.png",
+      "metadata": "images/001_asset-001205_hust-obc-cat-1341_1342_glyph.yaml",
+      "asset_id": "asset-001205",
+      "source_image_path": "HUST-OBC/deciphered/1341_1342/1341/G_1341_乙3400合1285賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "80",
+      "sha256": "43c03682c0ae52158f29ce37a0ebc81d41aceba34ea870e8e13e7233b5ff9ce1",
+      "raw_source_sha256": "5b5470f10016adda76747e46ebfeefcbb9a9ac017528fc9c8b1d8c7e454eea8a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "开放的圆弧形体有数条上部尖枝、中央下行弯笔和钩状下端。"
+    ],
+    "en": [
+      "An open rounded form has several upper prongs, a central descending curve, and a hooked lower end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1341_乙3400合1285賓組.png",
+    "prefix": "G",
+    "heji": "合1285",
+    "old_catalog": "乙3400",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1341_1342",
+    "validation_class_id": "1199",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㤳㤴",
+    "codepoints": "U+3933;U+3934",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001200",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

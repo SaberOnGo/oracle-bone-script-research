@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002246",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002246",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003839_hust-obc-und-L-002246_glyph.jpg",
+      "metadata": "images/001_asset-003839_hust-obc-und-L-002246_glyph.yaml",
+      "asset_id": "asset-003839",
+      "source_image_path": "HUST-OBC/undeciphered/L/2246/L_？_2815.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "32",
+      "pixel_height": "52",
+      "sha256": "f25e58b3941b8b2157acb77994a80521a7bd5bd5272eca4c46b8a7162b10f82f",
+      "raw_source_sha256": "f25e58b3941b8b2157acb77994a80521a7bd5bd5272eca4c46b8a7162b10f82f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "笔痕是一组紧凑的深色密集笔痕，上部有数道短的交叉或尖状笔痕。下部笔痕向外分叉，个别末端难以分开辨认。"
+    ],
+    "en": [
+      "The mark is a compact dense cluster with several short crossed or pointed strokes in the upper area. Lower strokes branch outward, and the individual ends are difficult to separate."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2815.jpg",
+    "prefix": "L",
+    "code": "？_2815"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2246",
+    "source_class_path": "HUST-OBC/undeciphered/L/2246/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2246/L_？_2815.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2246/L_？_2815.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

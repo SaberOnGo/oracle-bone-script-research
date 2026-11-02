@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002065",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002065",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003658_hust-obc-und-L-002065_glyph.jpg",
+      "metadata": "images/001_asset-003658_hust-obc-und-L-002065_glyph.yaml",
+      "asset_id": "asset-003658",
+      "source_image_path": "HUST-OBC/undeciphered/L/2065/L_？_2173.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "c02bbb43cd2a27dc0f69daf7fc8d04b8517e0e0ef7cb304c47a53db8958216d2",
+      "raw_source_sha256": "c02bbb43cd2a27dc0f69daf7fc8d04b8517e0e0ef7cb304c47a53db8958216d2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像呈高而疏的笔画群，可见多道较长竖向笔画和上部短斜向笔画。下部笔画在视觉上接近，但不能确认形成封闭轮廓。"
+    ],
+    "en": [
+      "The image shows a tall sparse group with multiple long upright strokes and short diagonal marks near the upper area. The lower strokes converge visually but do not establish a confirmed enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2173.jpg",
+    "prefix": "L",
+    "code": "？_2173"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2065",
+    "source_class_path": "HUST-OBC/undeciphered/L/2065/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2065/L_？_2173.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2065/L_？_2173.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

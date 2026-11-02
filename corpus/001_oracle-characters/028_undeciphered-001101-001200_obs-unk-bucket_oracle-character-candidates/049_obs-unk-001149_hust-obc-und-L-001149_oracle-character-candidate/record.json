@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001149",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001149",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002742_hust-obc-und-L-001149_glyph.jpg",
+      "metadata": "images/001_asset-002742_hust-obc-und-L-001149_glyph.yaml",
+      "asset_id": "asset-002742",
+      "source_image_path": "HUST-OBC/undeciphered/L/1149/L_？_13240.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "56",
+      "sha256": "ea6f60d7569630f2ea010ff9dfdae4b12a2b6a81a3c146c0e9d0cc10292b6f3c",
+      "raw_source_sha256": "ea6f60d7569630f2ea010ff9dfdae4b12a2b6a81a3c146c0e9d0cc10292b6f3c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "圆弧上拱围出椭圆开口，下方为密集主体，右侧有卷曲线条。"
+    ],
+    "en": [
+      "A rounded upper arch encloses an oval opening above a dense body and a right curling stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13240.jpg",
+    "prefix": "L",
+    "code": "？_13240"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1149",
+    "source_class_path": "HUST-OBC/undeciphered/L/1149/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1149/L_？_13240.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1149/L_？_13240.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

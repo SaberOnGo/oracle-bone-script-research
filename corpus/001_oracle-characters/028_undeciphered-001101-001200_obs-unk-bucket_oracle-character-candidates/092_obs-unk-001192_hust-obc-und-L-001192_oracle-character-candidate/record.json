@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001192",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001192",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002785_hust-obc-und-L-001192_glyph.jpg",
+      "metadata": "images/001_asset-002785_hust-obc-und-L-001192_glyph.yaml",
+      "asset_id": "asset-002785",
+      "source_image_path": "HUST-OBC/undeciphered/L/1192/L_？_13388.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "61",
+      "sha256": "5019c9021350820c4d391d427fd80da94a6731f714432ab1dd4f7c8d065ea92c",
+      "raw_source_sha256": "5019c9021350820c4d391d427fd80da94a6731f714432ab1dd4f7c8d065ea92c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "带横向线带的屋顶状上部围合向下收成小型菱状垂饰。"
+    ],
+    "en": [
+      "A roof-like upper enclosure with horizontal bands narrows into a small diamond-shaped pendant."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13388.jpg",
+    "prefix": "L",
+    "code": "？_13388"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1192",
+    "source_class_path": "HUST-OBC/undeciphered/L/1192/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1192/L_？_13388.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1192/L_？_13388.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

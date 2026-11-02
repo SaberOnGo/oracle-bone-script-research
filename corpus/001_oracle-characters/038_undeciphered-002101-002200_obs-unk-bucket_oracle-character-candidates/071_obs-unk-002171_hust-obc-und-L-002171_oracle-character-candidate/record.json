@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002171",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002171",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003764_hust-obc-und-L-002171_glyph.jpg",
+      "metadata": "images/001_asset-003764_hust-obc-und-L-002171_glyph.yaml",
+      "asset_id": "asset-003764",
+      "source_image_path": "HUST-OBC/undeciphered/L/2171/L_？_2519.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "728f7ba1e6ac20a8b207aff5bf0e7631dbc534f59ca5614e3b3a88b679554e16",
+      "raw_source_sha256": "728f7ba1e6ac20a8b207aff5bf0e7631dbc534f59ca5614e3b3a88b679554e16",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "字形偏窄并呈斜向。较长斜笔与相反方向的短笔在上中部交叉。下部从交叉处向外弯曲，交叉点形成较深小结，边缘较软。"
+    ],
+    "en": [
+      "The mark is narrow and diagonal. A long slanting stroke crosses a shorter opposing stroke near the upper center. The lower section curves away from the crossing, with a darker compact knot at the intersection; edges are soft."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2519.jpg",
+    "prefix": "L",
+    "code": "？_2519"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2171",
+    "source_class_path": "HUST-OBC/undeciphered/L/2171/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2171/L_？_2519.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2171/L_？_2519.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

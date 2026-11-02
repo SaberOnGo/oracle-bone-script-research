@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000727",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0827_0828",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000732_hust-obc-cat-0827_0828_glyph.png",
+      "metadata": "images/001_asset-000732_hust-obc-cat-0827_0828_glyph.yaml",
+      "asset_id": "asset-000732",
+      "source_image_path": "HUST-OBC/deciphered/0827_0828/0827/G_0827_佚292合29092何組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "29",
+      "pixel_height": "79",
+      "sha256": "2bbd37af954ae58f855a8ed98e4eb8b982b5405b8a6d813cd886ce38fb35e1e5",
+      "raw_source_sha256": "f5fb6924a6826e599d02deb50b18e6cb85969754e5fae12f7987c739cd6ef14b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央竖笔上端形成放射状接点，下端分叉；中部左侧另有一个分离的小型开口矩形痕。"
+    ],
+    "en": [
+      "A central vertical carries a radiating star-like upper junction and a forked lower end; a small detached open rectangular mark stands at middle left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0827_佚292合29092何組.png",
+    "prefix": "G",
+    "heji": "合29092",
+    "old_catalog": "佚292",
+    "old_catalog_abbr": "佚",
+    "old_catalog_abbr_obm_label": "殷契佚存補編",
+    "group_or_note": "何組"
+  },
+  "dataset_category": {
+    "source_category_id": "0827_0828",
+    "validation_class_id": "726",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㜱㜲",
+    "codepoints": "U+3731;U+3732",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000727",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

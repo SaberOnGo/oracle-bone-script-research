@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001102",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1231_1232",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001107_hust-obc-cat-1231_1232_glyph.png",
+      "metadata": "images/001_asset-001107_hust-obc-cat-1231_1232_glyph.yaml",
+      "asset_id": "asset-001107",
+      "source_image_path": "HUST-OBC/deciphered/1231_1232/1231/G_1231_乙3340(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "66",
+      "pixel_height": "80",
+      "sha256": "1dc6f7cc5e26db0e8052b7b5091fe88b60ed7901737ed38f296e5d51c772745c",
+      "raw_source_sha256": "08271e1ab5bca79886321c89c483ffb3f1b4ea52f6724e3a79531a62007be572",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大的尖顶轮廓向下分为两个圆弧下部闭合形体。"
+    ],
+    "en": [
+      "A broad peaked contour descends into two rounded lower enclosed forms."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1231_乙3340(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙3340",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1231_1232",
+    "validation_class_id": "1101",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㣅㣆",
+    "codepoints": "U+38C5;U+38C6",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001102",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

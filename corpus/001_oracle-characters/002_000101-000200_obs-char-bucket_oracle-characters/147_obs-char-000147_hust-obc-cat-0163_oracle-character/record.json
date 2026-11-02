@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000147",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0163",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000152_hust-obc-cat-0163_glyph.png",
+      "metadata": "images/001_asset-000152_hust-obc-cat-0163_glyph.yaml",
+      "asset_id": "asset-000152",
+      "source_image_path": "HUST-OBC/deciphered/0163/G_0163_前6.33.1(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "23",
+      "pixel_height": "79",
+      "sha256": "55deb32fd4a8d2c13e7058f5763fd5378358d37fe895036535ea00d24c23ccd3",
+      "raw_source_sha256": "128e7e8085921885507b31f57efb3010984bb3c4ed80b5260f2061ff2006d606",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "极狭长图像左侧有数道短侧痕，中央有长下行笔，下端附近有紧凑分叉交结。"
+    ],
+    "en": [
+      "The very narrow image has several short side marks on the left, a long descending stroke, and a compact branching knot near the lower end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0163_前6.33.1(甲).png",
+    "prefix": "G",
+    "old_catalog": "前6.33.1",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0163",
+    "validation_class_id": "146",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㒙",
+    "codepoints": "U+3499",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000147",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

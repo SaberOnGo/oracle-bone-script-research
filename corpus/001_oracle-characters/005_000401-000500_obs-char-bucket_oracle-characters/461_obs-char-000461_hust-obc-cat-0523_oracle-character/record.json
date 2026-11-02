@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000461",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0523",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000466_hust-obc-cat-0523_glyph.png",
+      "metadata": "images/001_asset-000466_hust-obc-cat-0523_glyph.yaml",
+      "asset_id": "asset-000466",
+      "source_image_path": "HUST-OBC/deciphered/0523/G_0523_京津3220合10062.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "25",
+      "pixel_height": "80",
+      "sha256": "3309843236b525c0c1884a2811e0c16fcdb2516849d73e87518d1e5925dce6e6",
+      "raw_source_sha256": "14ec3edf10e6c3617571ab2e0e0a2cb40f46fcccceb9e81a070bcee493b865ba",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长尖顶外环包围数条层叠折角和弯曲笔画，其中上部有小型分隔，下部为钩曲笔画群。"
+    ],
+    "en": [
+      "A narrow pointed outer loop encloses several stacked angular and curved strokes, including a small upper division and a hooked lower cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0523_京津3220合10062.png",
+    "prefix": "G",
+    "heji": "合10062",
+    "old_catalog": "京津3220",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字"
+  },
+  "dataset_category": {
+    "source_category_id": "0523",
+    "validation_class_id": "460",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘁",
+    "codepoints": "U+3601",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000461",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

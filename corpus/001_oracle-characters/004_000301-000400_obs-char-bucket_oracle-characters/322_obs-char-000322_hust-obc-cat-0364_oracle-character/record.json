@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000322",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0364",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000327_hust-obc-cat-0364_glyph.png",
+      "metadata": "images/001_asset-000327_hust-obc-cat-0364_glyph.yaml",
+      "asset_id": "asset-000327",
+      "source_image_path": "HUST-OBC/deciphered/0364/X_0364_498_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "148",
+      "pixel_height": "294",
+      "sha256": "1f986b6cd393a963bef291d10147097f7a7facc12ddc447c5eef1aef9d4a83e7",
+      "raw_source_sha256": "337b9c5591ff0a6818f145028a0d0160464837ed0b380c643cca3e2736f6f3b8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型深色圆弧上部形体位于长直笔画之上，两侧有较小圆弧痕迹，下面有横笔画和下行笔画。"
+    ],
+    "en": [
+      "A large dark rounded upper cluster sits on a long vertical stroke; smaller rounded marks flank it, with a crossbar and lower descending stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_0364_498_1.png",
+    "prefix": "X",
+    "code": "0364_498_1"
+  },
+  "dataset_category": {
+    "source_category_id": "0364",
+    "validation_class_id": "321",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㕢",
+    "codepoints": "U+3562",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000322",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

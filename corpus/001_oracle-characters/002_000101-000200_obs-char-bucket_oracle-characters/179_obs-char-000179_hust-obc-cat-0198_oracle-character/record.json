@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000179",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0198",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000184_hust-obc-cat-0198_glyph.png",
+      "metadata": "images/001_asset-000184_hust-obc-cat-0198_glyph.yaml",
+      "asset_id": "asset-000184",
+      "source_image_path": "HUST-OBC/deciphered/0198/X_0198_3694_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "269",
+      "pixel_height": "233",
+      "sha256": "002d369613fd0a6df0426c2c0dc6e9e9df22b4335ca94f11437fb21ba3cce550",
+      "raw_source_sha256": "67db9dff5dd1868f6479912389537ed2895615ba37de0718b4a58547c5048e02",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大幅深色图像上方有粗重横梁，两侧有长竖笔，中部有折角交叉形，并有小分离点痕。"
+    ],
+    "en": [
+      "The large dark image has a heavy upper horizontal bar, two long side strokes, a central angular crossing form, and a small detached dot."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_0198_3694_1.png",
+    "prefix": "X",
+    "code": "0198_3694_1"
+  },
+  "dataset_category": {
+    "source_category_id": "0198",
+    "validation_class_id": "178",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㒼",
+    "codepoints": "U+34BC",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000179",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

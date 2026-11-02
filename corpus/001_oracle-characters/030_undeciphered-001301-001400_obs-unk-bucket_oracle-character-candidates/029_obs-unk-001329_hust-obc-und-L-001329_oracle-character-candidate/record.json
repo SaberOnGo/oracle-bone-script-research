@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001329",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001329",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002922_hust-obc-und-L-001329_glyph.jpg",
+      "metadata": "images/001_asset-002922_hust-obc-und-L-001329_glyph.yaml",
+      "asset_id": "asset-002922",
+      "source_image_path": "HUST-OBC/undeciphered/L/1329/L_？_13769.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "54",
+      "sha256": "be30ce34e373fad942a41dff1d9cb7b158b564a728da08d1e13fd964b6e8e7d6",
+      "raw_source_sha256": "be30ce34e373fad942a41dff1d9cb7b158b564a728da08d1e13fd964b6e8e7d6",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "近圆三角的外轮廓内有密集深色分叉笔痕，右侧另见一个小型圆状侧痕；侧痕与主体是否相连仍需核对。"
+    ],
+    "en": [
+      "A rounded triangular outer form contains dense dark branching strokes. A small rounded side mark is visible on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13769.jpg",
+    "prefix": "L",
+    "code": "？_13769"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1329",
+    "source_class_path": "HUST-OBC/undeciphered/L/1329/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1329/L_？_13769.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1329/L_？_13769.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

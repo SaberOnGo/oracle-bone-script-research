@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004188",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004188",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005781_hust-obc-und-L-004188_glyph.jpg",
+      "metadata": "images/001_asset-005781_hust-obc-und-L-004188_glyph.yaml",
+      "asset_id": "asset-005781",
+      "source_image_path": "HUST-OBC/undeciphered/L/4188/L_？_9110.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "7d6ed555b098155c2d60517c54690bdf3bda3a95f52b34216ba60b7fcbf5d36d",
+      "raw_source_sha256": "7d6ed555b098155c2d60517c54690bdf3bda3a95f52b34216ba60b7fcbf5d36d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：上部中央附近有两条斜向笔画相接。",
+      "中文：两条上部笔画之间有一条短的直立痕迹。",
+      "中文：中央位置可见一条横向交叉痕迹。",
+      "中文：右侧有一条向下弯曲的笔画。"
+    ],
+    "en": [
+      "English: Two slanting strokes meet near the upper centre.",
+      "English: A short upright trace rises between the upper strokes.",
+      "English: A central horizontal trace crosses the middle.",
+      "English: A curved stroke descends along the right side."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9110.jpg",
+    "prefix": "L",
+    "code": "？_9110"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4188",
+    "source_class_path": "HUST-OBC/undeciphered/L/4188/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4188/L_？_9110.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4188/L_？_9110.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

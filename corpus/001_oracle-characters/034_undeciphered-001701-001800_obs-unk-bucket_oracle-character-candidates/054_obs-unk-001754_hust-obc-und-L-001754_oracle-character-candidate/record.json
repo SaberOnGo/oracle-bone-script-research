@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001754",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001754",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003347_hust-obc-und-L-001754_glyph.jpg",
+      "metadata": "images/001_asset-003347_hust-obc-und-L-001754_glyph.yaml",
+      "asset_id": "asset-003347",
+      "source_image_path": "HUST-OBC/undeciphered/L/1754/L_？_14807.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "44149a08be1fd0182412e7b3ed679214ff19043c4ce881dd0d1a334836748306",
+      "raw_source_sha256": "44149a08be1fd0182412e7b3ed679214ff19043c4ce881dd0d1a334836748306",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高形椭圆或环状内部轮廓由两条长弯曲笔痕夹持，下部有窄长延伸。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A tall oval or looped interior is flanked by two long curved strokes, with a narrow lower extension."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14807.jpg",
+    "prefix": "L",
+    "code": "？_14807"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1754",
+    "source_class_path": "HUST-OBC/undeciphered/L/1754/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1754/L_？_14807.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1754/L_？_14807.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

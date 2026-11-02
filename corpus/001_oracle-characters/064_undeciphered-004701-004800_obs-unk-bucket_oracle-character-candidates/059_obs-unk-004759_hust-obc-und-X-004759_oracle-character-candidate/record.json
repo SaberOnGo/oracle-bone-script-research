@@ -1,0 +1,68 @@
+{
+  "id": "obs-unk-004759",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004759",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006352_hust-obc-und-X-004759_glyph.jpg",
+      "metadata": "images/001_asset-006352_hust-obc-und-X-004759_glyph.yaml",
+      "asset_id": "asset-006352",
+      "source_image_path": "HUST-OBC/undeciphered/X/315/X_？_7111_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "199",
+      "pixel_height": "277",
+      "sha256": "d6a4f0d9039e8193ce7f4c77d1d6041ab69b1802c51b9d63fd02e1c6d4491e5d",
+      "raw_source_sha256": "d6a4f0d9039e8193ce7f4c77d1d6041ab69b1802c51b9d63fd02e1c6d4491e5d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [],
+    "en": [
+      "A slim curved stroke rises along the left side and splits near the base.",
+      "A central horizontal stroke extends toward the right.",
+      "The upper middle group has stacked curved strokes and a pale opening.",
+      "A long diagonal stroke descends from the right side to a vertical terminal.",
+      "The visible groups meet near a low central junction.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7111_1.png",
+    "prefix": "X",
+    "code": "？_7111_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "315",
+    "source_class_path": "HUST-OBC/undeciphered/X/315/",
+    "source_image_count": 7,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/315/X_？_7111_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/315/X_？_7112_3.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

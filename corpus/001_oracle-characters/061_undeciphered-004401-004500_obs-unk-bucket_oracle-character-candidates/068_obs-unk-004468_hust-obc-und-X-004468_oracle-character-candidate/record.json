@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004468",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004468",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006061_hust-obc-und-X-004468_glyph.jpg",
+      "metadata": "images/001_asset-006061_hust-obc-und-X-004468_glyph.yaml",
+      "asset_id": "asset-006061",
+      "source_image_path": "HUST-OBC/undeciphered/X/24/X_？_8203_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "150",
+      "pixel_height": "316",
+      "sha256": "762bb28a4ff44041eadb107934b09ae8e872a07581444754aca128d7d3ef56a1",
+      "raw_source_sha256": "762bb28a4ff44041eadb107934b09ae8e872a07581444754aca128d7d3ef56a1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像是带有明显背景噪声的拓片式裁切区域。",
+      "中部有斜向和横向痕迹交叉穿过画面。",
+      "中心附近可见一个小型封闭菱状开口。",
+      "下部宽弧线内部还有一个圆弧状开口。"
+    ],
+    "en": [
+      "The image is a textured rubbing crop with substantial background noise.",
+      "A central diagonal and horizontal crossing cuts through the crop.",
+      "A small enclosed diamond-like opening appears near the center.",
+      "A broad lower curve contains another rounded interior opening."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8203_1.png",
+    "prefix": "X",
+    "code": "？_8203_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "24",
+    "source_class_path": "HUST-OBC/undeciphered/X/24/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/24/X_？_8203_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/24/X_？_8203_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

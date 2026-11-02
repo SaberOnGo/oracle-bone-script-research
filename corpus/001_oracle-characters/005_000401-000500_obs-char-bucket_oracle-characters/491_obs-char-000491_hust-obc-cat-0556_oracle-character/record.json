@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000491",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0556",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000496_hust-obc-cat-0556_glyph.png",
+      "metadata": "images/001_asset-000496_hust-obc-cat-0556_glyph.yaml",
+      "asset_id": "asset-000496",
+      "source_image_path": "HUST-OBC/deciphered/0556/H_0556_60B4C_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "191",
+      "pixel_height": "283",
+      "sha256": "65f48b9adb0f366463928531c1c801c9506179414595e68d657e065b7b3bf3ed",
+      "raw_source_sha256": "73adea62324aec58fda6037abeb106faeda4cefe7ac36d53974a5872912a649c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重尖顶外轮廓围绕中央分支竖笔和数条分离短痕，下方为宽弯曲底部笔画。"
+    ],
+    "en": [
+      "A bold pointed outer outline surrounds a central branching vertical stroke and several detached short marks, above a broad curved lower base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0556_60B4C_0.png",
+    "prefix": "H",
+    "code": "0556_60B4C_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0556",
+    "validation_class_id": "490",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘢",
+    "codepoints": "U+3622",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000491",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001241",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1388",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001246_hust-obc-cat-1388_glyph.png",
+      "metadata": "images/001_asset-001246_hust-obc-cat-1388_glyph.yaml",
+      "asset_id": "asset-001246",
+      "source_image_path": "HUST-OBC/deciphered/1388/G_1388_乙730合7571賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "74",
+      "pixel_height": "79",
+      "sha256": "a45b37db8b9bb44fea4e9442b953b44e4ba6e7e3614d5cfefb9836412f1c1b4b",
+      "raw_source_sha256": "50c9c5985d3bc5caacb6446439709340cab08325c8472a4d115cd1e91391f14a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集的分枝形体有数个尖状上部支臂、中央下行笔画和一条向下渐尖的长笔画。"
+    ],
+    "en": [
+      "A dense branching form has several pointed upper arms, a central descending stroke, and a long lower taper."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1388_乙730合7571賓組.png",
+    "prefix": "G",
+    "heji": "合7571",
+    "old_catalog": "乙730",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1388",
+    "validation_class_id": "1240",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥢",
+    "codepoints": "U+3962",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001241",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004575",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004575",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006168_hust-obc-und-X-004575_glyph.jpg",
+      "metadata": "images/001_asset-006168_hust-obc-und-X-004575_glyph.yaml",
+      "asset_id": "asset-006168",
+      "source_image_path": "HUST-OBC/undeciphered/X/131/X_？_8310_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "135",
+      "pixel_height": "274",
+      "sha256": "36021e7a2fc7f130f4e998f2a5d13e8a074d924adcd27b4099642c93ea592586",
+      "raw_source_sha256": "36021e7a2fc7f130f4e998f2a5d13e8a074d924adcd27b4099642c93ea592586",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部簇状痕迹有三个向上的尖状突出部分。",
+      "一条粗的中央痕迹从簇状连接处向下延伸。",
+      "右侧突出部分向外倾斜并以尖端结束。",
+      "一条长的下行痕迹从连接处斜向下延伸。",
+      "左侧上部突出部分比中央突出部分更窄。"
+    ],
+    "en": [
+      "The upper cluster has three upward pointed projections.",
+      "A thick central trace descends from the cluster.",
+      "The right projection angles outward and ends in a pointed tip.",
+      "A long lower trace continues diagonally down from the junction.",
+      "The left upper projection is narrower than the central projection."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8310_1.png",
+    "prefix": "X",
+    "code": "？_8310_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "131",
+    "source_class_path": "HUST-OBC/undeciphered/X/131/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/131/X_？_8310_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/131/X_？_8310_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

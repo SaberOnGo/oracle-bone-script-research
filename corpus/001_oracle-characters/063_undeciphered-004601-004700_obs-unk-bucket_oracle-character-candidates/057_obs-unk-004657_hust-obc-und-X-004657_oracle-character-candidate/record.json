@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004657",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004657",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006250_hust-obc-und-X-004657_glyph.jpg",
+      "metadata": "images/001_asset-006250_hust-obc-und-X-004657_glyph.yaml",
+      "asset_id": "asset-006250",
+      "source_image_path": "HUST-OBC/undeciphered/X/213/X_？_7221_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "187",
+      "pixel_height": "229",
+      "sha256": "eb3180ec8b06d1b2a2645a13f5d36685414ce05ec385dd2faa3ae027e3f88156",
+      "raw_source_sha256": "eb3180ec8b06d1b2a2645a13f5d36685414ce05ec385dd2faa3ae027e3f88156",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "当前派生图有大面积深色背景，并夹有断续浅色区域。",
+      "一条较宽的浅色斜向区域从左上延伸至中央。",
+      "中部和下部聚集着若干较小的深浅斑块。",
+      "当前派生图中的边界和笔画黑白极性不可靠。",
+      "不能据此安全确定稳定轮廓或内部构件。"
+    ],
+    "en": [
+      "The derivative has a large dark background with light, broken regions.",
+      "A broad pale diagonal region runs from the upper-left toward the center.",
+      "Several smaller pale and dark patches cluster in the middle and lower areas.",
+      "The image boundary and stroke polarity are not reliable in this derivative.",
+      "No stable contour or internal component can be identified safely.",
+      "These observations describe image quality and visible contrast only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7221_1.png",
+    "prefix": "X",
+    "code": "？_7221_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "213",
+    "source_class_path": "HUST-OBC/undeciphered/X/213/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/213/X_？_7221_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/213/X_？_7221_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002088",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002088",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003681_hust-obc-und-L-002088_glyph.jpg",
+      "metadata": "images/001_asset-003681_hust-obc-und-L-002088_glyph.yaml",
+      "asset_id": "asset-003681",
+      "source_image_path": "HUST-OBC/undeciphered/L/2088/L_？_2228.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "52",
+      "sha256": "3e0dfe078f40587af07ebbf3fbe2d1400ed21121caaa107b66699ad695ea942c",
+      "raw_source_sha256": "3e0dfe078f40587af07ebbf3fbe2d1400ed21121caaa107b66699ad695ea942c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "这是一个竖向分枝笔画簇。细直的中央笔干从上部交会处向下延伸；两侧有短斜分枝向上、向外伸出，下部逐渐收束为一道斜向末笔。周围上下文不可见。"
+    ],
+    "en": [
+      "This is a vertical branching cluster. A thin central stem descends from an upper junction. Short angled branches extend up and outward on both sides, while the lower section tapers to a single slanting end. No surrounding context is visible."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2228.jpg",
+    "prefix": "L",
+    "code": "？_2228"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2088",
+    "source_class_path": "HUST-OBC/undeciphered/L/2088/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2088/L_？_2228.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2088/L_？_2228.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

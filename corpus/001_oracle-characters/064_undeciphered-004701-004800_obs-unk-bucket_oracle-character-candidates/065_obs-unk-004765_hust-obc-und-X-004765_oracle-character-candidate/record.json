@@ -1,0 +1,68 @@
+{
+  "id": "obs-unk-004765",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004765",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006358_hust-obc-und-X-004765_glyph.jpg",
+      "metadata": "images/001_asset-006358_hust-obc-und-X-004765_glyph.yaml",
+      "asset_id": "asset-006358",
+      "source_image_path": "HUST-OBC/undeciphered/X/321/X_？_7306_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "236",
+      "pixel_height": "243",
+      "sha256": "c0d6cca43dce4c02e29fa99674089f9784510ecb547626a784b74a26b662b706",
+      "raw_source_sha256": "c0d6cca43dce4c02e29fa99674089f9784510ecb547626a784b74a26b662b706",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [],
+    "en": [
+      "The left group has a small upper opening and a long curved descending stroke.",
+      "A lower zigzag continues from the left group toward the bottom edge.",
+      "The right group forms a broad triangular enclosure with a pale interior.",
+      "A narrow central stroke descends inside the right enclosure.",
+      "The two groups are separated by a clear white gap.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7306_1.png",
+    "prefix": "X",
+    "code": "？_7306_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "321",
+    "source_class_path": "HUST-OBC/undeciphered/X/321/",
+    "source_image_count": 2,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/321/X_？_7306_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/321/X_？_7306_2.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

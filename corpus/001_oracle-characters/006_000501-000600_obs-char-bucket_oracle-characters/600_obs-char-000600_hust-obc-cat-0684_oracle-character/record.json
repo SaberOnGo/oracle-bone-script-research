@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000600",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0684",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000605_hust-obc-cat-0684_glyph.png",
+      "metadata": "images/001_asset-000605_hust-obc-cat-0684_glyph.yaml",
+      "asset_id": "asset-000605",
+      "source_image_path": "HUST-OBC/deciphered/0684/G_0684_乙703合3217.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "67",
+      "pixel_height": "80",
+      "sha256": "b9ac4c7aa2d1e0b02e3055bdd298a9d05f2e276bff8df49b71087cb4bfb86184",
+      "raw_source_sha256": "088e5b2894404c9c08570eeca2a218f846988fd89cb3bbf1e8bebba5e6cd18fb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重圆弧外环顶部宽分开，内部有弯曲分隔，两侧向下汇成狭窄尖底。"
+    ],
+    "en": [
+      "A bold rounded outer loop has a wide split at the top, a curved internal divider, and two sides that converge into a narrow pointed bottom."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0684_乙703合3217.png",
+    "prefix": "G",
+    "heji": "合3217",
+    "old_catalog": "乙703",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0684",
+    "validation_class_id": "599",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚢",
+    "codepoints": "U+36A2",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000600",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

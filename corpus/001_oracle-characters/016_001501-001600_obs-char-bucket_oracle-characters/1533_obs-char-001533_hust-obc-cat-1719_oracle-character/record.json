@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001533",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1719",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001538_hust-obc-cat-1719_glyph.png",
+      "metadata": "images/001_asset-001538_hust-obc-cat-1719_glyph.yaml",
+      "asset_id": "asset-001538",
+      "source_image_path": "HUST-OBC/deciphered/1719/G_1719_鐵38.4(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "75",
+      "pixel_height": "131",
+      "sha256": "9338441949584badef87c8ee9b3e3fa45f458b48eaec262d210ef3f287cccb32",
+      "raw_source_sha256": "82ef705f8c3ca253069a0360be74e6f7cc5493cc55736e38b5df268d56108d91",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "盆状上部轮廓位于短中央竖干和弧形侧部标记之上。"
+    ],
+    "en": [
+      "A bowl-like upper contour sits above a short central stem and curved side marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1719_鐵38.4(甲).png",
+    "prefix": "G",
+    "old_catalog": "鐵38.4",
+    "old_catalog_abbr": "鐵",
+    "old_catalog_abbr_obm_label": "鐵雲藏龜",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1719",
+    "validation_class_id": "1532",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪭",
+    "codepoints": "U+3AAD",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001533",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

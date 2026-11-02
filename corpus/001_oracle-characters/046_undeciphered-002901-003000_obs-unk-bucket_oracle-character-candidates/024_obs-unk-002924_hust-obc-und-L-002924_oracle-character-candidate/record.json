@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-002924",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002924",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004517_hust-obc-und-L-002924_glyph.jpg",
+      "metadata": "images/001_asset-004517_hust-obc-und-L-002924_glyph.yaml",
+      "asset_id": "asset-004517",
+      "source_image_path": "HUST-OBC/undeciphered/L/2924/L_锛焈5047.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "61",
+      "sha256": "901b2d8d7a48da8c36faa73ff9abc35f0d228d63c2a033f643f63d49b158870e",
+      "raw_source_sha256": "901b2d8d7a48da8c36faa73ff9abc35f0d228d63c2a033f643f63d49b158870e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像为小幅灰度裁切图，可见狭长的竖向深色笔画组合。",
+      "斜向笔画在中部附近交叉，末端呈尖状或渐细状。",
+      "中部交叉处下方有一条向侧面伸出的短笔画。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "The small grayscale crop shows a narrow vertical arrangement of dark strokes.",
+      "Diagonal strokes cross near the middle and end in pointed or tapered tips.",
+      "A short lower stroke projects to one side below the central crossing.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈5047.jpg",
+    "prefix": "L",
+    "code": "锛焈5047"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2924",
+    "source_class_path": "HUST-OBC/undeciphered/L/2924/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2924/L_？_5047.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2924/L_？_5047.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

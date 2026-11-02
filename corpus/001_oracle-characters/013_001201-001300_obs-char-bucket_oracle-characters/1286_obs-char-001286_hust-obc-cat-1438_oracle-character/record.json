@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001286",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1438",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001291_hust-obc-cat-1438_glyph.png",
+      "metadata": "images/001_asset-001291_hust-obc-cat-1438_glyph.yaml",
+      "asset_id": "asset-001291",
+      "source_image_path": "HUST-OBC/deciphered/1438/G_1438_拾10.1(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "80",
+      "sha256": "a448eef3c1a4037b106343ea73a70061b4a69c4d9f71bb1e801c85efe703869b",
+      "raw_source_sha256": "103efb53e2742c6c22a280d138ef69c3ff02a5eec49b141e7e1d4fe4ea2f57e3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高直形体有尖顶上部框形、中央横笔和两条长外侧下行线。"
+    ],
+    "en": [
+      "A tall form has a pointed upper enclosure, a central cross-stroke, and two long outer descending lines."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1438_拾10.1(甲).png",
+    "prefix": "G",
+    "old_catalog": "拾10.1",
+    "old_catalog_abbr": "拾",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1438",
+    "validation_class_id": "1285",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㦔",
+    "codepoints": "U+3994",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001286",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001240",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1387",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001245_hust-obc-cat-1387_glyph.png",
+      "metadata": "images/001_asset-001245_hust-obc-cat-1387_glyph.yaml",
+      "asset_id": "asset-001245",
+      "source_image_path": "HUST-OBC/deciphered/1387/G_1387_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "93",
+      "pixel_height": "92",
+      "sha256": "c9866d48a04ba7d82230b29a025f15d02b8d5d508cf61191170c6122af291658",
+      "raw_source_sha256": "552bae93765fe32bbdf484910cdbaa6bcb90378a69dd7c2589d1fcd079198f62",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型尖顶形体有中央三角框廓、分离的侧笔和小型下部环。"
+    ],
+    "en": [
+      "A large peaked form has a central triangular enclosure, detached side strokes, and a small lower loop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1387_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "1387",
+    "validation_class_id": "1239",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥡",
+    "codepoints": "U+3961",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001240",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

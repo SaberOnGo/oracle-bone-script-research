@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001229",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1374_1375",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001234_hust-obc-cat-1374_1375_glyph.png",
+      "metadata": "images/001_asset-001234_hust-obc-cat-1374_1375_glyph.yaml",
+      "asset_id": "asset-001234",
+      "source_image_path": "HUST-OBC/deciphered/1374_1375/1374/H_1374_60A0C_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "127",
+      "pixel_height": "268",
+      "sha256": "6d48781ff432622e70bc3b0feda8ffe05bf8c0f63153b07c82b74d2197c2747c",
+      "raw_source_sha256": "af6c459a562299f99f6583345141a15efccaae5a64e79f7d15a1c8abd0f4a6d1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离的深色分枝形体各自有中央直立笔和短侧部外伸笔。"
+    ],
+    "en": [
+      "Two separated dark branching forms each have a central upright and short side projections."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_1374_60A0C_0.png",
+    "prefix": "H",
+    "code": "1374_60A0C_0"
+  },
+  "dataset_category": {
+    "source_category_id": "1374_1375",
+    "validation_class_id": "1228",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㥔㥕",
+    "codepoints": "U+3954;U+3955",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001229",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

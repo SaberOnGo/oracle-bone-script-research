@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001918",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001918",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003511_hust-obc-und-L-001918_glyph.jpg",
+      "metadata": "images/001_asset-003511_hust-obc-und-L-001918_glyph.yaml",
+      "asset_id": "asset-003511",
+      "source_image_path": "HUST-OBC/undeciphered/L/1918/L_？_1584.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "51",
+      "sha256": "27e0f8845ae203595cc5bc456d25f8eb3a63b08211911eac0466c0d688f986f0",
+      "raw_source_sha256": "27e0f8845ae203595cc5bc456d25f8eb3a63b08211911eac0466c0d688f986f0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央有三条窄笔痕；左笔痕向外弯，中间笔痕斜向倾斜，右笔痕向上斜伸。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "Three narrow strokes occupy the centre. The left stroke bends outward, the middle stroke leans diagonally, and the right stroke angles upward."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1584.jpg",
+    "prefix": "L",
+    "code": "？_1584"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1918",
+    "source_class_path": "HUST-OBC/undeciphered/L/1918/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1918/L_？_1584.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1918/L_？_1584.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

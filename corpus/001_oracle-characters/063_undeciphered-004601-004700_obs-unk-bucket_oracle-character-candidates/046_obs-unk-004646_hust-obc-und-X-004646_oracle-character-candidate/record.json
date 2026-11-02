@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004646",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004646",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006239_hust-obc-und-X-004646_glyph.jpg",
+      "metadata": "images/001_asset-006239_hust-obc-und-X-004646_glyph.yaml",
+      "asset_id": "asset-006239",
+      "source_image_path": "HUST-OBC/undeciphered/X/202/X_？_7220_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "174",
+      "pixel_height": "299",
+      "sha256": "01c137ad036f1b82758991cb352dd66613271363eb8fa55bb192e3278e4de17b",
+      "raw_source_sha256": "01c137ad036f1b82758991cb352dd66613271363eb8fa55bb192e3278e4de17b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中分布着多组彼此分离的细笔画。",
+      "左侧组以长弧线下行，并在下端形成弯钩。",
+      "中央组分出短的斜向和横向笔画。",
+      "右侧另有一组长的向上弯曲笔画。",
+      "中央分支附近可见小而不规则的深色连接处。"
+    ],
+    "en": [
+      "Several thin strokes are separated across the image.",
+      "The left group descends in a long curved line with a hooked lower end.",
+      "A central group branches into short diagonal and horizontal strokes.",
+      "A separate right group has a long upward-curving stroke.",
+      "Small irregular dark joins occur near the central branch.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7220_1.png",
+    "prefix": "X",
+    "code": "？_7220_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "202",
+    "source_class_path": "HUST-OBC/undeciphered/X/202/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/202/X_？_7220_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/202/X_？_7220_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

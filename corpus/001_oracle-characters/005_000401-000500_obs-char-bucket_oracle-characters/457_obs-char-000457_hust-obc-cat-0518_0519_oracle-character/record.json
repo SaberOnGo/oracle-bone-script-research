@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000457",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0518_0519",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000462_hust-obc-cat-0518_0519_glyph.png",
+      "metadata": "images/001_asset-000462_hust-obc-cat-0518_0519_glyph.yaml",
+      "asset_id": "asset-000462",
+      "source_image_path": "HUST-OBC/deciphered/0518_0519/0518/G_0518_七W10合22574出組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "25",
+      "pixel_height": "80",
+      "sha256": "56295cf01c1f5fa9e57d6994116cfb878231c6dfdc6f36cd7120f42422c8675c",
+      "raw_source_sha256": "53d809a59fff41bde1db37fc3978749ba1a89c0bcc0e217e226458bc80b4c31e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "极狭窄图像显示三个层叠痕迹：上部交叉、中央小折角，以及下部带两条长侧笔的尖拱形。"
+    ],
+    "en": [
+      "The very narrow image shows three stacked marks: an upper crossing, a small central chevron, and a lower pointed arch with two long descending sides."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0518_七W10合22574出組.png",
+    "prefix": "G",
+    "heji": "合22574",
+    "old_catalog": "七W10",
+    "old_catalog_abbr": "七W",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "出組"
+  },
+  "dataset_category": {
+    "source_category_id": "0518_0519",
+    "validation_class_id": "456",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㗼㗽",
+    "codepoints": "U+35FC;U+35FD",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000457",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000705",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0799",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000710_hust-obc-cat-0799_glyph.png",
+      "metadata": "images/001_asset-000710_hust-obc-cat-0799_glyph.yaml",
+      "asset_id": "asset-000710",
+      "source_image_path": "HUST-OBC/deciphered/0799/G_0799_戩5.13(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "80",
+      "sha256": "f49c3a7758ef69a9b7d361f352d53f10145fbe86b88dba7270171df162e5c277",
+      "raw_source_sha256": "1348706a723e0a2791f8553d10d888ca01f5ae6e29480f4dc5d28a993c603fef",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "微小竖向层叠形结合带分隔的小顶矩形、交叉菱形中环和带两处折角的长狭下干。"
+    ],
+    "en": [
+      "A tiny vertical stack combines a small divided top rectangle, a crossed diamond-like middle loop, and a long narrow lower stem with two angular bends."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0799_戩5.13(甲).png",
+    "prefix": "G",
+    "old_catalog": "戩5.13",
+    "old_catalog_abbr": "戩",
+    "old_catalog_abbr_obm_label": "戩壽堂所藏殷墟文字考釋",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0799",
+    "validation_class_id": "704",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜕",
+    "codepoints": "U+3715",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000705",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

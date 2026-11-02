@@ -1,0 +1,79 @@
+{
+  "id": "obs-char-001103",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1233",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001108_hust-obc-cat-1233_glyph.png",
+      "metadata": "images/001_asset-001108_hust-obc-cat-1233_glyph.yaml",
+      "asset_id": "asset-001108",
+      "source_image_path": "HUST-OBC/deciphered/1233/G_1233_後2.8.7合3337賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "80",
+      "sha256": "ce66a34a5d138fc71ef1979195cfc8880fefda046f1d8d8e4e75205ac6d57e11",
+      "raw_source_sha256": "9feabc3c0d1df4d4d3e264dddbfa1ffd5925f8e7be5a49805d12b47e2cd5b493",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个相邻的狭长直立笔群各有波折中央笔干、尖状上部分枝和向外分开的下部笔。"
+    ],
+    "en": [
+      "Two adjacent narrow upright clusters each have a wavy central stem, pointed upper branches, and splayed lower strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1233_後2.8.7合3337賓組.png",
+    "prefix": "G",
+    "heji": "合3337",
+    "old_catalog": "後2.8.7",
+    "old_catalog_abbr": "後",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1233",
+    "validation_class_id": "1102",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㣇",
+    "codepoints": "U+38C7",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001103",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

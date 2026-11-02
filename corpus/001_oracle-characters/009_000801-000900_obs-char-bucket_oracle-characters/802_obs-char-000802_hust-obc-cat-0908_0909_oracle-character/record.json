@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000802",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0908_0909",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000807_hust-obc-cat-0908_0909_glyph.png",
+      "metadata": "images/001_asset-000807_hust-obc-cat-0908_0909_glyph.yaml",
+      "asset_id": "asset-000807",
+      "source_image_path": "HUST-OBC/deciphered/0908_0909/0908/Y_0908_610C0.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "168",
+      "pixel_height": "268",
+      "sha256": "2ceb640ab8b2f63137b6f73ebd57800c6d3f861b80bf9ac00ffa1f542c7e0697",
+      "raw_source_sha256": "11d9981bfaaa7b2b9533cf57c548c554b10df690bf42da86155af578f805b233",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "深色直立形体上方有圆弧缺口，左侧为宽大肩部，下方延有长笔，右侧另有分离分枝。"
+    ],
+    "en": [
+      "A bold upright form has a rounded upper notch, a broad left shoulder, and long descending strokes with detached branches at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "Y_0908_610C0.jpg",
+    "prefix": "Y",
+    "code": "0908_610C0"
+  },
+  "dataset_category": {
+    "source_category_id": "0908_0909",
+    "validation_class_id": "801",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㞂㞃",
+    "codepoints": "U+3782;U+3783",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000802",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000651",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0739",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000656_hust-obc-cat-0739_glyph.png",
+      "metadata": "images/001_asset-000656_hust-obc-cat-0739_glyph.yaml",
+      "asset_id": "asset-000656",
+      "source_image_path": "HUST-OBC/deciphered/0739/H_0739_60C67_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "116",
+      "pixel_height": "288",
+      "sha256": "5fd823bd2e6fe5d16f1656d987149375ccedb58c4df3df1bf0e45b84061689ec",
+      "raw_source_sha256": "e56f99c159acbe902f07d6d15836ea0ce12a6ae5ac3917276fb4b2ef3c89fbb0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大尖顶上轮廓内含交叉斜笔和圆形空隙，下接折角格状笔群及长右斜尾。"
+    ],
+    "en": [
+      "A broad pointed upper outline contains crossing diagonals and a rounded opening, then narrows into a lower angular grid with a long slanting right tail."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0739_60C67_0.png",
+    "prefix": "H",
+    "code": "0739_60C67_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0739",
+    "validation_class_id": "650",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛙",
+    "codepoints": "U+36D9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000651",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

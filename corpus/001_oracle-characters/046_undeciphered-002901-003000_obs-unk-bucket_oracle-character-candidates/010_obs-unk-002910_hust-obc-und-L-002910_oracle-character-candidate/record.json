@@ -1,0 +1,72 @@
+{
+  "id": "obs-unk-002910",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002910",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004503_hust-obc-und-L-002910_glyph.jpg",
+      "metadata": "images/001_asset-004503_hust-obc-und-L-002910_glyph.yaml",
+      "asset_id": "asset-004503",
+      "source_image_path": "HUST-OBC/undeciphered/L/2910/L_锛焈501.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "c1065b0453a384af881228b5745fbe38c1571fb48022c462fa27a4472a811062",
+      "raw_source_sha256": "c1065b0453a384af881228b5745fbe38c1571fb48022c462fa27a4472a811062",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三条窄而波曲的笔画分开上行，在下半部中央附近汇合交叉。",
+      "交叉处向下接一条较短较深笔画。",
+      "裁切图不能确定上部笔画是否相互连接。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "Three narrow wavy strokes rise separately and converge toward a central",
+      "crossing near the lower half. A short darker stroke continues downward",
+      "from the crossing.",
+      "The crop does not establish whether the upper strokes are connected.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈501.jpg",
+    "prefix": "L",
+    "code": "锛焈501"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2910",
+    "source_class_path": "HUST-OBC/undeciphered/L/2910/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2910/L_？_501.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2910/L_？_501.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

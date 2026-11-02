@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000939",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000939",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002532_hust-obc-und-L-000939_glyph.jpg",
+      "metadata": "images/001_asset-002532_hust-obc-und-L-000939_glyph.yaml",
+      "asset_id": "asset-002532",
+      "source_image_path": "HUST-OBC/undeciphered/L/939/L_？_12668.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "56",
+      "sha256": "009be4984b5c0865173734722b74203b418aebc7308baacdf1438533517d94d1",
+      "raw_source_sha256": "009be4984b5c0865173734722b74203b418aebc7308baacdf1438533517d94d1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "浅圆上部碗形交叉中央主线，内部有小椭圆，末端接尖状下部。"
+    ],
+    "en": [
+      "A shallow rounded upper bowl crosses a central stem, enclosing a small oval and ending in a pointed lower form."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12668.jpg",
+    "prefix": "L",
+    "code": "？_12668"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "939",
+    "source_class_path": "HUST-OBC/undeciphered/L/939/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/939/L_？_12668.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/939/L_？_12668.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

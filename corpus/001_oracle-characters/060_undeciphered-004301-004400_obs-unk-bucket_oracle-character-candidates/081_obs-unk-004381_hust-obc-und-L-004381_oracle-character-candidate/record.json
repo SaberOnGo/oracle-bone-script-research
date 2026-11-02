@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004381",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004381",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005974_hust-obc-und-L-004381_glyph.jpg",
+      "metadata": "images/001_asset-005974_hust-obc-und-L-004381_glyph.yaml",
+      "asset_id": "asset-005974",
+      "source_image_path": "HUST-OBC/undeciphered/L/4381/L_？_9737.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "58",
+      "sha256": "6f43a8febbd1ca81248eb49cdc8bcaa398f0d02e08d50a2582f49cc510ebd23c",
+      "raw_source_sha256": "6f43a8febbd1ca81248eb49cdc8bcaa398f0d02e08d50a2582f49cc510ebd23c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有一条弧形痕迹，下方接近中部有短横向痕迹。",
+      "中下部可见上下叠置的斜角轮廓。",
+      "下缘有一条横向较宽的基线并带两处短伸出痕迹。",
+      "若干连接处和末端在裁剪图中较深或不清楚。"
+    ],
+    "en": [
+      "A rounded upper trace sits above a short horizontal middle mark.",
+      "The middle and lower area contains stacked angular outlines.",
+      "A broad lower baseline extends sideways with two short projections.",
+      "Several joins and terminals remain dark or indistinct in the crop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9737.jpg",
+    "prefix": "L",
+    "code": "？_9737"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4381",
+    "source_class_path": "HUST-OBC/undeciphered/L/4381/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4381/L_？_9737.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4381/L_？_9737.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

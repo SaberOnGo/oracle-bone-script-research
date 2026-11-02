@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004469",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004469",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006062_hust-obc-und-X-004469_glyph.jpg",
+      "metadata": "images/001_asset-006062_hust-obc-und-X-004469_glyph.yaml",
+      "asset_id": "asset-006062",
+      "source_image_path": "HUST-OBC/undeciphered/X/25/X_？_7204_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "160",
+      "pixel_height": "279",
+      "sha256": "a8081e9e93f2cda75d4ffa0a8d83911e0a19abf6f7bf715396902b1cd002fd76",
+      "raw_source_sha256": "a8081e9e93f2cda75d4ffa0a8d83911e0a19abf6f7bf715396902b1cd002fd76",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有两条竖向痕迹，并由斜向痕迹交叉连接。",
+      "上部右侧沿边缘向上伸出一条弧形痕迹。",
+      "中部有一条较长横向痕迹横穿整体。",
+      "下部两条长痕迹分别向下延伸至平直末端。"
+    ],
+    "en": [
+      "Two tall uprights are connected by crossing diagonal traces.",
+      "A curved side trace rises along the right edge of the upper section.",
+      "A long horizontal stroke crosses the form near the middle.",
+      "Two long lower traces descend to separate flat terminals."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7204_1.png",
+    "prefix": "X",
+    "code": "？_7204_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "25",
+    "source_class_path": "HUST-OBC/undeciphered/X/25/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/25/X_？_7204_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/25/X_？_7204_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

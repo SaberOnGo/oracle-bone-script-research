@@ -1,0 +1,69 @@
+{
+  "id": "obs-unk-002797",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002797",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004390_hust-obc-und-L-002797_glyph.jpg",
+      "metadata": "images/001_asset-004390_hust-obc-und-L-002797_glyph.yaml",
+      "asset_id": "asset-004390",
+      "source_image_path": "HUST-OBC/undeciphered/L/2797/L_锛焈4624.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "54",
+      "sha256": "91dad65c2bc8a392a396950dc147a6f324724e7c3261e80d1a571ef857e6c95e",
+      "raw_source_sha256": "91dad65c2bc8a392a396950dc147a6f324724e7c3261e80d1a571ef857e6c95e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有紧凑的放射状线组，下方接一条向下延伸的中央线。",
+      "下部展开为弧形轮廓，图像中未见周围卜辞或比例尺。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "A compact radial stroke group appears near the top above a descending central line.",
+      "The lower part opens into a curved form; no surrounding inscription or scale is visible.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈4624.jpg",
+    "prefix": "L",
+    "code": "锛焈4624"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2797",
+    "source_class_path": "HUST-OBC/undeciphered/L/2797/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2797/L_？_4624.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2797/L_？_4624.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

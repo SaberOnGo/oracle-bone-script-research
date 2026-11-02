@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001511",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1696",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001516_hust-obc-cat-1696_glyph.png",
+      "metadata": "images/001_asset-001516_hust-obc-cat-1696_glyph.yaml",
+      "asset_id": "asset-001516",
+      "source_image_path": "HUST-OBC/deciphered/1696/G_1696_乙1704合22100.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "79",
+      "sha256": "961c7fedc6a7248aa6b15cb13866b9f2b509d387c37f75e16a0843c4f4910b15",
+      "raw_source_sha256": "3e0e5294cd818ec234003d22438f90a909475b4ab1af02994a281bbc119f7424",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长分枝形体有分叉上端、中央曲折和右侧长斜笔。"
+    ],
+    "en": [
+      "A narrow branching form has a forked top, a central zigzag, and a long diagonal right stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1696_乙1704合22100.png",
+    "prefix": "G",
+    "heji": "合22100",
+    "old_catalog": "乙1704",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1696",
+    "validation_class_id": "1510",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪖",
+    "codepoints": "U+3A96",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001511",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

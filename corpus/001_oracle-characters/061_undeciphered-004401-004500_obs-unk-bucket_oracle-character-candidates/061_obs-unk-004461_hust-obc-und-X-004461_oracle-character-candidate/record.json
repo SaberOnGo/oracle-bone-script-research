@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004461",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004461",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006054_hust-obc-und-X-004461_glyph.jpg",
+      "metadata": "images/001_asset-006054_hust-obc-und-X-004461_glyph.yaml",
+      "asset_id": "asset-006054",
+      "source_image_path": "HUST-OBC/undeciphered/X/17/X_？_8196_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "72",
+      "pixel_height": "337",
+      "sha256": "ad50200be8e73637fd735e2d4712ae2150e1591f8f3fe07f42bb17e8d719c466",
+      "raw_source_sha256": "ad50200be8e73637fd735e2d4712ae2150e1591f8f3fe07f42bb17e8d719c466",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "顶部较厚的起笔向上延伸出一条窄长竖向痕迹。",
+      "中部连接处向左形成小侧突，并向右伸出一条支痕。",
+      "中下部可见一个纵向拉长的开放环状空间。",
+      "第二个圆弧开口位于分叉下端之前。"
+    ],
+    "en": [
+      "A narrow vertical stroke extends from a thicker upper tip.",
+      "A central junction opens into a small left lobe and a rightward spur.",
+      "An elongated open loop occupies the middle and lower area.",
+      "A second rounded opening sits above a forked lower terminal."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8196_1.png",
+    "prefix": "X",
+    "code": "？_8196_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "17",
+    "source_class_path": "HUST-OBC/undeciphered/X/17/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/17/X_？_8196_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/17/X_？_8196_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

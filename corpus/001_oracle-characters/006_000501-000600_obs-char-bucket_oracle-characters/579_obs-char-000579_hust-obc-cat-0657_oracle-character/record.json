@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000579",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0657",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000584_hust-obc-cat-0657_glyph.png",
+      "metadata": "images/001_asset-000584_hust-obc-cat-0657_glyph.yaml",
+      "asset_id": "asset-000584",
+      "source_image_path": "HUST-OBC/deciphered/0657/X_0657_4443_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "183",
+      "pixel_height": "315",
+      "sha256": "2ecf562e1229b2d751764f1f00e9ff5fd05d40436dd9932b48db7b31d17d245b",
+      "raw_source_sha256": "90b6256c9b9ea3db370f8dd97a20fed9cdc78418ae56c3c0a376da2e4b83cbaa",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数条粗斜臂和短上枝从中央接点放射，长下横穿过两条下行笔。"
+    ],
+    "en": [
+      "Several thick diagonal arms and short upper branches radiate from a central junction; a long lower horizontal crosses two descending strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_0657_4443_1.png",
+    "prefix": "X",
+    "code": "0657_4443_1"
+  },
+  "dataset_category": {
+    "source_category_id": "0657",
+    "validation_class_id": "578",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚇",
+    "codepoints": "U+3687",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000579",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

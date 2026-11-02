@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000883",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0995",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000888_hust-obc-cat-0995_glyph.png",
+      "metadata": "images/001_asset-000888_hust-obc-cat-0995_glyph.yaml",
+      "asset_id": "asset-000888",
+      "source_image_path": "HUST-OBC/deciphered/0995/G_0995_乙29合20768𠂤組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "80",
+      "sha256": "8f167d6d959873912d027027f2a854004aeba6010903b164549e7c809f08a5b8",
+      "raw_source_sha256": "406fa784c085adba9464d7c857aa39fdc530d631b0d1ca25ab737cb57b36e2f4",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长笔群由两条弯曲外笔围合，中央有环状痕迹和短分枝笔。"
+    ],
+    "en": [
+      "A narrow cluster is framed by two curving outer strokes and contains a central loop with short branching strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0995_乙29合20768𠂤組.png",
+    "prefix": "G",
+    "heji": "合20768",
+    "old_catalog": "乙29",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "𠂤組"
+  },
+  "dataset_category": {
+    "source_category_id": "0995",
+    "validation_class_id": "882",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟙",
+    "codepoints": "U+37D9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000883",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

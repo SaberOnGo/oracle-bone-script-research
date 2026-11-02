@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000416",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0472",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000421_hust-obc-cat-0472_glyph.png",
+      "metadata": "images/001_asset-000421_hust-obc-cat-0472_glyph.yaml",
+      "asset_id": "asset-000421",
+      "source_image_path": "HUST-OBC/deciphered/0472/G_0472_明2349合2803賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "58",
+      "pixel_height": "80",
+      "sha256": "217db1b1f302ceeacc9c7d6173766dd47922216e5d08ebd9b7a601a32f9134cc",
+      "raw_source_sha256": "657d4856b46f8aa68164da75eed1c404b994d452d5d9a998a770b24fce83ad28",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧分离的小方形和分叉痕迹与右侧较大的环曲、交叉、折角形体并列。"
+    ],
+    "en": [
+      "A detached small square and forked mark at left stand beside a larger looped, crossed, and angular form at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0472_明2349合2803賓組.png",
+    "prefix": "G",
+    "heji": "合2803",
+    "old_catalog": "明2349",
+    "old_catalog_abbr": "明",
+    "old_catalog_abbr_obm_label": "明義士收藏甲骨",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0472",
+    "validation_class_id": "415",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㗎",
+    "codepoints": "U+35CE",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000416",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

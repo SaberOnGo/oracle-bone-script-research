@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004598",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004598",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006191_hust-obc-und-X-004598_glyph.jpg",
+      "metadata": "images/001_asset-006191_hust-obc-und-X-004598_glyph.yaml",
+      "asset_id": "asset-006191",
+      "source_image_path": "HUST-OBC/undeciphered/X/154/X_？_8331_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "150",
+      "pixel_height": "296",
+      "sha256": "b3ad7b99d3cd60ac19007e8a1b6c400a71a980355d70d5641caa495d022315c0",
+      "raw_source_sha256": "b3ad7b99d3cd60ac19007e8a1b6c400a71a980355d70d5641caa495d022315c0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "细的外部轮廓从左上尖状区域向下延伸。",
+      "右侧外缘沿一条长的不规则曲线向下弯曲。",
+      "内部深色痕迹簇中有一个浅色开口。",
+      "左下分支向外弯曲形成短钩状末端。",
+      "当前裁切无法确定内部痕迹簇是否与外部轮廓相接。"
+    ],
+    "en": [
+      "A thin outer contour descends from a pointed upper-left area.",
+      "The right outer side curves downward in a long irregular line.",
+      "A dense interior cluster contains a light opening.",
+      "A lower left branch curves outward into a short hook.",
+      "The crop does not establish whether the interior cluster joins the contour."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8331_1.png",
+    "prefix": "X",
+    "code": "？_8331_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "154",
+    "source_class_path": "HUST-OBC/undeciphered/X/154/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/154/X_？_8331_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/154/X_？_8331_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

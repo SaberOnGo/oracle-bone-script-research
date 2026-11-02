@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000649",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0737",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000654_hust-obc-cat-0737_glyph.png",
+      "metadata": "images/001_asset-000654_hust-obc-cat-0737_glyph.yaml",
+      "asset_id": "asset-000654",
+      "source_image_path": "HUST-OBC/deciphered/0737/G_0737_甲2772(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "24",
+      "pixel_height": "80",
+      "sha256": "616c096424c6a13ecbd35ca5b6f67fb963e95517de1c76b5011c2f05eb639b28",
+      "raw_source_sha256": "7394d1008bba1bf7e5ea10b999ccb768a898caa734e48aa357f25a84766e9c2f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高狭竖链顶部两条分立细干各带小圆空隙，中部为交叉椭圆，下有数条细叉状垂线。"
+    ],
+    "en": [
+      "A tall narrow chain has two small round openings on separate upper stalks, a crossed middle oval, and several fine forked strands descending below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0737_甲2772(甲).png",
+    "prefix": "G",
+    "old_catalog": "甲2772",
+    "old_catalog_abbr": "甲",
+    "old_catalog_abbr_obm_label": "甲骨卜辭",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0737",
+    "validation_class_id": "648",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛗",
+    "codepoints": "U+36D7",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000649",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

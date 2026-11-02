@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000454",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0514",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000459_hust-obc-cat-0514_glyph.png",
+      "metadata": "images/001_asset-000459_hust-obc-cat-0514_glyph.yaml",
+      "asset_id": "asset-000459",
+      "source_image_path": "HUST-OBC/deciphered/0514/G_0514_乙2596合14721.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "80",
+      "sha256": "072b14f4078e592c1d34190821bf63e12cfd6cf0dac05d2ff789cf8763494000",
+      "raw_source_sha256": "0bfac22231794c81e3be80bdc7e5dae0323b4a85e3cf572e9224bac8988c5099",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长直立形体结合折角开口顶部、小型中央围框、短横和一条长下行竖笔。"
+    ],
+    "en": [
+      "A narrow upright form combines an angular open top, a small central enclosure, a short crossbar, and one long descending vertical stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0514_乙2596合14721.png",
+    "prefix": "G",
+    "heji": "合14721",
+    "old_catalog": "乙2596",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0514",
+    "validation_class_id": "453",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㗸",
+    "codepoints": "U+35F8",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000454",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

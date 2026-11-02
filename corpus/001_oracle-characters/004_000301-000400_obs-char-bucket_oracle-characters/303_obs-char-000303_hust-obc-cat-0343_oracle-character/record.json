@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000303",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0343",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000308_hust-obc-cat-0343_glyph.png",
+      "metadata": "images/001_asset-000308_hust-obc-cat-0343_glyph.yaml",
+      "asset_id": "asset-000308",
+      "source_image_path": "HUST-OBC/deciphered/0343/G_0343_乙1278反合376反賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "68",
+      "pixel_height": "80",
+      "sha256": "a240ad4beb068619b83510de1b7f605f0d2582bfbb322756fbc78cc3070a00b0",
+      "raw_source_sha256": "001d74b900d3c5dec3c5de47a6e2eafeae658efe4c30c82c455b35d40af33d38",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中部有长下行笔画并连接右侧圆弧闭合轮廓，下方有向左弯曲的尾部。"
+    ],
+    "en": [
+      "A long descending central stroke is joined to a rounded right enclosure; a curved lower tail extends to the left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0343_乙1278反合376反賓組.png",
+    "prefix": "G",
+    "heji": "合376",
+    "old_catalog": "乙1278",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反反賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0343",
+    "validation_class_id": "302",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㕍",
+    "codepoints": "U+354D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000303",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

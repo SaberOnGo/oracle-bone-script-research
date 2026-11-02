@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000930",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1047",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000935_hust-obc-cat-1047_glyph.png",
+      "metadata": "images/001_asset-000935_hust-obc-cat-1047_glyph.yaml",
+      "asset_id": "asset-000935",
+      "source_image_path": "HUST-OBC/deciphered/1047/G_1047_乙3219合9214.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "80",
+      "sha256": "9e63dadfb5f2a24d6a4c827ede57d66c3d779359e33037fb13a9c607d9102142",
+      "raw_source_sha256": "087338c2fd2fdd69947239e19315341072260e9c5b10b8f14dfad6665567ea7b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "U 形上部弯笔收拢为中央下行分枝，并以尖形下笔收尾。"
+    ],
+    "en": [
+      "A U-shaped upper curve narrows into a central descending branch that ends in a pointed lower stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1047_乙3219合9214.png",
+    "prefix": "G",
+    "heji": "合9214",
+    "old_catalog": "乙3219",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1047",
+    "validation_class_id": "929",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㠍",
+    "codepoints": "U+380D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000930",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000077",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0087",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000082_hust-obc-cat-0087_glyph.png",
+      "metadata": "images/001_asset-000082_hust-obc-cat-0087_glyph.yaml",
+      "asset_id": "asset-000082",
+      "source_image_path": "HUST-OBC/deciphered/0087/G_0087_乙2243反合7440反.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "80",
+      "pixel_height": "28",
+      "sha256": "9b283d476ea133a3f9f32ac13f9bb100b0f8c78a5b12149ef7e44f869ee76917",
+      "raw_source_sha256": "18a45e57c09a0c533d1dc88c2b4caec9565a8d3f2ea21d41020832335c62f45e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像可见数条彼此接近的短平行横向笔画。"
+    ],
+    "en": [
+      "The image shows several short parallel horizontal strokes grouped closely together."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0087_乙2243反合7440反.png",
+    "prefix": "G",
+    "heji": "合7440",
+    "old_catalog": "乙2243",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反反"
+  },
+  "dataset_category": {
+    "source_category_id": "0087",
+    "validation_class_id": "76",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㑍",
+    "codepoints": "U+344D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000077",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

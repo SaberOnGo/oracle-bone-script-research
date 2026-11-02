@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000624",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0709",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000629_hust-obc-cat-0709_glyph.png",
+      "metadata": "images/001_asset-000629_hust-obc-cat-0709_glyph.yaml",
+      "asset_id": "asset-000629",
+      "source_image_path": "HUST-OBC/deciphered/0709/G_0709_京津2004合32764歷組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "54",
+      "pixel_height": "79",
+      "sha256": "523f036b17b8b0879f1aac0bab7f9bd46f7aae84f3654b112bb05025f3785ba9",
+      "raw_source_sha256": "e330956db580359bdb90a31fe1d9afebd1423a720524d7df5158fc281630c945",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离笔群并列：左侧为小型方折开口形，右侧高竖带钩顶、横栏和尖下突。"
+    ],
+    "en": [
+      "Two detached groups stand side by side: a small squared open form at left and a tall right vertical with a hooked top, crossbar, and pointed lower spur."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0709_京津2004合32764歷組.png",
+    "prefix": "G",
+    "heji": "合32764",
+    "old_catalog": "京津2004",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "歷組"
+  },
+  "dataset_category": {
+    "source_category_id": "0709",
+    "validation_class_id": "623",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚻",
+    "codepoints": "U+36BB",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000624",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

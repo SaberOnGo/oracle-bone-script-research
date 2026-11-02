@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000367",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0417",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000372_hust-obc-cat-0417_glyph.png",
+      "metadata": "images/001_asset-000372_hust-obc-cat-0417_glyph.yaml",
+      "asset_id": "asset-000372",
+      "source_image_path": "HUST-OBC/deciphered/0417/G_0417_京津1331合18684賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "24",
+      "pixel_height": "80",
+      "sha256": "9aba5bbc5fde30c63239badbc0f2fa184f12f4be69156db1134832b669cffb83",
+      "raw_source_sha256": "eb3267c7c19aac90d12da93cfd1f9f0a6297bfa224dc9d0252e6cd76088988ad",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细中央主干带有数个短斜向分支，上端呈分叉形。"
+    ],
+    "en": [
+      "A thin central stem has several short diagonal branches and a forked upper end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0417_京津1331合18684賓組.png",
+    "prefix": "G",
+    "heji": "合18684",
+    "old_catalog": "京津1331",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0417",
+    "validation_class_id": "366",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㖗",
+    "codepoints": "U+3597",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000367",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

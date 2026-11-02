@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000034",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0039",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000039_hust-obc-cat-0039_glyph.png",
+      "metadata": "images/001_asset-000039_hust-obc-cat-0039_glyph.yaml",
+      "asset_id": "asset-000039",
+      "source_image_path": "HUST-OBC/deciphered/0039/H_0039_612C6_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "99",
+      "pixel_height": "300",
+      "sha256": "fd197896f9e6f9ac9f811ccbfdd95a7c55a7b1066ca28b741b2c6faacf937318",
+      "raw_source_sha256": "f5ca316b5db7a22b148f4c903047520688057664fc2ba806c226bab0fa7e770a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型长形外轮廓内部有闭合中部痕迹、上方分开的笔画和长向下延伸。"
+    ],
+    "en": [
+      "The large elongated outline contains an enclosed central mark, upper diverging strokes, and a long lower extension."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0039_612C6_0.png",
+    "prefix": "H",
+    "code": "0039_612C6_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0039",
+    "validation_class_id": "33",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㐝",
+    "codepoints": "U+341D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000034",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

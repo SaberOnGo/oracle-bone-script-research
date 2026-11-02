@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000515",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0586",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000520_hust-obc-cat-0586_glyph.png",
+      "metadata": "images/001_asset-000520_hust-obc-cat-0586_glyph.yaml",
+      "asset_id": "asset-000520",
+      "source_image_path": "HUST-OBC/deciphered/0586/G_0586_乙4293合136賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "79",
+      "sha256": "cf3c888ad3f564e582c63c815a1a2b61c8d3af00b956fda02b9e073e2047916c",
+      "raw_source_sha256": "5fd45c3a0432386035121f34b77fcbd3e8a3c16c1b32c227d5c52b04df391207",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "极淡图像显示纤细中央干分成两条长下枝，并带数条更细侧枝，上端略弯。"
+    ],
+    "en": [
+      "The very faint image shows a thin central stem dividing into two long lower branches with several finer side offshoots; the upper tip is slightly curved."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0586_乙4293合136賓組.png",
+    "prefix": "G",
+    "heji": "合136",
+    "old_catalog": "乙4293",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0586",
+    "validation_class_id": "514",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙀",
+    "codepoints": "U+3640",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000515",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

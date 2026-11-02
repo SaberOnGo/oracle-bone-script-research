@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001145",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001145",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002738_hust-obc-und-L-001145_glyph.jpg",
+      "metadata": "images/001_asset-002738_hust-obc-und-L-001145_glyph.yaml",
+      "asset_id": "asset-002738",
+      "source_image_path": "HUST-OBC/undeciphered/L/1145/L_？_13236.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "30",
+      "pixel_height": "54",
+      "sha256": "9a9135cf80411d4f42036c2fd5b1af9d6d81f43441171e5ef066f0600931b131",
+      "raw_source_sha256": "9a9135cf80411d4f42036c2fd5b1af9d6d81f43441171e5ef066f0600931b131",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭窄不规则左侧线带与右侧分支形并列，右侧下方伸出两条支线。"
+    ],
+    "en": [
+      "A narrow irregular left strip stands beside a branching right form with two lower legs."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13236.jpg",
+    "prefix": "L",
+    "code": "？_13236"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1145",
+    "source_class_path": "HUST-OBC/undeciphered/L/1145/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1145/L_？_13236.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1145/L_？_13236.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

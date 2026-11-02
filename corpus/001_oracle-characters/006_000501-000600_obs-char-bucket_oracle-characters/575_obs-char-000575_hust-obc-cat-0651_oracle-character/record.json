@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000575",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0651",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000580_hust-obc-cat-0651_glyph.png",
+      "metadata": "images/001_asset-000580_hust-obc-cat-0651_glyph.yaml",
+      "asset_id": "asset-000580",
+      "source_image_path": "HUST-OBC/deciphered/0651/G_0651_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "92",
+      "sha256": "05ee20129720b662d641a2f84214525e6c42e7393ba2e9805188287e2c6e1a16",
+      "raw_source_sha256": "3381a74fe933ce97538abac68b65a8c2601655667180f23d6723147858ca7aef",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条长上笔分开下行，在中部附近交叉后再次汇成尖形下环，左侧带短钩延伸。"
+    ],
+    "en": [
+      "Two long upper strokes descend separately, cross near the middle, and meet again in a pointed lower loop with a short hooked extension at left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0651_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0651",
+    "validation_class_id": "574",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚁",
+    "codepoints": "U+3681",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000575",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

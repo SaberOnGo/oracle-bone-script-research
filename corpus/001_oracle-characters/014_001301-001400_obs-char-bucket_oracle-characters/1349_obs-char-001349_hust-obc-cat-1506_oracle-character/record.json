@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001349",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1506",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001354_hust-obc-cat-1506_glyph.png",
+      "metadata": "images/001_asset-001354_hust-obc-cat-1506_glyph.yaml",
+      "asset_id": "asset-001354",
+      "source_image_path": "HUST-OBC/deciphered/1506/G_1506_乙8710合22137子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "80",
+      "sha256": "c9de5a0294504b85dc69f5f19f2da27189ad176ca318bf6c3525bf6a415d3807",
+      "raw_source_sha256": "ff2ec7f1e26553c7606234a5d75cc05f090427a4326a78c2bdc5f0ba00d666f8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖顶上部轮廓位于小型矩形中部框形之上，下方接尖状延伸。"
+    ],
+    "en": [
+      "A peaked upper contour sits above a small rectangular middle enclosure and a pointed lower extension."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1506_乙8710合22137子組.png",
+    "prefix": "G",
+    "heji": "合22137",
+    "old_catalog": "乙8710",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "1506",
+    "validation_class_id": "1348",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㧘",
+    "codepoints": "U+39D8",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001349",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

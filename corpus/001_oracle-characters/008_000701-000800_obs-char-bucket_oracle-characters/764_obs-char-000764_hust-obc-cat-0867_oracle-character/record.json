@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000764",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0867",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000769_hust-obc-cat-0867_glyph.png",
+      "metadata": "images/001_asset-000769_hust-obc-cat-0867_glyph.yaml",
+      "asset_id": "asset-000769",
+      "source_image_path": "HUST-OBC/deciphered/0867/L_0867_1094.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "52",
+      "sha256": "7e72a80eccb55bbdc55e56cc38aa136b3dcbd85a0679890e5741d3219eccecaf",
+      "raw_source_sha256": "078dae4031190c131fdd495b1093d0aea2805561b83704979278ff63e9744910",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "微小淡弱图像显示左侧折角交叉及数条短枝，旁有小型弯折右轮廓；细接点和空隙仍难辨。"
+    ],
+    "en": [
+      "The tiny faint image shows a left angular crossing with several short branches beside a small bent right outline; fine joins and openings remain unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0867_1094.jpg",
+    "prefix": "L",
+    "code": "0867_1094"
+  },
+  "dataset_category": {
+    "source_category_id": "0867",
+    "validation_class_id": "763",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝙",
+    "codepoints": "U+3759",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000764",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

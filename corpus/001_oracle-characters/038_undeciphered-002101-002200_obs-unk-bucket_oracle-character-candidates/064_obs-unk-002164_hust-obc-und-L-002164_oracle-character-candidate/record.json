@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002164",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002164",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003757_hust-obc-und-L-002164_glyph.jpg",
+      "metadata": "images/001_asset-003757_hust-obc-und-L-002164_glyph.yaml",
+      "asset_id": "asset-003757",
+      "source_image_path": "HUST-OBC/undeciphered/L/2164/L_？_2512.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "54",
+      "sha256": "798abcb3bcf500ae262fd4e6ea36dce7ec3702d97bebcb863fe1d09aa68de686",
+      "raw_source_sha256": "798abcb3bcf500ae262fd4e6ea36dce7ec3702d97bebcb863fe1d09aa68de686",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "字形紧凑，上中部有两条明显折斜笔交叉。数条长弯笔向下分支，左侧有较短斜笔。下部笔痕较深，边界较软。"
+    ],
+    "en": [
+      "The mark is compact with two strong angled strokes crossing near the upper center. Several long curved strokes branch downward, with shorter diagonal marks on the left. The lower strokes are darker and the boundaries are soft."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2512.jpg",
+    "prefix": "L",
+    "code": "？_2512"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2164",
+    "source_class_path": "HUST-OBC/undeciphered/L/2164/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2164/L_？_2512.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2164/L_？_2512.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

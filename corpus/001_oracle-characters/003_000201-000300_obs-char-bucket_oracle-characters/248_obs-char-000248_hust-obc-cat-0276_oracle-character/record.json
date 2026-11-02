@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000248",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0276",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000253_hust-obc-cat-0276_glyph.png",
+      "metadata": "images/001_asset-000253_hust-obc-cat-0276_glyph.yaml",
+      "asset_id": "asset-000253",
+      "source_image_path": "HUST-OBC/deciphered/0276/L_0276_9332.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "30",
+      "pixel_height": "53",
+      "sha256": "ba812716c728ce6efd1084f53192ed8305cbf9bc900d7161dece2367c3cf23fa",
+      "raw_source_sha256": "fbdb51f7ebb3c00bfed4ccb747b3a6c76c89f4e0dc97d934c016707759101497",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "低对比度灰度图像呈交叉折角笔画的紧凑聚集；受尺寸影响，细小末端难以分开。"
+    ],
+    "en": [
+      "The low-contrast gray image is a compact cluster of crossing angular strokes; fine terminals are difficult to separate at this size."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0276_9332.jpg",
+    "prefix": "L",
+    "code": "0276_9332"
+  },
+  "dataset_category": {
+    "source_category_id": "0276",
+    "validation_class_id": "247",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㔊",
+    "codepoints": "U+350A",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000248",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

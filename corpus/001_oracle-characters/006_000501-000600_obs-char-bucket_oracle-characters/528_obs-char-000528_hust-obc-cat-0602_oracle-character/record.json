@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000528",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0602",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000533_hust-obc-cat-0602_glyph.png",
+      "metadata": "images/001_asset-000533_hust-obc-cat-0602_glyph.yaml",
+      "asset_id": "asset-000533",
+      "source_image_path": "HUST-OBC/deciphered/0602/G_0602_乙1948合21840.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "80",
+      "sha256": "27db027f430619d30e96be2d6adcf91d5808b4aa647d8ae341c5eb90cfbb94cb",
+      "raw_source_sha256": "5d9b2e2cb55b0e1d70097a070594d4b49033688a175e9e33e28be55f75150945",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "四条近竖向波折笔并列，短横连接左侧一对，右侧笔画之间有两个微小分离点。"
+    ],
+    "en": [
+      "Four near-vertical wavering strokes stand side by side; short cross-strokes join the left pair, and two tiny detached dots lie between the right strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0602_乙1948合21840.png",
+    "prefix": "G",
+    "heji": "合21840",
+    "old_catalog": "乙1948",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0602",
+    "validation_class_id": "527",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙐",
+    "codepoints": "U+3650",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000528",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

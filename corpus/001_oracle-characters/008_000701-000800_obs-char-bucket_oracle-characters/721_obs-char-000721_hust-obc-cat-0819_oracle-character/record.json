@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000721",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0819",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000726_hust-obc-cat-0819_glyph.png",
+      "metadata": "images/001_asset-000726_hust-obc-cat-0819_glyph.yaml",
+      "asset_id": "asset-000726",
+      "source_image_path": "HUST-OBC/deciphered/0819/G_0819_乙6738合14735賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "60",
+      "pixel_height": "80",
+      "sha256": "aa103582a45e49dc938c113d667fe43d2bd33db5db7c86954c68ed7fadfa3054",
+      "raw_source_sha256": "8a76515682fc74aef3353c0d95ef7d68f32ef3cefe1ce37e70ac0be74713a4be",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽顶横连接两条长下垂侧笔；三条短横从左侧伸出，弯曲下笔在底部交叉并向两侧展开。"
+    ],
+    "en": [
+      "A broad top bar joins two long descending sides; three short bars project from the left side, while curved lower strokes cross and spread along the base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0819_乙6738合14735賓組.png",
+    "prefix": "G",
+    "heji": "合14735",
+    "old_catalog": "乙6738",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0819",
+    "validation_class_id": "720",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜩",
+    "codepoints": "U+3729",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000721",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

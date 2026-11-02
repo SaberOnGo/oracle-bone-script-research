@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001564",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1755",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001569_hust-obc-cat-1755_glyph.png",
+      "metadata": "images/001_asset-001569_hust-obc-cat-1755_glyph.yaml",
+      "asset_id": "asset-001569",
+      "source_image_path": "HUST-OBC/deciphered/1755/G_1755_續3.458(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "86",
+      "pixel_height": "132",
+      "sha256": "573482eb6ef50f96f3d0ee07df5205d5aeca8935388f4d6aeedaba4729e68709",
+      "raw_source_sha256": "6bd4e7f1f2457b27748b4e9361f3de258a5d1f95a819c598e380960e8ccfdf26",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长尖顶框形包含交叉内部笔画和卷曲下部标记。"
+    ],
+    "en": [
+      "A narrow pointed enclosure contains crossing inner strokes and a curled lower mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1755_續3.458(甲).png",
+    "prefix": "G",
+    "old_catalog": "續3.458",
+    "old_catalog_abbr": "續",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1755",
+    "validation_class_id": "1563",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫑",
+    "codepoints": "U+3AD1",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001564",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

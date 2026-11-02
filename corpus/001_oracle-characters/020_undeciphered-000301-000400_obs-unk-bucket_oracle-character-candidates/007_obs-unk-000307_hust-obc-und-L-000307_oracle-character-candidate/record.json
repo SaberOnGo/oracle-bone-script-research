@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000307",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000307",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001900_hust-obc-und-L-000307_glyph.jpg",
+      "metadata": "images/001_asset-001900_hust-obc-und-L-000307_glyph.yaml",
+      "asset_id": "asset-001900",
+      "source_image_path": "HUST-OBC/undeciphered/L/307/L_？_10963.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "53",
+      "sha256": "5decda93a950f381cd8c823c9acdb8757e06d23b45703e545abbf5009582c752",
+      "raw_source_sha256": "5decda93a950f381cd8c823c9acdb8757e06d23b45703e545abbf5009582c752",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个尖角或环状上部形体围绕中央交叉相接，右侧有高直窄笔。"
+    ],
+    "en": [
+      "Two pointed or looped upper forms meet around a central crossing, with a tall narrow stroke on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_10963.jpg",
+    "prefix": "L",
+    "code": "？_10963"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "307",
+    "source_class_path": "HUST-OBC/undeciphered/L/307/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/307/L_？_10963.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/307/L_？_10963.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

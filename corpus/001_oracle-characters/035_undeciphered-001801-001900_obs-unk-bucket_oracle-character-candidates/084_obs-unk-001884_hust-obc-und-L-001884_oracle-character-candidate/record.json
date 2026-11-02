@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001884",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001884",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003477_hust-obc-und-L-001884_glyph.jpg",
+      "metadata": "images/001_asset-003477_hust-obc-und-L-001884_glyph.yaml",
+      "asset_id": "asset-003477",
+      "source_image_path": "HUST-OBC/undeciphered/L/1884/L_？_15253.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "57",
+      "sha256": "86b36f2fc4dcf436ff4ffef5cb63b1e55df254de818bd827383ab3c4e8c06f19",
+      "raw_source_sha256": "86b36f2fc4dcf436ff4ffef5cb63b1e55df254de818bd827383ab3c4e8c06f19",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "开口三角上部内有两条平行斜笔。下部笔痕向外分支，末端短而尖收。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "An open triangular top contains two parallel diagonal strokes. The lower area branches into uneven strokes with a short pointed end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_15253.jpg",
+    "prefix": "L",
+    "code": "？_15253"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1884",
+    "source_class_path": "HUST-OBC/undeciphered/L/1884/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1884/L_？_15253.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1884/L_？_15253.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

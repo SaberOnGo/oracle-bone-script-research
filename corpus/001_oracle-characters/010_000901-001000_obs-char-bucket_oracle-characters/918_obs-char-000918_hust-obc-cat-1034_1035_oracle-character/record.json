@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-000918",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1034_1035",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000923_hust-obc-cat-1034_1035_glyph.png",
+      "metadata": "images/001_asset-000923_hust-obc-cat-1034_1035_glyph.yaml",
+      "asset_id": "asset-000923",
+      "source_image_path": "HUST-OBC/deciphered/1034_1035/1034/G_1034_乙1402.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "30",
+      "pixel_height": "80",
+      "sha256": "ae7fd8d2d6db5342553f696e7b8233270379a7724999a5c859bf7fbdff2b41f9",
+      "raw_source_sha256": "79550a2680b04e9a0e09e45416478646dfebc057406c1a3bee32fcb38f6aa792",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "长弯曲左笔带有短侧分枝，并延续为下行斜向笔干。"
+    ],
+    "en": [
+      "A long curved left stroke carries short side branches and continues into a descending diagonal stem."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1034_乙1402.png",
+    "prefix": "G",
+    "old_catalog": "乙1402",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1034_1035",
+    "validation_class_id": "917",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㠀㠁",
+    "codepoints": "U+3800;U+3801",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000918",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

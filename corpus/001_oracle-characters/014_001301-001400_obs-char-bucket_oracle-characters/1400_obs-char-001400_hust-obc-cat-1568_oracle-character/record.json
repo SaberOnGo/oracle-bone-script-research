@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001400",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1568",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001405_hust-obc-cat-1568_glyph.png",
+      "metadata": "images/001_asset-001405_hust-obc-cat-1568_glyph.yaml",
+      "asset_id": "asset-001405",
+      "source_image_path": "HUST-OBC/deciphered/1568/G_1568_乙2438合14156賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "65",
+      "pixel_height": "80",
+      "sha256": "fd9cfa2cd82f98aaa9c0ba04011cd01daf245254f86ac368dd7597a1762d7c0b",
+      "raw_source_sha256": "d01c0e5102113032f04dea83c43bfd8d2ab11e2f3716ff2d536f8b8c4fec9b85",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "带有两条竖干的上部横笔位于三个小型圆拱下部环形之上。"
+    ],
+    "en": [
+      "An upper bar with two stems stands above three small rounded lower loops."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1568_乙2438合14156賓組.png",
+    "prefix": "G",
+    "heji": "合14156",
+    "old_catalog": "乙2438",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1568",
+    "validation_class_id": "1399",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨖",
+    "codepoints": "U+3A16",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001400",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

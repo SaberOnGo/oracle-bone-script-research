@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004158",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004158",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005751_hust-obc-und-L-004158_glyph.jpg",
+      "metadata": "images/001_asset-005751_hust-obc-und-L-004158_glyph.yaml",
+      "asset_id": "asset-005751",
+      "source_image_path": "HUST-OBC/undeciphered/L/4158/L_？_9011.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "54",
+      "sha256": "dc72063f141f4215844ac177b3ca30b78951d9e1424839d1b97a1e6cccadf8b7",
+      "raw_source_sha256": "dc72063f141f4215844ac177b3ca30b78951d9e1424839d1b97a1e6cccadf8b7",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：上部有一条窄痕迹，顶部附近带有小的侧向痕迹。",
+      "中文：两条斜向痕迹向下延伸至较宽的下部基底。",
+      "中文：下部基底包含一条短的横向深色痕迹。",
+      "中文：上下痕迹之间的连接处有部分不清楚。"
+    ],
+    "en": [
+      "English: A narrow upper trace has small side marks near its top.",
+      "English: Two angled traces descend toward a broad lower base.",
+      "English: The lower base includes a short horizontal dark trace.",
+      "English: The joins between upper and lower traces are partly unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9011.jpg",
+    "prefix": "L",
+    "code": "？_9011"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4158",
+    "source_class_path": "HUST-OBC/undeciphered/L/4158/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4158/L_？_9011.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4158/L_？_9011.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

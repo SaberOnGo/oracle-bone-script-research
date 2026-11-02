@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000243",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0270_0271",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000248_hust-obc-cat-0270_0271_glyph.png",
+      "metadata": "images/001_asset-000248_hust-obc-cat-0270_0271_glyph.yaml",
+      "asset_id": "asset-000248",
+      "source_image_path": "HUST-OBC/deciphered/0270_0271/0270/G_0270_前5.3.1(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "6a05f35f97d2db5f412ab5dd0a5efb3309e0483584938261ed04ea94b4428685",
+      "raw_source_sha256": "d79868e07f2ba5f15cbcd8248f944dc68be84a4fd1d56448f2ea6ce747aabe64",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三道高直笔画位于开放的圆弧下部轮廓内；中央笔高出弯曲底部。"
+    ],
+    "en": [
+      "Three tall strokes stand within an open rounded lower contour; the center stroke reaches higher than the curved base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0270_前5.3.1(甲).png",
+    "prefix": "G",
+    "old_catalog": "前5.3.1",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0270_0271",
+    "validation_class_id": "242",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㔄㔅",
+    "codepoints": "U+3504;U+3505",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000243",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

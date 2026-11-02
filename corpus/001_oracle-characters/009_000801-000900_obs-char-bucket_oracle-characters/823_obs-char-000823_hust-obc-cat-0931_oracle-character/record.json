@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000823",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0931",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000828_hust-obc-cat-0931_glyph.png",
+      "metadata": "images/001_asset-000828_hust-obc-cat-0931_glyph.yaml",
+      "asset_id": "asset-000828",
+      "source_image_path": "HUST-OBC/deciphered/0931/H_0931_60705_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "118",
+      "pixel_height": "227",
+      "sha256": "9640a48438cf3eb07fb406896ac883a9d6c8daef89283f0ed07a5b90942806a1",
+      "raw_source_sha256": "428d5fe11bd8b3d207bf313d2e6cc46e1a3029fd72ebf8f0e6f65a78ba7d156e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条宽大的弯曲外侧笔分列一个分离的中央折角痕迹两旁；下端收尖，各部分之间有间隔。"
+    ],
+    "en": [
+      "Two broad curving outer strokes flank a separate central angular mark; the lower ends taper, with gaps between the parts."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0931_60705_0.png",
+    "prefix": "H",
+    "code": "0931_60705_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0931",
+    "validation_class_id": "822",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㞙",
+    "codepoints": "U+3799",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000823",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

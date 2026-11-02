@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004686",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004686",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006279_hust-obc-und-X-004686_glyph.jpg",
+      "metadata": "images/001_asset-006279_hust-obc-und-X-004686_glyph.yaml",
+      "asset_id": "asset-006279",
+      "source_image_path": "HUST-OBC/undeciphered/X/242/X_？_8410_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "182",
+      "pixel_height": "201",
+      "sha256": "f2b254b2927b15fc37c7bbe1f554375fa9b1de460b1694d1c37638d25d29ec05",
+      "raw_source_sha256": "f2b254b2927b15fc37c7bbe1f554375fa9b1de460b1694d1c37638d25d29ec05",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个相邻的深色块构成宽大的横向排列。",
+      "左侧块状区域有两个向上的尖突和一个下部浅色开口。",
+      "一条狭窄浅色间隙把左右两块分隔开。",
+      "右侧块状区域有一个向上的尖突和竖向浅色开口。",
+      "宽大的深色底部连接着两块区域的下部。",
+      "外缘厚实且不规则，尤其是下方两个角部。"
+    ],
+    "en": [
+      "Two adjoining dark blocks form a broad horizontal arrangement.",
+      "The left block has two upward prongs and a pale lower opening.",
+      "A narrow pale gap separates the left and right blocks.",
+      "The right block has an upward prong and a vertical pale opening.",
+      "A broad dark base connects the lower portions of both blocks.",
+      "The outer edge is thick and irregular around the lower corners.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8410_1.png",
+    "prefix": "X",
+    "code": "？_8410_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "242",
+    "source_class_path": "HUST-OBC/undeciphered/X/242/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/242/X_？_8410_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/242/X_？_8410_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

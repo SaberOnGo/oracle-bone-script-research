@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000042",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0048_0049",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000047_hust-obc-cat-0048_0049_glyph.png",
+      "metadata": "images/001_asset-000047_hust-obc-cat-0048_0049_glyph.yaml",
+      "asset_id": "asset-000047",
+      "source_image_path": "HUST-OBC/deciphered/0048_0049/0048/L_0048_2236.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "52",
+      "sha256": "37b118f2fc93c003a28a4f897901f78d53e0c2c3746d4e494032ae5a363bb693",
+      "raw_source_sha256": "2af5daae52e255169df7e5a4b7e0dec5f3cd8c375ac09fff0d35e891b2dfa34b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型灰度图像可见两个相邻直立形体，含短折角和竖向痕迹。"
+    ],
+    "en": [
+      "The small gray image shows two neighboring upright forms with short angular and vertical marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0048_2236.jpg",
+    "prefix": "L",
+    "code": "0048_2236"
+  },
+  "dataset_category": {
+    "source_category_id": "0048_0049",
+    "validation_class_id": "41",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㐦㐧",
+    "codepoints": "U+3426;U+3427",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000042",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

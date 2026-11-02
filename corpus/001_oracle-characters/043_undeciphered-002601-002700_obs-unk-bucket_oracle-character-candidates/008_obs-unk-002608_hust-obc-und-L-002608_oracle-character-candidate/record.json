@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002608",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002608",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004201_hust-obc-und-L-002608_glyph.jpg",
+      "metadata": "images/001_asset-004201_hust-obc-und-L-002608_glyph.yaml",
+      "asset_id": "asset-004201",
+      "source_image_path": "HUST-OBC/undeciphered/L/2608/L_？_4035.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "62",
+      "sha256": "4e0bb869ce4b093be5e148aa693e34c5ad25f7f22313f880c94b8c6b54e7ba64",
+      "raw_source_sha256": "4e0bb869ce4b093be5e148aa693e34c5ad25f7f22313f880c94b8c6b54e7ba64",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数条分叉笔痕组成该笔痕的上部，左右各有短的外伸笔痕。下部形成一组小的圆角矩形笔痕。上下两组由中央窄笔痕连接，连接处较深。"
+    ],
+    "en": [
+      "Several branched strokes form the upper part of the mark, with two short projections on the left and right. A small rounded rectangular group forms the lower part. The upper and lower groups are connected by a narrow central stroke; the joins are dark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_4035.jpg",
+    "prefix": "L",
+    "code": "？_4035"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2608",
+    "source_class_path": "HUST-OBC/undeciphered/L/2608/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2608/L_？_4035.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2608/L_？_4035.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

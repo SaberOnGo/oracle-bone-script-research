@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001263",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001263",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002856_hust-obc-und-L-001263_glyph.jpg",
+      "metadata": "images/001_asset-002856_hust-obc-und-L-001263_glyph.yaml",
+      "asset_id": "asset-002856",
+      "source_image_path": "HUST-OBC/undeciphered/L/1263/L_？_13584.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "50",
+      "sha256": "a083572afb1c1bb8f3f336582cc54d36dcf291e3b8f7a6de923cd9fb368aac53",
+      "raw_source_sha256": "a083572afb1c1bb8f3f336582cc54d36dcf291e3b8f7a6de923cd9fb368aac53",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像显示紧凑下部围合、分散的分叉标记和高位回环右侧线簇。"
+    ],
+    "en": [
+      "The image shows a compact lower enclosure, scattered forked marks, and a tall looping right cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13584.jpg",
+    "prefix": "L",
+    "code": "？_13584"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1263",
+    "source_class_path": "HUST-OBC/undeciphered/L/1263/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1263/L_？_13584.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1263/L_？_13584.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000695",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0787_0788_0789",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000700_hust-obc-cat-0787_0788_0789_glyph.png",
+      "metadata": "images/001_asset-000700_hust-obc-cat-0787_0788_0789_glyph.yaml",
+      "asset_id": "asset-000700",
+      "source_image_path": "HUST-OBC/deciphered/0787_0788_0789/0789/G_0789_佚752(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "73",
+      "pixel_height": "132",
+      "sha256": "03bd9728834112bc26a72dbf9adb21f37ef78b97f9a30cdfce29f06e291e3cf8",
+      "raw_source_sha256": "adbedcd6ca69c937072fedb513916c5f5bba2197edbe1a5f874aac238d9fb2a0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重高矩形外框围住狭白区域，内部有一条长深色曲折中央笔和一条较短近邻上笔。"
+    ],
+    "en": [
+      "A bold tall rectangular outer frame encloses a narrow white field containing one long dark sinuous central stroke and a shorter close upper stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0789_佚752(甲).png",
+    "prefix": "G",
+    "old_catalog": "佚752",
+    "old_catalog_abbr": "佚",
+    "old_catalog_abbr_obm_label": "殷契佚存補編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0787_0788_0789",
+    "validation_class_id": "694",
+    "category_member_count": "3"
+  },
+  "dataset_label": {
+    "label": "㜉㜊㜋",
+    "codepoints": "U+3709;U+370A;U+370B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000695",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004453",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004453",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006046_hust-obc-und-X-004453_glyph.jpg",
+      "metadata": "images/001_asset-006046_hust-obc-und-X-004453_glyph.yaml",
+      "asset_id": "asset-006046",
+      "source_image_path": "HUST-OBC/undeciphered/X/9/X_？_8188_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "168",
+      "pixel_height": "285",
+      "sha256": "52d70878941debf33306cfed03f153167559bb6f3f512719a97d9ae82b371829",
+      "raw_source_sha256": "52d70878941debf33306cfed03f153167559bb6f3f512719a97d9ae82b371829",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高的中央连接处位于宽大开放弧形轮廓之上。",
+      "一条较长的内部痕迹沿弧形轮廓内向下延伸。",
+      "下部有一处颜色较深的横向交叉处。",
+      "一条较宽的下部弧线向右侧延伸。"
+    ],
+    "en": [
+      "A tall central junction rises above a broad open arch.",
+      "A long inner trace descends inside the arch.",
+      "The lower area has a darker horizontal crossing.",
+      "A broad lower curve extends toward the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8188_1.png",
+    "prefix": "X",
+    "code": "？_8188_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "9",
+    "source_class_path": "HUST-OBC/undeciphered/X/9/",
+    "source_image_count": 7,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/9/X_？_8188_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/9/X_？_8189_3.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

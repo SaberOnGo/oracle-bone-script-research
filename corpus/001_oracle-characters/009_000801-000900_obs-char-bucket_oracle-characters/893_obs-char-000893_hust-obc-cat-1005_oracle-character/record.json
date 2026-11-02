@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000893",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1005",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000898_hust-obc-cat-1005_glyph.png",
+      "metadata": "images/001_asset-000898_hust-obc-cat-1005_glyph.yaml",
+      "asset_id": "asset-000898",
+      "source_image_path": "HUST-OBC/deciphered/1005/G_1005_前2.27.6合37783.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "45",
+      "pixel_height": "80",
+      "sha256": "435caafe2acdb89b93c580c98fead56573fde46c9a8a16a75aaab2b822113863",
+      "raw_source_sha256": "f9de4102ed02ff8a7a69482f20137bb85840e9ba3479e9f353dd590389c752a0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧密深色形体结合小型分离痕迹、中央直立笔群、下部宽弯笔和数条上伸短笔。"
+    ],
+    "en": [
+      "A compact dark form combines a small detached mark, a central upright cluster, a broad lower curve, and several short upward projections."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1005_前2.27.6合37783.png",
+    "prefix": "G",
+    "heji": "合37783",
+    "old_catalog": "前2.27.6",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編"
+  },
+  "dataset_category": {
+    "source_category_id": "1005",
+    "validation_class_id": "892",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟣",
+    "codepoints": "U+37E3",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000893",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

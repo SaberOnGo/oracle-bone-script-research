@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001364",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1522",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001369_hust-obc-cat-1522_glyph.png",
+      "metadata": "images/001_asset-001369_hust-obc-cat-1522_glyph.yaml",
+      "asset_id": "asset-001369",
+      "source_image_path": "HUST-OBC/deciphered/1522/G_1522_乙7844合22518.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "48",
+      "pixel_height": "80",
+      "sha256": "f221c05dd83d1297770561213e7ab60222345a457fef86a9874bcee7cce59cdf",
+      "raw_source_sha256": "7338a0e34f21f9a250927cdcc8ff3893b3f1c7d9b9268b77ae30822a4c0c2b7e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "相邻的两个矩形部分由深色水平横笔分隔。"
+    ],
+    "en": [
+      "Two adjacent rectangular sections are divided by dark horizontal bars."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1522_乙7844合22518.png",
+    "prefix": "G",
+    "heji": "合22518",
+    "old_catalog": "乙7844",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1522",
+    "validation_class_id": "1363",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㧨",
+    "codepoints": "U+39E8",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001364",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

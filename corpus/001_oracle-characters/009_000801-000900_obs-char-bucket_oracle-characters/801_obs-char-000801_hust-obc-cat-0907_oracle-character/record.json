@@ -1,0 +1,79 @@
+{
+  "id": "obs-char-000801",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0907",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000806_hust-obc-cat-0907_glyph.png",
+      "metadata": "images/001_asset-000806_hust-obc-cat-0907_glyph.yaml",
+      "asset_id": "asset-000806",
+      "source_image_path": "HUST-OBC/deciphered/0907/G_0907_乙105合21306𠂤組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "49",
+      "pixel_height": "79",
+      "sha256": "5705232a56a844a3d2ba9f72afa63330e714000dc39495f3432efc8ad761f5b4",
+      "raw_source_sha256": "ac01304e6e44dc4eda8bd13e530785bdb81556cf1e524c6ee14698dd3483584a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长不规则笔群有两条长侧轮廓，上左近处有短横笔，下部收成尖形分叉。"
+    ],
+    "en": [
+      "A narrow irregular cluster has two long side contours, short crossbars near the upper left, and a pointed lower split."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0907_乙105合21306𠂤組.png",
+    "prefix": "G",
+    "heji": "合21306",
+    "old_catalog": "乙105",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "𠂤組"
+  },
+  "dataset_category": {
+    "source_category_id": "0907",
+    "validation_class_id": "800",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㞁",
+    "codepoints": "U+3781",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000801",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

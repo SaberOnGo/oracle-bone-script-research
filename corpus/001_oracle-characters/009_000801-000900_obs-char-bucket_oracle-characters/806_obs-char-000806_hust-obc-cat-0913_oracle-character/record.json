@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000806",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0913",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000811_hust-obc-cat-0913_glyph.png",
+      "metadata": "images/001_asset-000811_hust-obc-cat-0913_glyph.yaml",
+      "asset_id": "asset-000811",
+      "source_image_path": "HUST-OBC/deciphered/0913/G_0913_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "53",
+      "pixel_height": "85",
+      "sha256": "89f6fa67ebee341c0c173cc806d87e676378cab17a2a5535fd84bd44f42cb7da",
+      "raw_source_sha256": "d609857ea19b91df977893f81fd4d2e5c941ceb8c83c1b5c56ed8c34732060d4",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大横笔横过中央直立笔；右侧附近三条弯曲短笔向上，下方延伸竖直长干。"
+    ],
+    "en": [
+      "A broad horizontal bar crosses a central upright; three curved short strokes rise near its right side, while a long stem descends below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0913_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0913",
+    "validation_class_id": "805",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㞇",
+    "codepoints": "U+3787",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000806",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

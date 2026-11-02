@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001001",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001001",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002594_hust-obc-und-L-001001_glyph.jpg",
+      "metadata": "images/001_asset-002594_hust-obc-und-L-001001_glyph.yaml",
+      "asset_id": "asset-002594",
+      "source_image_path": "HUST-OBC/undeciphered/L/1001/L_？_1284.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "57",
+      "sha256": "65884096f7c104bdec8f7a6be2356c5f18e14a3faccb5ac681644e5ab662e536",
+      "raw_source_sha256": "65884096f7c104bdec8f7a6be2356c5f18e14a3faccb5ac681644e5ab662e536",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型螺旋回环占据左下部，右上和右下有数条分离的倾斜线。"
+    ],
+    "en": [
+      "A large spiral loop occupies the lower left, with several detached angled strokes at the upper and lower right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1284.jpg",
+    "prefix": "L",
+    "code": "？_1284"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1001",
+    "source_class_path": "HUST-OBC/undeciphered/L/1001/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1001/L_？_1284.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1001/L_？_1284.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000456",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0516_0517",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000461_hust-obc-cat-0516_0517_glyph.png",
+      "metadata": "images/001_asset-000461_hust-obc-cat-0516_0517_glyph.yaml",
+      "asset_id": "asset-000461",
+      "source_image_path": "HUST-OBC/deciphered/0516_0517/0516/G_0516_京津2676(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "61",
+      "pixel_height": "80",
+      "sha256": "d31d91ea15a05517f9e90e2a8c445340c222068c18d350c0c7c32acaf777919d",
+      "raw_source_sha256": "46e51ecf3d97c6c70580dc9d90f9f50d0838ff2197838ab99dcade1af0802944",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧三角形上轮廓位于矩形下部围框之上，右侧另有一条分离的长弯曲竖笔下垂。"
+    ],
+    "en": [
+      "A triangular upper outline sits above a rectangular lower enclosure at left; a separate long curved vertical stroke descends along the right side."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0516_京津2676(甲).png",
+    "prefix": "G",
+    "old_catalog": "京津2676",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0516_0517",
+    "validation_class_id": "455",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㗺㗻",
+    "codepoints": "U+35FA;U+35FB",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000456",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

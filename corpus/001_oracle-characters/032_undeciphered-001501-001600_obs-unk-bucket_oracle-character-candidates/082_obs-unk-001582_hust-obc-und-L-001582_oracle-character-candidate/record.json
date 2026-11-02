@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001582",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001582",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003175_hust-obc-und-L-001582_glyph.jpg",
+      "metadata": "images/001_asset-003175_hust-obc-und-L-001582_glyph.yaml",
+      "asset_id": "asset-003175",
+      "source_image_path": "HUST-OBC/undeciphered/L/1582/L_？_14424.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "51",
+      "sha256": "95c6a98b12121597ea40f639f90fcb44feb0a2bf6f03a36a8bbd9e6491a26960",
+      "raw_source_sha256": "95c6a98b12121597ea40f639f90fcb44feb0a2bf6f03a36a8bbd9e6491a26960",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "and diagonal strokes, with a broad lower bar and short projections.图像上部可见密集尖角笔痕簇，含数条竖痕和斜痕；下方有较宽横痕及短小外突。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A dense pointed upper cluster contains several vertical"
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14424.jpg",
+    "prefix": "L",
+    "code": "？_14424"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1582",
+    "source_class_path": "HUST-OBC/undeciphered/L/1582/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1582/L_？_14424.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1582/L_？_14424.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

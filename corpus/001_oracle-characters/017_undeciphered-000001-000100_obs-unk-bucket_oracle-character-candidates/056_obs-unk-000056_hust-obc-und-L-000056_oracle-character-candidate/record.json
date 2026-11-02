@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000056",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000056",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001649_hust-obc-und-L-000056_glyph.jpg",
+      "metadata": "images/001_asset-001649_hust-obc-und-L-000056_glyph.yaml",
+      "asset_id": "asset-001649",
+      "source_image_path": "HUST-OBC/undeciphered/L/56/L_？_10179.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "20df4f2e53ade72b0a965d6f44b4d13ade86a5b4ed002a7f9c9927ad66aa5a42",
+      "raw_source_sha256": "20df4f2e53ade72b0a965d6f44b4d13ade86a5b4ed002a7f9c9927ad66aa5a42",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像上部有尖状弯曲盖部，下方有两条交叉分支。本记录不确认字形身份。"
+    ],
+    "en": [
+      "The image has a pointed curved upper cap and two crossing lower branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_10179.jpg",
+    "prefix": "L",
+    "code": "？_10179"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "56",
+    "source_class_path": "HUST-OBC/undeciphered/L/56/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/56/L_？_10179.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/56/L_？_10179.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

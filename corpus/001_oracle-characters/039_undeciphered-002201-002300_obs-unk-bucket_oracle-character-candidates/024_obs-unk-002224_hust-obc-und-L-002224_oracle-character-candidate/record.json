@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002224",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002224",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003817_hust-obc-und-L-002224_glyph.jpg",
+      "metadata": "images/001_asset-003817_hust-obc-und-L-002224_glyph.yaml",
+      "asset_id": "asset-003817",
+      "source_image_path": "HUST-OBC/undeciphered/L/2224/L_？_2723.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "62",
+      "sha256": "0c12ae468281e2c98d81dcec6565f90291afd7914f3ef347a0877f155d62a375",
+      "raw_source_sha256": "0c12ae468281e2c98d81dcec6565f90291afd7914f3ef347a0877f155d62a375",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "笔痕沿明显的斜向排列。斜线以上有小的圆转或钩状笔痕，以下伸出短的竖向和横向笔痕；各端不齐。"
+    ],
+    "en": [
+      "The mark is arranged along a strong diagonal. A small rounded or hooked cluster appears above the line, while a short upright and transverse group extends below it; the ends are uneven."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2723.jpg",
+    "prefix": "L",
+    "code": "？_2723"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2224",
+    "source_class_path": "HUST-OBC/undeciphered/L/2224/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2224/L_？_2723.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2224/L_？_2723.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

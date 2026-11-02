@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000772",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0876",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000777_hust-obc-cat-0876_glyph.png",
+      "metadata": "images/001_asset-000777_hust-obc-cat-0876_glyph.yaml",
+      "asset_id": "asset-000777",
+      "source_image_path": "HUST-OBC/deciphered/0876/X_0876_2955_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "207",
+      "pixel_height": "247",
+      "sha256": "e436308bb9730e3c6101fe054192986b64bc8dc8951fb3d06237f8d75dc547f8",
+      "raw_source_sha256": "3bb5322d1441165483bee8e9894de76a98928dbbaa0f9eb197c370d58fd8f15d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条高长分枝干夹住分离的中央 T 形；中央竖笔接宽浅弯横，两侧干末端伸出外展下根。"
+    ],
+    "en": [
+      "Two tall branching stems flank a detached central T-shaped form whose vertical meets a broad shallow curved bar; the outer stems end in spreading lower roots."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_0876_2955_1.png",
+    "prefix": "X",
+    "code": "0876_2955_1"
+  },
+  "dataset_category": {
+    "source_category_id": "0876",
+    "validation_class_id": "771",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝢",
+    "codepoints": "U+3762",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000772",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

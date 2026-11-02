@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000406",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0461_0462",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000411_hust-obc-cat-0461_0462_glyph.png",
+      "metadata": "images/001_asset-000411_hust-obc-cat-0461_0462_glyph.yaml",
+      "asset_id": "asset-000411",
+      "source_image_path": "HUST-OBC/deciphered/0461_0462/0461/G_0461_乙7718合22459子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "31",
+      "pixel_height": "79",
+      "sha256": "b1093c017bce3482c149d0c56cf362c9d1410897fedd83e04ba51011c9ad5aa5",
+      "raw_source_sha256": "082eb41d0ee924f554d738673717c60c08b058e6e56200068dbea72f65b65aed",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细弧形竖向痕迹穿过小型中央环形轮廓，并继续连接下部折线。"
+    ],
+    "en": [
+      "A thin curved vertical trace passes through a small central loop and continues into a lower zigzag."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0461_乙7718合22459子組.png",
+    "prefix": "G",
+    "heji": "合22459",
+    "old_catalog": "乙7718",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "0461_0462",
+    "validation_class_id": "405",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㗃㗄",
+    "codepoints": "U+35C3;U+35C4",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000406",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

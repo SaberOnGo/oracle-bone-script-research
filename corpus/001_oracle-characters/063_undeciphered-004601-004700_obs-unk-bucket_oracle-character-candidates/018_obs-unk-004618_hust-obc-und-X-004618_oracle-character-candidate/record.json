@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004618",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004618",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006211_hust-obc-und-X-004618_glyph.jpg",
+      "metadata": "images/001_asset-006211_hust-obc-und-X-004618_glyph.yaml",
+      "asset_id": "asset-006211",
+      "source_image_path": "HUST-OBC/undeciphered/X/174/X_？_8349_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "210",
+      "pixel_height": "271",
+      "sha256": "a9ae6fdcb8356b6873d35db627f400433cb5e3a1ddea9174a54197649587e4f2",
+      "raw_source_sha256": "a9ae6fdcb8356b6873d35db627f400433cb5e3a1ddea9174a54197649587e4f2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "外围有一条宽大的轮廓，顶部向上斜起，右侧向下延伸。",
+      "左侧有一条短向外分支和一个较粗的交接点。",
+      "左侧交接区域内部可见一个小的浅色开口。",
+      "中央开口内有一条短斜痕向上伸出。",
+      "一条较细痕迹从中央交接点向下延伸至下边缘附近。"
+    ],
+    "en": [
+      "A broad outer contour rises to a high angled top and descends on the right.",
+      "The left side contains a short outward prong and a thick junction.",
+      "A small pale opening is visible within the left junction area.",
+      "A short diagonal trace rises inside the central opening.",
+      "A thin trace descends from the central junction toward the lower edge."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8349_1.png",
+    "prefix": "X",
+    "code": "？_8349_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "174",
+    "source_class_path": "HUST-OBC/undeciphered/X/174/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/174/X_？_8349_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/174/X_？_8349_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

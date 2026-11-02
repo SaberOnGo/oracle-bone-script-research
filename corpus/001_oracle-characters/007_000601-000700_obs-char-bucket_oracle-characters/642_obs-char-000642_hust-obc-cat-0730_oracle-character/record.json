@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000642",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0730",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000647_hust-obc-cat-0730_glyph.png",
+      "metadata": "images/001_asset-000647_hust-obc-cat-0730_glyph.yaml",
+      "asset_id": "asset-000647",
+      "source_image_path": "HUST-OBC/deciphered/0730/X_0730_1047_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "228",
+      "pixel_height": "304",
+      "sha256": "88fa908b265dbfc3a2c0580d18e818bda8efa004f90d58104ba1e118c4624ce4",
+      "raw_source_sha256": "a9dc126963c6934ad75a0a2ad3d359a1f7233c9b56498eb141ff7f7614ffb263",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集粗重上部笔群结合圆环、长横栏和尖形下垂笔；分离右下笔弯成折角下环和长尾。"
+    ],
+    "en": [
+      "A dense bold upper cluster combines a rounded loop, long crossbar, and pointed hanging strokes; a separate right descent bends into an angular lower loop and long tail."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_0730_1047_1.png",
+    "prefix": "X",
+    "code": "0730_1047_1"
+  },
+  "dataset_category": {
+    "source_category_id": "0730",
+    "validation_class_id": "641",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛐",
+    "codepoints": "U+36D0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000642",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

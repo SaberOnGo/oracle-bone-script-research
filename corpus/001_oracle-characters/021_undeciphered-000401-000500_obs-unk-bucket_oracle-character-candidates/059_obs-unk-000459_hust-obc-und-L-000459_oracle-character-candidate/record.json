@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000459",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000459",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002052_hust-obc-und-L-000459_glyph.jpg",
+      "metadata": "images/001_asset-002052_hust-obc-und-L-000459_glyph.yaml",
+      "asset_id": "asset-002052",
+      "source_image_path": "HUST-OBC/undeciphered/L/459/L_？_1143.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "199913e802637aab1e32b2746b17d00630e1e3f5a89ebe525b5cfc5129912802",
+      "raw_source_sha256": "199913e802637aab1e32b2746b17d00630e1e3f5a89ebe525b5cfc5129912802",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "矩形 U 形框有两条下行侧笔，中央上部带小型尖角外伸。"
+    ],
+    "en": [
+      "A rectangular U-shaped frame has two descending side strokes and a small pointed upper projection at the center."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1143.jpg",
+    "prefix": "L",
+    "code": "？_1143"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "459",
+    "source_class_path": "HUST-OBC/undeciphered/L/459/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/459/L_？_1143.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/459/L_？_1143.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

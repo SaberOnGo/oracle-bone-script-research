@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004699",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004699",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006292_hust-obc-und-X-004699_glyph.jpg",
+      "metadata": "images/001_asset-006292_hust-obc-und-X-004699_glyph.yaml",
+      "asset_id": "asset-006292",
+      "source_image_path": "HUST-OBC/undeciphered/X/255/X_？_7228_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "157",
+      "pixel_height": "304",
+      "sha256": "b52461d0225e5da61a2d14b3368dfe7a6069fe3befa2fb78f4372ea33dbc38cd",
+      "raw_source_sha256": "b52461d0225e5da61a2d14b3368dfe7a6069fe3befa2fb78f4372ea33dbc38cd",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条拱形上部笔画从中央连接处分别向左和向右展开。",
+      "每条上部笔画的弯曲外缘下方都有一处浅色间隙。",
+      "一条长中央笔干从连接处向下延伸。",
+      "下部中央出现一个狭窄的三角形浅色开口。",
+      "下方区域分成两条斜向深色笔画。",
+      "来源元数据预期有两张图，但当前只有一张本地复核图。"
+    ],
+    "en": [
+      "Two arched upper strokes spread left and right from a central junction.",
+      "Each upper stroke has a pale gap beneath its curved outer edge.",
+      "A long central stem descends from the junction.",
+      "A narrow triangular pale opening appears in the lower middle.",
+      "The lower area divides into two diagonal dark strokes.",
+      "Source metadata expects two images, but only one local review image exists.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7228_1.png",
+    "prefix": "X",
+    "code": "？_7228_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "255",
+    "source_class_path": "HUST-OBC/undeciphered/X/255/",
+    "source_image_count": 2,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/255/X_？_7228_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/255/X_？_7228_2.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

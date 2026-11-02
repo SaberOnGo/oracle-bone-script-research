@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004597",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004597",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006190_hust-obc-und-X-004597_glyph.jpg",
+      "metadata": "images/001_asset-006190_hust-obc-und-X-004597_glyph.yaml",
+      "asset_id": "asset-006190",
+      "source_image_path": "HUST-OBC/undeciphered/X/153/X_？_8330_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "213",
+      "pixel_height": "284",
+      "sha256": "5695d2e0bb4a93e4ca01ebe0a5af6d157df09692725ade6df2f046ae8afd466b",
+      "raw_source_sha256": "5695d2e0bb4a93e4ca01ebe0a5af6d157df09692725ade6df2f046ae8afd466b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部尖顶内有一个小的浅色椭圆开口。",
+      "宽的弧形拱痕从尖顶向两侧下行。",
+      "拱形内部悬有两条分离的长竖向痕迹。",
+      "两条内部痕迹的下端高度不一致。",
+      "外部拱痕在两条内部痕迹下方保持开放。"
+    ],
+    "en": [
+      "The upper apex contains a small light oval opening.",
+      "A broad curved arch descends from the apex on both sides.",
+      "Two long separate vertical traces hang inside the arch.",
+      "The lower ends of the interior traces are uneven.",
+      "The outer arch remains open below the two inner traces."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8330_1.png",
+    "prefix": "X",
+    "code": "？_8330_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "153",
+    "source_class_path": "HUST-OBC/undeciphered/X/153/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/153/X_？_8330_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/153/X_？_8330_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

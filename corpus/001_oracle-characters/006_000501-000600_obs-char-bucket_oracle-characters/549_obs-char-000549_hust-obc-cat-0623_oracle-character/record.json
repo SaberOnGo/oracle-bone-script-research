@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000549",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0623",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000554_hust-obc-cat-0623_glyph.png",
+      "metadata": "images/001_asset-000554_hust-obc-cat-0623_glyph.yaml",
+      "asset_id": "asset-000554",
+      "source_image_path": "HUST-OBC/deciphered/0623/G_0623_庫1870合41227.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "80",
+      "sha256": "f43dd19936140ece5f577d83e91f0b6f07b3233b3ba6c94634f0e9685f4d3e4c",
+      "raw_source_sha256": "f19dde7fc7864e8007b55482f047b0b41d3f7d16b13d173d9e722f1151566ae0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "短交叉位于长弯折下行笔顶端，两个相连小环垂在其中部弯折下方。"
+    ],
+    "en": [
+      "A short cross sits at the top of a long bent descending stroke, while two small linked loops hang below its central bend."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0623_庫1870合41227.png",
+    "prefix": "G",
+    "heji": "合41227",
+    "old_catalog": "庫1870",
+    "old_catalog_abbr": "庫",
+    "old_catalog_abbr_obm_label": "庫方二氏所藏甲骨卜辭"
+  },
+  "dataset_category": {
+    "source_category_id": "0623",
+    "validation_class_id": "548",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙥",
+    "codepoints": "U+3665",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000549",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

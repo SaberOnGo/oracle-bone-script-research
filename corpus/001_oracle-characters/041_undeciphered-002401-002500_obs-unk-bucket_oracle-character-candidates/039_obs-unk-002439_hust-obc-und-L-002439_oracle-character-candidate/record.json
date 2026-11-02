@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002439",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002439",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004032_hust-obc-und-L-002439_glyph.jpg",
+      "metadata": "images/001_asset-004032_hust-obc-und-L-002439_glyph.yaml",
+      "asset_id": "asset-004032",
+      "source_image_path": "HUST-OBC/undeciphered/L/2439/L_？_3551.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "53",
+      "sha256": "8f7d97d8a1ee05e3789b3d2984ad8a87ba5948c843060f36caed9a1f8653ce13",
+      "raw_source_sha256": "8f7d97d8a1ee05e3789b3d2984ad8a87ba5948c843060f36caed9a1f8653ce13",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "棱角状上部笔痕向下分成两条较长下行笔画，内部仍可见一条较小的斜向笔画。"
+    ],
+    "en": [
+      "An angular upper cluster opens into two long descending strokes; a smaller diagonal stroke remains inside."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_3551.jpg",
+    "prefix": "L",
+    "code": "？_3551"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2439",
+    "source_class_path": "HUST-OBC/undeciphered/L/2439/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2439/L_？_3551.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2439/L_？_3551.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

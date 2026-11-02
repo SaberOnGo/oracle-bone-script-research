@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001308",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001308",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002901_hust-obc-und-L-001308_glyph.jpg",
+      "metadata": "images/001_asset-002901_hust-obc-und-L-001308_glyph.yaml",
+      "asset_id": "asset-002901",
+      "source_image_path": "HUST-OBC/undeciphered/L/1308/L_？_13706.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "54",
+      "sha256": "23d64aeca435305aa92afc983d6036fc58413b2c5db9ca40a083a6b58ad7f437",
+      "raw_source_sha256": "23d64aeca435305aa92afc983d6036fc58413b2c5db9ca40a083a6b58ad7f437",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有带数个深色内部痕迹的圆拱状块面。其下伸出较窄的笔痕，右下方另有一个横向近圆的笔组。"
+    ],
+    "en": [
+      "The upper portion contains a rounded block with several dark internal marks. A narrow stem descends from it, and a separate rounded horizontal form projects to the lower right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13706.jpg",
+    "prefix": "L",
+    "code": "？_13706"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1308",
+    "source_class_path": "HUST-OBC/undeciphered/L/1308/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1308/L_？_13706.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1308/L_？_13706.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

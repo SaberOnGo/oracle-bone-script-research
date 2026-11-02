@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004508",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004508",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006101_hust-obc-und-X-004508_glyph.jpg",
+      "metadata": "images/001_asset-006101_hust-obc-und-X-004508_glyph.yaml",
+      "asset_id": "asset-006101",
+      "source_image_path": "HUST-OBC/undeciphered/X/64/X_？_8249_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "150",
+      "pixel_height": "293",
+      "sha256": "9e8b4fc69d47ab074528f470e3554e6c5303544dcb25047a797e5bd56fa225f3",
+      "raw_source_sha256": "9e8b4fc69d47ab074528f470e3554e6c5303544dcb25047a797e5bd56fa225f3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "外部高轮廓向上收成一个尖出的顶部。",
+      "外部轮廓沿左右两侧向下延伸，弧度并不均匀。",
+      "一条内部斜向痕迹从尖峰下方开始并独立下行。",
+      "另一条较短的内部痕迹在裁切下部之前结束。",
+      "外部左右两侧的下端高度并不一致。"
+    ],
+    "en": [
+      "A tall outer contour rises to a pointed upper peak.",
+      "The outer contour descends along both sides with uneven curves.",
+      "An inner angled trace starts below the peak and descends separately.",
+      "A shorter inner trace ends before the lower part of the crop.",
+      "The outer left and right lower ends are not at the same height."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8249_1.png",
+    "prefix": "X",
+    "code": "？_8249_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "64",
+    "source_class_path": "HUST-OBC/undeciphered/X/64/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/64/X_？_8249_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/64/X_？_8249_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

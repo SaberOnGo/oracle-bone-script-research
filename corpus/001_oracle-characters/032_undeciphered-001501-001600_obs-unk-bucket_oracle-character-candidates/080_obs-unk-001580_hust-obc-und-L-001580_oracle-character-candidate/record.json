@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001580",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001580",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003173_hust-obc-und-L-001580_glyph.jpg",
+      "metadata": "images/001_asset-003173_hust-obc-und-L-001580_glyph.yaml",
+      "asset_id": "asset-003173",
+      "source_image_path": "HUST-OBC/undeciphered/L/1580/L_？_14412.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "48",
+      "pixel_height": "57",
+      "sha256": "07b994007dc10feeb33a52037bdd6e56ef60f9e43e3e2b0eae3cfa2b5cf21a50",
+      "raw_source_sha256": "07b994007dc10feeb33a52037bdd6e56ef60f9e43e3e2b0eae3cfa2b5cf21a50",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "horizontal stroke on the left, a rounded mark on the right, and a descending lower stroke.图像可见中央交叉形体；左侧有短横痕，右侧有弯曲形痕，下方有向下延伸笔痕。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A central crossing form is accompanied by a short"
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14412.jpg",
+    "prefix": "L",
+    "code": "？_14412"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1580",
+    "source_class_path": "HUST-OBC/undeciphered/L/1580/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1580/L_？_14412.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1580/L_？_14412.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

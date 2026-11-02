@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000362",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0412",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000367_hust-obc-cat-0412_glyph.png",
+      "metadata": "images/001_asset-000367_hust-obc-cat-0412_glyph.yaml",
+      "asset_id": "asset-000367",
+      "source_image_path": "HUST-OBC/deciphered/0412/G_0412_乙222(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "54",
+      "pixel_height": "80",
+      "sha256": "39e1f9804597ac6c8803e3195cfa2087afaa8e2425bddde5aa6b667c150d04f2",
+      "raw_source_sha256": "a2a8ed38b071c19b33fc2a12cbde8bf674884f40b465d2a42f60a43990dcd885",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "短上横笔画位于紧凑中部痕迹和宽下横底笔画之上。"
+    ],
+    "en": [
+      "A short upper horizontal stroke sits above a compact central mark and a broad lower horizontal base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0412_乙222(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙222",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0412",
+    "validation_class_id": "361",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㖒",
+    "codepoints": "U+3592",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000362",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

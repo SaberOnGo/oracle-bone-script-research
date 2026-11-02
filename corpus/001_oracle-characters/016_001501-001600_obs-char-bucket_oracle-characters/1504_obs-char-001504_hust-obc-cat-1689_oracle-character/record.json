@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001504",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1689",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001509_hust-obc-cat-1689_glyph.png",
+      "metadata": "images/001_asset-001509_hust-obc-cat-1689_glyph.yaml",
+      "asset_id": "asset-001509",
+      "source_image_path": "HUST-OBC/deciphered/1689/G_1689_乙2737合1385賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "80",
+      "sha256": "2f433326b5db5c6797c3d11efe6861905304ffbed25d85798b2b7e60363f7bc4",
+      "raw_source_sha256": "da74d5b345d0e14f32e261598f7431c4677fb123aa633a26d3f53f91f11c91e7",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型组合形体有交叉上部结构、中央竖干和下部椭圆环。"
+    ],
+    "en": [
+      "A small composite has a crossing upper structure, a central stem, and a lower oval loop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1689_乙2737合1385賓組.png",
+    "prefix": "G",
+    "heji": "合1385",
+    "old_catalog": "乙2737",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1689",
+    "validation_class_id": "1503",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪏",
+    "codepoints": "U+3A8F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001504",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

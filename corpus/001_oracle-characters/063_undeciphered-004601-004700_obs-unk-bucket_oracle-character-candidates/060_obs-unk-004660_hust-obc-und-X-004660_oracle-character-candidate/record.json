@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004660",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004660",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006253_hust-obc-und-X-004660_glyph.jpg",
+      "metadata": "images/001_asset-006253_hust-obc-und-X-004660_glyph.yaml",
+      "asset_id": "asset-006253",
+      "source_image_path": "HUST-OBC/undeciphered/X/216/X_？_8387_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "134",
+      "pixel_height": "280",
+      "sha256": "df8d257c043a7b871c330d97de56e8c5708050ff387829e16e729c9c8fc6cbe9",
+      "raw_source_sha256": "df8d257c043a7b871c330d97de56e8c5708050ff387829e16e729c9c8fc6cbe9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一条高的近方形轮廓围出浅色中央空间。",
+      "上边缘越过内部空间弯曲，转角不规则。",
+      "左侧中部有一段向外弯曲的分支。",
+      "左下区域延伸出一条分离的尖状笔画。",
+      "右侧以大致直的粗重边界向下延伸。"
+    ],
+    "en": [
+      "A tall rectangular contour encloses a pale central field.",
+      "The upper edge bends over the field with an uneven corner.",
+      "The left side includes an outward curved branch near the middle.",
+      "The lower-left region extends into a separate pointed stroke.",
+      "The right side descends as a mostly straight thick boundary.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8387_1.png",
+    "prefix": "X",
+    "code": "？_8387_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "216",
+    "source_class_path": "HUST-OBC/undeciphered/X/216/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/216/X_？_8387_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/216/X_？_8387_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

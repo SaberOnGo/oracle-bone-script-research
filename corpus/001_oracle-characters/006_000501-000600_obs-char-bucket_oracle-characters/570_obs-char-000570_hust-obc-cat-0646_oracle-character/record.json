@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000570",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0646",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000575_hust-obc-cat-0646_glyph.png",
+      "metadata": "images/001_asset-000575_hust-obc-cat-0646_glyph.yaml",
+      "asset_id": "asset-000575",
+      "source_image_path": "HUST-OBC/deciphered/0646/G_0646_乙8809(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "28",
+      "pixel_height": "80",
+      "sha256": "cb5e8547fb08ec48d61a747e4df35b7087608fae8ed4625f21d507a691d1a2e5",
+      "raw_source_sha256": "0eb86382b2eb2793aa8566c9a95791a2427043f2e4cfae07eb54afe46819f3c0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "单个波折竖形近顶部有小折钩，中部急转，下方延伸长弯渐尖尾笔。"
+    ],
+    "en": [
+      "A single wavering vertical form has a small angular hook near the top, a sharp middle bend, and a long curved tapered lower tail."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0646_乙8809(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙8809",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0646",
+    "validation_class_id": "569",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙼",
+    "codepoints": "U+367C",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000570",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001268",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001268",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002861_hust-obc-und-L-001268_glyph.jpg",
+      "metadata": "images/001_asset-002861_hust-obc-und-L-001268_glyph.yaml",
+      "asset_id": "asset-002861",
+      "source_image_path": "HUST-OBC/undeciphered/L/1268/L_？_13592.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "62",
+      "sha256": "9a34069b2227382ef343bd1c2d28cf6e39e10d1511483468388d91247913e764",
+      "raw_source_sha256": "9a34069b2227382ef343bd1c2d28cf6e39e10d1511483468388d91247913e764",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "分叉上部主线从宽矩形围合中升起，围合内有两条相向棱角线。"
+    ],
+    "en": [
+      "A forked upper stem rises from a broad rectangular enclosure containing two opposing angular inner strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13592.jpg",
+    "prefix": "L",
+    "code": "？_13592"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1268",
+    "source_class_path": "HUST-OBC/undeciphered/L/1268/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1268/L_？_13592.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1268/L_？_13592.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

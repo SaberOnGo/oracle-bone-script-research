@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000959",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1079",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000964_hust-obc-cat-1079_glyph.png",
+      "metadata": "images/001_asset-000964_hust-obc-cat-1079_glyph.yaml",
+      "asset_id": "asset-000964",
+      "source_image_path": "HUST-OBC/deciphered/1079/G_1079_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "80",
+      "sha256": "e5e18c66b680f7d50b2fe39a4e6522a4cde0b74c337ae33ab2fab50a3a1d55a2",
+      "raw_source_sha256": "8397af0dfd624f3b0604119ddfd28af58a8375810aabc717260a20d85050f978",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧密上部圆弧闭合轮廓位于曲折下部分枝笔群之上。"
+    ],
+    "en": [
+      "A compact upper rounded enclosure sits above a jagged lower branching cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1079_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "1079",
+    "validation_class_id": "958",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㠭",
+    "codepoints": "U+382D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000959",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

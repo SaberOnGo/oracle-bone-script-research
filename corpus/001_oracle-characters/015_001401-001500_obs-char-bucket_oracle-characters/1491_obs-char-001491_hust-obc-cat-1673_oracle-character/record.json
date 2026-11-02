@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001491",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1673",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001496_hust-obc-cat-1673_glyph.png",
+      "metadata": "images/001_asset-001496_hust-obc-cat-1673_glyph.yaml",
+      "asset_id": "asset-001496",
+      "source_image_path": "HUST-OBC/deciphered/1673/G_1673_乙1907合6484賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "81",
+      "pixel_height": "77",
+      "sha256": "464a13e81d7cd39219e4a1e827994a182a14eb9f2fa1eb3b53e9a9dd82d77201",
+      "raw_source_sha256": "785bec0790cc619ce2e3dc6ad868004ef1a8a182d0131f9f42b2262d7f307850",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大下部框形有两个上部环形和数条内部隔分笔画。"
+    ],
+    "en": [
+      "A broad lower enclosure has two upper loops and several inner divisions."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1673_乙1907合6484賓組.png",
+    "prefix": "G",
+    "heji": "合6484",
+    "old_catalog": "乙1907",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1673",
+    "validation_class_id": "1490",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㩿",
+    "codepoints": "U+3A7F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001491",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

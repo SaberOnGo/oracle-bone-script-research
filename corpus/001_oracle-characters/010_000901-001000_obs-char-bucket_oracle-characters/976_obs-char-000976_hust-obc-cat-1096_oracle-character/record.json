@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000976",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1096",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000981_hust-obc-cat-1096_glyph.png",
+      "metadata": "images/001_asset-000981_hust-obc-cat-1096_glyph.yaml",
+      "asset_id": "asset-000981",
+      "source_image_path": "HUST-OBC/deciphered/1096/G_1096_庫492合40021.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "80",
+      "pixel_height": "80",
+      "sha256": "59f2177955a3534a56cb34857babce7cab4380e445ff228235d14a78c7581159",
+      "raw_source_sha256": "6b3d468b44c76f66c8b3c84a73d725822d2265ffa730013789ceb2ec64f61142",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离的矩形格状笔群沿对角方向配置，分别位于左上和右下。"
+    ],
+    "en": [
+      "Two separated rectangular grid-like clusters are placed diagonally, one above left and one below right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1096_庫492合40021.png",
+    "prefix": "G",
+    "heji": "合40021",
+    "old_catalog": "庫492",
+    "old_catalog_abbr": "庫",
+    "old_catalog_abbr_obm_label": "庫方二氏所藏甲骨卜辭"
+  },
+  "dataset_category": {
+    "source_category_id": "1096",
+    "validation_class_id": "975",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㠾",
+    "codepoints": "U+383E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000976",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

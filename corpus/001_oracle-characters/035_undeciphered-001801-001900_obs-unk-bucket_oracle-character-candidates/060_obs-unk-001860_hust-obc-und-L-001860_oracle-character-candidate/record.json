@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001860",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001860",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003453_hust-obc-und-L-001860_glyph.jpg",
+      "metadata": "images/001_asset-003453_hust-obc-und-L-001860_glyph.yaml",
+      "asset_id": "asset-003453",
+      "source_image_path": "HUST-OBC/undeciphered/L/1860/L_？_15159.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "58",
+      "sha256": "5f111d7613b0ef7f2ec245806613ba3c61ec2f8f063f08058a0a3f1c55c055a6",
+      "raw_source_sha256": "5f111d7613b0ef7f2ec245806613ba3c61ec2f8f063f08058a0a3f1c55c055a6",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个深色叶状笔痕并列，中间留有狭窄空隙。每个形体内部都有较浅小笔痕，底部呈尖收。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "Two dark leaf-like forms stand side by side with a narrow central gap. Each form has small lighter interior marks and a pointed lower end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_15159.jpg",
+    "prefix": "L",
+    "code": "？_15159"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1860",
+    "source_class_path": "HUST-OBC/undeciphered/L/1860/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1860/L_？_15159.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1860/L_？_15159.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

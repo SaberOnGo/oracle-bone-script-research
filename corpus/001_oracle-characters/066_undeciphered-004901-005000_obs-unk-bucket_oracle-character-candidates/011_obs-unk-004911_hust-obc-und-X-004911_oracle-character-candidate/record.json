@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004911",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004911",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006504_hust-obc-und-X-004911_glyph.jpg",
+      "metadata": "images/001_asset-006504_hust-obc-und-X-004911_glyph.yaml",
+      "asset_id": "asset-006504",
+      "source_image_path": "HUST-OBC/undeciphered/X/467/X_？_7452_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "231",
+      "pixel_height": "295",
+      "sha256": "c3c190d444f89d7139b9c2ad5c641a78f6473cb7efcd4b7549a594d0f05c6a5b",
+      "raw_source_sha256": "c3c190d444f89d7139b9c2ad5c641a78f6473cb7efcd4b7549a594d0f05c6a5b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像是一个高反差密集裁切，背景呈深色矩形区域。",
+      "深色区域内可见数处浅色的封闭或断裂开口。",
+      "左侧中央附近有一组浅色竖向和斜向痕迹。",
+      "右侧聚集着更小的浅色标记。",
+      "下缘不规则，并向右下方倾斜。",
+      "当前阈值化图像不足以可靠区分单独笔画。"
+    ],
+    "en": [
+      "The image is a dense high-contrast crop with a dark rectangular field.",
+      "Several pale enclosed or broken openings are visible within the field.",
+      "A pale vertical and diagonal group appears near the left center.",
+      "Smaller pale marks cluster toward the right side.",
+      "The lower edge is irregular and slopes toward the lower right.",
+      "The thresholded image does not support reliable stroke separation.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7452_1.png",
+    "prefix": "X",
+    "code": "？_7452_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "467",
+    "source_class_path": "HUST-OBC/undeciphered/X/467/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/467/X_？_7452_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/467/X_？_7452_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

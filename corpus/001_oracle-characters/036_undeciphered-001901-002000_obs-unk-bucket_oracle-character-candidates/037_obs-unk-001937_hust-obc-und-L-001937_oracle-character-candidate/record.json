@@ -1,0 +1,67 @@
+{
+  "id": "obs-unk-001937",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001937",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003530_hust-obc-und-L-001937_glyph.jpg",
+      "metadata": "images/001_asset-003530_hust-obc-und-L-001937_glyph.yaml",
+      "asset_id": "asset-003530",
+      "source_image_path": "HUST-OBC/undeciphered/L/1937/L_Јї_1667.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "53",
+      "sha256": "7a90c9bfc2a8d23ee9d057de3331b08dfe7cae00b7bf9725c693e4668fd2af45",
+      "raw_source_sha256": "7a90c9bfc2a8d23ee9d057de3331b08dfe7cae00b7bf9725c693e4668fd2af45",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部中央有一组紧密的角状笔痕。其下有较宽的斜向笔痕向左下转折，并与一条曲向侧边笔痕相接。右侧另有较窄的下行笔痕，下端保持开放且不均匀。",
+      "疑似交接处和可能的表面缺失仍需按来源原始分辨率复核。"
+    ],
+    "en": [
+      "A compact angular cluster occupies the upper centre. Below it, a broad diagonal stroke turns toward the lower left and meets a curved side stroke. A separate narrow stroke descends on the right; the lower ends remain open and uneven.",
+      "The apparent joins and any surface loss need source-resolution review."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_Јї_1667.jpg",
+    "prefix": "L",
+    "code": "Јї_1667"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1937",
+    "source_class_path": "HUST-OBC/undeciphered/L/1937/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1937/L_？_1667.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1937/L_？_1667.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

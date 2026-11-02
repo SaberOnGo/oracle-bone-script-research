@@ -1,0 +1,79 @@
+{
+  "id": "obs-char-000589",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0668",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000594_hust-obc-cat-0668_glyph.png",
+      "metadata": "images/001_asset-000594_hust-obc-cat-0668_glyph.yaml",
+      "asset_id": "asset-000594",
+      "source_image_path": "HUST-OBC/deciphered/0668/G_0668_京都2033合28953無名組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "45",
+      "pixel_height": "80",
+      "sha256": "3ba367132c0a59a960cf0bbfff342232593b647869e4ef0d229ab1004a69a4ec",
+      "raw_source_sha256": "d3905c9f801d9736d55ec48c7f1a1c4b29d032e68e33fcfd4430bef5ddbf3ee5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高长中央形带小型尖顶上环和数条叉状侧枝，左侧另有两处分离弯曲或折角痕。"
+    ],
+    "en": [
+      "A tall central form has a small pointed upper loop and several forked side branches; two detached curved or angular marks stand to the left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0668_京都2033合28953無名組.png",
+    "prefix": "G",
+    "heji": "合28953",
+    "old_catalog": "京都2033",
+    "old_catalog_abbr": "京都",
+    "old_catalog_abbr_obm_label": "京都大學人文科學研究所藏甲骨文字",
+    "group_or_note": "無名組"
+  },
+  "dataset_category": {
+    "source_category_id": "0668",
+    "validation_class_id": "588",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚒",
+    "codepoints": "U+3692",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000589",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

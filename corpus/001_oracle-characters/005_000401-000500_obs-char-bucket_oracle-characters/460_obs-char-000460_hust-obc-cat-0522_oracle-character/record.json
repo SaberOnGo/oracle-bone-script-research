@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000460",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0522",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000465_hust-obc-cat-0522_glyph.png",
+      "metadata": "images/001_asset-000465_hust-obc-cat-0522_glyph.yaml",
+      "asset_id": "asset-000465",
+      "source_image_path": "HUST-OBC/deciphered/0522/G_0522_乙1706合21870子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "28",
+      "pixel_height": "80",
+      "sha256": "7f29c000e1b922acb14c59a7c3b0e9850f936c3801c84967f50021fe25676e21",
+      "raw_source_sha256": "ff9062b39bfc045bbfb83bfaae78009d5f6b098806a7b98f556870ca51a589e0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数条长平行竖笔组成狭窄笔画群，两条短横在不同高度穿过中央竖笔。"
+    ],
+    "en": [
+      "Several long parallel vertical strokes form a narrow cluster, with two short horizontal bars crossing the central strokes at different heights."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0522_乙1706合21870子組.png",
+    "prefix": "G",
+    "heji": "合21870",
+    "old_catalog": "乙1706",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "0522",
+    "validation_class_id": "459",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘀",
+    "codepoints": "U+3600",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000460",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

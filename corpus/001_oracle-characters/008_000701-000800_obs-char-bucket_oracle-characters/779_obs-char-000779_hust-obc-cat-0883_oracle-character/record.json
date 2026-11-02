@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000779",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0883",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000784_hust-obc-cat-0883_glyph.png",
+      "metadata": "images/001_asset-000784_hust-obc-cat-0883_glyph.yaml",
+      "asset_id": "asset-000784",
+      "source_image_path": "HUST-OBC/deciphered/0883/X_0883_2897_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "201",
+      "pixel_height": "303",
+      "sha256": "97bbc2f02d1d82e221a69238cf690975a500a183458fa41abe371fd62a6d3944",
+      "raw_source_sha256": "8ac00b61d37a1f2f655cc9d41566653fcc0582bdf124269202e47aa0902b554b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重不规则笔群结合倾斜上环、大型左侧开口轮廓和粗下行中央笔；右侧小接点分出两条长下笔。"
+    ],
+    "en": [
+      "A bold irregular cluster combines a tilted upper loop and a large open left outline with a thick descending center; a small right junction forks into two long lower strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_0883_2897_1.png",
+    "prefix": "X",
+    "code": "0883_2897_1"
+  },
+  "dataset_category": {
+    "source_category_id": "0883",
+    "validation_class_id": "778",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝩",
+    "codepoints": "U+3769",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000779",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

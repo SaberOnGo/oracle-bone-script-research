@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001006",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1130",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001011_hust-obc-cat-1130_glyph.png",
+      "metadata": "images/001_asset-001011_hust-obc-cat-1130_glyph.yaml",
+      "asset_id": "asset-001011",
+      "source_image_path": "HUST-OBC/deciphered/1130/G_1130_前2.37.8(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "58",
+      "pixel_height": "80",
+      "sha256": "c8376cd309034fe06d3934fba4c6775b7f457144593f8f089659386c225c2ed8",
+      "raw_source_sha256": "a99a1acb1b09cc17c82591dd0d9e24812266e9936d944a4afb33cf5a82ffec2e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大的弯曲闭合轮廓内有密集的上部和内部短笔，下部有两条支撑笔。"
+    ],
+    "en": [
+      "A broad curved enclosure contains a dense group of short upper and interior strokes and has two lower supporting strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1130_前2.37.8(甲).png",
+    "prefix": "G",
+    "old_catalog": "前2.37.8",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1130",
+    "validation_class_id": "1005",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㡠",
+    "codepoints": "U+3860",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001006",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001462",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1639_1640_1641",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001467_hust-obc-cat-1639_1640_1641_glyph.png",
+      "metadata": "images/001_asset-001467_hust-obc-cat-1639_1640_1641_glyph.yaml",
+      "asset_id": "asset-001467",
+      "source_image_path": "HUST-OBC/deciphered/1639_1640_1641/1639/G_1639_前2.9.6(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "60",
+      "pixel_height": "80",
+      "sha256": "72ecadb2018ac85102acc27246006b026b59fc45daa5e5ddc2e08311f72420c4",
+      "raw_source_sha256": "2f42723e0f6e0a323bec73ef5031058176511338e4dcd349c713d2e0ae32f9b1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "开放左侧框形与长右侧斜笔及侧部分枝相邻。"
+    ],
+    "en": [
+      "An open left frame is paired with a long right diagonal and side branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1639_前2.9.6(甲).png",
+    "prefix": "G",
+    "old_catalog": "前2.9.6",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1639_1640_1641",
+    "validation_class_id": "1461",
+    "category_member_count": "3"
+  },
+  "dataset_label": {
+    "label": "㩝㩞㩟",
+    "codepoints": "U+3A5D;U+3A5E;U+3A5F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001462",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001023",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1148",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001028_hust-obc-cat-1148_glyph.png",
+      "metadata": "images/001_asset-001028_hust-obc-cat-1148_glyph.yaml",
+      "asset_id": "asset-001028",
+      "source_image_path": "HUST-OBC/deciphered/1148/H_1148_60FA4_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "161",
+      "pixel_height": "297",
+      "sha256": "9683cc614968656ce629ef4c014657d74e0acc95139c07d818ee915b02e30135",
+      "raw_source_sha256": "c7592045a50250462e048c8e354eadaf93499da9723a044e94e2db54f599b959",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大的圆弧下部闭合轮廓有带钩状末端的高直立中央笔、上部侧外伸和两条长下部分枝。"
+    ],
+    "en": [
+      "A broad rounded lower enclosure has a tall central upright with a hooked terminal, upper side projections, and two long lower branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_1148_60FA4_0.png",
+    "prefix": "H",
+    "code": "1148_60FA4_0"
+  },
+  "dataset_category": {
+    "source_category_id": "1148",
+    "validation_class_id": "1022",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㡲",
+    "codepoints": "U+3872",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001023",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

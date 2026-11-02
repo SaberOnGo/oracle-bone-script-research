@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000730",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0831",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000735_hust-obc-cat-0831_glyph.png",
+      "metadata": "images/001_asset-000735_hust-obc-cat-0831_glyph.yaml",
+      "asset_id": "asset-000735",
+      "source_image_path": "HUST-OBC/deciphered/0831/G_0831_乙3394合3238賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "28",
+      "pixel_height": "80",
+      "sha256": "a0572465d6d1759b08d06a56c0306182e389b6a3b0dab1d4ca02854e196132ee",
+      "raw_source_sha256": "14bda6fbc321031d7746eb8d33d3ee8d76a65a245abd98cc35f7cc0cc165549b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条略弯的高长竖笔并列，中部附近有一条向内短斜笔，上下另见分离的钩曲或弓形延笔。"
+    ],
+    "en": [
+      "Two tall slightly curved verticals stand side by side, with a short inward diagonal near the middle and separated hooked or bowed continuations above and below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0831_乙3394合3238賓組.png",
+    "prefix": "G",
+    "heji": "合3238",
+    "old_catalog": "乙3394",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0831",
+    "validation_class_id": "729",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜵",
+    "codepoints": "U+3735",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000730",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

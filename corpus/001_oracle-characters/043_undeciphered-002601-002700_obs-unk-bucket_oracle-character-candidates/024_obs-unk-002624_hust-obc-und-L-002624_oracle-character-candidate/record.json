@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002624",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002624",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004217_hust-obc-und-L-002624_glyph.jpg",
+      "metadata": "images/001_asset-004217_hust-obc-und-L-002624_glyph.yaml",
+      "asset_id": "asset-004217",
+      "source_image_path": "HUST-OBC/undeciphered/L/2624/L_？_4082.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "57",
+      "sha256": "756c6722a678b71dea18090a479995a3c1468043075768bcd7ed5b9fff7b8a2d",
+      "raw_source_sha256": "756c6722a678b71dea18090a479995a3c1468043075768bcd7ed5b9fff7b8a2d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧凑的近圆弧外轮廓围住较浅的中央区域。上缘伸出数条短而不齐的笔痕，下部轮廓收窄形成小间隙。内外笔痕部分相互合并。"
+    ],
+    "en": [
+      "A compact roughly rounded outline encloses a lighter center. Several short uneven strokes project from the upper edge, while the lower outline narrows to a small gap. Inner and outer strokes are partly merged."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_4082.jpg",
+    "prefix": "L",
+    "code": "？_4082"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2624",
+    "source_class_path": "HUST-OBC/undeciphered/L/2624/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2624/L_？_4082.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2624/L_？_4082.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

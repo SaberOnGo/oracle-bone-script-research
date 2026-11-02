@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001503",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1687_1688",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001508_hust-obc-cat-1687_1688_glyph.png",
+      "metadata": "images/001_asset-001508_hust-obc-cat-1687_1688_glyph.yaml",
+      "asset_id": "asset-001508",
+      "source_image_path": "HUST-OBC/deciphered/1687_1688/1687/G_1687_前3.31.2合5825賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "19",
+      "pixel_height": "80",
+      "sha256": "e6136f8d436c7b2e76c368ac5925d47702e6703040dbf508ee0b5c4b250fe9dc",
+      "raw_source_sha256": "1a3ea9acfc8eeb4be88bb7c4d84f8ae440fb35e30a9f43ec7aa1753c836c638b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长字形由两条相近平行笔画和小型分叉上端构成。"
+    ],
+    "en": [
+      "A narrow glyph is formed by two close parallel strokes with a small forked upper end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1687_前3.31.2合5825賓組.png",
+    "prefix": "G",
+    "heji": "合5825",
+    "old_catalog": "前3.31.2",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1687_1688",
+    "validation_class_id": "1502",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㪍㪎",
+    "codepoints": "U+3A8D;U+3A8E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001503",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000801",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000801",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002394_hust-obc-und-L-000801_glyph.jpg",
+      "metadata": "images/001_asset-002394_hust-obc-und-L-000801_glyph.yaml",
+      "asset_id": "asset-002394",
+      "source_image_path": "HUST-OBC/undeciphered/L/801/L_？_12328.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "57",
+      "sha256": "f30bf655ef38f306ff6bf90c108a80ef6ed00504a53dc3cacf97082cee4239f1",
+      "raw_source_sha256": "f30bf655ef38f306ff6bf90c108a80ef6ed00504a53dc3cacf97082cee4239f1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大上横带及两侧直笔连接中央交叉笔和长曲折下行笔。"
+    ],
+    "en": [
+      "A broad upper band with side uprights connects to a central crossing and a long winding lower stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12328.jpg",
+    "prefix": "L",
+    "code": "？_12328"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "801",
+    "source_class_path": "HUST-OBC/undeciphered/L/801/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/801/L_？_12328.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/801/L_？_12328.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004876",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004876",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006469_hust-obc-und-X-004876_glyph.jpg",
+      "metadata": "images/001_asset-006469_hust-obc-und-X-004876_glyph.yaml",
+      "asset_id": "asset-006469",
+      "source_image_path": "HUST-OBC/undeciphered/X/432/X_？_7415_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "161",
+      "pixel_height": "292",
+      "sha256": "dc59836bdd42457527965f6e5f801516e16708c0df6d12dd60af1d4f48343ac0",
+      "raw_source_sha256": "dc59836bdd42457527965f6e5f801516e16708c0df6d12dd60af1d4f48343ac0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "顶部有一条小弧形标记和一组较大的折角结构。",
+      "较大上部结构的尖顶附近留有浅色开口。",
+      "中部有两条彼此分开的不规则下行笔画。",
+      "下部占据画面的是一个宽大的圆钝外框。",
+      "下部外框内部留有浅色区域，底缘不规则。",
+      "上、中、下各组之间保留明显空隙。"
+    ],
+    "en": [
+      "A small curved mark and a larger angular group sit at the top.",
+      "The larger upper group has a pale opening near its pointed peak.",
+      "Two separated irregular strokes descend through the middle area.",
+      "A broad rounded enclosure occupies the lower part of the image.",
+      "The lower enclosure has a pale interior and an uneven bottom edge.",
+      "Blank gaps remain between the upper, middle, and lower groups.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7415_1.png",
+    "prefix": "X",
+    "code": "？_7415_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "432",
+    "source_class_path": "HUST-OBC/undeciphered/X/432/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/432/X_？_7415_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/432/X_？_7415_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001319",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1475",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001324_hust-obc-cat-1475_glyph.png",
+      "metadata": "images/001_asset-001324_hust-obc-cat-1475_glyph.yaml",
+      "asset_id": "asset-001324",
+      "source_image_path": "HUST-OBC/deciphered/1475/X_1475_770_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "195",
+      "pixel_height": "267",
+      "sha256": "785edd72e0d38f18c12e40eb5efbee7f523b6e571396498aa11d94d85103a72a",
+      "raw_source_sha256": "8cd556e55788c8fddd0bf28d2996628e3ab6b6949c3cf2a62d3d44d368d3f6e3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型密集组合形体有分离的侧部笔画、中央粗重框形和右下圆拱环形。"
+    ],
+    "en": [
+      "A large dense composite has separated side strokes, a central thick enclosure, and a lower right rounded loop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1475_770_1.png",
+    "prefix": "X",
+    "code": "1475_770_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1475",
+    "validation_class_id": "1318",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㦹",
+    "codepoints": "U+39B9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001319",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

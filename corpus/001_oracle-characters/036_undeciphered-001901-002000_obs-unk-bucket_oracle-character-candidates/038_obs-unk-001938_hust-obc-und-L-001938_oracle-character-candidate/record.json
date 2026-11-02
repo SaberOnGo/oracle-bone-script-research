@@ -1,0 +1,67 @@
+{
+  "id": "obs-unk-001938",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001938",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003531_hust-obc-und-L-001938_glyph.jpg",
+      "metadata": "images/001_asset-003531_hust-obc-und-L-001938_glyph.yaml",
+      "asset_id": "asset-003531",
+      "source_image_path": "HUST-OBC/undeciphered/L/1938/L_Јї_1668.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "57",
+      "sha256": "c4b89ebda153d9d010f4c0404f17b1b4460edeae5cdabb088bf04b6b5c78bae1",
+      "raw_source_sha256": "c4b89ebda153d9d010f4c0404f17b1b4460edeae5cdabb088bf04b6b5c78bae1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部中央有数条短斜向笔痕向外分支。两侧有较长笔痕向下延伸，右侧末端带有曲向转折。左右两组之间保留窄的开放空隙，未见完整的封闭轮廓。",
+      "分支交接处和下端转折仍未复核。"
+    ],
+    "en": [
+      "Several short diagonal strokes branch from the upper centre. Longer strokes descend on both sides, with the right side ending in a curved turn. The left and right groups are separated by a narrow open space; no complete enclosing outline is visible.",
+      "The branching points and lower turns remain unverified."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_Јї_1668.jpg",
+    "prefix": "L",
+    "code": "Јї_1668"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1938",
+    "source_class_path": "HUST-OBC/undeciphered/L/1938/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1938/L_？_1668.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1938/L_？_1668.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

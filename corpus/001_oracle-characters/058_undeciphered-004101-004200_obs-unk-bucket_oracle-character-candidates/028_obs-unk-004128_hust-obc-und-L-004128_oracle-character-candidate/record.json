@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004128",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004128",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005721_hust-obc-und-L-004128_glyph.jpg",
+      "metadata": "images/001_asset-005721_hust-obc-und-L-004128_glyph.yaml",
+      "asset_id": "asset-005721",
+      "source_image_path": "HUST-OBC/undeciphered/L/4128/L_？_8894.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "fd6f5856083c444ee89afe2061897829dbe1eee7df321835fc21a86a2e1ce9f0",
+      "raw_source_sha256": "fd6f5856083c444ee89afe2061897829dbe1eee7df321835fc21a86a2e1ce9f0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：中央图像显示一组紧凑的竖向深色痕迹。",
+      "中文：左侧可见一条断续的折角痕迹。",
+      "中文：右上方有数条向外伸出的短痕迹。",
+      "中文：下部痕迹彼此重叠，并以小的弯曲痕迹收尾。"
+    ],
+    "en": [
+      "English: The central image shows a compact upright cluster of dark traces.",
+      "English: A broken angular trace is visible on the left side.",
+      "English: Several short strokes project toward the upper right.",
+      "English: The lower traces overlap and end in a small curved mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8894.jpg",
+    "prefix": "L",
+    "code": "？_8894"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4128",
+    "source_class_path": "HUST-OBC/undeciphered/L/4128/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4128/L_？_8894.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4128/L_？_8894.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

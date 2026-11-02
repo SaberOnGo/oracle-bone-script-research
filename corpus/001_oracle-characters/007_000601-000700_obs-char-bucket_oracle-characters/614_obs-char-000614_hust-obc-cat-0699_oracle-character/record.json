@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000614",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0699",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000619_hust-obc-cat-0699_glyph.png",
+      "metadata": "images/001_asset-000619_hust-obc-cat-0699_glyph.yaml",
+      "asset_id": "asset-000619",
+      "source_image_path": "HUST-OBC/deciphered/0699/G_0699_京都2062合29004無名組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "44",
+      "pixel_height": "80",
+      "sha256": "ce8a2b0bd620d5575e45acd799db470cce496f087202ab48224312497135279a",
+      "raw_source_sha256": "2bb832f3dfcf89d2675ca481cc0c44a6c6dc3fe1572c19a943d18c11e2eaca3a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "圆弧上拱内含两个小椭圆空隙和中央下垂干，下方两条分离弯笔组成疏松一对。"
+    ],
+    "en": [
+      "A rounded upper arch contains two small oval openings and a central descending stem; two separate curved strokes form a loose lower pair."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0699_京都2062合29004無名組.png",
+    "prefix": "G",
+    "heji": "合29004",
+    "old_catalog": "京都2062",
+    "old_catalog_abbr": "京都",
+    "old_catalog_abbr_obm_label": "京都大學人文科學研究所藏甲骨文字",
+    "group_or_note": "無名組"
+  },
+  "dataset_category": {
+    "source_category_id": "0699",
+    "validation_class_id": "613",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚱",
+    "codepoints": "U+36B1",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000614",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

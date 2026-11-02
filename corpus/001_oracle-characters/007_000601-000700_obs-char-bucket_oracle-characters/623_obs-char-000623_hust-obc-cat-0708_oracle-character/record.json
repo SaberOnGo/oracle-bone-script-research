@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000623",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0708",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000628_hust-obc-cat-0708_glyph.png",
+      "metadata": "images/001_asset-000628_hust-obc-cat-0708_glyph.yaml",
+      "asset_id": "asset-000628",
+      "source_image_path": "HUST-OBC/deciphered/0708/G_0708_乙657合7060賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "80",
+      "sha256": "635be888fcc8927be6ec1023b737699f1a78060fb42a440e52eaeaacb57b9b52",
+      "raw_source_sha256": "6c1f0d1f2e9b436b00aacf7909c5e4f29f804465846216b3bdcf683a93cb0154",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高长中央干带两条上横栏，下部分成一对被斜笔交叉的长腿，留下狭窄三角空隙。"
+    ],
+    "en": [
+      "A tall central stem has two upper crossbars and divides below into paired long legs crossed by diagonals, leaving narrow triangular spaces."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0708_乙657合7060賓組.png",
+    "prefix": "G",
+    "heji": "合7060",
+    "old_catalog": "乙657",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0708",
+    "validation_class_id": "622",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚺",
+    "codepoints": "U+36BA",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000623",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

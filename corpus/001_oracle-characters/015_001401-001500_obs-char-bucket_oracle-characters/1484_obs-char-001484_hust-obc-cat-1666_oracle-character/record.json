@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-001484",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1666",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001489_hust-obc-cat-1666_glyph.png",
+      "metadata": "images/001_asset-001489_hust-obc-cat-1666_glyph.yaml",
+      "asset_id": "asset-001489",
+      "source_image_path": "HUST-OBC/deciphered/1666/G_1666_後2.37.13.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "80",
+      "sha256": "8c48f11ab88c4766488fab5a46dd77cff96c84aaee638075aef11e45fb725916",
+      "raw_source_sha256": "00abf1bf79b2378b8c566dcd5efa49dd57170da424ae5e7b8a071856ff470339",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "对称竖向形体有内部框形和重复侧部分叉。"
+    ],
+    "en": [
+      "A symmetrical vertical form has inner enclosures and repeated side prongs."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1666_後2.37.13.png",
+    "prefix": "G",
+    "old_catalog": "後2.37.13",
+    "old_catalog_abbr": "後",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1666",
+    "validation_class_id": "1483",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㩸",
+    "codepoints": "U+3A78",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001484",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

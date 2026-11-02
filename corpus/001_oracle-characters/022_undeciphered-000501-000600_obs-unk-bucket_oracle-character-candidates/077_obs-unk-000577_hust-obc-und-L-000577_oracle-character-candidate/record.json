@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000577",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000577",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002170_hust-obc-und-L-000577_glyph.jpg",
+      "metadata": "images/001_asset-002170_hust-obc-und-L-000577_glyph.yaml",
+      "asset_id": "asset-002170",
+      "source_image_path": "HUST-OBC/undeciphered/L/577/L_？_11719.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "61",
+      "sha256": "d7ec02449022cd333fff142d391197bce92257e683ace5f7cf66ee3fc35a74d7",
+      "raw_source_sha256": "d7ec02449022cd333fff142d391197bce92257e683ace5f7cf66ee3fc35a74d7",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧凑近对称笔组有中央弧形空隙，并带多条短侧笔和下部笔。"
+    ],
+    "en": [
+      "A compact symmetric cluster has a central rounded opening and multiple short lateral and lower strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11719.jpg",
+    "prefix": "L",
+    "code": "？_11719"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "577",
+    "source_class_path": "HUST-OBC/undeciphered/L/577/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/577/L_？_11719.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/577/L_？_11719.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

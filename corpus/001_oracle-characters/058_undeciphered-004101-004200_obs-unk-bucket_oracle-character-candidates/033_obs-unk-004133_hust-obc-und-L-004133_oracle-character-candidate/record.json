@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004133",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004133",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005726_hust-obc-und-L-004133_glyph.jpg",
+      "metadata": "images/001_asset-005726_hust-obc-und-L-004133_glyph.yaml",
+      "asset_id": "asset-005726",
+      "source_image_path": "HUST-OBC/undeciphered/L/4133/L_？_8906.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "54",
+      "sha256": "caa33fc81469ae8901d585ea5dc8f7148b8895fc3210984e54293257fd50073e",
+      "raw_source_sha256": "caa33fc81469ae8901d585ea5dc8f7148b8895fc3210984e54293257fd50073e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：图像中可见一个包含多条交叉折角痕迹的紧凑深色痕迹簇。",
+      "中文：中央偏右有一条较高而窄的痕迹向上延伸。",
+      "中文：左侧和下侧可见一些较小的深色痕迹。",
+      "中文：痕迹交叉密集，单条笔痕边界不易完全分开。"
+    ],
+    "en": [
+      "English: A compact dark cluster contains several crossing angled traces.",
+      "English: A taller narrow trace rises near the center-right.",
+      "English: Small dark marks extend on the left and lower sides.",
+      "English: Dense intersections obscure individual stroke boundaries."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8906.jpg",
+    "prefix": "L",
+    "code": "？_8906"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4133",
+    "source_class_path": "HUST-OBC/undeciphered/L/4133/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4133/L_？_8906.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4133/L_？_8906.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

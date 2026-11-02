@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000465",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0527",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000470_hust-obc-cat-0527_glyph.png",
+      "metadata": "images/001_asset-000470_hust-obc-cat-0527_glyph.yaml",
+      "asset_id": "asset-000470",
+      "source_image_path": "HUST-OBC/deciphered/0527/G_0527_乙4251反合14107反.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "48",
+      "pixel_height": "78",
+      "sha256": "9a2d1eaf7f3e461a4eedc46a0db9bbd863564e3271affe61b10929a00612e164",
+      "raw_source_sha256": "0bc161b5305e4febaa2d0d2cf97b437047f1157d6c5fc6a0f97a359a40785c0d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖顶外轮廓内有紧凑交叉矩形区域和弯曲下部延伸，左下另伸出一条短细笔。"
+    ],
+    "en": [
+      "A pointed outer outline contains a compact crossed rectangular area and a curved lower extension; one short thin stroke projects from the lower left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0527_乙4251反合14107反.png",
+    "prefix": "G",
+    "heji": "合14107",
+    "old_catalog": "乙4251",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反反"
+  },
+  "dataset_category": {
+    "source_category_id": "0527",
+    "validation_class_id": "464",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘅",
+    "codepoints": "U+3605",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000465",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

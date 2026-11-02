@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000647",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0735",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000652_hust-obc-cat-0735_glyph.png",
+      "metadata": "images/001_asset-000652_hust-obc-cat-0735_glyph.yaml",
+      "asset_id": "asset-000652",
+      "source_image_path": "HUST-OBC/deciphered/0735/L_0735_1176.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "30",
+      "pixel_height": "54",
+      "sha256": "5c77029ed2aaaef004244980a0cc739daae4e613627ff23135b0c0161bc0e076",
+      "raw_source_sha256": "b1af3d56821d0070169f91e7aa85a88d9f40032e0516643d12be272f5d41a185",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "极淡小图显示带上钩、中央交叉或近接点和圆弯下折的狭曲线，细部连接仍难辨。"
+    ],
+    "en": [
+      "The very faint small image shows a narrow curling line with an upper hook, a central crossing or close join, and a rounded lower turn; fine connections remain unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0735_1176.jpg",
+    "prefix": "L",
+    "code": "0735_1176"
+  },
+  "dataset_category": {
+    "source_category_id": "0735",
+    "validation_class_id": "646",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛕",
+    "codepoints": "U+36D5",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000647",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

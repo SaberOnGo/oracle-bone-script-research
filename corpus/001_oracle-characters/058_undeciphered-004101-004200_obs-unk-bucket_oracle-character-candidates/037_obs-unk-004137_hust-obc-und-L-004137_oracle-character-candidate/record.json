@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004137",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004137",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005730_hust-obc-und-L-004137_glyph.jpg",
+      "metadata": "images/001_asset-005730_hust-obc-und-L-004137_glyph.yaml",
+      "asset_id": "asset-005730",
+      "source_image_path": "HUST-OBC/undeciphered/L/4137/L_？_8940.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "56",
+      "sha256": "0e10db6c9d03cafec8bdaa3eeb1c7bc38d05fbd246fc1b1fe97ecaed2a1fd7d1",
+      "raw_source_sha256": "0e10db6c9d03cafec8bdaa3eeb1c7bc38d05fbd246fc1b1fe97ecaed2a1fd7d1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：图像上部有两条较高的弯曲深色痕迹。",
+      "中文：两条痕迹的下端向一条较窄的中央痕迹靠近。",
+      "中文：下部中央可见一处紧凑的折角痕迹。",
+      "中文：不同痕迹的粗细和末端清晰度并不一致。"
+    ],
+    "en": [
+      "English: Two tall curved dark strokes rise in the upper image area.",
+      "English: Their lower ends converge toward a narrow central trace.",
+      "English: A compact angular mark appears near the lower center.",
+      "English: Stroke thickness and endpoint clarity vary across the image."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8940.jpg",
+    "prefix": "L",
+    "code": "？_8940"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4137",
+    "source_class_path": "HUST-OBC/undeciphered/L/4137/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4137/L_？_8940.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4137/L_？_8940.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

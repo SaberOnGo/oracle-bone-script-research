@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-003956",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003956",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005549_hust-obc-und-L-003956_glyph.jpg",
+      "metadata": "images/001_asset-005549_hust-obc-und-L-003956_glyph.yaml",
+      "asset_id": "asset-005549",
+      "source_image_path": "HUST-OBC/undeciphered/L/3956/L_？_8342.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "93d51712a0eca94bf1df1ed20cb994167969ff4f585bfc720cbeb1c3fdcc59e8",
+      "raw_source_sha256": "93d51712a0eca94bf1df1ed20cb994167969ff4f585bfc720cbeb1c3fdcc59e8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部可见数个尖锐的折角或短锯齿痕迹，并有一条较深的竖向或斜向痕迹向下延伸。下部有较宽横痕穿过形体，其下另有较短斜痕；裁切截去了外侧边缘。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005549_hust-obc-und-L-003956_glyph.jpg`",
+      "The upper part contains several sharp angular peaks or short zigzag traces. A darker vertical or diagonal trace descends from that area. Lower down, a broad horizontal stroke crosses the form, with a shorter angled trace beneath it; the crop cuts off the outer edges."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8342.jpg",
+    "prefix": "L",
+    "code": "？_8342"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3956",
+    "source_class_path": "HUST-OBC/undeciphered/L/3956/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3956/L_？_8342.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3956/L_？_8342.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

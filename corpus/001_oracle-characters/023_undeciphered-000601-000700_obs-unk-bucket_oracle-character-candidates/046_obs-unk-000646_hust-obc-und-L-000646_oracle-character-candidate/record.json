@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000646",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000646",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002239_hust-obc-und-L-000646_glyph.jpg",
+      "metadata": "images/001_asset-002239_hust-obc-und-L-000646_glyph.yaml",
+      "asset_id": "asset-002239",
+      "source_image_path": "HUST-OBC/undeciphered/L/646/L_？_11941.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "54",
+      "sha256": "c8582e6f1ad080ef53d7e3d5670b1f69c6f9ef9c71dd2a35e4b0b2b9a53f19e3",
+      "raw_source_sha256": "c8582e6f1ad080ef53d7e3d5670b1f69c6f9ef9c71dd2a35e4b0b2b9a53f19e3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "交叉和弧形痕迹叠置形成窄中部，下方接宽圆形笔组和短底座。"
+    ],
+    "en": [
+      "Stacked crossing and rounded marks form a narrow center above a broad lower oval with a short base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11941.jpg",
+    "prefix": "L",
+    "code": "？_11941"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "646",
+    "source_class_path": "HUST-OBC/undeciphered/L/646/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/646/L_？_11941.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/646/L_？_11941.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

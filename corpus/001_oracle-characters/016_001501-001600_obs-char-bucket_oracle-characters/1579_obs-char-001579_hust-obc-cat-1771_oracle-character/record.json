@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001579",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1771",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001584_hust-obc-cat-1771_glyph.png",
+      "metadata": "images/001_asset-001584_hust-obc-cat-1771_glyph.yaml",
+      "asset_id": "asset-001584",
+      "source_image_path": "HUST-OBC/deciphered/1771/X_1771_4501_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "239",
+      "pixel_height": "252",
+      "sha256": "c17c453d2576707dee6db997a3afa525a8c42d5bbbe6a33910cab4538b94ab0d",
+      "raw_source_sha256": "decf5aecba3008d9f344204b1f0a09940b26e113ea487a761fc5bae6707dc4e4",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个相邻大型形体左侧有分枝笔画，右侧有带长侧部分枝的框形。"
+    ],
+    "en": [
+      "Two large adjacent forms show branching left strokes and a right enclosure with long side branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1771_4501_1.png",
+    "prefix": "X",
+    "code": "1771_4501_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1771",
+    "validation_class_id": "1578",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫡",
+    "codepoints": "U+3AE1",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001579",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

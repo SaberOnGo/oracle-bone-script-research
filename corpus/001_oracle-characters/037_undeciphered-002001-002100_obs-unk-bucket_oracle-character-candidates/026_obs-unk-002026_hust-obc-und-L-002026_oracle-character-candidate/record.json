@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002026",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002026",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003619_hust-obc-und-L-002026_glyph.jpg",
+      "metadata": "images/001_asset-003619_hust-obc-und-L-002026_glyph.yaml",
+      "asset_id": "asset-003619",
+      "source_image_path": "HUST-OBC/undeciphered/L/2026/L_？_2024.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "50",
+      "sha256": "df297ef3db9b81a959c25a47f0a829294bd63da7603f13dc0851b6a99b157bf8",
+      "raw_source_sha256": "df297ef3db9b81a959c25a47f0a829294bd63da7603f13dc0851b6a99b157bf8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上半部有较宽的屋顶状外轮廓，左侧近于直向，右侧向下倾斜。上部横向笔痕下方有短小内部笔画；下端保持开放。"
+    ],
+    "en": [
+      "A broad roof-like outline spans the upper half. The left side is near vertical and the right side slopes downward. Short interior strokes sit below the upper span; the lower ends remain open."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2024.jpg",
+    "prefix": "L",
+    "code": "？_2024"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2026",
+    "source_class_path": "HUST-OBC/undeciphered/L/2026/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2026/L_？_2024.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2026/L_？_2024.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

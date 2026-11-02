@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001593",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001593",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003186_hust-obc-und-L-001593_glyph.jpg",
+      "metadata": "images/001_asset-003186_hust-obc-und-L-001593_glyph.yaml",
+      "asset_id": "asset-003186",
+      "source_image_path": "HUST-OBC/undeciphered/L/1593/L_？_14442.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "61",
+      "sha256": "934ad7e0d17df8d473cc600da29ac5a814a17f55186245345be4109580b8cb75",
+      "raw_source_sha256": "934ad7e0d17df8d473cc600da29ac5a814a17f55186245345be4109580b8cb75",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "beside a rectangular curved outline and a separate lower diagonal stroke.图像左侧有串珠状或层叠竖向笔痕带；旁边有近方形弯曲外缘，下方另有分离的斜痕。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A beaded or stacked vertical strip appears on the left,"
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14442.jpg",
+    "prefix": "L",
+    "code": "？_14442"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1593",
+    "source_class_path": "HUST-OBC/undeciphered/L/1593/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1593/L_？_14442.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1593/L_？_14442.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

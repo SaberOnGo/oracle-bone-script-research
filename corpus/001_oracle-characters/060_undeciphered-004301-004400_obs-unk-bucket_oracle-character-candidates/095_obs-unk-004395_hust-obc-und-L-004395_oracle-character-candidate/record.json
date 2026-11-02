@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004395",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004395",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005988_hust-obc-und-L-004395_glyph.jpg",
+      "metadata": "images/001_asset-005988_hust-obc-und-L-004395_glyph.yaml",
+      "asset_id": "asset-005988",
+      "source_image_path": "HUST-OBC/undeciphered/L/4395/L_？_9784.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "100",
+      "pixel_height": "70",
+      "sha256": "09e545d982d7b0fcadf041d4fc2cfda97b8f0d760c2cfbcaaaf3eeb677480056",
+      "raw_source_sha256": "09e545d982d7b0fcadf041d4fc2cfda97b8f0d760c2cfbcaaaf3eeb677480056",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "打开的裁剪图整体近乎空白，画面大部分颜色较浅。",
+      "当前无法辨认稳定的深色笔痕、轮廓或末端。",
+      "任何浅色变化都不足以归类为可见痕迹。",
+      "该图像应保留为视觉结果未决的来源记录。"
+    ],
+    "en": [
+      "The opened crop appears nearly blank and pale across the visible field.",
+      "No stable dark stroke, outline, or terminal can be distinguished here.",
+      "Any faint variation is too weak to classify as a visible mark.",
+      "The image should remain a source record with an unresolved visual result."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9784.jpg",
+    "prefix": "L",
+    "code": "？_9784"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4395",
+    "source_class_path": "HUST-OBC/undeciphered/L/4395/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4395/L_？_9784.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4395/L_？_9784.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

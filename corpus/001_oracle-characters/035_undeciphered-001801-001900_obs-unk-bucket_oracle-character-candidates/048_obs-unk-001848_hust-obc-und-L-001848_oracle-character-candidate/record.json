@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001848",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001848",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003441_hust-obc-und-L-001848_glyph.jpg",
+      "metadata": "images/001_asset-003441_hust-obc-und-L-001848_glyph.yaml",
+      "asset_id": "asset-003441",
+      "source_image_path": "HUST-OBC/undeciphered/L/1848/L_？_15104.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "55",
+      "sha256": "5e2e8e4bb061640e771cb229116d9ddbaf805e2a68a47ec1d70b42958130dca6",
+      "raw_source_sha256": "5e2e8e4bb061640e771cb229116d9ddbaf805e2a68a47ec1d70b42958130dca6",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽弧形上部位于两条斜向侧笔之上。下部中央分出不规则笔痕，末端呈不对称尖收。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A broad curved top sits above two sloping side strokes. The lower center branches into uneven strokes with an asymmetrical pointed end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_15104.jpg",
+    "prefix": "L",
+    "code": "？_15104"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1848",
+    "source_class_path": "HUST-OBC/undeciphered/L/1848/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1848/L_？_15104.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1848/L_？_15104.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

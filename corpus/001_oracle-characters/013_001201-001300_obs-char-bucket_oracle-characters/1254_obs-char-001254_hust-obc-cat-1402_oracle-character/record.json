@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001254",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1402",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001259_hust-obc-cat-1402_glyph.png",
+      "metadata": "images/001_asset-001259_hust-obc-cat-1402_glyph.yaml",
+      "asset_id": "asset-001259",
+      "source_image_path": "HUST-OBC/deciphered/1402/G_1402_七S30合13760.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "26",
+      "pixel_height": "80",
+      "sha256": "805974cfb028fbf4ee0d56af1693d615bcf80c103577e9026d08a7b639da132c",
+      "raw_source_sha256": "8c0a1b298cefd1db5463fc55d9f2ddd60bad0d55bc719f5f2da0d8244b376aae",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "细长下行笔画通向近底部的小型尖状框形，并带有短拖尾弧线。"
+    ],
+    "en": [
+      "A thin descending stroke leads to a small pointed enclosure near the bottom and a short trailing curve."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1402_七S30合13760.png",
+    "prefix": "G",
+    "heji": "合13760",
+    "old_catalog": "七S30",
+    "old_catalog_abbr": "七S",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1402",
+    "validation_class_id": "1253",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥰",
+    "codepoints": "U+3970",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001254",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

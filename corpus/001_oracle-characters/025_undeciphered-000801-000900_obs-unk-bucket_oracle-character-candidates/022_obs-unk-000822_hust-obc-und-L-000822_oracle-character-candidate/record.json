@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000822",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000822",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002415_hust-obc-und-L-000822_glyph.jpg",
+      "metadata": "images/001_asset-002415_hust-obc-und-L-000822_glyph.yaml",
+      "asset_id": "asset-002415",
+      "source_image_path": "HUST-OBC/undeciphered/L/822/L_？_12389.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "57",
+      "sha256": "8be792d123d399505a0e0208b15ed53f10c080e1b129bb5f089a31c4dca1d710",
+      "raw_source_sha256": "8be792d123d399505a0e0208b15ed53f10c080e1b129bb5f089a31c4dca1d710",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽横线覆盖在左侧窄直线之上；下部为圆曲并带回环的密集线束。"
+    ],
+    "en": [
+      "A broad horizontal stroke caps a narrow left stem; the lower area contains a rounded looped cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12389.jpg",
+    "prefix": "L",
+    "code": "？_12389"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "822",
+    "source_class_path": "HUST-OBC/undeciphered/L/822/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/822/L_？_12389.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/822/L_？_12389.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

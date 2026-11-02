@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002431",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002431",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004024_hust-obc-und-L-002431_glyph.jpg",
+      "metadata": "images/001_asset-004024_hust-obc-und-L-002431_glyph.yaml",
+      "asset_id": "asset-004024",
+      "source_image_path": "HUST-OBC/undeciphered/L/2431/L_？_3491.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "62",
+      "sha256": "30dbdbda42d7f145f1ac851415a0fa38cfbf5ea6ac46c0c2b0d6d125b12023bd",
+      "raw_source_sha256": "30dbdbda42d7f145f1ac851415a0fa38cfbf5ea6ac46c0c2b0d6d125b12023bd",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖顶部笔画连接中部下行笔画，下方两条弯曲侧向笔画彼此分离下垂。"
+    ],
+    "en": [
+      "A pointed upper stroke leads to a central descent; two curved side strokes fall separately below it."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_3491.jpg",
+    "prefix": "L",
+    "code": "？_3491"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2431",
+    "source_class_path": "HUST-OBC/undeciphered/L/2431/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2431/L_？_3491.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2431/L_？_3491.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

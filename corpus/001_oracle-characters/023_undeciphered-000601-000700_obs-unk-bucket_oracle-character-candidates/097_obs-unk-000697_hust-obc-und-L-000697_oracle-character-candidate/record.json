@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000697",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000697",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002290_hust-obc-und-L-000697_glyph.jpg",
+      "metadata": "images/001_asset-002290_hust-obc-und-L-000697_glyph.yaml",
+      "asset_id": "asset-002290",
+      "source_image_path": "HUST-OBC/undeciphered/L/697/L_？_12056.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "56",
+      "sha256": "3b47c11e7352bbb7f7e44108c4e066bb97a7978fe4db344a505032d6d9e524cf",
+      "raw_source_sha256": "3b47c11e7352bbb7f7e44108c4e066bb97a7978fe4db344a505032d6d9e524cf",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "叠置双环笔组向下连接尖角痕迹，旁边有带尖角笔帽的分离高直中轴。"
+    ],
+    "en": [
+      "A stacked double-loop form descends to a pointed lower mark, beside a separate tall stem with a pointed cap."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12056.jpg",
+    "prefix": "L",
+    "code": "？_12056"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "697",
+    "source_class_path": "HUST-OBC/undeciphered/L/697/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/697/L_？_12056.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/697/L_？_12056.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

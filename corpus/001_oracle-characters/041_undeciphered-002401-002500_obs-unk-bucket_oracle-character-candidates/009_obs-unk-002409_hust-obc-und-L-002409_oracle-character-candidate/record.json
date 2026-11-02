@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002409",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002409",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004002_hust-obc-und-L-002409_glyph.jpg",
+      "metadata": "images/001_asset-004002_hust-obc-und-L-002409_glyph.yaml",
+      "asset_id": "asset-004002",
+      "source_image_path": "HUST-OBC/undeciphered/L/2409/L_？_3407.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "58",
+      "sha256": "c805c596430330ca762b012537ed7a411a31b98e9933e6e09a088c2443f15021",
+      "raw_source_sha256": "c805c596430330ca762b012537ed7a411a31b98e9933e6e09a088c2443f15021",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "较窄的直立笔画上部有短横，下部弯曲轮廓内部含有一条小的下行笔画。"
+    ],
+    "en": [
+      "A narrow upright stroke has a short top bar; its lower rounded outline encloses a small inner descending stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_3407.jpg",
+    "prefix": "L",
+    "code": "？_3407"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2409",
+    "source_class_path": "HUST-OBC/undeciphered/L/2409/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2409/L_？_3407.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2409/L_？_3407.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

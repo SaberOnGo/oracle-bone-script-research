@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004999",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004999",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006592_hust-obc-und-X-004999_glyph.jpg",
+      "metadata": "images/001_asset-006592_hust-obc-und-X-004999_glyph.yaml",
+      "asset_id": "asset-006592",
+      "source_image_path": "HUST-OBC/undeciphered/X/555/X_？_7534_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "200",
+      "pixel_height": "262",
+      "sha256": "967e6c0d5ec01961836708e94ed269eb1b7fb658b5ad218f5a6490677bebc21c",
+      "raw_source_sha256": "967e6c0d5ec01961836708e94ed269eb1b7fb658b5ad218f5a6490677bebc21c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一处较圆外轮廓内部包含多个浅色开口。",
+      "顶部中央区域向上伸出两条分枝。",
+      "下部结构逐渐收窄，形成中央尖端。",
+      "左下和右下分别向外伸出较短分枝。",
+      "可见轮廓在大部分区域保持连续。"
+    ],
+    "en": [
+      "A rounded outer form encloses several light openings.",
+      "Two upper branches rise from the top central area.",
+      "The lower section narrows into a pointed central end.",
+      "Short side branches project from the lower left and right.",
+      "The visible outline remains continuous around most of the form.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7534_1.png",
+    "prefix": "X",
+    "code": "？_7534_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "555",
+    "source_class_path": "HUST-OBC/undeciphered/X/555/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/555/X_？_7534_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/555/X_？_7534_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

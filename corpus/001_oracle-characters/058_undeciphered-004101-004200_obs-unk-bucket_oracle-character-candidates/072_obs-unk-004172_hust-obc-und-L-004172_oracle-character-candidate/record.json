@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004172",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004172",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005765_hust-obc-und-L-004172_glyph.jpg",
+      "metadata": "images/001_asset-005765_hust-obc-und-L-004172_glyph.yaml",
+      "asset_id": "asset-005765",
+      "source_image_path": "HUST-OBC/undeciphered/L/4172/L_？_9038.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "54",
+      "sha256": "d17c715abc7077cc9859f7594db53a09ce303b69f19d28ea7c36e5cad5d23dc5",
+      "raw_source_sha256": "d17c715abc7077cc9859f7594db53a09ce303b69f19d28ea7c36e5cad5d23dc5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：一条较宽的上部轮廓横跨整组可见形态。",
+      "中文：上缘可见数处短小的尖状或外伸痕迹。",
+      "中文：中央下部向下伸出两条较长的弧曲笔画。",
+      "中文：两条下伸笔画在可见末端附近仍彼此分开。"
+    ],
+    "en": [
+      "English: A broad upper contour spans the visible group.",
+      "English: Short points or projections appear along the upper edge.",
+      "English: Two long curved strokes descend from the central lower area.",
+      "English: The lower strokes remain separated near their visible ends."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9038.jpg",
+    "prefix": "L",
+    "code": "？_9038"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4172",
+    "source_class_path": "HUST-OBC/undeciphered/L/4172/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4172/L_？_9038.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4172/L_？_9038.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

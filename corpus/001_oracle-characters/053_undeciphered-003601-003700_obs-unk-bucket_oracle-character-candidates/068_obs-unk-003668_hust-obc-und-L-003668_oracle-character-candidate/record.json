@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-003668",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003668",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005261_hust-obc-und-L-003668_glyph.jpg",
+      "metadata": "images/001_asset-005261_hust-obc-und-L-003668_glyph.yaml",
+      "asset_id": "asset-005261",
+      "source_image_path": "HUST-OBC/undeciphered/L/3668/L_？_7518.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "58",
+      "sha256": "3fae0da57b84200ea4cf07bd0c99a047f8483d50c17d051312ed68951e8a20b0",
+      "raw_source_sha256": "3fae0da57b84200ea4cf07bd0c99a047f8483d50c17d051312ed68951e8a20b0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "The small image does not establish the order or joins of the strokes.简体中文：",
+      "左上边缘有一处密集的深色笔画。",
+      "数条折角或曲折笔画横向延伸至上部中央。",
+      "一条较长笔画从中央区域向下延伸至底部。",
+      "右侧可见一组较细的竖向笔画。",
+      "小尺寸图像不足以确认笔画顺序或连接关系。"
+    ],
+    "en": [
+      "A dense dark mark sits at the upper-left edge.",
+      "Several angular or zigzag strokes extend across the upper centre.",
+      "A long stroke descends from the central area toward the bottom.",
+      "A thinner vertical group appears on the right side."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_7518.jpg",
+    "prefix": "L",
+    "code": "？_7518"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3668",
+    "source_class_path": "HUST-OBC/undeciphered/L/3668/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3668/L_？_7518.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3668/L_？_7518.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

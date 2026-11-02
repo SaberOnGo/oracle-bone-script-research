@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-002927",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002927",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004520_hust-obc-und-L-002927_glyph.jpg",
+      "metadata": "images/001_asset-004520_hust-obc-und-L-002927_glyph.yaml",
+      "asset_id": "asset-004520",
+      "source_image_path": "HUST-OBC/undeciphered/L/2927/L_锛焈5052.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "61",
+      "sha256": "1e151ebec50c733008d4f8c3c0ce3a6ed8897199b1af7f84c22147cded25a1c9",
+      "raw_source_sha256": "1e151ebec50c733008d4f8c3c0ce3a6ed8897199b1af7f84c22147cded25a1c9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像为小幅灰度裁切图，可见狭长且倾斜的深色笔画群。",
+      "一条中部弧曲笔画旁有较短笔画，位置靠近右上方。",
+      "下端逐渐收窄，与上部笔画之间部分分开。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "The small grayscale crop shows a narrow slanted group of dark strokes.",
+      "A curved central stroke runs beside shorter strokes near the upper right.",
+      "The lower end tapers and is partly separated from the upper marks.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈5052.jpg",
+    "prefix": "L",
+    "code": "锛焈5052"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2927",
+    "source_class_path": "HUST-OBC/undeciphered/L/2927/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2927/L_？_5052.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2927/L_？_5052.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004932",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004932",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006525_hust-obc-und-X-004932_glyph.jpg",
+      "metadata": "images/001_asset-006525_hust-obc-und-X-004932_glyph.yaml",
+      "asset_id": "asset-006525",
+      "source_image_path": "HUST-OBC/undeciphered/X/488/X_？_7472_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "158",
+      "pixel_height": "310",
+      "sha256": "3ac2a8e00de2210244c8a7049076e5bfbfaf040d8ba4f43ced811b5827b30509",
+      "raw_source_sha256": "3ac2a8e00de2210244c8a7049076e5bfbfaf040d8ba4f43ced811b5827b30509",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部是一组分枝结构，右侧有宽大的弧形边界。",
+      "一条中央笔画向右侧边界横向伸展。",
+      "下部结构形成一个较大的浅色三角形开口。",
+      "下方左、右两侧各有一条分开的短笔画。",
+      "当前本地图像未包含第二个来源视图。"
+    ],
+    "en": [
+      "An upper branched group has a broad curved right boundary.",
+      "A central stroke extends horizontally toward the right boundary.",
+      "The lower group forms a large light triangular opening.",
+      "Two short isolated strokes stand near the lower left and right.",
+      "The local image does not show the second source view.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7472_1.png",
+    "prefix": "X",
+    "code": "？_7472_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "488",
+    "source_class_path": "HUST-OBC/undeciphered/X/488/",
+    "source_image_count": 2,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/488/X_？_7472_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/488/X_？_7472_2.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

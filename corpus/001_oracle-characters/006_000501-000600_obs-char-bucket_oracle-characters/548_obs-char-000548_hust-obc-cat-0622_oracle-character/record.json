@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000548",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0622",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000553_hust-obc-cat-0622_glyph.png",
+      "metadata": "images/001_asset-000553_hust-obc-cat-0622_glyph.yaml",
+      "asset_id": "asset-000553",
+      "source_image_path": "HUST-OBC/deciphered/0622/G_0622_乙3262合7440.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "80",
+      "sha256": "8187e9b4b0cdf05e1e42f46bfa1d68d9d1f0cd47379d14385fd70dec0d69ef6f",
+      "raw_source_sha256": "52ffe33acc882a5aadafcf96ce180db7ff8d469063efc5da7a7a937214e81514",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条长弓曲直立笔分开排列，各带一条上部短侧枝；宽下横穿过两笔并向外伸出。"
+    ],
+    "en": [
+      "Two long bowed upright strokes stand apart, each with a short upper side branch; a broad lower bar crosses both and extends beyond them."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0622_乙3262合7440.png",
+    "prefix": "G",
+    "heji": "合7440",
+    "old_catalog": "乙3262",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0622",
+    "validation_class_id": "547",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙤",
+    "codepoints": "U+3664",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000548",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

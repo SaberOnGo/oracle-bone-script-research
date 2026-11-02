@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001176",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001176",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002769_hust-obc-und-L-001176_glyph.jpg",
+      "metadata": "images/001_asset-002769_hust-obc-und-L-001176_glyph.yaml",
+      "asset_id": "asset-002769",
+      "source_image_path": "HUST-OBC/undeciphered/L/1176/L_？_13319.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "59",
+      "sha256": "29d0a75d97585a3828b1bd5d45fb7d793ac71c273c2af21f1323a99f6388edbf",
+      "raw_source_sha256": "29d0a75d97585a3828b1bd5d45fb7d793ac71c273c2af21f1323a99f6388edbf",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型三角外形内含较小下部开口，右侧另有弯曲线条。"
+    ],
+    "en": [
+      "A large triangular outer form contains a smaller lower opening beside a separate curved right line."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13319.jpg",
+    "prefix": "L",
+    "code": "？_13319"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1176",
+    "source_class_path": "HUST-OBC/undeciphered/L/1176/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1176/L_？_13319.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1176/L_？_13319.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

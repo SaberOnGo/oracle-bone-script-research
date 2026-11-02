@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001536",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1722",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001541_hust-obc-cat-1722_glyph.png",
+      "metadata": "images/001_asset-001541_hust-obc-cat-1722_glyph.yaml",
+      "asset_id": "asset-001541",
+      "source_image_path": "HUST-OBC/deciphered/1722/G_1722_佚882(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "48",
+      "pixel_height": "132",
+      "sha256": "71dc8c4ef70c21194a135751e16fb81c7ad2f40b202722d0e8120191d90d54e4",
+      "raw_source_sha256": "f9a4504c7a9a0e4c84e858a03c407c965052b6960fe0bf614ecb6769b8c895c3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上下叠置形体有尖顶上弧、中部矩形标记和下部交叉笔画。"
+    ],
+    "en": [
+      "A stacked form has a pointed upper arch, a middle rectangular mark, and lower crossing strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1722_佚882(甲).png",
+    "prefix": "G",
+    "old_catalog": "佚882",
+    "old_catalog_abbr": "佚",
+    "old_catalog_abbr_obm_label": "殷契佚存補編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1722",
+    "validation_class_id": "1535",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪰",
+    "codepoints": "U+3AB0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001536",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

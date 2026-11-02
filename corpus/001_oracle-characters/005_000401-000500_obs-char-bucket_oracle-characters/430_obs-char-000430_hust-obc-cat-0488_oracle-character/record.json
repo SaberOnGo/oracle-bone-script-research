@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000430",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0488",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000435_hust-obc-cat-0488_glyph.png",
+      "metadata": "images/001_asset-000435_hust-obc-cat-0488_glyph.yaml",
+      "asset_id": "asset-000435",
+      "source_image_path": "HUST-OBC/deciphered/0488/G_0488_乙1379合14787賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "30",
+      "pixel_height": "80",
+      "sha256": "2b41ec914fa7f3a5bf1ddf4c8f27f776b2ceb532bb75f0fbebff8fd133ac9dd4",
+      "raw_source_sha256": "0d2447c6e242b3c30ffb3d32d8fbde5b73419a42ae4f5a7541b62e5e5d5b11a1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "单个狭长竖向笔画群包含数条短横、若干内部交叉和一条纤细下垂尾笔。"
+    ],
+    "en": [
+      "A single narrow vertical cluster contains several short transverse strokes, small internal crossings, and one thin descending tail."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0488_乙1379合14787賓組.png",
+    "prefix": "G",
+    "heji": "合14787",
+    "old_catalog": "乙1379",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0488",
+    "validation_class_id": "429",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㗞",
+    "codepoints": "U+35DE",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000430",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

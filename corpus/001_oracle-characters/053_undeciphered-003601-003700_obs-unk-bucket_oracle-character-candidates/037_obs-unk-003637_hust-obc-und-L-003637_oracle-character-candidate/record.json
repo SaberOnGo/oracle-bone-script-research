@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-003637",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003637",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005230_hust-obc-und-L-003637_glyph.jpg",
+      "metadata": "images/001_asset-005230_hust-obc-und-L-003637_glyph.yaml",
+      "asset_id": "asset-005230",
+      "source_image_path": "HUST-OBC/undeciphered/L/3637/L_？_7424.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "26",
+      "pixel_height": "56",
+      "sha256": "5ea799e02d216852d3da95123578d07de393b1130acd195fa456897d4d558101",
+      "raw_source_sha256": "5ea799e02d216852d3da95123578d07de393b1130acd195fa456897d4d558101",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "The image does not establish whether the upper form is closed.简体中文：",
+      "上部有一个紧凑的方框或环状形态。",
+      "一条窄的竖向笔画从其下方中央下行。",
+      "一条短横笔画与下行笔画交叉。",
+      "图像不能证明上部形态是否闭合。"
+    ],
+    "en": [
+      "A compact rectangular or loop-like form occupies the upper area.",
+      "A narrow vertical stroke descends from its lower center.",
+      "A short horizontal stroke crosses the descending stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_7424.jpg",
+    "prefix": "L",
+    "code": "？_7424"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3637",
+    "source_class_path": "HUST-OBC/undeciphered/L/3637/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3637/L_？_7424.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3637/L_？_7424.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000609",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0694",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000614_hust-obc-cat-0694_glyph.png",
+      "metadata": "images/001_asset-000614_hust-obc-cat-0694_glyph.yaml",
+      "asset_id": "asset-000614",
+      "source_image_path": "HUST-OBC/deciphered/0694/G_0694_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "44",
+      "pixel_height": "90",
+      "sha256": "878113bc9a8c0e8f0ff524e734e25ba932aa88c764005922937e8aa49b93240c",
+      "raw_source_sha256": "f6c4c3cc25e21dbd57b58bec1fae907f386ada1a5edf12938f995890081780e8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数条纤细折角笔围绕中央小三角空隙相交，叉状末端分别向上、向下展开。"
+    ],
+    "en": [
+      "Several thin angular strokes intersect around a small central triangular space, with forked ends spreading upward and downward."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0694_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0694",
+    "validation_class_id": "608",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚬",
+    "codepoints": "U+36AC",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000609",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

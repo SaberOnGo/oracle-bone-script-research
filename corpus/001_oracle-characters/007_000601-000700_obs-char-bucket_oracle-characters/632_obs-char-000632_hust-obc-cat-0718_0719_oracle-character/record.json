@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000632",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0718_0719",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000637_hust-obc-cat-0718_0719_glyph.png",
+      "metadata": "images/001_asset-000637_hust-obc-cat-0718_0719_glyph.yaml",
+      "asset_id": "asset-000637",
+      "source_image_path": "HUST-OBC/deciphered/0718_0719/0718/G_0718_乙1128反.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "80",
+      "sha256": "298fdf04170994225a1b53011857eea036630bef54d73a119613b8fe02349b18",
+      "raw_source_sha256": "8e08c41db214f2b87260805eeac238adac0d8b6a8df8f76a33f8ee15cdf54bba",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "单个高长不规则外框包围两个由粗中隔分开的层叠矩形空隙，边角和侧边不齐。"
+    ],
+    "en": [
+      "A single tall irregular outline encloses two stacked rectangular spaces separated by a thick middle divider, with uneven corners and sides."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0718_乙1128反.png",
+    "prefix": "G",
+    "old_catalog": "乙1128",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反"
+  },
+  "dataset_category": {
+    "source_category_id": "0718_0719",
+    "validation_class_id": "631",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㛄㛅",
+    "codepoints": "U+36C4;U+36C5",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000632",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

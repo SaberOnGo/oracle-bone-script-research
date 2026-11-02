@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001109",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1239_1240",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001114_hust-obc-cat-1239_1240_glyph.png",
+      "metadata": "images/001_asset-001114_hust-obc-cat-1239_1240_glyph.yaml",
+      "asset_id": "asset-001114",
+      "source_image_path": "HUST-OBC/deciphered/1239_1240/1239/G_1239_上(2).從(甲).16(楚).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "30",
+      "pixel_height": "80",
+      "sha256": "c09bfc2e5cbdd37f34627aae1acc566f0c209ed0a1b4d0874063f90c45af2013",
+      "raw_source_sha256": "86c662f97e91b785820640f1865f0d80443feef0e446ed96e377d248f4f1e9e9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长密集笔群结合叠置圆弧环笔、中央水平交叉和短下部收尖笔。"
+    ],
+    "en": [
+      "A narrow dense cluster combines stacked rounded loops, a central horizontal crossing, and short lower tapering strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1239_上(2).從(甲).16(楚).png",
+    "prefix": "G",
+    "group_or_note": "上(2).從(甲).16(楚)"
+  },
+  "dataset_category": {
+    "source_category_id": "1239_1240",
+    "validation_class_id": "1108",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㣍㣎",
+    "codepoints": "U+38CD;U+38CE",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001109",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

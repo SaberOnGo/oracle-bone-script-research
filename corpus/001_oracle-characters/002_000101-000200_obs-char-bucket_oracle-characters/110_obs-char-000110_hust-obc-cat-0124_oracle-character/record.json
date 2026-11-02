@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000110",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0124",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000115_hust-obc-cat-0124_glyph.png",
+      "metadata": "images/001_asset-000115_hust-obc-cat-0124_glyph.yaml",
+      "asset_id": "asset-000115",
+      "source_image_path": "HUST-OBC/deciphered/0124/G_0124_乙6400合914賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "70",
+      "pixel_height": "80",
+      "sha256": "721b002ae6385f9f771160c684b56ec3e6a6936527a129d857ab35995f1d7724",
+      "raw_source_sha256": "486a31e1dbefbeb9cba6bb76e358413fe4f9e95109b6c88469b33538c135d5dc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "弧形图像中部有横竖交接点，周围向四方伸出四道短弯曲笔画。"
+    ],
+    "en": [
+      "The rounded image has a central vertical-and-horizontal junction and four short curved projections extending around it."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0124_乙6400合914賓組.png",
+    "prefix": "G",
+    "heji": "合914",
+    "old_catalog": "乙6400",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0124",
+    "validation_class_id": "109",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㑲",
+    "codepoints": "U+3472",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000110",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

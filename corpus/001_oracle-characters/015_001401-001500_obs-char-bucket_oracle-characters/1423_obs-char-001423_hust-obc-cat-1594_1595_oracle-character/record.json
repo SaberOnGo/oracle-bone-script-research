@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001423",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1594_1595",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001428_hust-obc-cat-1594_1595_glyph.png",
+      "metadata": "images/001_asset-001428_hust-obc-cat-1594_1595_glyph.yaml",
+      "asset_id": "asset-001428",
+      "source_image_path": "HUST-OBC/deciphered/1594_1595/1594/G_1594_乙2482合775賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "60",
+      "pixel_height": "80",
+      "sha256": "87122eaf4e636f62aed4959a511e73b792f99938e6e26137fbc400f8c615aaf3",
+      "raw_source_sha256": "64288974e9860d2582ff5564e9c5e9446cecdf434744a69717bfed81a4fdf487",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高大组合形体有上部框形、内部竖笔和长右侧弧线。"
+    ],
+    "en": [
+      "A tall composite has an upper frame, inner verticals, and a long right curve."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1594_乙2482合775賓組.png",
+    "prefix": "G",
+    "heji": "合775",
+    "old_catalog": "乙2482",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1594_1595",
+    "validation_class_id": "1422",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㨰㨱",
+    "codepoints": "U+3A30;U+3A31",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001423",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

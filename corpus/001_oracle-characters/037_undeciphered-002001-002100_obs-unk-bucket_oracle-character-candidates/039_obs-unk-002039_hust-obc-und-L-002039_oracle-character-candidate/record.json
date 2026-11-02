@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002039",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002039",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003632_hust-obc-und-L-002039_glyph.jpg",
+      "metadata": "images/001_asset-003632_hust-obc-und-L-002039_glyph.yaml",
+      "asset_id": "asset-003632",
+      "source_image_path": "HUST-OBC/undeciphered/L/2039/L_？_2089.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "58",
+      "sha256": "02a2b592006b1aaf3dc7484dad94ef6c3f70b5bedc1c0e8eb81c90dfc2a354a8",
+      "raw_source_sha256": "02a2b592006b1aaf3dc7484dad94ef6c3f70b5bedc1c0e8eb81c90dfc2a354a8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有较长横向笔画，右侧连接一条长下行笔画。左下方有两组交叉斜向笔痕，图像中的几个区域保持分离。"
+    ],
+    "en": [
+      "A long upper horizontal stroke is paired with a long descending stroke on the right. The lower left contains two crossed diagonal clusters; the visible zones remain separate."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2089.jpg",
+    "prefix": "L",
+    "code": "？_2089"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2039",
+    "source_class_path": "HUST-OBC/undeciphered/L/2039/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2039/L_？_2089.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2039/L_？_2089.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

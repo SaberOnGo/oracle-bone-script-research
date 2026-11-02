@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000142",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000142",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001735_hust-obc-und-L-000142_glyph.jpg",
+      "metadata": "images/001_asset-001735_hust-obc-und-L-000142_glyph.yaml",
+      "asset_id": "asset-001735",
+      "source_image_path": "HUST-OBC/undeciphered/L/142/L_？_10457.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "52",
+      "sha256": "dfcf1464a74cd35030ef5017d5db2ebe7aaeec920f4bd070b991fbb6ac5c5e82",
+      "raw_source_sha256": "dfcf1464a74cd35030ef5017d5db2ebe7aaeec920f4bd070b991fbb6ac5c5e82",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长直立形体上方有尖状围合，中部有竖笔，下方有两处斜向伸出。"
+    ],
+    "en": [
+      "A narrow upright form has a pointed upper enclosure, a central vertical, and two angled lower projections."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_10457.jpg",
+    "prefix": "L",
+    "code": "？_10457"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "142",
+    "source_class_path": "HUST-OBC/undeciphered/L/142/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/142/L_？_10457.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/142/L_？_10457.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

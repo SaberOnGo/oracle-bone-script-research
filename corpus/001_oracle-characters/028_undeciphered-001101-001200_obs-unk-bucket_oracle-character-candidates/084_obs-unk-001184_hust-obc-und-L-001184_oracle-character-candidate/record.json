@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001184",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001184",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002777_hust-obc-und-L-001184_glyph.jpg",
+      "metadata": "images/001_asset-002777_hust-obc-und-L-001184_glyph.yaml",
+      "asset_id": "asset-002777",
+      "source_image_path": "HUST-OBC/undeciphered/L/1184/L_？_13349.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "53",
+      "sha256": "1af8f59d425b25d7eeec558c899eab845a0b9e75971d18fe5ba7785d81d5caaf",
+      "raw_source_sha256": "1af8f59d425b25d7eeec558c899eab845a0b9e75971d18fe5ba7785d81d5caaf",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个倾斜回环形沿对角线分隔，各自带有开口和短尾线。"
+    ],
+    "en": [
+      "Two angled looped forms are separated diagonally, each carrying openings and short trailing strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13349.jpg",
+    "prefix": "L",
+    "code": "？_13349"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1184",
+    "source_class_path": "HUST-OBC/undeciphered/L/1184/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1184/L_？_13349.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1184/L_？_13349.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

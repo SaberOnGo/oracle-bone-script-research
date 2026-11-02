@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001267",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1417",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001272_hust-obc-cat-1417_glyph.png",
+      "metadata": "images/001_asset-001272_hust-obc-cat-1417_glyph.yaml",
+      "asset_id": "asset-001272",
+      "source_image_path": "HUST-OBC/deciphered/1417/H_1417_617F3_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "238",
+      "pixel_height": "279",
+      "sha256": "02a4e6f28ebffb7744601288b2965976098b10264012e452ee5247195938b025",
+      "raw_source_sha256": "557deb03a122c9731a836ad0d9a28cc9b5d96e65a1ff7876d3bd1bc96b6e0c44",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大的尖顶框形内部有三条纵长笔画，曲直和端部形状各不相同。"
+    ],
+    "en": [
+      "A broad peaked enclosure contains three elongated inner marks with varied curves and pointed ends."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_1417_617F3_0.png",
+    "prefix": "H",
+    "code": "1417_617F3_0"
+  },
+  "dataset_category": {
+    "source_category_id": "1417",
+    "validation_class_id": "1266",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥿",
+    "codepoints": "U+397F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001267",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

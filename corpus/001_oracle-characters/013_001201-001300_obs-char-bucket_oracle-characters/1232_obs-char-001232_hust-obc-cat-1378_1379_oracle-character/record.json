@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001232",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1378_1379",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001237_hust-obc-cat-1378_1379_glyph.png",
+      "metadata": "images/001_asset-001237_hust-obc-cat-1378_1379_glyph.yaml",
+      "asset_id": "asset-001237",
+      "source_image_path": "HUST-OBC/deciphered/1378_1379/1378/H_1378_60A30_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "137",
+      "pixel_height": "261",
+      "sha256": "a630cb7e211f704c59615cbec47ae230582db89adb3be2f1602b830973104f1e",
+      "raw_source_sha256": "63746d13102a1024920d8d099c651053ed82b648df856c4c84bccb87d9cde287",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型密集形体有上部方形框廓、中央笔干和宽大的下部折角形体。"
+    ],
+    "en": [
+      "A large dense form has an upper rectangular enclosure, a central stem, and a broad lower angular body."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_1378_60A30_0.png",
+    "prefix": "H",
+    "code": "1378_60A30_0"
+  },
+  "dataset_category": {
+    "source_category_id": "1378_1379",
+    "validation_class_id": "1231",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㥘㥙",
+    "codepoints": "U+3958;U+3959",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001232",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

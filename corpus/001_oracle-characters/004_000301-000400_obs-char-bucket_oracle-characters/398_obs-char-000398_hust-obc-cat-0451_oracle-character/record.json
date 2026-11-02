@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000398",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0451",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000403_hust-obc-cat-0451_glyph.png",
+      "metadata": "images/001_asset-000403_hust-obc-cat-0451_glyph.yaml",
+      "asset_id": "asset-000403",
+      "source_image_path": "HUST-OBC/deciphered/0451/G_0451_乙92合21785.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "80",
+      "sha256": "a2b244ccd8fa6242ea5c97d6ea95e92db7f30dcb9e88162ba80818a87211f65e",
+      "raw_source_sha256": "35cfbbcc44641f270d7e5286d70e2f8a18258fe017f342d03d2b7a45d31fefa3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个小型上部闭合痕迹连接长弧形下部笔画和短侧向分支。"
+    ],
+    "en": [
+      "Two small upper enclosed marks connect to a long curved lower stroke and a short side branch."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0451_乙92合21785.png",
+    "prefix": "G",
+    "heji": "合21785",
+    "old_catalog": "乙92",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0451",
+    "validation_class_id": "397",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㖹",
+    "codepoints": "U+35B9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000398",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

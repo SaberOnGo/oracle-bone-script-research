@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001418",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1587",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001423_hust-obc-cat-1587_glyph.png",
+      "metadata": "images/001_asset-001423_hust-obc-cat-1587_glyph.yaml",
+      "asset_id": "asset-001423",
+      "source_image_path": "HUST-OBC/deciphered/1587/X_1587_4169_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "201",
+      "pixel_height": "292",
+      "sha256": "7474040ab923adfad78dfb39afe19d6fd3ee8ca163d6f8c852decbf70a166dff",
+      "raw_source_sha256": "4ce217c0ce71d0b533b4ab8d2e600ec7987e802e6c8fa3e62e74eedbc72d5b21",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型椭圆框形内部有小型形体，下接长分枝竖干。"
+    ],
+    "en": [
+      "A large oval enclosure contains a small inner form above a long branching stem."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1587_4169_1.png",
+    "prefix": "X",
+    "code": "1587_4169_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1587",
+    "validation_class_id": "1417",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨩",
+    "codepoints": "U+3A29",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001418",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

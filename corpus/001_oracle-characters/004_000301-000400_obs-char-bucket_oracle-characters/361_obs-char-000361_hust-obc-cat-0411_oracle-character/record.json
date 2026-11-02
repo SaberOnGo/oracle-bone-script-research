@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000361",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0411",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000366_hust-obc-cat-0411_glyph.png",
+      "metadata": "images/001_asset-000366_hust-obc-cat-0411_glyph.yaml",
+      "asset_id": "asset-000366",
+      "source_image_path": "HUST-OBC/deciphered/0411/Y_0411_60558.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "103",
+      "pixel_height": "289",
+      "sha256": "a15eca279dbaf2ee0cad13489bc7456f71a99ccec33f2f87a5977756024623ca",
+      "raw_source_sha256": "a3d6dbd4eb38eb7b58327bb8d8af01356a85a87fb306aa97643101461b64c121",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重的上部折角形体连接长竖笔画，下方接有小型尖状闭合轮廓。"
+    ],
+    "en": [
+      "A bold angular upper form is connected to a long vertical stroke and a small pointed lower enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "Y_0411_60558.jpg",
+    "prefix": "Y",
+    "code": "0411_60558"
+  },
+  "dataset_category": {
+    "source_category_id": "0411",
+    "validation_class_id": "360",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㖑",
+    "codepoints": "U+3591",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000361",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

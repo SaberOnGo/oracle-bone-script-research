@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000751",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0853",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000756_hust-obc-cat-0853_glyph.png",
+      "metadata": "images/001_asset-000756_hust-obc-cat-0853_glyph.yaml",
+      "asset_id": "asset-000756",
+      "source_image_path": "HUST-OBC/deciphered/0853/L_0853_1082.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "55",
+      "sha256": "56dc9fc5029d9c81688e3be7a4779fe9f2327d99132f614bf5d64e22bcc89710",
+      "raw_source_sha256": "79afc15daeaf4637b90fd2dc238ec2492987ce58dc361a24f108e18fd1cdeb38",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "微小低分辨率图像显示紧凑折角笔群，含中央交叉、左侧和上部短枝及右侧弯折尖角；细接点仍难辨。"
+    ],
+    "en": [
+      "The tiny low-resolution image shows a compact angular cluster with a central crossing, short left and upper branches, and a bent right chevron; fine joins remain unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0853_1082.jpg",
+    "prefix": "L",
+    "code": "0853_1082"
+  },
+  "dataset_category": {
+    "source_category_id": "0853",
+    "validation_class_id": "750",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝋",
+    "codepoints": "U+374B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000751",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

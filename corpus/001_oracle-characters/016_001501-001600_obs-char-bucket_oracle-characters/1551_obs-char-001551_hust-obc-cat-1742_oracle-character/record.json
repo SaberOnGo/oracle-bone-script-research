@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001551",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1742",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001556_hust-obc-cat-1742_glyph.png",
+      "metadata": "images/001_asset-001556_hust-obc-cat-1742_glyph.yaml",
+      "asset_id": "asset-001556",
+      "source_image_path": "HUST-OBC/deciphered/1742/G_1742_前5.10.1(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "77",
+      "pixel_height": "132",
+      "sha256": "09f5ab319af87bb1554433e41177b679719cd3531a0d5e7f841a3d6c1129cfe9",
+      "raw_source_sha256": "303297e6511cc695fc3d489a3dd6cfbfba5818563e9ffe2274741db061f31b17",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型矩形格状框形包含两个上部环形、内部横笔和双层下部底笔。"
+    ],
+    "en": [
+      "A large rectangular grid contains two upper loops, internal crossbars, and a double lower base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1742_前5.10.1(甲).png",
+    "prefix": "G",
+    "old_catalog": "前5.10.1",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1742",
+    "validation_class_id": "1550",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫄",
+    "codepoints": "U+3AC4",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001551",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

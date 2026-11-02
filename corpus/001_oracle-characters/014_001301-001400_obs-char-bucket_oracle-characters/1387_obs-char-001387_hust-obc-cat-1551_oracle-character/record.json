@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001387",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1551",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001392_hust-obc-cat-1551_glyph.png",
+      "metadata": "images/001_asset-001392_hust-obc-cat-1551_glyph.yaml",
+      "asset_id": "asset-001392",
+      "source_image_path": "HUST-OBC/deciphered/1551/G_1551_乙2101合150賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "68",
+      "pixel_height": "80",
+      "sha256": "679186c1ae2ffca11798cae6e7b619d14fe30fb61e09aa08de09155da3ab8140",
+      "raw_source_sha256": "b418aad31467ac1243d4e26afcc1aad1dce29e365f987e60720aafda0c265a13",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "深色分枝左竖干与有隔分的右侧矩形框形相邻。"
+    ],
+    "en": [
+      "A dark branching left stem is paired with a divided rectangular right enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1551_乙2101合150賓組.png",
+    "prefix": "G",
+    "heji": "合150",
+    "old_catalog": "乙2101",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1551",
+    "validation_class_id": "1386",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨅",
+    "codepoints": "U+3A05",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001387",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

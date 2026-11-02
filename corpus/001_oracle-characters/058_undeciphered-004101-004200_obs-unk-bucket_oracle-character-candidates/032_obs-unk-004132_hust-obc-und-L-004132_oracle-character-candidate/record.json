@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004132",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004132",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005725_hust-obc-und-L-004132_glyph.jpg",
+      "metadata": "images/001_asset-005725_hust-obc-und-L-004132_glyph.yaml",
+      "asset_id": "asset-005725",
+      "source_image_path": "HUST-OBC/undeciphered/L/4132/L_？_8903.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "55",
+      "sha256": "00f59d1bb9b77d0068c8bec1d66b0814233789e5d7136ee21de25a4355c626ea",
+      "raw_source_sha256": "00f59d1bb9b77d0068c8bec1d66b0814233789e5d7136ee21de25a4355c626ea",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：中央有一条较窄的竖向痕迹，并带短的侧向痕迹。",
+      "中文：左侧可见上部短痕迹和下部折角痕迹。",
+      "中文：右侧较高的痕迹上有重复出现的小斜向痕迹。",
+      "中文：顶部和底部末端有部分痕迹较淡，仍不确定。"
+    ],
+    "en": [
+      "English: A narrow central vertical trace has short lateral marks.",
+      "English: The left side shows an upper short mark and lower angled traces.",
+      "English: A taller right-side trace carries repeated small diagonal marks.",
+      "English: The top and bottom endpoints are partly faint or uncertain."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8903.jpg",
+    "prefix": "L",
+    "code": "？_8903"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4132",
+    "source_class_path": "HUST-OBC/undeciphered/L/4132/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4132/L_？_8903.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4132/L_？_8903.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

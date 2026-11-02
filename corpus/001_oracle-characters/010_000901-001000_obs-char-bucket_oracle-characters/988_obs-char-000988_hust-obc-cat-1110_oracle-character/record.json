@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000988",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1110",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000993_hust-obc-cat-1110_glyph.png",
+      "metadata": "images/001_asset-000993_hust-obc-cat-1110_glyph.yaml",
+      "asset_id": "asset-000993",
+      "source_image_path": "HUST-OBC/deciphered/1110/H_1110_611F8_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "173",
+      "pixel_height": "273",
+      "sha256": "2f9f8a8e48dacaaed57c285740760f635d69d59f4429d106246401451337b608",
+      "raw_source_sha256": "3e44287fff9307af2f3ba88be7c3231b0c069d1281e908ad4ee0842cb75bd48b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重形体结合左侧分段矩形笔群、中央直立笔和不规则右侧下行笔群。"
+    ],
+    "en": [
+      "A very bold form combines a left segmented rectangular cluster, a central upright, and an irregular right descending cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_1110_611F8_0.png",
+    "prefix": "H",
+    "code": "1110_611F8_0"
+  },
+  "dataset_category": {
+    "source_category_id": "1110",
+    "validation_class_id": "987",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㡌",
+    "codepoints": "U+384C",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000988",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

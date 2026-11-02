@@ -1,0 +1,79 @@
+{
+  "id": "obs-char-000728",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0829",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000733_hust-obc-cat-0829_glyph.png",
+      "metadata": "images/001_asset-000733_hust-obc-cat-0829_glyph.yaml",
+      "asset_id": "asset-000733",
+      "source_image_path": "HUST-OBC/deciphered/0829/G_0829_乙4309合6477賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "80",
+      "sha256": "f92a35ce47178d057404cdb8582552c9cbe5b3561f3d8fc551710d0f8087d5f9",
+      "raw_source_sha256": "29b14db8adea1ad3c2bf1a8264dda38b90dbb5d8e15e036518f30770365cc483",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "长中央干上端伸出三条弯曲支笔，中部附近被两条外展斜笔交叉，并延续为渐细下竖。"
+    ],
+    "en": [
+      "A long central stem rises into three curved upper prongs, is crossed by two spreading diagonals near the middle, and continues as a tapered lower vertical."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0829_乙4309合6477賓組.png",
+    "prefix": "G",
+    "heji": "合6477",
+    "old_catalog": "乙4309",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0829",
+    "validation_class_id": "727",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜳",
+    "codepoints": "U+3733",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000728",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

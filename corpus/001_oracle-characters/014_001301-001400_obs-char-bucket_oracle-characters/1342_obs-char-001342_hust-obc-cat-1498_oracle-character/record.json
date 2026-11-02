@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001342",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1498",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001347_hust-obc-cat-1498_glyph.png",
+      "metadata": "images/001_asset-001347_hust-obc-cat-1498_glyph.yaml",
+      "asset_id": "asset-001347",
+      "source_image_path": "HUST-OBC/deciphered/1498/G_1498_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "101",
+      "sha256": "62f9a397c65443fe4ab31a3797c208e58b980c439b3445ffb9c3ade386a43f9e",
+      "raw_source_sha256": "ce7f39d64e55d096b311dad4eb30c94c12901cd893e829f9a7f88de115e720cb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "近对称上下排列形体结合两个圆折矩形段，上下端均呈尖状。"
+    ],
+    "en": [
+      "A symmetrical stacked form combines two rounded rectangular sections with pointed upper and lower ends."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1498_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "1498",
+    "validation_class_id": "1341",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㧐",
+    "codepoints": "U+39D0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001342",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

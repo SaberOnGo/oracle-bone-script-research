@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001281",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1433",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001286_hust-obc-cat-1433_glyph.png",
+      "metadata": "images/001_asset-001286_hust-obc-cat-1433_glyph.yaml",
+      "asset_id": "asset-001286",
+      "source_image_path": "HUST-OBC/deciphered/1433/L_1433_1575.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "29",
+      "pixel_height": "51",
+      "sha256": "c06eb4d7c1812919521a6c9fb633465eabfcb3422ce2ee60b46f41f66ad6be65",
+      "raw_source_sha256": "0eda0a79457f67d303e8ec06f468fd16b381f80be21c402aea19fc5181c6dd64",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型紧凑折角形体有短上横笔、中央下行笔画和一条长下部斜笔。"
+    ],
+    "en": [
+      "A small compact angular form has a short upper bar, a central descending stroke, and a long lower diagonal."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1433_1575.jpg",
+    "prefix": "L",
+    "code": "1433_1575"
+  },
+  "dataset_category": {
+    "source_category_id": "1433",
+    "validation_class_id": "1280",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㦏",
+    "codepoints": "U+398F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001281",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

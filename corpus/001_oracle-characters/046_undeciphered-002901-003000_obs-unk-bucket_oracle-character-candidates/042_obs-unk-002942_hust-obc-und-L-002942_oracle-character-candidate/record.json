@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-002942",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002942",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004535_hust-obc-und-L-002942_glyph.jpg",
+      "metadata": "images/001_asset-004535_hust-obc-und-L-002942_glyph.yaml",
+      "asset_id": "asset-004535",
+      "source_image_path": "HUST-OBC/undeciphered/L/2942/L_锛焈5106.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "55",
+      "sha256": "7469fd880691eec64bc0db13aefc5bdb74056134c91a4239c96ff462526c3d71",
+      "raw_source_sha256": "7469fd880691eec64bc0db13aefc5bdb74056134c91a4239c96ff462526c3d71",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像为小幅灰度裁切图，可见紧凑的上部短笔画群。",
+      "一条较长弧曲笔画从上部笔画群向右下方延伸。",
+      "上部笔画比独立的下行笔画更为密集。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "The small grayscale crop shows a compact upper group of short strokes.",
+      "A longer curved stroke descends from the upper group toward the lower right.",
+      "The upper marks are denser than the isolated descending stroke.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈5106.jpg",
+    "prefix": "L",
+    "code": "锛焈5106"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2942",
+    "source_class_path": "HUST-OBC/undeciphered/L/2942/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2942/L_？_5106.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2942/L_？_5106.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

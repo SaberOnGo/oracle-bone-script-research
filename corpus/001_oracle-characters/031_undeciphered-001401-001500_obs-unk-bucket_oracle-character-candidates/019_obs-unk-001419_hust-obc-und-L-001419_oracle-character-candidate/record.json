@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001419",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001419",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003012_hust-obc-und-L-001419_glyph.jpg",
+      "metadata": "images/001_asset-003012_hust-obc-und-L-001419_glyph.yaml",
+      "asset_id": "asset-003012",
+      "source_image_path": "HUST-OBC/undeciphered/L/1419/L_？_13984.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "9b094f2c24eef85fbcb3d5f4cba4011162de21c51bc715a00e1dec1d0598a870",
+      "raw_source_sha256": "9b094f2c24eef85fbcb3d5f4cba4011162de21c51bc715a00e1dec1d0598a870",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个紧凑近方围合痕迹上下叠置，上方有小型近顶盖痕迹。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "Two compact rectangular enclosures are stacked vertically, with a small roof-like mark above."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13984.jpg",
+    "prefix": "L",
+    "code": "？_13984"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1419",
+    "source_class_path": "HUST-OBC/undeciphered/L/1419/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1419/L_？_13984.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1419/L_？_13984.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

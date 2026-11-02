@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000768",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0872",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000773_hust-obc-cat-0872_glyph.png",
+      "metadata": "images/001_asset-000773_hust-obc-cat-0872_glyph.yaml",
+      "asset_id": "asset-000773",
+      "source_image_path": "HUST-OBC/deciphered/0872/G_0872_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "54",
+      "pixel_height": "72",
+      "sha256": "c6a7deb77b9c3589c854dc315e8e8921c8d01dc6dbf24ffecfd398277c607815",
+      "raw_source_sha256": "6484fd72dd4e291b49f909c64295d2f1c0da937a113f65ad7fdc1b8a7c83e969",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个相邻竖向结构各带两条横栏和上部短侧痕，下干末端均伸出外展斜枝。"
+    ],
+    "en": [
+      "Two adjacent upright structures each carry two horizontal crossbars and short upper side marks; their lower stems end in spreading diagonal branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0872_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "0872",
+    "validation_class_id": "767",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝞",
+    "codepoints": "U+375E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000768",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

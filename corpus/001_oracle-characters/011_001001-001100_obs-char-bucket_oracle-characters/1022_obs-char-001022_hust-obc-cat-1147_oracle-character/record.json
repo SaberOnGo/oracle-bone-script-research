@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001022",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1147",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001027_hust-obc-cat-1147_glyph.png",
+      "metadata": "images/001_asset-001027_hust-obc-cat-1147_glyph.yaml",
+      "asset_id": "asset-001027",
+      "source_image_path": "HUST-OBC/deciphered/1147/G_1147_乙4057(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "80",
+      "pixel_height": "74",
+      "sha256": "ef687b6060434cf02df1f5a2f0906c6ccc7718e70147d91788f021b8c5398eb3",
+      "raw_source_sha256": "4fa2d091bed8b1d5a650e1ddf42ecf5b4494e336d8d93427695c762ac7fd72e9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "低位狭长闭合轮廓有粗重左侧底部、尖状右侧外伸和上方短分枝笔。"
+    ],
+    "en": [
+      "A low elongated enclosure has a thick left base, a pointed right extension, and a short branching stroke above."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1147_乙4057(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙4057",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1147",
+    "validation_class_id": "1021",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㡱",
+    "codepoints": "U+3871",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001022",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

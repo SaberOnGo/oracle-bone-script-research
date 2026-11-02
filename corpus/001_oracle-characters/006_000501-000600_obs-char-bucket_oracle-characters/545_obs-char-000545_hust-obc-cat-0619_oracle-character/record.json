@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000545",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0619",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000550_hust-obc-cat-0619_glyph.png",
+      "metadata": "images/001_asset-000550_hust-obc-cat-0619_glyph.yaml",
+      "asset_id": "asset-000550",
+      "source_image_path": "HUST-OBC/deciphered/0619/G_0619_京都2100(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "80",
+      "sha256": "af3b3f072658390a95640dbd5715e5adfe2c63b9b0f2a76917dbafd410dacc7b",
+      "raw_source_sha256": "d80974cecec1390ef530845321b6176c7f6498b23586f7f5ccd99f0a144285b0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三条分离短竖痕位于紧凑交叉折笔群上方，下部横栏带四条短下垂笔。"
+    ],
+    "en": [
+      "Three detached short vertical marks stand above a compact crossed angular cluster; a lower horizontal bar has four short descending strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0619_京都2100(甲).png",
+    "prefix": "G",
+    "old_catalog": "京都2100",
+    "old_catalog_abbr": "京都",
+    "old_catalog_abbr_obm_label": "京都大學人文科學研究所藏甲骨文字",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0619",
+    "validation_class_id": "544",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙡",
+    "codepoints": "U+3661",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000545",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

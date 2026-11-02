@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000731",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0832",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000736_hust-obc-cat-0832_glyph.png",
+      "metadata": "images/001_asset-000736_hust-obc-cat-0832_glyph.yaml",
+      "asset_id": "asset-000736",
+      "source_image_path": "HUST-OBC/deciphered/0832/G_0832_珠121合37363黃組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "80",
+      "sha256": "148b0fb6b533a8ea0133d6efb58d71e7a1fc14d1c705ca84dc707b5045453a1c",
+      "raw_source_sha256": "5616ab8465f4992cf89f663ff4b39537f3858239e5c6409bb6ced73c82249f13",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "单个粗重竖向剪影上端分成两条圆钝支臂，中部收窄，下部伸出短侧枝并收为尖尾。"
+    ],
+    "en": [
+      "A single bold vertical silhouette forks into two rounded upper arms, narrows at the middle, then expands into short side projections and a pointed lower tail."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0832_珠121合37363黃組.png",
+    "prefix": "G",
+    "heji": "合37363",
+    "old_catalog": "珠121",
+    "old_catalog_abbr": "珠",
+    "old_catalog_abbr_obm_label": "甲骨綴合編",
+    "group_or_note": "黃組"
+  },
+  "dataset_category": {
+    "source_category_id": "0832",
+    "validation_class_id": "730",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜶",
+    "codepoints": "U+3736",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000731",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

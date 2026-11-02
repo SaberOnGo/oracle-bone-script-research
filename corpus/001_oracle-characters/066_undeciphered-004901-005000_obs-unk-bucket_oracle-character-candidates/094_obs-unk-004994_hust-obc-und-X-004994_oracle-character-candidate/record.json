@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004994",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004994",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006587_hust-obc-und-X-004994_glyph.jpg",
+      "metadata": "images/001_asset-006587_hust-obc-und-X-004994_glyph.yaml",
+      "asset_id": "asset-006587",
+      "source_image_path": "HUST-OBC/undeciphered/X/550/X_？_7529_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "214",
+      "pixel_height": "248",
+      "sha256": "152dd9a9ed67388ac7c4644a0182f6f04a87aa1f771e85bc5fa096648b74b306",
+      "raw_source_sha256": "152dd9a9ed67388ac7c4644a0182f6f04a87aa1f771e85bc5fa096648b74b306",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧高位结构上部分叉，随后弧形向下延伸。",
+      "中央结构向上形成尖顶，再向下延伸成长主干。",
+      "右侧另有一组从窄长上部笔画弯曲向下的结构。",
+      "右下末端变宽，形成较深的渐细突出部分。",
+      "多条笔画在中央下部连接处相遇或重叠。"
+    ],
+    "en": [
+      "A tall left form forks near the top and curves downward.",
+      "The central form rises into a pointed peak and descends to a long stem.",
+      "A separate right form curves downward from a narrow upper stroke.",
+      "The lower right end broadens into a dark tapered projection.",
+      "Several strokes meet or overlap near the central lower junction.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7529_1.png",
+    "prefix": "X",
+    "code": "？_7529_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "550",
+    "source_class_path": "HUST-OBC/undeciphered/X/550/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/550/X_？_7529_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/550/X_？_7529_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

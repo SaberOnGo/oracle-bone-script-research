@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001434",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1607",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001439_hust-obc-cat-1607_glyph.png",
+      "metadata": "images/001_asset-001439_hust-obc-cat-1607_glyph.yaml",
+      "asset_id": "asset-001439",
+      "source_image_path": "HUST-OBC/deciphered/1607/L_1607_3919.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "49",
+      "sha256": "f4ce8c3d69b572d728722eb9de0c656ba74045a26d4601852392a48f5c092270",
+      "raw_source_sha256": "4e766d0ff74dc00b14ec4d580e320e1f7b3cef4fb2eb366d688f070294b78af2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "浅淡小型上盖位于短梳状下部笔画群之上。"
+    ],
+    "en": [
+      "A faint small cap sits above a short comb-like lower cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1607_3919.jpg",
+    "prefix": "L",
+    "code": "1607_3919"
+  },
+  "dataset_category": {
+    "source_category_id": "1607",
+    "validation_class_id": "1433",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨽",
+    "codepoints": "U+3A3D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001434",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

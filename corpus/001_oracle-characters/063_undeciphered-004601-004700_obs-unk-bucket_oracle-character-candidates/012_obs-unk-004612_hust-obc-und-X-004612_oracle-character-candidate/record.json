@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004612",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004612",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006205_hust-obc-und-X-004612_glyph.jpg",
+      "metadata": "images/001_asset-006205_hust-obc-und-X-004612_glyph.yaml",
+      "asset_id": "asset-006205",
+      "source_image_path": "HUST-OBC/undeciphered/X/168/X_？_8344_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "210",
+      "pixel_height": "253",
+      "sha256": "1f000f0edd8d41f81203440a44cf9e7f29005cdd29dfd61676c825c28434a3fd",
+      "raw_source_sha256": "1f000f0edd8d41f81203440a44cf9e7f29005cdd29dfd61676c825c28434a3fd",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一处较粗的中央交接点连接着数条分支痕迹。",
+      "一条较宽的分支向左上方伸出。",
+      "左侧另有一条带弯曲末端的较短上伸分支。",
+      "上右方有一条从交接点斜伸出的钝圆分支。",
+      "下右方分支延伸为圆钝的近水平末端。"
+    ],
+    "en": [
+      "A thick central junction supports several branching traces.",
+      "One broad branch rises toward the upper left.",
+      "A shorter branch rises near the left side with a curved tip.",
+      "A blunt upper-right branch projects diagonally from the junction.",
+      "A lower-right branch extends into a rounded horizontal terminal."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8344_1.png",
+    "prefix": "X",
+    "code": "？_8344_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "168",
+    "source_class_path": "HUST-OBC/undeciphered/X/168/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/168/X_？_8344_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/168/X_？_8344_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

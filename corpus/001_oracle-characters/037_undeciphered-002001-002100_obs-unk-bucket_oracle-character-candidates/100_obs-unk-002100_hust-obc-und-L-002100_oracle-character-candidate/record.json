@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002100",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002100",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003693_hust-obc-und-L-002100_glyph.jpg",
+      "metadata": "images/001_asset-003693_hust-obc-und-L-002100_glyph.yaml",
+      "asset_id": "asset-003693",
+      "source_image_path": "HUST-OBC/undeciphered/L/2100/L_？_2287.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "50",
+      "sha256": "4e1bb658eff72724f0bf083520e1ce865c4c039360fd613025404109bf0c2c64",
+      "raw_source_sha256": "4e1bb658eff72724f0bf083520e1ce865c4c039360fd613025404109bf0c2c64",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "这是一个较小的圆弧状笔画簇。上部圆弧笔画包围或交叠于中央的直立或弧向笔痕；两侧较长的斜笔向下延伸到下部。边缘较软，周围上下文不可见。"
+    ],
+    "en": [
+      "This is a small rounded cluster. A rounded upper stroke surrounds or overlaps a central upright or curved stroke. Longer slanting strokes descend on both sides into the lower area. Edges are soft, and no surrounding context is visible."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2287.jpg",
+    "prefix": "L",
+    "code": "？_2287"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2100",
+    "source_class_path": "HUST-OBC/undeciphered/L/2100/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2100/L_？_2287.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2100/L_？_2287.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

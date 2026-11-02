@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004298",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004298",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005891_hust-obc-und-L-004298_glyph.jpg",
+      "metadata": "images/001_asset-005891_hust-obc-und-L-004298_glyph.yaml",
+      "asset_id": "asset-005891",
+      "source_image_path": "HUST-OBC/undeciphered/L/4298/L_？_949.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "61",
+      "sha256": "95b52f00ff5422a5010aa7163d1c9f1becce90ac05612d56a66681d951b4a45a",
+      "raw_source_sha256": "95b52f00ff5422a5010aa7163d1c9f1becce90ac05612d56a66681d951b4a45a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "The lower terminals end at visibly different heights.简体中文：",
+      "一条长弯曲痕迹从左上向左下延伸。",
+      "一道宽弧形痕迹向右侧弯折。",
+      "弧形痕迹右侧仍有一条短的向内钩状痕迹。",
+      "下部末端明显处在不同高度。"
+    ],
+    "en": [
+      "A long curved trace descends from the upper left toward the lower left.",
+      "A broad upper arc bends toward the right side.",
+      "A short inward hook remains on the right of the arc."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_949.jpg",
+    "prefix": "L",
+    "code": "？_949"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4298",
+    "source_class_path": "HUST-OBC/undeciphered/L/4298/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4298/L_？_949.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4298/L_？_949.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

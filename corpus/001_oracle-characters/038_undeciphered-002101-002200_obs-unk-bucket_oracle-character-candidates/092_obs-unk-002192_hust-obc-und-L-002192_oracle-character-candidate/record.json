@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002192",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002192",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003785_hust-obc-und-L-002192_glyph.jpg",
+      "metadata": "images/001_asset-003785_hust-obc-und-L-002192_glyph.yaml",
+      "asset_id": "asset-003785",
+      "source_image_path": "HUST-OBC/undeciphered/L/2192/L_？_2597.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "32",
+      "pixel_height": "53",
+      "sha256": "f6c0db17f435df774549e54c86204e67bd8861e4aacfff137d22f97f6f82b81d",
+      "raw_source_sha256": "f6c0db17f435df774549e54c86204e67bd8861e4aacfff137d22f97f6f82b81d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部两条短直笔交叉。下中部有尖角近封闭轮廓，底部有较深横线。周围未见卜辞语境，边缘较软并带像素化。"
+    ],
+    "en": [
+      "Two short upright marks cross the upper area. A pointed angular enclosure occupies the lower center, with a darker line along its base. No surrounding inscription context is visible; edges are soft and pixelated."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2597.jpg",
+    "prefix": "L",
+    "code": "？_2597"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2192",
+    "source_class_path": "HUST-OBC/undeciphered/L/2192/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2192/L_？_2597.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2192/L_？_2597.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

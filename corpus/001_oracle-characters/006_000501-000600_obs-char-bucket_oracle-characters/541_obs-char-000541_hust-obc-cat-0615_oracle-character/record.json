@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000541",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0615",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000546_hust-obc-cat-0615_glyph.png",
+      "metadata": "images/001_asset-000546_hust-obc-cat-0615_glyph.yaml",
+      "asset_id": "asset-000546",
+      "source_image_path": "HUST-OBC/deciphered/0615/G_0615_前2.12.4合36842黃組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "77",
+      "sha256": "8a30ebc522f012bd9bf79dccafeaef254bf6641d1d9bad6c3b7b9c4f9d8b55e8",
+      "raw_source_sha256": "eae3cd5ab0f1944be97defcf0baf5b7d15834a81563e2b571aafe49244451483",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖顶上部椭圆内有一条横向分隔，并收窄为中央干；下部横栏带三条长下垂笔。"
+    ],
+    "en": [
+      "A pointed upper oval contains a horizontal divider and narrows into a central stem; a lower crossbar supports three long descending strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0615_前2.12.4合36842黃組.png",
+    "prefix": "G",
+    "heji": "合36842",
+    "old_catalog": "前2.12.4",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "黃組"
+  },
+  "dataset_category": {
+    "source_category_id": "0615",
+    "validation_class_id": "540",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙝",
+    "codepoints": "U+365D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000541",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

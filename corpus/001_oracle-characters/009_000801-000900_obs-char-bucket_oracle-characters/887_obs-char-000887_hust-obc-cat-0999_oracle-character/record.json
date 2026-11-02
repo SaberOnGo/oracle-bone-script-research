@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000887",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0999",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000892_hust-obc-cat-0999_glyph.png",
+      "metadata": "images/001_asset-000892_hust-obc-cat-0999_glyph.yaml",
+      "asset_id": "asset-000892",
+      "source_image_path": "HUST-OBC/deciphered/0999/G_0999_前1.3.5(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "78",
+      "sha256": "58166dbc21518d465ca6fa47d49b9302c5ce9cb5277dbfbf510568ffaab396b3",
+      "raw_source_sha256": "1131b5aed914915d47e7108b06d5046f0f7f139060a6ab7e170bb0afcd307aa0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细斜向上部笔群延伸成长下垂分枝，并带有数条短侧笔。"
+    ],
+    "en": [
+      "A thin diagonal upper cluster extends into a long descending branch with several short side marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0999_前1.3.5(甲).png",
+    "prefix": "G",
+    "old_catalog": "前1.3.5",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0999",
+    "validation_class_id": "886",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟝",
+    "codepoints": "U+37DD",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000887",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

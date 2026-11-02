@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000121",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0135",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000126_hust-obc-cat-0135_glyph.png",
+      "metadata": "images/001_asset-000126_hust-obc-cat-0135_glyph.yaml",
+      "asset_id": "asset-000126",
+      "source_image_path": "HUST-OBC/deciphered/0135/G_0135_乙1938反合14207反賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "18",
+      "pixel_height": "80",
+      "sha256": "3504f67e620e674437959f0e3f7d3b5d34159053fea96eb655a3a39884795ff9",
+      "raw_source_sha256": "7c16a8d9f37869ade7f7c1dee8f3f5b86364a432d76c0d3474b9d98bb6f3885b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "极狭长图像上端呈尖点，两侧弯曲外笔向下收拢为长而渐细的下行笔画。"
+    ],
+    "en": [
+      "The very narrow image forms a pointed upper tip with two curved outer strokes narrowing into a long tapering lower line."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0135_乙1938反合14207反賓組.png",
+    "prefix": "G",
+    "heji": "合14207",
+    "old_catalog": "乙1938",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反反賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0135",
+    "validation_class_id": "120",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㑽",
+    "codepoints": "U+347D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000121",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

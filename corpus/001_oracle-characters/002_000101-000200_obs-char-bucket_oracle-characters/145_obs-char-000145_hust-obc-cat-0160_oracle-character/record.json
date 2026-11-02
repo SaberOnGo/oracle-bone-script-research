@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000145",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0160",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000150_hust-obc-cat-0160_glyph.png",
+      "metadata": "images/001_asset-000150_hust-obc-cat-0160_glyph.yaml",
+      "asset_id": "asset-000150",
+      "source_image_path": "HUST-OBC/deciphered/0160/G_0160_乙4761合6943賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "56",
+      "pixel_height": "80",
+      "sha256": "b6c34838fe53ea33e5961b026b8cf5e10479bf18cf8349f6def19ece91ee9b14",
+      "raw_source_sha256": "f3278a524c53b30a9b98a0aee8ef03f4619d6e72666f4003079b8f3d83dc634a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像上方有宽折角形，下方左侧有圆弧开放框，中部有下行主笔并带短分支。"
+    ],
+    "en": [
+      "The image has a broad angular upper chevron, a rounded open lower-left frame, and a central descending stroke with a short branch."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0160_乙4761合6943賓組.png",
+    "prefix": "G",
+    "heji": "合6943",
+    "old_catalog": "乙4761",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0160",
+    "validation_class_id": "144",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㒖",
+    "codepoints": "U+3496",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000145",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

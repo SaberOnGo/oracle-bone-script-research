@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000612",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0697",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000617_hust-obc-cat-0697_glyph.png",
+      "metadata": "images/001_asset-000617_hust-obc-cat-0697_glyph.yaml",
+      "asset_id": "asset-000617",
+      "source_image_path": "HUST-OBC/deciphered/0697/G_0697_後1.11.2合24474出組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "27",
+      "pixel_height": "80",
+      "sha256": "ead8a9331c2df5c9b2006b6e642937218305d09fc10990e67f04bae9fabeaeae",
+      "raw_source_sha256": "ea3f8ce6e299cc946067adaad938985d39cb9c42290f159900728ffbbc3d2929",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集狭长竖形结合叉状或环状顶部、多处中央交叉和长弯下扫笔。"
+    ],
+    "en": [
+      "A dense narrow vertical figure combines a forked or looped top, multiple central crossings, and a long curved lower sweep."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0697_後1.11.2合24474出組.png",
+    "prefix": "G",
+    "heji": "合24474",
+    "old_catalog": "後1.11.2",
+    "old_catalog_abbr": "後",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "出組"
+  },
+  "dataset_category": {
+    "source_category_id": "0697",
+    "validation_class_id": "611",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚯",
+    "codepoints": "U+36AF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000612",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

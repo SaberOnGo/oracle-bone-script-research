@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000442",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000442",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002035_hust-obc-und-L-000442_glyph.jpg",
+      "metadata": "images/001_asset-002035_hust-obc-und-L-000442_glyph.yaml",
+      "asset_id": "asset-002035",
+      "source_image_path": "HUST-OBC/undeciphered/L/442/L_？_1138.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "54",
+      "sha256": "7fde5d1220ccc61985740656a10505a1306620894d448633b1824ef60419aa71",
+      "raw_source_sha256": "7fde5d1220ccc61985740656a10505a1306620894d448633b1824ef60419aa71",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "短上部笔干向下连接两条长弧形笔；右侧另有窄直立形体。"
+    ],
+    "en": [
+      "A short upper stem leads into two long curved descending strokes; a separate narrow upright form stands on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1138.jpg",
+    "prefix": "L",
+    "code": "？_1138"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "442",
+    "source_class_path": "HUST-OBC/undeciphered/L/442/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/442/L_？_1138.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/442/L_？_1138.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

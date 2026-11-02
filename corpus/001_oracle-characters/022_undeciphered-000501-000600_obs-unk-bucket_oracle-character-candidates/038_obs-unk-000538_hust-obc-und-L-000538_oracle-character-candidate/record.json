@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000538",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000538",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002131_hust-obc-und-L-000538_glyph.jpg",
+      "metadata": "images/001_asset-002131_hust-obc-und-L-000538_glyph.yaml",
+      "asset_id": "asset-002131",
+      "source_image_path": "HUST-OBC/undeciphered/L/538/L_？_11609.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "59",
+      "sha256": "c8a2c32a962feee12a2c776a92ca26427cceb5aa6f9ba380f751dbbd73b3de8c",
+      "raw_source_sha256": "c8a2c32a962feee12a2c776a92ca26427cceb5aa6f9ba380f751dbbd73b3de8c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集斜向形体带尖角上伸和紧凑下部交叉。"
+    ],
+    "en": [
+      "A dense diagonal form has a pointed upper projection and a compact lower crossing."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11609.jpg",
+    "prefix": "L",
+    "code": "？_11609"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "538",
+    "source_class_path": "HUST-OBC/undeciphered/L/538/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/538/L_？_11609.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/538/L_？_11609.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

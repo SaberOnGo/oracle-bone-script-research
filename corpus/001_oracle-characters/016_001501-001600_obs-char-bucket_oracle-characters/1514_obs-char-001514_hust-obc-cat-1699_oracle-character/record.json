@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001514",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1699",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001519_hust-obc-cat-1699_glyph.png",
+      "metadata": "images/001_asset-001519_hust-obc-cat-1699_glyph.yaml",
+      "asset_id": "asset-001519",
+      "source_image_path": "HUST-OBC/deciphered/1699/G_1699_乙4736(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "81",
+      "pixel_height": "132",
+      "sha256": "08e2f167336ee9691e32676ba14c61b630d66ad9629cb20891d48a47c158e981",
+      "raw_source_sha256": "86ab09dec65034258f806cdffce8e1bc4f053dee8f93a4da819e4b816c0a0f42",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "稀疏组合形体左侧有层叠弧笔，右侧有分离的钩状标记。"
+    ],
+    "en": [
+      "A sparse composite has layered curved marks on the left and a detached hooked mark on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1699_乙4736(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙4736",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1699",
+    "validation_class_id": "1513",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪙",
+    "codepoints": "U+3A99",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001514",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

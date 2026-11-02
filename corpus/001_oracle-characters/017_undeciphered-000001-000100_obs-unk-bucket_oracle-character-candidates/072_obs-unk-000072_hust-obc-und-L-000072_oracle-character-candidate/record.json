@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000072",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000072",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001665_hust-obc-und-L-000072_glyph.jpg",
+      "metadata": "images/001_asset-001665_hust-obc-und-L-000072_glyph.yaml",
+      "asset_id": "asset-001665",
+      "source_image_path": "HUST-OBC/undeciphered/L/72/L_？_10221.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "54",
+      "sha256": "a24ddf7530f5b2ab526f791a91022a3f1e02a9f1d34a5e5e13f4646ca65d95b4",
+      "raw_source_sha256": "a24ddf7530f5b2ab526f791a91022a3f1e02a9f1d34a5e5e13f4646ca65d95b4",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个圆弧状侧部痕迹夹着短小中部形体，下方有折向笔画。本记录不确认字形身份。"
+    ],
+    "en": [
+      "Two rounded side marks flank a short central form with an angled lower stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_10221.jpg",
+    "prefix": "L",
+    "code": "？_10221"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "72",
+    "source_class_path": "HUST-OBC/undeciphered/L/72/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/72/L_？_10221.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/72/L_？_10221.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

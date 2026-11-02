@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000573",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0649",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000578_hust-obc-cat-0649_glyph.png",
+      "metadata": "images/001_asset-000578_hust-obc-cat-0649_glyph.yaml",
+      "asset_id": "asset-000578",
+      "source_image_path": "HUST-OBC/deciphered/0649/G_0649_京津190合9350.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "22",
+      "pixel_height": "80",
+      "sha256": "b8d50ac51ebc57891aca653ff677ad36f0c1e72c5c41e058a6b85c8b008f8880",
+      "raw_source_sha256": "4e9289151f76dbf1fa0428144e880ae781632af95ef29e0de9ad62f338c34ebd",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条紧邻平行波折笔从小型上部折转处共同下行，绝大部分长度保持狭窄间隔。"
+    ],
+    "en": [
+      "Two close parallel wavering strokes descend together from a small angular upper turn and remain narrowly separated along most of their length."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0649_京津190合9350.png",
+    "prefix": "G",
+    "heji": "合9350",
+    "old_catalog": "京津190",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字"
+  },
+  "dataset_category": {
+    "source_category_id": "0649",
+    "validation_class_id": "572",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙿",
+    "codepoints": "U+367F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000573",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

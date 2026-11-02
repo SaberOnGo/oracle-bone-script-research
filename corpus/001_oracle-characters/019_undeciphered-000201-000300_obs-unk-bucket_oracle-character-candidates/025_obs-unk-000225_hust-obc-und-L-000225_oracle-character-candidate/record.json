@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000225",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000225",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001818_hust-obc-und-L-000225_glyph.jpg",
+      "metadata": "images/001_asset-001818_hust-obc-und-L-000225_glyph.yaml",
+      "asset_id": "asset-001818",
+      "source_image_path": "HUST-OBC/undeciphered/L/225/L_？_1070.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "62",
+      "sha256": "69b87138b787473551b01f448ba6329c727b5926d332fda3a7cbd6a7af93f419",
+      "raw_source_sha256": "69b87138b787473551b01f448ba6329c727b5926d332fda3a7cbd6a7af93f419",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "对称叠置形体上部有宽横栏，中部为交叉斜笔，下方有长横向底部。"
+    ],
+    "en": [
+      "A symmetrical stacked form has a broad upper horizontal bar, central crossing diagonals, and a long lower horizontal base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1070.jpg",
+    "prefix": "L",
+    "code": "？_1070"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "225",
+    "source_class_path": "HUST-OBC/undeciphered/L/225/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/225/L_？_1070.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/225/L_？_1070.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

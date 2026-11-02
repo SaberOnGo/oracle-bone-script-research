@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001455",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1631",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001460_hust-obc-cat-1631_glyph.png",
+      "metadata": "images/001_asset-001460_hust-obc-cat-1631_glyph.yaml",
+      "asset_id": "asset-001460",
+      "source_image_path": "HUST-OBC/deciphered/1631/X_1631_5285_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "170",
+      "pixel_height": "313",
+      "sha256": "8968ef1391b297b6c4bc5d611cfcfd4d4f3bdd6d5d0b6446d032b653507baaec",
+      "raw_source_sha256": "2da675dd03198ae39462203bb54a8b67c622360979605b48693c815ddeb22dda",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型密集组合形体有尖拱上部竖干、内部空隙和分枝。"
+    ],
+    "en": [
+      "A large dense composite has a peaked upper stem, inner openings, and branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1631_5285_1.png",
+    "prefix": "X",
+    "code": "1631_5285_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1631",
+    "validation_class_id": "1454",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㩕",
+    "codepoints": "U+3A55",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001455",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001247",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001247",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002840_hust-obc-und-L-001247_glyph.jpg",
+      "metadata": "images/001_asset-002840_hust-obc-und-L-001247_glyph.yaml",
+      "asset_id": "asset-002840",
+      "source_image_path": "HUST-OBC/undeciphered/L/1247/L_？_13537.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "62",
+      "sha256": "c44a329268b0c00394f8c52a99c83db8cc9952c760b9df6f64c86d152d7499f8",
+      "raw_source_sha256": "c44a329268b0c00394f8c52a99c83db8cc9952c760b9df6f64c86d152d7499f8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "长横带连接中央下行主线，末端为矩形围合并有下部突伸。"
+    ],
+    "en": [
+      "A long upper band leads to a central descending stem that ends in a rectangular enclosure and lower projection."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13537.jpg",
+    "prefix": "L",
+    "code": "？_13537"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1247",
+    "source_class_path": "HUST-OBC/undeciphered/L/1247/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1247/L_？_13537.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1247/L_？_13537.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

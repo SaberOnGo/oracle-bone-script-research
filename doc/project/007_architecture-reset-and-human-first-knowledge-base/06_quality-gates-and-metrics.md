@@ -125,3 +125,21 @@ Reset completion is judged by these criteria, not by a schedule.
 复现命令：随机抽样 `git ls-files corpus | grep '\.md$' | shuf -n 3000`，
 再对样本运行第 1 节的分类规则。实现应放入
 `tools/validation/check_content_gates.py`。
+
+## 7. 2026-11-02 迁移后度量 / Metrics After Steps 1--3
+
+| 度量 | 2026-11-01 | 2026-11-02 |
+| --- | --- | --- |
+| 跟踪文件 | 517,880 | 46,582 |
+| 语料区 Markdown | 约 255,000 | 12,084 |
+| 抽样模板行比例 | 79.8% | 44.0% |
+| 抽样其余行比例 | 13.2% | 41.2% |
+| 符合档案标准的单字档案 | 0 | 10,986 |
+| 有释读史的已释字档案 | 0 | 0 |
+| 卜辞释文记录 | 0 | 0 |
+| 全量测试时长 | 约 33 分钟 | 约 1.5 分钟 |
+
+释读史、卜辞例句和学术关系边仍为 0，需要第 4 至 6 步。
+
+Reading histories, example sentences, and scholarly edges are still zero and
+depend on steps 4 to 6.

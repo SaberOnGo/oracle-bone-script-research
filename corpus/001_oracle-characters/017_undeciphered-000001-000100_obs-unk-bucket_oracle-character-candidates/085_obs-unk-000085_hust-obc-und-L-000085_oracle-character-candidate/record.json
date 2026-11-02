@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000085",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000085",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001678_hust-obc-und-L-000085_glyph.jpg",
+      "metadata": "images/001_asset-001678_hust-obc-und-L-000085_glyph.yaml",
+      "asset_id": "asset-001678",
+      "source_image_path": "HUST-OBC/undeciphered/L/85/L_？_10253.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "33",
+      "pixel_height": "55",
+      "sha256": "8e8505f3e658b7a2ddea045494457cd6562b8588216fac232b0bcb7727a36ec5",
+      "raw_source_sha256": "8e8505f3e658b7a2ddea045494457cd6562b8588216fac232b0bcb7727a36ec5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长图像包含高耸分支笔群及弧状侧部痕迹。本记录不确认字形身份。"
+    ],
+    "en": [
+      "The narrow image contains a tall branching stroke group with curved side marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_10253.jpg",
+    "prefix": "L",
+    "code": "？_10253"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "85",
+    "source_class_path": "HUST-OBC/undeciphered/L/85/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/85/L_？_10253.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/85/L_？_10253.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

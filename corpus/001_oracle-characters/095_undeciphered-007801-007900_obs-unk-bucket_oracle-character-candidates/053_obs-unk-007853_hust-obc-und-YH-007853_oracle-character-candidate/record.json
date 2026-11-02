@@ -1,0 +1,68 @@
+{
+  "id": "obs-unk-007853",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-YH-007853",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-009444_hust-obc-und-YH-007853_glyph.jpg",
+      "metadata": "images/001_asset-009444_hust-obc-und-YH-007853_glyph.yaml",
+      "asset_id": "asset-009444",
+      "source_image_path": "HUST-OBC/undeciphered/Y+H/603F8/H_？_603F8_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "197",
+      "pixel_height": "291",
+      "sha256": "758d4b09b74b6e89533b452d5f178b5f13f74c3ea73b91ff4e3686457e3193e8",
+      "raw_source_sha256": "758d4b09b74b6e89533b452d5f178b5f13f74c3ea73b91ff4e3686457e3193e8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "pixel_profile",
+    "zh": [
+      "像素 profile 只记录像素，不分割单独笔画，也不确认字形。图像为 197 × 291 像素，角点背景为浅色，阈值痕迹像素占 26.33%，平均灰度187.85。",
+      "痕迹范围为 (2,2)–(194,288)，跨度 193 × 287 px，标记矩形高于宽。"
+    ],
+    "en": [
+      "The profile records pixels only; it does not segment individual strokes or establish a glyph shape.",
+      "Image profile: 197 × 291 px, mode RGB; corner background is light; thresholded marked pixels occupy 26.33%; mean luma 187.85.",
+      "Marked-pixel bounds: (2,2)–(194,288); span 193 × 287 px; marked rectangle is taller than wide."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_？_603F8_0.png",
+    "prefix": "H",
+    "code": "？_603F8_0"
+  },
+  "dataset_category": {
+    "source_group": "Y+H",
+    "source_group_label": "YinQiWenYuan + HWOBC",
+    "source_class_id": "603F8",
+    "source_class_path": "HUST-OBC/undeciphered/Y+H/603F8/",
+    "source_image_count": 23,
+    "first_source_image_path": "HUST-OBC/undeciphered/Y+H/603F8/H_？_603F8_0.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/Y+H/603F8/Y_？_603F8.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

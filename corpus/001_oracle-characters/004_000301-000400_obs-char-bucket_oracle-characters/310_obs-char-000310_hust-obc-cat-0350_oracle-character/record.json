@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000310",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0350",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000315_hust-obc-cat-0350_glyph.png",
+      "metadata": "images/001_asset-000315_hust-obc-cat-0350_glyph.yaml",
+      "asset_id": "asset-000315",
+      "source_image_path": "HUST-OBC/deciphered/0350/H_0350_603F2_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "201",
+      "pixel_height": "211",
+      "sha256": "fcecb41dca75eb1e0b9ae28796b158414cafc8ecaa9c02a264ecfde471a58c1f",
+      "raw_source_sha256": "750930cd892701b77728c64d116a2119e4257d47cae507fe9deed748a5e85417",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像有大型 U 形弧曲笔画，右上方另有分离的小型折角痕迹。"
+    ],
+    "en": [
+      "The image shows a large U-like curved stroke and a detached small angular mark near the upper right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0350_603F2_0.png",
+    "prefix": "H",
+    "code": "0350_603F2_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0350",
+    "validation_class_id": "309",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㕔",
+    "codepoints": "U+3554",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000310",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

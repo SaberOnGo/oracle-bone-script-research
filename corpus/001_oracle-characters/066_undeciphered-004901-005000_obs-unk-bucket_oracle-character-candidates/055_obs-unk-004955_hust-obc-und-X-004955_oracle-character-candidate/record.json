@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004955",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004955",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006548_hust-obc-und-X-004955_glyph.jpg",
+      "metadata": "images/001_asset-006548_hust-obc-und-X-004955_glyph.yaml",
+      "asset_id": "asset-006548",
+      "source_image_path": "HUST-OBC/undeciphered/X/511/X_？_7493_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "83",
+      "pixel_height": "295",
+      "sha256": "eff5d111009667055bb7839c2ba34dc78273bf326693590bb2dbcfa80373e9fa",
+      "raw_source_sha256": "eff5d111009667055bb7839c2ba34dc78273bf326693590bb2dbcfa80373e9fa",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "顶部横向笔画跨过两条狭窄直立笔画。",
+      "顶部笔画下方有一个小型浅色开口。",
+      "中央圆弧状开口连接上、下两组结构。",
+      "下部结构有宽大的外轮廓开口和长波状下行笔画。",
+      "当前本地图像未包含第二个来源视图。"
+    ],
+    "en": [
+      "A top horizontal stroke spans two narrow uprights.",
+      "A small light opening appears beneath the top stroke.",
+      "A central rounded opening joins the upper and lower groups.",
+      "The lower group has a broad outlined opening and a long wavy descent.",
+      "The local image does not show the second source view.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7493_1.png",
+    "prefix": "X",
+    "code": "？_7493_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "511",
+    "source_class_path": "HUST-OBC/undeciphered/X/511/",
+    "source_image_count": 2,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/511/X_？_7493_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/511/X_？_7493_2.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

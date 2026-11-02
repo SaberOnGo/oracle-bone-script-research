@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-003625",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003625",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005218_hust-obc-und-L-003625_glyph.jpg",
+      "metadata": "images/001_asset-005218_hust-obc-und-L-003625_glyph.yaml",
+      "asset_id": "asset-005218",
+      "source_image_path": "HUST-OBC/undeciphered/L/3625/L_？_7369.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "53",
+      "sha256": "07c3438fd354c5987189285f6073ef1f2d2dedbc5d8b436337b9dcb213d1a1d9",
+      "raw_source_sha256": "07c3438fd354c5987189285f6073ef1f2d2dedbc5d8b436337b9dcb213d1a1d9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "The image does not establish whether they are one connected sign.简体中文：",
+      "数条短笔画组成的小形态位于较宽的下部 V 形轮廓之上。",
+      "下部轮廓中有一条深色横向或略倾斜的交叉笔画。",
+      "上下两部分在图像中大致上下对齐。",
+      "图像不能证明它们是否属于同一个相连形态。"
+    ],
+    "en": [
+      "A small cluster of short strokes sits above a broad lower V-shaped form.",
+      "The lower form has a dark horizontal or slightly sloping cross stroke.",
+      "The upper and lower areas appear vertically aligned in the crop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_7369.jpg",
+    "prefix": "L",
+    "code": "？_7369"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3625",
+    "source_class_path": "HUST-OBC/undeciphered/L/3625/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3625/L_？_7369.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3625/L_？_7369.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

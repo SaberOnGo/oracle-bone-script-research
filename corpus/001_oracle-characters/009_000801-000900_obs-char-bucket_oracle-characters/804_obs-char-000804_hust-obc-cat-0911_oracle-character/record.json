@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000804",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0911",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000809_hust-obc-cat-0911_glyph.png",
+      "metadata": "images/001_asset-000809_hust-obc-cat-0911_glyph.yaml",
+      "asset_id": "asset-000809",
+      "source_image_path": "HUST-OBC/deciphered/0911/G_0911_乙8520合21868子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "26",
+      "pixel_height": "80",
+      "sha256": "b9c298bebdcf59c5da9479fbf4cf2d90afa0177a1f496f83550ffac3af077d0d",
+      "raw_source_sha256": "c8837c6b4cb7ffcb1612c60a181ad4fa9b6b22df27e3da883637b0cbed0ca295",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细直立形体以圆弧环状痕迹开头，中下部连续出现斜向侧笔，下端收为尖端。"
+    ],
+    "en": [
+      "A thin vertical form begins with a rounded closed loop and continues through angled side strokes to a pointed lower end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0911_乙8520合21868子組.png",
+    "prefix": "G",
+    "heji": "合21868",
+    "old_catalog": "乙8520",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "0911",
+    "validation_class_id": "803",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㞅",
+    "codepoints": "U+3785",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000804",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

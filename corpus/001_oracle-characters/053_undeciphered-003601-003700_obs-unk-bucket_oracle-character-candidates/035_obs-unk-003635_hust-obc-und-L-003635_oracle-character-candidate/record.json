@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-003635",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003635",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005228_hust-obc-und-L-003635_glyph.jpg",
+      "metadata": "images/001_asset-005228_hust-obc-und-L-003635_glyph.yaml",
+      "asset_id": "asset-005228",
+      "source_image_path": "HUST-OBC/undeciphered/L/3635/L_？_7422.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "45",
+      "pixel_height": "51",
+      "sha256": "1bd36209d1775cbf440eba41defcb8a2367f5756dd1a8fee7498a67b4a14dcb2",
+      "raw_source_sha256": "1bd36209d1775cbf440eba41defcb8a2367f5756dd1a8fee7498a67b4a14dcb2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "The crop does not establish whether the base is a joining stroke.简体中文：",
+      "图像左右各有一个直立的尖顶形态。",
+      "两个形态底部之间可见一条低位弧形或横向笔画。",
+      "左右形态的可见深浅并不相同。",
+      "图像不能证明底部笔画是否为连接笔画。"
+    ],
+    "en": [
+      "Two upright peaked forms stand on either side of the image.",
+      "A low curved or horizontal stroke appears between their bases.",
+      "The left and right forms have unequal visible darkness."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_7422.jpg",
+    "prefix": "L",
+    "code": "？_7422"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3635",
+    "source_class_path": "HUST-OBC/undeciphered/L/3635/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3635/L_？_7422.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3635/L_？_7422.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

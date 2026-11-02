@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-000340",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0384",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000345_hust-obc-cat-0384_glyph.png",
+      "metadata": "images/001_asset-000345_hust-obc-cat-0384_glyph.yaml",
+      "asset_id": "asset-000345",
+      "source_image_path": "HUST-OBC/deciphered/0384/G_0384_七S186.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "78",
+      "pixel_height": "80",
+      "sha256": "d7fabe09929e8bc0dab6e78fe26b4249110c7d53850cc308d3714e70c62817fb",
+      "raw_source_sha256": "7c82cbe0da794269c533fc4f30c887847e01d75a5d3bd0cd699260bf818774dd",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型方形格状轮廓内部有多道横竖分隔笔画，下部痕迹不规则。"
+    ],
+    "en": [
+      "The large rectangular grid contains multiple internal horizontal and vertical divisions with irregular lower marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0384_七S186.png",
+    "prefix": "G",
+    "old_catalog": "七S186",
+    "old_catalog_abbr": "七S",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0384",
+    "validation_class_id": "339",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㕶",
+    "codepoints": "U+3576",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000340",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

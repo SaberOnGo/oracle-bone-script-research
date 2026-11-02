@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004552",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004552",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006145_hust-obc-und-X-004552_glyph.jpg",
+      "metadata": "images/001_asset-006145_hust-obc-und-X-004552_glyph.yaml",
+      "asset_id": "asset-006145",
+      "source_image_path": "HUST-OBC/undeciphered/X/108/X_？_8290_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "242",
+      "pixel_height": "307",
+      "sha256": "4ffe905e06a63d85891fb953e5f9e9ab31d9972450df2a2afc12f6867cfd4df3",
+      "raw_source_sha256": "4ffe905e06a63d85891fb953e5f9e9ab31d9972450df2a2afc12f6867cfd4df3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "JPG 显示宽的上部轮廓，内部保持开口。",
+      "一条长斜痕从左上向中央下行。",
+      "右侧伸出一条短的横向痕迹。",
+      "三条长痕从下部中央区域向下延伸。",
+      "外部上轮廓的右上角向上隆起。"
+    ],
+    "en": [
+      "The JPG shows a broad upper outline with an open interior.",
+      "A long diagonal trace descends from the upper left toward the center.",
+      "A short horizontal projection extends from the right side.",
+      "Three long traces descend from the lower central area.",
+      "The outer upper outline has a raised right corner."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8290_1.png",
+    "prefix": "X",
+    "code": "？_8290_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "108",
+    "source_class_path": "HUST-OBC/undeciphered/X/108/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/108/X_？_8290_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/108/X_？_8290_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

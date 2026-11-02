@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000616",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0701",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000621_hust-obc-cat-0701_glyph.png",
+      "metadata": "images/001_asset-000621_hust-obc-cat-0701_glyph.yaml",
+      "asset_id": "asset-000621",
+      "source_image_path": "HUST-OBC/deciphered/0701/G_0701_乙4692合22043午組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "db7e107416df85fb6dd940dc8f6411dc24ff635910eb13ea4495de3d902d79da",
+      "raw_source_sha256": "373e9a603aed2e69eef213c98da0e57fd3d7846c907d9d580d8b901be2789a7e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "右侧长竖干顶部和底部带短叉尖，上部左侧伸出宽圆环。"
+    ],
+    "en": [
+      "A long right-hand vertical stem has short forked tips at top and bottom, while a broad rounded loop projects from its upper left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0701_乙4692合22043午組.png",
+    "prefix": "G",
+    "heji": "合22043",
+    "old_catalog": "乙4692",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "午組"
+  },
+  "dataset_category": {
+    "source_category_id": "0701",
+    "validation_class_id": "615",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚳",
+    "codepoints": "U+36B3",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000616",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

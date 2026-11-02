@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002555",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002555",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004148_hust-obc-und-L-002555_glyph.jpg",
+      "metadata": "images/001_asset-004148_hust-obc-und-L-002555_glyph.yaml",
+      "asset_id": "asset-004148",
+      "source_image_path": "HUST-OBC/undeciphered/L/2555/L_？_3880.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "56",
+      "sha256": "dad135148b1364c1a72a1a8f636969f4786d4af682e0d6a4190a09a7fa8bc972",
+      "raw_source_sha256": "dad135148b1364c1a72a1a8f636969f4786d4af682e0d6a4190a09a7fa8bc972",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一条长而平缓的弧线横过上部，并在左侧向下弯曲。下中部有一组分叉的细笔痕，中央带小的带钩或折角痕迹。右侧颜色较淡，轮廓不够清楚。"
+    ],
+    "en": [
+      "A long shallow curve crosses the top and bends downward on the left. The lower middle has a forked group of narrow strokes, with a small hooked or angular mark at the center. The right side remains lighter and less defined."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_3880.jpg",
+    "prefix": "L",
+    "code": "？_3880"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2555",
+    "source_class_path": "HUST-OBC/undeciphered/L/2555/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2555/L_？_3880.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2555/L_？_3880.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

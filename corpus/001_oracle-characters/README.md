@@ -133,3 +133,37 @@ ID 都只是检索与复核线索。它们不是已接受释读、构件归属�
 
 The 16 codepoint-crosswalk buckets were collapsed into register `011`.
 Character directories will be merged into single dossiers in the next step.
+
+## 2026-11-02 单字档案合并 / Character Dossier Merge
+
+简体中文：
+按架构重置第 2b 步，10,986 个单字目录各自合并为一份人读档案
+`README.md`、一份机读记录 `record.json` 和一个 `images/` 目录。档案章节
+按研究者阅读顺序排列，只写有来源的内容，没有内容的章节直接省略。
+档案标准见 `doc/project/007_architecture-reset-and-human-first-knowledge-base/`
+`03_object-dossier-standard.md`。
+
+另有 10 个目录含人工复核记录（多字例比较、证据门槛、史语所回执等），
+暂按原格式保留，将在第 5 步深度试点中人工整理：
+`obs-char-000101`、`000209`、`000412`、`000621`、`000791`、`000852`、
+`000963`，以及 `obs-unk-000001`、`000002`、`005708`。
+
+合并时统计到的事实（均为数据集层面，不是释读结论）：
+
+| 项目 | 数量 |
+| --- | --- |
+| 已释字候选档案 | 1,581 |
+| 未释字候选档案 | 9,405 |
+| 来源只有 1 张样本的未释类（孤例） | 6,207 |
+| 来源样本 20 张以上的未释类 | 2,331 |
+| 文件名带合集号线索的档案 | 725 |
+| 文件名带旧著录线索的档案 | 1,054 |
+| 只有算法像素画像、尚无人工观察的档案 | 4,405 |
+| 数据集标签落在 Unicode 部首区的已释类 | 8 |
+
+English summary:
+10,986 character directories were merged into one dossier each. Ten
+directories with manual review records stay in their former layout for step
+5. About two thirds of the HUST undeciphered classes have a single sample,
+so their study will depend on inscription context more than on form
+comparison.

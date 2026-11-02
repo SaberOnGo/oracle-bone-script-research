@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000776",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0880",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000781_hust-obc-cat-0880_glyph.png",
+      "metadata": "images/001_asset-000781_hust-obc-cat-0880_glyph.yaml",
+      "asset_id": "asset-000781",
+      "source_image_path": "HUST-OBC/deciphered/0880/L_0880_10544.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "54",
+      "sha256": "0a94212030357d66186e21a8c3c5db9b5ee4b1149c06f96311b700e075032c67",
+      "raw_source_sha256": "065288582e17cfebc9a7b2a1efa2e3d3981d59fa5128302eb78d43ad98a1e798",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "微小淡弱图像显示上部紧凑的狭长折角轮廓和短笔，与下方小型横向矩形环分离；细接点难辨。"
+    ],
+    "en": [
+      "The tiny faint image shows a compact upper group of narrow angular outlines and short strokes, separated from a small horizontal rectangular loop below; fine joins are unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0880_10544.jpg",
+    "prefix": "L",
+    "code": "0880_10544"
+  },
+  "dataset_category": {
+    "source_category_id": "0880",
+    "validation_class_id": "775",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝦",
+    "codepoints": "U+3766",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000776",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

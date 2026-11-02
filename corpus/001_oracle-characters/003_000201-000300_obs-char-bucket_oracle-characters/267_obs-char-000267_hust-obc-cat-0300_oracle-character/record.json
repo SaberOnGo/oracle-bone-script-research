@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000267",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0300",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000272_hust-obc-cat-0300_glyph.png",
+      "metadata": "images/001_asset-000272_hust-obc-cat-0300_glyph.yaml",
+      "asset_id": "asset-000272",
+      "source_image_path": "HUST-OBC/deciphered/0300/G_0300_乙1296合21987子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "33",
+      "pixel_height": "80",
+      "sha256": "7838bb0b6fe7b49f4f7394b9b478c76fdddb333d31ef0991e07adc7b1c6825bc",
+      "raw_source_sha256": "2098887653d1d7be367a0c9aa2af7ab380629fb90a8fcb9e3dcec804fff05c57",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "深色图像含数个圆弧上部形体、密集中央结点，并向右下延出长而不规则笔画。"
+    ],
+    "en": [
+      "The dark image contains several rounded upper lobes, a dense central knot, and a long irregular stroke descending toward the lower right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0300_乙1296合21987子組.png",
+    "prefix": "G",
+    "heji": "合21987",
+    "old_catalog": "乙1296",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "0300",
+    "validation_class_id": "266",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㔢",
+    "codepoints": "U+3522",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000267",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

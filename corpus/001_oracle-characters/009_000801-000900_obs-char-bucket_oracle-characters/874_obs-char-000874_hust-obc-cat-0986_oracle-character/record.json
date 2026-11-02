@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000874",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0986",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000879_hust-obc-cat-0986_glyph.png",
+      "metadata": "images/001_asset-000879_hust-obc-cat-0986_glyph.yaml",
+      "asset_id": "asset-000879",
+      "source_image_path": "HUST-OBC/deciphered/0986/G_0986_京津3722合31771何組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "48",
+      "pixel_height": "80",
+      "sha256": "0179bdf1d6f2cbf82f58c673d43623b35f14b0abd41ecc9e473874d91ed3f458",
+      "raw_source_sha256": "c316e27c7e052f615a0bf7769613a147205ad2aa411f990eda1cb876c93f92cb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重中央直立笔上部呈圆弧分叉，下部有宽大的横向交叉或分枝；左侧有分离弯笔。"
+    ],
+    "en": [
+      "A bold central upright has a forked rounded upper section and a broad lower cross or branch; a detached curved stroke stands at left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0986_京津3722合31771何組.png",
+    "prefix": "G",
+    "heji": "合31771",
+    "old_catalog": "京津3722",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "何組"
+  },
+  "dataset_category": {
+    "source_category_id": "0986",
+    "validation_class_id": "873",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟐",
+    "codepoints": "U+37D0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000874",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

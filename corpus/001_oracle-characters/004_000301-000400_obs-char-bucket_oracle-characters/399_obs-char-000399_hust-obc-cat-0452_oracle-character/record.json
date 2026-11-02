@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000399",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0452",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000404_hust-obc-cat-0452_glyph.png",
+      "metadata": "images/001_asset-000404_hust-obc-cat-0452_glyph.yaml",
+      "asset_id": "asset-000404",
+      "source_image_path": "HUST-OBC/deciphered/0452/G_0452_寧滬1.94(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "ba404feb9b0f6bf4279b3c4d5707a5b05812502a0b219ae20f97559e5b9e7261",
+      "raw_source_sha256": "d6ae11a4b374127401cee7e7b577fc32d3fb56ac8e7f7086d14741ad164f5c1e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细中央交叉连接开放尖状上部痕迹、长右侧笔画和不规则下部曲线。"
+    ],
+    "en": [
+      "A thin central crossing is joined to an open pointed upper mark, a long right-side stroke, and irregular lower curves."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0452_寧滬1.94(甲).png",
+    "prefix": "G",
+    "old_catalog": "寧滬1.94",
+    "old_catalog_abbr": "寧滬",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0452",
+    "validation_class_id": "398",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㖺",
+    "codepoints": "U+35BA",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000399",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

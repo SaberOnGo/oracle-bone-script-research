@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002672",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002672",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004265_hust-obc-und-L-002672_glyph.jpg",
+      "metadata": "images/001_asset-004265_hust-obc-und-L-002672_glyph.yaml",
+      "asset_id": "asset-004265",
+      "source_image_path": "HUST-OBC/undeciphered/L/2672/L_？_4173.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "54",
+      "sha256": "9b5b5637714dab6887e85d536941006964578b36e7e9f47128fd25ac36f8aa30",
+      "raw_source_sha256": "9b5b5637714dab6887e85d536941006964578b36e7e9f47128fd25ac36f8aa30",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧密的竖向笔痕群含有交叉的斜向和纵向笔痕。中央较深，两侧不规则地伸出短笔痕。"
+    ],
+    "en": [
+      "A dense upright group contains crossing diagonal and vertical strokes. The center is dark, with short irregular projections on both sides."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_4173.jpg",
+    "prefix": "L",
+    "code": "？_4173"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2672",
+    "source_class_path": "HUST-OBC/undeciphered/L/2672/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2672/L_？_4173.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2672/L_？_4173.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

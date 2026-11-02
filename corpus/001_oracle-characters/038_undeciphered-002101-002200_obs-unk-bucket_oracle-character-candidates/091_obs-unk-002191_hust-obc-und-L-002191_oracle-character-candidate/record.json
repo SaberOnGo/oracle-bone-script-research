@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002191",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002191",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003784_hust-obc-und-L-002191_glyph.jpg",
+      "metadata": "images/001_asset-003784_hust-obc-und-L-002191_glyph.yaml",
+      "asset_id": "asset-003784",
+      "source_image_path": "HUST-OBC/undeciphered/L/2191/L_？_2596.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "4f6f7f26e13a562a4a7e829bc9f297365468d48c60354e58c94965553642d9ed",
+      "raw_source_sha256": "4f6f7f26e13a562a4a7e829bc9f297365468d48c60354e58c94965553642d9ed",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条弯曲上行笔形成拱形轮廓，中央向下形成窄尖形。左右两侧大致平衡，下中部较深。图像边缘较软并带像素化。"
+    ],
+    "en": [
+      "Two curved upright strokes form an arched outline, with a narrow pointed shape descending from the center. The left and right sides are roughly balanced, while the lower center is darker. The image edges are soft and pixelated."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2596.jpg",
+    "prefix": "L",
+    "code": "？_2596"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2191",
+    "source_class_path": "HUST-OBC/undeciphered/L/2191/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2191/L_？_2596.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2191/L_？_2596.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

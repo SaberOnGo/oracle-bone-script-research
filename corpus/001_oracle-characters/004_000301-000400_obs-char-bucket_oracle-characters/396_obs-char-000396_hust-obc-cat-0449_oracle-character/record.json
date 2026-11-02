@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000396",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0449",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000401_hust-obc-cat-0449_glyph.png",
+      "metadata": "images/001_asset-000401_hust-obc-cat-0449_glyph.yaml",
+      "asset_id": "asset-000401",
+      "source_image_path": "HUST-OBC/deciphered/0449/G_0449_乙4465反合14084反.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "64",
+      "pixel_height": "80",
+      "sha256": "97ffee40ee9f1269e046fc9792f0feec3b6be2e53896d1510a15d33dd71c690c",
+      "raw_source_sha256": "4213010fc8f33596db55d05d369678e04325a8b0e3e020f7b684654ba2727c3c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个相似的分离形体各有上部交叉、小矩形环形轮廓和折角下行笔画。"
+    ],
+    "en": [
+      "Two similar separated forms each show an upper crossing, a small rectangular loop, and an angular lower descender."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0449_乙4465反合14084反.png",
+    "prefix": "G",
+    "heji": "合14084",
+    "old_catalog": "乙4465",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反反"
+  },
+  "dataset_category": {
+    "source_category_id": "0449",
+    "validation_class_id": "395",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㖷",
+    "codepoints": "U+35B7",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000396",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

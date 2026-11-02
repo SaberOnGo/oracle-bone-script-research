@@ -1,0 +1,61 @@
+{
+  "id": "obs-unk-003488",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003488",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005081_hust-obc-und-L-003488_glyph.jpg",
+      "metadata": "images/001_asset-005081_hust-obc-und-L-003488_glyph.yaml",
+      "asset_id": "asset-005081",
+      "source_image_path": "HUST-OBC/undeciphered/L/3488/L_？_6820.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "62",
+      "sha256": "7108ad159ba7cc52e319e65596ba95e4643d870b572b8bf2a212c5b7094feff3",
+      "raw_source_sha256": "7108ad159ba7cc52e319e65596ba95e4643d870b572b8bf2a212c5b7094feff3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [],
+    "en": []
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_6820.jpg",
+    "prefix": "L",
+    "code": "？_6820"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3488",
+    "source_class_path": "HUST-OBC/undeciphered/L/3488/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3488/L_？_6820.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3488/L_？_6820.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

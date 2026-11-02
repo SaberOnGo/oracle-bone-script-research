@@ -1,0 +1,79 @@
+{
+  "id": "obs-char-000736",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0838",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000741_hust-obc-cat-0838_glyph.png",
+      "metadata": "images/001_asset-000741_hust-obc-cat-0838_glyph.yaml",
+      "asset_id": "asset-000741",
+      "source_image_path": "HUST-OBC/deciphered/0838/G_0838_摭續120合32960歷組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "80",
+      "sha256": "7c9a6bcce531d835ac8590ea4a3f82c2ef0f1576057218e0305b163943cdfa7d",
+      "raw_source_sha256": "1211040beca7b5b190f2a0734792aad1bd972e58bcafc367fb0e28465b346b1b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数条狭长竖笔和斜笔交叉成高长开放笔群，左下接点分叉，右上端呈尖箭状。"
+    ],
+    "en": [
+      "Several narrow crossing uprights and diagonals form a tall open cluster, with a forked lower junction at left and a pointed arrow-like upper end at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0838_摭續120合32960歷組.png",
+    "prefix": "G",
+    "heji": "合32960",
+    "old_catalog": "摭續120",
+    "old_catalog_abbr": "摭續",
+    "old_catalog_abbr_obm_label": "甲骨摭續",
+    "group_or_note": "歷組"
+  },
+  "dataset_category": {
+    "source_category_id": "0838",
+    "validation_class_id": "735",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜼",
+    "codepoints": "U+373C",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000736",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

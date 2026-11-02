@@ -948,7 +948,7 @@ GENERATED_NAME_ALLOWLIST = {
 MAX_NEW_OBJECT_DIRS_PER_CHANGE = 10
 MAX_NEW_NON_CORPUS_FILES_PER_CHANGE = 200
 OBJECT_DIR_PATTERN = re.compile(
-    r"^(corpus/[^/]+/(?:[^/]+/)?\d{3}_(?:obs|coll|src|lit|case)-[^/]+)/"
+    r"^(corpus/[^/]+/(?:[^/]+/)?\d{3,4}_(?:obs|coll|src|lit|case)-[^/]+)/"
 )
 
 
@@ -1024,6 +1024,17 @@ def _broken_backtick_lines(lines: list[str]) -> list[int]:
     return broken
 
 
+def _exists(path: Path) -> bool:
+    """Path.exists that also works beyond the 260-character Windows limit."""
+    if os.name == "nt":
+        prefix = "\\" + "\\?\\"  # the Windows long-path prefix
+        text = os.path.abspath(str(path))
+        if not text.startswith(prefix):
+            text = prefix + text
+        return os.path.exists(text)
+    return path.exists()
+
+
 def dossier_issues(readme: Path, rel_dir: str) -> list[str]:
     """Gates G2, G3, G5, G6, G11 for one standard dossier directory."""
     issues: list[str] = []
@@ -1058,7 +1069,7 @@ def dossier_issues(readme: Path, rel_dir: str) -> list[str]:
             issues.append(f"G11 {rel_dir}: source {ref} in record.json not cited in README.md")
     for image in record.get("images", []):
         path = image.get("path", "") if isinstance(image, dict) else str(image)
-        if path and not (directory / path).exists():
+        if path and not _exists(directory / path):
             issues.append(f"G11 {rel_dir}: image {path} listed in record.json is missing")
     return issues
 
@@ -1073,7 +1084,7 @@ def check_standard_dossiers(root: Path) -> list[str]:
             continue
         rel_dir = rel.rsplit("/", 1)[0]
         readme = root / rel_dir / "README.md"
-        if not readme.exists():
+        if not _exists(readme):
             issues.append(f"G2 {rel_dir}: record.json without README.md dossier")
             continue
         issues.extend(dossier_issues(readme, rel_dir))

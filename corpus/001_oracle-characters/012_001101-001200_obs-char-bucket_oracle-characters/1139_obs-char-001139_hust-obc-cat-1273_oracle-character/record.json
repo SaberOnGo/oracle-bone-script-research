@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001139",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1273",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001144_hust-obc-cat-1273_glyph.png",
+      "metadata": "images/001_asset-001144_hust-obc-cat-1273_glyph.yaml",
+      "asset_id": "asset-001144",
+      "source_image_path": "HUST-OBC/deciphered/1273/G_1273_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "45",
+      "pixel_height": "80",
+      "sha256": "05da1211604ac705f63af7a094894ac0f0a8032107eceed8d44f45e45a59fa9a",
+      "raw_source_sha256": "3c1ffefc78cc8cd86748717e39008fbe17e49e5bdc6f1aae104b24a459b52bb5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。"
+    ],
+    "en": [
+      "A broad upper bar leads into several long parallel descending curves and a short right outer stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1273_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "1273",
+    "validation_class_id": "1138",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㣯",
+    "codepoints": "U+38EF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001139",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

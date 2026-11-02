@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000667",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000667",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002260_hust-obc-und-L-000667_glyph.jpg",
+      "metadata": "images/001_asset-002260_hust-obc-und-L-000667_glyph.yaml",
+      "asset_id": "asset-002260",
+      "source_image_path": "HUST-OBC/undeciphered/L/667/L_？_1199.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "52",
+      "sha256": "3203bb7d795dfbe111c3ae534fc30012b3ed51a56c52856125023fca234888f5",
+      "raw_source_sha256": "3203bb7d795dfbe111c3ae534fc30012b3ed51a56c52856125023fca234888f5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条长弧形竖向笔画近于平行，右侧另有尖角并弯曲下行的分离笔。"
+    ],
+    "en": [
+      "Two long curved upright strokes stand in parallel, with a separate pointed and curved mark descending at the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1199.jpg",
+    "prefix": "L",
+    "code": "？_1199"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "667",
+    "source_class_path": "HUST-OBC/undeciphered/L/667/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/667/L_？_1199.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/667/L_？_1199.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

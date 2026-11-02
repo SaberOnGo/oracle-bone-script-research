@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000591",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0670_0671",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000596_hust-obc-cat-0670_0671_glyph.png",
+      "metadata": "images/001_asset-000596_hust-obc-cat-0670_0671_glyph.yaml",
+      "asset_id": "asset-000596",
+      "source_image_path": "HUST-OBC/deciphered/0670_0671/0670/G_0670_乙4362反.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "80",
+      "sha256": "485d884746f8d53d621b0191335ad1210df62dd28fd61e5484175fad49314706",
+      "raw_source_sha256": "109a792698d57bd50fca47a4ba970423da2845f9efb8d8d73af7a06209310471",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离笔画群上下层叠：上部为带短侧痕的开口折角环，下部为被中央笔穿过的圆环。"
+    ],
+    "en": [
+      "Two detached groups are stacked vertically: an open angular upper loop with a short side dash and a rounded lower loop crossed by a central stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0670_乙4362反.png",
+    "prefix": "G",
+    "old_catalog": "乙4362",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反"
+  },
+  "dataset_category": {
+    "source_category_id": "0670_0671",
+    "validation_class_id": "590",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㚔㚕",
+    "codepoints": "U+3694;U+3695",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000591",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

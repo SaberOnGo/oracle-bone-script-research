@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004673",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004673",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006266_hust-obc-und-X-004673_glyph.jpg",
+      "metadata": "images/001_asset-006266_hust-obc-und-X-004673_glyph.yaml",
+      "asset_id": "asset-006266",
+      "source_image_path": "HUST-OBC/undeciphered/X/229/X_？_8398_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "217",
+      "pixel_height": "253",
+      "sha256": "7c4566ca2b875e8a199d7d8d2c5e697188dbaf0810de8bf33c7ee9eb42ebb3a8",
+      "raw_source_sha256": "7c4566ca2b875e8a199d7d8d2c5e697188dbaf0810de8bf33c7ee9eb42ebb3a8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像两侧边缘和下边缘有大面积密集黑色区域。",
+      "不规则浅色间隙把中央近似竖向区域分隔开。",
+      "深色残片打断了可连续追踪的外部轮廓。",
+      "右上方有一个带小浅色缺口的密集黑色笔画组。",
+      "左下方的宽大深色区域中有分散的浅色开口。",
+      "这张阈值化图像需要更清晰的原始扫描后再细看。"
+    ],
+    "en": [
+      "Dense black areas occupy both side margins and the lower edge.",
+      "Irregular pale gaps divide a mostly vertical central band.",
+      "Dark fragments interrupt any continuous outer contour.",
+      "A compact black cluster with small pale notches appears at upper right.",
+      "A broad dark mass at lower left contains isolated pale openings.",
+      "The thresholded image needs a clearer source scan before close analysis.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8398_1.png",
+    "prefix": "X",
+    "code": "？_8398_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "229",
+    "source_class_path": "HUST-OBC/undeciphered/X/229/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/229/X_？_8398_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/229/X_？_8398_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

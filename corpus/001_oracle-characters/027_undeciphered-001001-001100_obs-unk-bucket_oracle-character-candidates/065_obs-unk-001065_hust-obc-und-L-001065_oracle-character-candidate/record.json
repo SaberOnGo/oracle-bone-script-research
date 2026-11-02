@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001065",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001065",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002658_hust-obc-und-L-001065_glyph.jpg",
+      "metadata": "images/001_asset-002658_hust-obc-und-L-001065_glyph.yaml",
+      "asset_id": "asset-002658",
+      "source_image_path": "HUST-OBC/undeciphered/L/1065/L_？_13003.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "56",
+      "sha256": "6a54e99b450d1a8928934324fc91abaeaf17269d58587136e5e5f6e8ccb111ad",
+      "raw_source_sha256": "6a54e99b450d1a8928934324fc91abaeaf17269d58587136e5e5f6e8ccb111ad",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "盾形围合带上部横带和尖形下部，两侧下方有两个分离椭圆痕。"
+    ],
+    "en": [
+      "A shield-like enclosure has a horizontal upper band, a pointed lower section, and two detached oval marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13003.jpg",
+    "prefix": "L",
+    "code": "？_13003"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1065",
+    "source_class_path": "HUST-OBC/undeciphered/L/1065/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1065/L_？_13003.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1065/L_？_13003.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

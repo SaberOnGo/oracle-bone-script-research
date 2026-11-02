@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000958",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000958",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002551_hust-obc-und-L-000958_glyph.jpg",
+      "metadata": "images/001_asset-002551_hust-obc-und-L-000958_glyph.yaml",
+      "asset_id": "asset-002551",
+      "source_image_path": "HUST-OBC/undeciphered/L/958/L_？_12699.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "52",
+      "sha256": "1753037fb19cd3d89bb6706952552486672983a1324a74d96fda5b1bc0492126",
+      "raw_source_sha256": "1753037fb19cd3d89bb6706952552486672983a1324a74d96fda5b1bc0492126",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖拱形内含小的上部和内部回环，随后延成长中央主线并收于曲尖。"
+    ],
+    "en": [
+      "A pointed arch contains small upper and inner loops, then continues as a long central stem to a curved tip."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12699.jpg",
+    "prefix": "L",
+    "code": "？_12699"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "958",
+    "source_class_path": "HUST-OBC/undeciphered/L/958/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/958/L_？_12699.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/958/L_？_12699.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

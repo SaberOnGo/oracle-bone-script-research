@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000821",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0929",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000826_hust-obc-cat-0929_glyph.png",
+      "metadata": "images/001_asset-000826_hust-obc-cat-0929_glyph.yaml",
+      "asset_id": "asset-000826",
+      "source_image_path": "HUST-OBC/deciphered/0929/L_0929_10374.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "57",
+      "sha256": "1c1476f6dc4ffbe9f5e5fcd1691545686dd640f010aec04523aed0c515780941",
+      "raw_source_sha256": "5717aaa25fcdc452097393d4d337c1d763c7c283a8271c0327a557c0346f45a8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型灰度图像显示紧凑的斜向笔群，含数条短横笔和一条从下方接点延伸的细笔；细连接难辨。"
+    ],
+    "en": [
+      "The small gray image shows a compact diagonal cluster with several short bars and a thin stem descending from its lower junction; fine joins are unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0929_10374.jpg",
+    "prefix": "L",
+    "code": "0929_10374"
+  },
+  "dataset_category": {
+    "source_category_id": "0929",
+    "validation_class_id": "820",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㞗",
+    "codepoints": "U+3797",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000821",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

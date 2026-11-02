@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000582",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000582",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002175_hust-obc-und-L-000582_glyph.jpg",
+      "metadata": "images/001_asset-002175_hust-obc-und-L-000582_glyph.yaml",
+      "asset_id": "asset-002175",
+      "source_image_path": "HUST-OBC/undeciphered/L/582/L_？_11735.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "62",
+      "sha256": "25ac2d421ee68a321b1ba5307ca9cdbb9f78e04d9005a54cb111559c22def4c5",
+      "raw_source_sha256": "25ac2d421ee68a321b1ba5307ca9cdbb9f78e04d9005a54cb111559c22def4c5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "分支状中央形体带细长上部环、短侧环和三角形下部框架。"
+    ],
+    "en": [
+      "A branching central form has an elongated upper loop, short side loops, and a triangular lower frame."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11735.jpg",
+    "prefix": "L",
+    "code": "？_11735"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "582",
+    "source_class_path": "HUST-OBC/undeciphered/L/582/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/582/L_？_11735.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/582/L_？_11735.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

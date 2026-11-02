@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004485",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004485",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006078_hust-obc-und-X-004485_glyph.jpg",
+      "metadata": "images/001_asset-006078_hust-obc-und-X-004485_glyph.yaml",
+      "asset_id": "asset-006078",
+      "source_image_path": "HUST-OBC/undeciphered/X/41/X_？_8221_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "211",
+      "pixel_height": "269",
+      "sha256": "7ab5004915c3bf907b0f02d745ee4103ead6b6acd092a4c4e1f54cde1870b645",
+      "raw_source_sha256": "7ab5004915c3bf907b0f02d745ee4103ead6b6acd092a4c4e1f54cde1870b645",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部横向痕迹围出一个圆弧封闭空间。",
+      "上部开口下方有两条较短的横向痕迹。",
+      "下部向左右分成两组分支痕迹。",
+      "多条下部支痕以细长下行末端收束。"
+    ],
+    "en": [
+      "A rounded enclosed upper loop spans the top of the form.",
+      "Two short horizontal strokes lie below the upper loop.",
+      "The lower section divides into left and right branching groups.",
+      "Several lower branches end in thin descending terminals."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8221_1.png",
+    "prefix": "X",
+    "code": "？_8221_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "41",
+    "source_class_path": "HUST-OBC/undeciphered/X/41/",
+    "source_image_count": 5,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/41/X_？_8221_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/41/X_？_8222_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

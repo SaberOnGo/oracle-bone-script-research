@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002468",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002468",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004061_hust-obc-und-L-002468_glyph.jpg",
+      "metadata": "images/001_asset-004061_hust-obc-und-L-002468_glyph.yaml",
+      "asset_id": "asset-004061",
+      "source_image_path": "HUST-OBC/undeciphered/L/2468/L_？_3627.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "60",
+      "sha256": "eb678fc964cb1ccd1fbb89d81bb03e8b49468c99c7d46c2eade7e64677425118",
+      "raw_source_sha256": "eb678fc964cb1ccd1fbb89d81bb03e8b49468c99c7d46c2eade7e64677425118",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数条平行斜向笔痕分列在较密集的中央笔痕两侧，两侧下部都可见较短的末端笔痕。"
+    ],
+    "en": [
+      "Several parallel slanting strokes flank a denser central cluster, with short lower terminals on both sides."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_3627.jpg",
+    "prefix": "L",
+    "code": "？_3627"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2468",
+    "source_class_path": "HUST-OBC/undeciphered/L/2468/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2468/L_？_3627.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2468/L_？_3627.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

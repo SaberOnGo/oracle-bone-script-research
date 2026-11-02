@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000953",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1071_1072",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000958_hust-obc-cat-1071_1072_glyph.png",
+      "metadata": "images/001_asset-000958_hust-obc-cat-1071_1072_glyph.yaml",
+      "asset_id": "asset-000958",
+      "source_image_path": "HUST-OBC/deciphered/1071_1072/1071/G_1071_京都2894合33201𠂤歷間.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "80",
+      "pixel_height": "70",
+      "sha256": "bc62f1e54ea7a3e14e26e020cfedf4f1af739b588a9a1b995dd2377a21422dc7",
+      "raw_source_sha256": "1e05229be15b4ad4612fe74e29d801acf8301bc977fda64c98ac3168c35cc8b5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离的高长矩形笔群各自含横向交叉笔和短侧伸笔。"
+    ],
+    "en": [
+      "Two separate tall rectangular clusters each contain horizontal cross-strokes and short side projections."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1071_京都2894合33201𠂤歷間.png",
+    "prefix": "G",
+    "heji": "合33201",
+    "old_catalog": "京都2894",
+    "old_catalog_abbr": "京都",
+    "old_catalog_abbr_obm_label": "京都大學人文科學研究所藏甲骨文字",
+    "group_or_note": "𠂤歷間"
+  },
+  "dataset_category": {
+    "source_category_id": "1071_1072",
+    "validation_class_id": "952",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㠥㠦",
+    "codepoints": "U+3825;U+3826",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000953",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

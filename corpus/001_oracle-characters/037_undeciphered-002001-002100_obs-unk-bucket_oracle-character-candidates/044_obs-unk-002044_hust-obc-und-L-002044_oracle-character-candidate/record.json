@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002044",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002044",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003637_hust-obc-und-L-002044_glyph.jpg",
+      "metadata": "images/001_asset-003637_hust-obc-und-L-002044_glyph.yaml",
+      "asset_id": "asset-003637",
+      "source_image_path": "HUST-OBC/undeciphered/L/2044/L_？_2104.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "54",
+      "sha256": "81202254a110a7568fc98e7962d15aab615c01b7a805f50853fde8b6b17e2e24",
+      "raw_source_sha256": "81202254a110a7568fc98e7962d15aab615c01b7a805f50853fde8b6b17e2e24",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "不规则的纵向笔画群左侧呈折线状，中部有较窄下行笔画，右侧有短小分离笔痕。下端未连接成已确认的封闭轮廓。"
+    ],
+    "en": [
+      "An irregular upright group has a zigzagging left portion, a narrow central descending stroke, and short separated marks on the right. The lower tips are not joined into a confirmed enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2104.jpg",
+    "prefix": "L",
+    "code": "？_2104"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2044",
+    "source_class_path": "HUST-OBC/undeciphered/L/2044/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2044/L_？_2104.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2044/L_？_2104.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

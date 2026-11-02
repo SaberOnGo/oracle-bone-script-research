@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001143",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1277",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001148_hust-obc-cat-1277_glyph.png",
+      "metadata": "images/001_asset-001148_hust-obc-cat-1277_glyph.yaml",
+      "asset_id": "asset-001148",
+      "source_image_path": "HUST-OBC/deciphered/1277/G_1277_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "66",
+      "pixel_height": "72",
+      "sha256": "47f76b5ffc0ffc3442a86b31a63992655c8707ba411cc7d989b23986d4a53e08",
+      "raw_source_sha256": "9e56be13435af2fd2cda8b8c7b0735242957e135ca82f733cb749351e65f4232",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个狭长而相对的弯曲轮廓并列，各自有尖状上端和开放内部。"
+    ],
+    "en": [
+      "Two narrow opposing curved outlines stand side by side, each with a pointed upper end and an open interior."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1277_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "1277",
+    "validation_class_id": "1142",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㣳",
+    "codepoints": "U+38F3",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001143",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

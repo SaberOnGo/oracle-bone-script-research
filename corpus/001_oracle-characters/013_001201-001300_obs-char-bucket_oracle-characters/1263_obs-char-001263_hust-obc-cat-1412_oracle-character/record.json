@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001263",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1412",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001268_hust-obc-cat-1412_glyph.png",
+      "metadata": "images/001_asset-001268_hust-obc-cat-1412_glyph.yaml",
+      "asset_id": "asset-001268",
+      "source_image_path": "HUST-OBC/deciphered/1412/G_1412_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "93",
+      "sha256": "f208738857335b7525bd082264d9c65704d71d792d73089507a19dafe24773a8",
+      "raw_source_sha256": "eb7e497e7c0f4ac6854a8e26ea055b4ec4aa3af72eb5e7ad6d7682993291b9a7",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中有数个彼此分离的狭长分枝笔画群，分布在纵向画面中。"
+    ],
+    "en": [
+      "The image contains several separated narrow branching clusters arranged across the vertical field."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1412_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "1412",
+    "validation_class_id": "1262",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥺",
+    "codepoints": "U+397A",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001263",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

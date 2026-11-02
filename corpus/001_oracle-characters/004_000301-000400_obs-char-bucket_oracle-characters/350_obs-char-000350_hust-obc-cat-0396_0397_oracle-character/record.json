@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000350",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0396_0397",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000355_hust-obc-cat-0396_0397_glyph.png",
+      "metadata": "images/001_asset-000355_hust-obc-cat-0396_0397_glyph.yaml",
+      "asset_id": "asset-000355",
+      "source_image_path": "HUST-OBC/deciphered/0396_0397/0396/H_0396_6011D_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "175",
+      "pixel_height": "314",
+      "sha256": "cb55c65844013cb80d68466a38edccd77ab87f14b75d62fc823592a219890ff8",
+      "raw_source_sha256": "fd3c69aa24d362d775a959eb8f1f8e2ce74333408d72198b78bbdab9dbeeb729",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高直中轴向两侧大幅分叉，下端为圆弧闭合轮廓，周围有许多短侧向笔画。"
+    ],
+    "en": [
+      "A tall central stem branches widely to both sides and ends in a rounded lower enclosure, with many short side strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0396_6011D_0.png",
+    "prefix": "H",
+    "code": "0396_6011D_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0396_0397",
+    "validation_class_id": "349",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㖂㖃",
+    "codepoints": "U+3582;U+3583",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000350",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

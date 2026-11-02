@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004695",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004695",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006288_hust-obc-und-X-004695_glyph.jpg",
+      "metadata": "images/001_asset-006288_hust-obc-und-X-004695_glyph.yaml",
+      "asset_id": "asset-006288",
+      "source_image_path": "HUST-OBC/undeciphered/X/251/X_？_8418_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "175",
+      "pixel_height": "281",
+      "sha256": "c339496b18b6a8ab90061add3934dff1d151139373898eb48767582fe7a081f9",
+      "raw_source_sha256": "c339496b18b6a8ab90061add3934dff1d151139373898eb48767582fe7a081f9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一条高大的中央笔干贯穿多条横向深色笔画。",
+      "顶部有一条短横向笔画和一段短下行笔画。",
+      "中部有两条横向带状笔画穿过或夹住中央笔干。",
+      "一条长斜向笔画向左下方延伸。",
+      "下部笔干从中部横带下方继续向下，并以尖端结束。",
+      "下半部右侧有一个极小的分离深色残片。"
+    ],
+    "en": [
+      "A tall central stem runs through several horizontal dark strokes.",
+      "The top has a short horizontal cap and a short descending segment.",
+      "Two middle horizontal bands cross or bracket the central stem.",
+      "A long diagonal stroke descends toward the lower left.",
+      "The lower stem continues below the middle bands to a pointed end.",
+      "A tiny detached dark fragment appears to the right of the lower half.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8418_1.png",
+    "prefix": "X",
+    "code": "？_8418_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "251",
+    "source_class_path": "HUST-OBC/undeciphered/X/251/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/251/X_？_8418_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/251/X_？_8418_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

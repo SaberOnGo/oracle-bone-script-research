@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000468",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000468",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002061_hust-obc-und-L-000468_glyph.jpg",
+      "metadata": "images/001_asset-002061_hust-obc-und-L-000468_glyph.yaml",
+      "asset_id": "asset-002061",
+      "source_image_path": "HUST-OBC/undeciphered/L/468/L_？_11449.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "50",
+      "sha256": "77ef424c317440c082480905a2744de78673a4a507bad10888ecb84d4c449c58",
+      "raw_source_sha256": "77ef424c317440c082480905a2744de78673a4a507bad10888ecb84d4c449c58",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重左侧直笔被中央横笔穿过；右侧有小型菱角状上部痕迹和短下伸。"
+    ],
+    "en": [
+      "A thick left upright is crossed by a central horizontal stroke; a small upper diamond-like mark and short lower projections stand to the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11449.jpg",
+    "prefix": "L",
+    "code": "？_11449"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "468",
+    "source_class_path": "HUST-OBC/undeciphered/L/468/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/468/L_？_11449.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/468/L_？_11449.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000985",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1106_1107",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000990_hust-obc-cat-1106_1107_glyph.png",
+      "metadata": "images/001_asset-000990_hust-obc-cat-1106_1107_glyph.yaml",
+      "asset_id": "asset-000990",
+      "source_image_path": "HUST-OBC/deciphered/1106_1107/1106/G_1106_京津3453合26092出組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "80",
+      "sha256": "510c2ad0ea72ff07c8f189af873933e16fa37c196755b8af86fcf3379c93995d",
+      "raw_source_sha256": "89af79fd2c3fb445fc8190862c86c76a12290ff958890d4e886bdc211f34387a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "短上部分枝连接长弯曲下部闭合轮廓，并带有侧伸笔。"
+    ],
+    "en": [
+      "A short upper branch leads into a long curved lower enclosure with side projections."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1106_京津3453合26092出組.png",
+    "prefix": "G",
+    "heji": "合26092",
+    "old_catalog": "京津3453",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "出組"
+  },
+  "dataset_category": {
+    "source_category_id": "1106_1107",
+    "validation_class_id": "984",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㡈㡉",
+    "codepoints": "U+3848;U+3849",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000985",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

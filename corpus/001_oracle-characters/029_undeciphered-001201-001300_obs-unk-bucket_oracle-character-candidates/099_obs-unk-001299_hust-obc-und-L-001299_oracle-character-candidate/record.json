@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001299",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001299",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002892_hust-obc-und-L-001299_glyph.jpg",
+      "metadata": "images/001_asset-002892_hust-obc-und-L-001299_glyph.yaml",
+      "asset_id": "asset-002892",
+      "source_image_path": "HUST-OBC/undeciphered/L/1299/L_？_13684.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "52",
+      "sha256": "eaf4f23e1edabb8b82193d8dd061ad5632061aaf6c848c79ca139c00c283edf0",
+      "raw_source_sha256": "eaf4f23e1edabb8b82193d8dd061ad5632061aaf6c848c79ca139c00c283edf0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型叠置回环位于宽大棱角横向形之上，下方另有圆弧标记。"
+    ],
+    "en": [
+      "A small stacked loop rises above a broad angular lateral form, with a separate rounded lower mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13684.jpg",
+    "prefix": "L",
+    "code": "？_13684"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1299",
+    "source_class_path": "HUST-OBC/undeciphered/L/1299/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1299/L_？_13684.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1299/L_？_13684.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

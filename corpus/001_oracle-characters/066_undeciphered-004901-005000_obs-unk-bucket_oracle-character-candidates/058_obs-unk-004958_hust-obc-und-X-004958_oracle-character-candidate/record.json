@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004958",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004958",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006551_hust-obc-und-X-004958_glyph.jpg",
+      "metadata": "images/001_asset-006551_hust-obc-und-X-004958_glyph.yaml",
+      "asset_id": "asset-006551",
+      "source_image_path": "HUST-OBC/undeciphered/X/514/X_？_7496_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "188",
+      "pixel_height": "294",
+      "sha256": "1a37101ec921fff7078102356d7d2754157f421ceb9c017895b5636930a25ae2",
+      "raw_source_sha256": "1a37101ec921fff7078102356d7d2754157f421ceb9c017895b5636930a25ae2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上左一组痕迹形成较粗的折角轮廓，内部留有浅色开口。",
+      "右侧另有一条大体竖向下行的弧形轮廓。",
+      "右侧轮廓在下部中央连接处向内转折。",
+      "上部结构与下部连接处之间有两枚分离短痕。",
+      "一条长斜笔画从连接处向右下方延伸。"
+    ],
+    "en": [
+      "The upper left group forms a thick angular outline with a light opening.",
+      "A separate right contour descends in a mostly vertical curve.",
+      "The right contour turns inward near the lower central junction.",
+      "Two short isolated marks lie between the upper group and lower junction.",
+      "A long diagonal stroke descends from the junction toward the lower right.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7496_1.png",
+    "prefix": "X",
+    "code": "？_7496_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "514",
+    "source_class_path": "HUST-OBC/undeciphered/X/514/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/514/X_？_7496_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/514/X_？_7496_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

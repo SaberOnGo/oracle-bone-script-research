@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001244",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1392",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001249_hust-obc-cat-1392_glyph.png",
+      "metadata": "images/001_asset-001249_hust-obc-cat-1392_glyph.yaml",
+      "asset_id": "asset-001249",
+      "source_image_path": "HUST-OBC/deciphered/1392/G_1392_乙7200(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "79",
+      "sha256": "3d2ed46a9dd51136d0a8b44a3a2c448df42cee06eac2f7ee9b1e7cc0f9964f36",
+      "raw_source_sha256": "e485c1464106d15a3b38280950f2d11a4d2fec9ef1f662f8829da5faf4b483d2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型直立形体有浅拱形顶部、两条内部弧笔和一条短下行竖笔。"
+    ],
+    "en": [
+      "A small upright form has a shallow arched top, two inner curved strokes, and a short lower vertical."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1392_乙7200(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙7200",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1392",
+    "validation_class_id": "1243",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥦",
+    "codepoints": "U+3966",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001244",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

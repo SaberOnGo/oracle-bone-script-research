@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001757",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001757",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003350_hust-obc-und-L-001757_glyph.jpg",
+      "metadata": "images/001_asset-003350_hust-obc-und-L-001757_glyph.yaml",
+      "asset_id": "asset-003350",
+      "source_image_path": "HUST-OBC/undeciphered/L/1757/L_？_14810.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "76c525335eae9fd62441e43f55a054d5d31d3037705ac50dbace41e32e8ee833",
+      "raw_source_sha256": "76c525335eae9fd62441e43f55a054d5d31d3037705ac50dbace41e32e8ee833",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条分离上部笔痕位于中央下伸轮廓之上，两侧有弯曲延伸，下端较尖。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "Two detached upper strokes hover above a central descending form with curved side extensions and a pointed lower end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14810.jpg",
+    "prefix": "L",
+    "code": "？_14810"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1757",
+    "source_class_path": "HUST-OBC/undeciphered/L/1757/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1757/L_？_14810.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1757/L_？_14810.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

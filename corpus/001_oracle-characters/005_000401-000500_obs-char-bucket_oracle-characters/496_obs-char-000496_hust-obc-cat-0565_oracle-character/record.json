@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000496",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0565",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000501_hust-obc-cat-0565_glyph.png",
+      "metadata": "images/001_asset-000501_hust-obc-cat-0565_glyph.yaml",
+      "asset_id": "asset-000501",
+      "source_image_path": "HUST-OBC/deciphered/0565/G_0565_前6.31.3合3919.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "47",
+      "pixel_height": "80",
+      "sha256": "178977b2d6e7f3f75d376519a71d819dc70874f6bd7db4aa182b47695840367f",
+      "raw_source_sha256": "0a39b78dcad3140ace43513be5ce6b0e102b93497b41657e7415613dc55641c5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖顶多边外框包围带交叉分支的上部椭圆环，其下有两组层叠横竖笔画。"
+    ],
+    "en": [
+      "A pointed polygonal outer frame encloses an upper oval loop with crossed branches; below it are two stacked groups of horizontal and vertical strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0565_前6.31.3合3919.png",
+    "prefix": "G",
+    "heji": "合3919",
+    "old_catalog": "前6.31.3",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編"
+  },
+  "dataset_category": {
+    "source_category_id": "0565",
+    "validation_class_id": "495",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘫",
+    "codepoints": "U+362B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000496",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

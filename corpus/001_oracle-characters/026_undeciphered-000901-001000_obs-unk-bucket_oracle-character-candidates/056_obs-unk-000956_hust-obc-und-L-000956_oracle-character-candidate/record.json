@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000956",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000956",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002549_hust-obc-und-L-000956_glyph.jpg",
+      "metadata": "images/001_asset-002549_hust-obc-und-L-000956_glyph.yaml",
+      "asset_id": "asset-002549",
+      "source_image_path": "HUST-OBC/undeciphered/L/956/L_？_12695.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "53",
+      "sha256": "5288d8cc29ce24a75d5b0ef4bf0449b516b9ef153701038a26b99ad256b487bc",
+      "raw_source_sha256": "5288d8cc29ce24a75d5b0ef4bf0449b516b9ef153701038a26b99ad256b487bc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离的紧密形体并列：左侧为带下曲线的折线回环，右侧为带长线的尖回环。"
+    ],
+    "en": [
+      "Two separated compact forms appear: an angular loop with a lower curve on the left and a pointed loop with a long stroke on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12695.jpg",
+    "prefix": "L",
+    "code": "？_12695"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "956",
+    "source_class_path": "HUST-OBC/undeciphered/L/956/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/956/L_？_12695.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/956/L_？_12695.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

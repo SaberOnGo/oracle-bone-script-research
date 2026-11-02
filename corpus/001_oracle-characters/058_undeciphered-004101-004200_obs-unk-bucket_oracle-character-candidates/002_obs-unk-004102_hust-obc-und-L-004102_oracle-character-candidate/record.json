@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-004102",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004102",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005695_hust-obc-und-L-004102_glyph.jpg",
+      "metadata": "images/001_asset-005695_hust-obc-und-L-004102_glyph.yaml",
+      "asset_id": "asset-005695",
+      "source_image_path": "HUST-OBC/undeciphered/L/4102/L_？_8822.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "57",
+      "sha256": "760db4acf0c874d7dafa2c44505a5ab5ae91b90dfb4ab2a99f19f863b7fb34cc",
+      "raw_source_sha256": "760db4acf0c874d7dafa2c44505a5ab5ae91b90dfb4ab2a99f19f863b7fb34cc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像顶部有一个小型弯曲或分支状痕迹，下方是较密集的中央痕迹组。多条斜向痕迹在其下方交叉，两侧还有细痕向下延伸；这些交叉痕迹目前不能完全分开。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005695_hust-obc-und-L-004102_glyph.jpg`",
+      "A small rounded or branched trace sits at the top of a dense central cluster. Several diagonal traces cross below it, with thin side traces extending downward; the crossings are not fully separable."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8822.jpg",
+    "prefix": "L",
+    "code": "？_8822"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4102",
+    "source_class_path": "HUST-OBC/undeciphered/L/4102/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4102/L_？_8822.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4102/L_？_8822.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

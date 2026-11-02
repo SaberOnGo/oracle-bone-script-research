@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-000992",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1114",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000997_hust-obc-cat-1114_glyph.png",
+      "metadata": "images/001_asset-000997_hust-obc-cat-1114_glyph.yaml",
+      "asset_id": "asset-000997",
+      "source_image_path": "HUST-OBC/deciphered/1114/G_1114_佚613.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "44",
+      "pixel_height": "80",
+      "sha256": "dffd3e41e361dbfabc4eb3a42566d81a73560f5f7b7a06ce61acdf713e52e960",
+      "raw_source_sha256": "14a70d493c47f45b64b687d01c46e9162d680621a7d83c44af62fc35370c8926",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细中央笔干有成对上部分枝和长下行右弯笔。"
+    ],
+    "en": [
+      "A thin central stem has paired upper branches and a long descending right curve."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1114_佚613.png",
+    "prefix": "G",
+    "old_catalog": "佚613",
+    "old_catalog_abbr": "佚",
+    "old_catalog_abbr_obm_label": "殷契佚存補編"
+  },
+  "dataset_category": {
+    "source_category_id": "1114",
+    "validation_class_id": "991",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㡐",
+    "codepoints": "U+3850",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000992",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000227",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0253",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000232_hust-obc-cat-0253_glyph.png",
+      "metadata": "images/001_asset-000232_hust-obc-cat-0253_glyph.yaml",
+      "asset_id": "asset-000232",
+      "source_image_path": "HUST-OBC/deciphered/0253/G_0253_合14294賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "8ef4850acba4838d627490be3d36a8706c39334978aff72d84e261c592e72b07",
+      "raw_source_sha256": "a8c642b9559974e5ad726ed62df110974597a3218c6da01f77bf1fcc898b308c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像由上方简单细弯曲笔构成，并在右侧转为长下行线。"
+    ],
+    "en": [
+      "The image is a simple thin curved upper stroke that turns into a long descending line on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0253_合14294賓組.png",
+    "prefix": "G",
+    "heji": "合14294",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0253",
+    "validation_class_id": "226",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㓳",
+    "codepoints": "U+34F3",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000227",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

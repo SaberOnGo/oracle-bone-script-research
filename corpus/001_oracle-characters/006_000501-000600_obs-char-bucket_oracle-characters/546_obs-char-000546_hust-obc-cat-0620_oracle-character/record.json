@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000546",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0620",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000551_hust-obc-cat-0620_glyph.png",
+      "metadata": "images/001_asset-000551_hust-obc-cat-0620_glyph.yaml",
+      "asset_id": "asset-000551",
+      "source_image_path": "HUST-OBC/deciphered/0620/G_0620_前2.27.5合37473黃組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "80",
+      "sha256": "73ec064ac274b6a24e7281a6a22f57bfd31f2c2f28a21aa6f6ee0bd94bc8e230",
+      "raw_source_sha256": "a6e5bf4f20b0290b125cc282ec855144433cf66614e391f7334c6162b8519707",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "单条长渐尖竖笔在中部附近被横栏穿过，并有一条短斜枝伸向右上。"
+    ],
+    "en": [
+      "A single long tapered vertical is crossed near the middle by a horizontal bar and has one short diagonal branch rising to the upper right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0620_前2.27.5合37473黃組.png",
+    "prefix": "G",
+    "heji": "合37473",
+    "old_catalog": "前2.27.5",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "黃組"
+  },
+  "dataset_category": {
+    "source_category_id": "0620",
+    "validation_class_id": "545",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙢",
+    "codepoints": "U+3662",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000546",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

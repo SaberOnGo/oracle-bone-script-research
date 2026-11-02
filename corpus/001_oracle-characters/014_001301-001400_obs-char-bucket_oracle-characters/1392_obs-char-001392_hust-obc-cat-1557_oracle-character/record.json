@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001392",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1557",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001397_hust-obc-cat-1557_glyph.png",
+      "metadata": "images/001_asset-001397_hust-obc-cat-1557_glyph.yaml",
+      "asset_id": "asset-001397",
+      "source_image_path": "HUST-OBC/deciphered/1557/G_1557_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "70",
+      "pixel_height": "92",
+      "sha256": "3f9c1bfcb23b463e47c974e4053ae6a3bb8d9bbc7c069c36eaf6105748f73ca1",
+      "raw_source_sha256": "304db6816026b311c96d2ed19deffbca3fd80d55ec9b477239f50e2c6989ee45",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离分枝形体组合为开放左分叉和长右弧线。"
+    ],
+    "en": [
+      "Two separated branching forms combine open left prongs with a long right curve."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1557_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "1557",
+    "validation_class_id": "1391",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨋",
+    "codepoints": "U+3A0B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001392",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

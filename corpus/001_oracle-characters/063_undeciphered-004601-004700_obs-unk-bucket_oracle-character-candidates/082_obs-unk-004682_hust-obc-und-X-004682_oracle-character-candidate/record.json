@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004682",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004682",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006275_hust-obc-und-X-004682_glyph.jpg",
+      "metadata": "images/001_asset-006275_hust-obc-und-X-004682_glyph.yaml",
+      "asset_id": "asset-006275",
+      "source_image_path": "HUST-OBC/undeciphered/X/238/X_？_8406_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "219",
+      "pixel_height": "370",
+      "sha256": "7f3ce3461a5417943b4425729a1d28e0c747ce13e2bc89092678c612067a6bc7",
+      "raw_source_sha256": "7f3ce3461a5417943b4425729a1d28e0c747ce13e2bc89092678c612067a6bc7",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "深色矩形区域包围着一条中央浅色带。",
+      "浅色带在上部突然扩展成宽大的近似菱形区域。",
+      "中部收窄后又向左下方重新扩展。",
+      "中央附近有小型深色斑点打断浅色区域。",
+      "下端向左形成不规则的尖状突出。",
+      "图像反相和阈值化处理遮挡了原始表面边界。"
+    ],
+    "en": [
+      "A dark rectangular field fills the image around a pale central band.",
+      "The pale band widens sharply into a broad upper diamond-like area.",
+      "Its middle narrows and then widens again toward the lower left.",
+      "Small dark specks interrupt the pale region near the center.",
+      "The lower end forms an uneven pointed projection toward the left.",
+      "The image polarity and thresholding obscure the original surface boundary.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8406_1.png",
+    "prefix": "X",
+    "code": "？_8406_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "238",
+    "source_class_path": "HUST-OBC/undeciphered/X/238/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/238/X_？_8406_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/238/X_？_8406_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

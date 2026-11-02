@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000492",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000492",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002085_hust-obc-und-L-000492_glyph.jpg",
+      "metadata": "images/001_asset-002085_hust-obc-und-L-000492_glyph.yaml",
+      "asset_id": "asset-002085",
+      "source_image_path": "HUST-OBC/undeciphered/L/492/L_？_11506.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "61",
+      "sha256": "bda6ea78b80423abdbdd8e52db94db030f9db92732982760f553d07c7c24a9f3",
+      "raw_source_sha256": "bda6ea78b80423abdbdd8e52db94db030f9db92732982760f553d07c7c24a9f3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "分支形体上部有小型椭圆，两侧有弧形外伸；下部为尖角轮廓，末端上方另有短横笔。"
+    ],
+    "en": [
+      "A branching form has a small upper oval, curved side projections, and a pointed lower contour ending above a short horizontal bar."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11506.jpg",
+    "prefix": "L",
+    "code": "？_11506"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "492",
+    "source_class_path": "HUST-OBC/undeciphered/L/492/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/492/L_？_11506.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/492/L_？_11506.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

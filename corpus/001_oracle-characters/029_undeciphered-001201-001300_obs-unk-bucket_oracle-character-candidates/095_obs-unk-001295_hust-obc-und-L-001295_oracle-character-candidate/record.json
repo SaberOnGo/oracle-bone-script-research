@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001295",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001295",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002888_hust-obc-und-L-001295_glyph.jpg",
+      "metadata": "images/001_asset-002888_hust-obc-und-L-001295_glyph.yaml",
+      "asset_id": "asset-002888",
+      "source_image_path": "HUST-OBC/undeciphered/L/1295/L_？_13670.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "45",
+      "pixel_height": "54",
+      "sha256": "4d2dbc71bf6b468d7717c0acb992f7fa8c7b2feb3a68c3a4327f1e44264dd3ab",
+      "raw_source_sha256": "4d2dbc71bf6b468d7717c0acb992f7fa8c7b2feb3a68c3a4327f1e44264dd3ab",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "四个圆弧或棱角叶片围绕紧凑中央展开，每个叶片内有小开口。"
+    ],
+    "en": [
+      "Four rounded or angular lobes radiate around a compact center, each lobe containing a small opening."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13670.jpg",
+    "prefix": "L",
+    "code": "？_13670"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1295",
+    "source_class_path": "HUST-OBC/undeciphered/L/1295/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1295/L_？_13670.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1295/L_？_13670.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000556",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0630_0631",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000561_hust-obc-cat-0630_0631_glyph.png",
+      "metadata": "images/001_asset-000561_hust-obc-cat-0630_0631_glyph.yaml",
+      "asset_id": "asset-000561",
+      "source_image_path": "HUST-OBC/deciphered/0630_0631/0630/G_0630_乙817(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "60",
+      "pixel_height": "80",
+      "sha256": "45e061aee766c64dff6856501f654a26817f8625d110c1957e2d7892e2806acb",
+      "raw_source_sha256": "f1427f29f190ffba60f4ef988d1c46457e969c5781f3c91d9fee613d540e3b3a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧凑中央尖形体带交叉上枝和数条长下部延伸，两侧分布分离短痕与点状痕迹。"
+    ],
+    "en": [
+      "A compact central pointed body has crossing upper branches and several long lower extensions, surrounded on both sides by detached short marks and dots."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0630_乙817(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙817",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0630_0631",
+    "validation_class_id": "555",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㙬㙭",
+    "codepoints": "U+366C;U+366D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000556",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

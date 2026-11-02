@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001424",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1596",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001429_hust-obc-cat-1596_glyph.png",
+      "metadata": "images/001_asset-001429_hust-obc-cat-1596_glyph.yaml",
+      "asset_id": "asset-001429",
+      "source_image_path": "HUST-OBC/deciphered/1596/G_1596_合17954(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "53",
+      "pixel_height": "80",
+      "sha256": "a7669acb7824b30dab057489fdd757bf1e471d98360aa4193f8e6840f35d8896",
+      "raw_source_sha256": "77192635db0f7338e34dec410cf11cca4d80ac1217c54bacf5fd05bbbe990629",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖状内部形体由上部分叉和长右侧竖干围合。"
+    ],
+    "en": [
+      "A pointed inner form is framed by upper prongs and a long right stem."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1596_合17954(甲).png",
+    "prefix": "G",
+    "heji": "合17954",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1596",
+    "validation_class_id": "1423",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨲",
+    "codepoints": "U+3A32",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001424",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000775",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0879",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000780_hust-obc-cat-0879_glyph.png",
+      "metadata": "images/001_asset-000780_hust-obc-cat-0879_glyph.yaml",
+      "asset_id": "asset-000780",
+      "source_image_path": "HUST-OBC/deciphered/0879/G_0879_拾5.13(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "80",
+      "sha256": "5581fb8429e73b8c285c722668f8ecb76706a6a7115b8d7d75dd8bc69458eda9",
+      "raw_source_sha256": "3716b3be2c4002b661c5c7178fb192bf59c5e4d60e16fdb9eb02b0753620ab72",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型尖顶屋盖状轮廓位于带分隔的矩形中框上方；数条细竖和斜笔从中框下垂并汇成分叉下部笔群。"
+    ],
+    "en": [
+      "A small pointed roof-like outline sits above a divided rectangular middle frame; several thin verticals and diagonals descend from the frame into a forked lower cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0879_拾5.13(甲).png",
+    "prefix": "G",
+    "old_catalog": "拾5.13",
+    "old_catalog_abbr": "拾",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0879",
+    "validation_class_id": "774",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝥",
+    "codepoints": "U+3765",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000775",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000506",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0577",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000511_hust-obc-cat-0577_glyph.png",
+      "metadata": "images/001_asset-000511_hust-obc-cat-0577_glyph.yaml",
+      "asset_id": "asset-000511",
+      "source_image_path": "HUST-OBC/deciphered/0577/G_0577_乙16合20960𠂤組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "58",
+      "pixel_height": "80",
+      "sha256": "9f2975b4fec22ac84a08728cbfb8102c88710f2586bcb19486f47d5344cff5e5",
+      "raw_source_sha256": "aacd016324ed49fd956983d71d860a2047de8afd66a5578b6910d3bedb74ebfa",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "四个小型分离渐尖痕迹组成疏松竖向菱形排列，上方一处、两侧各一处、下方一处。"
+    ],
+    "en": [
+      "Four small detached tapered marks form a loose vertical diamond arrangement, with one mark above, two at the sides, and one below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0577_乙16合20960𠂤組.png",
+    "prefix": "G",
+    "heji": "合20960",
+    "old_catalog": "乙16",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "𠂤組"
+  },
+  "dataset_category": {
+    "source_category_id": "0577",
+    "validation_class_id": "505",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘷",
+    "codepoints": "U+3637",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000506",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

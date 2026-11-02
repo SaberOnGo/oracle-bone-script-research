@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004445",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004445",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006038_hust-obc-und-X-004445_glyph.jpg",
+      "metadata": "images/001_asset-006038_hust-obc-und-X-004445_glyph.yaml",
+      "asset_id": "asset-006038",
+      "source_image_path": "HUST-OBC/undeciphered/X/1/X_？_7091_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "137",
+      "pixel_height": "302",
+      "sha256": "3fc071c28882d6f0c2164a42f22295bd42a49a096577fe8785b0258b426259a1",
+      "raw_source_sha256": "3fc071c28882d6f0c2164a42f22295bd42a49a096577fe8785b0258b426259a1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部高竖痕向下变宽，形成中部两侧的宽痕。",
+      "中部区域含有一处较大的开放圆弧空间。",
+      "一条较长的下部痕迹从开放空间下方继续向下。",
+      "下部右侧有数处短小且较深的末端分支。"
+    ],
+    "en": [
+      "A tall upper stem widens into broad middle side traces.",
+      "The middle area contains a large open rounded space.",
+      "A long lower trace descends below the open space.",
+      "Short dark terminals branch from the lower right area."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7091_1.png",
+    "prefix": "X",
+    "code": "？_7091_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "1",
+    "source_class_path": "HUST-OBC/undeciphered/X/1/",
+    "source_image_count": 2,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/1/X_？_7091_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/1/X_？_7091_2.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

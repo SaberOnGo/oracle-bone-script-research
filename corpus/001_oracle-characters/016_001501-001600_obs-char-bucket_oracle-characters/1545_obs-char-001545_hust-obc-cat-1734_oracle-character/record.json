@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001545",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1734",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001550_hust-obc-cat-1734_glyph.png",
+      "metadata": "images/001_asset-001550_hust-obc-cat-1734_glyph.yaml",
+      "asset_id": "asset-001550",
+      "source_image_path": "HUST-OBC/deciphered/1734/G_1734_合28387何組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "49",
+      "pixel_height": "80",
+      "sha256": "5db2db92f4eefcc98ee6cc9940837fd146499104a0f78a94231da90a8ec25603",
+      "raw_source_sha256": "f15fa1539e91658bf6aeaf782181b94f85b244720b79bbd4821aa7c3dd23b3d9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型深色标记以中央核心结合数条短交叉斜笔。"
+    ],
+    "en": [
+      "A small dark mark combines short crossing diagonals around a central core."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1734_合28387何組.png",
+    "prefix": "G",
+    "heji": "合28387",
+    "group_or_note": "何組"
+  },
+  "dataset_category": {
+    "source_category_id": "1734",
+    "validation_class_id": "1544",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪼",
+    "codepoints": "U+3ABC",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001545",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

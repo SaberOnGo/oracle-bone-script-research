@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000578",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0655_0656",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000583_hust-obc-cat-0655_0656_glyph.png",
+      "metadata": "images/001_asset-000583_hust-obc-cat-0655_0656_glyph.yaml",
+      "asset_id": "asset-000583",
+      "source_image_path": "HUST-OBC/deciphered/0655_0656/0655/G_0655_乙543反合5531反賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "80",
+      "sha256": "1e9c65758e4223aa4ea65da1025189a505c319862f1d5ef50554b740adf99502",
+      "raw_source_sha256": "500a04c0081c23dac8a5345a30baba9c98808b09cad07b39c1a9f4c64cd868e7",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细顶横、中央竖笔和数条交叉斜笔组成折角格架，内有两个层叠菱状空隙。"
+    ],
+    "en": [
+      "Thin top bars, a central vertical, and several crossing diagonals form an angular lattice with two stacked diamond-like open spaces."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0655_乙543反合5531反賓組.png",
+    "prefix": "G",
+    "heji": "合5531",
+    "old_catalog": "乙543",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反反賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0655_0656",
+    "validation_class_id": "577",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㚅㚆",
+    "codepoints": "U+3685;U+3686",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000578",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

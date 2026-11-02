@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-001260",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1409",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001265_hust-obc-cat-1409_glyph.png",
+      "metadata": "images/001_asset-001265_hust-obc-cat-1409_glyph.yaml",
+      "asset_id": "asset-001265",
+      "source_image_path": "HUST-OBC/deciphered/1409/G_1409_屯0656.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "44",
+      "pixel_height": "80",
+      "sha256": "f2f143052fe5160fb99c66b658b854d54bc018d09e047a2507e02efcfb9153ec",
+      "raw_source_sha256": "3b7192856570653c2c6d6eda972654876f381b911e502e1570a8cec925b89c3b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中有左侧轮廓形体及其小型下部框形，右侧另有不规则分枝笔画。"
+    ],
+    "en": [
+      "The image combines a left outlined form with a small lower enclosure and a separate irregular branching stroke on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1409_屯0656.png",
+    "prefix": "G",
+    "old_catalog": "屯0656",
+    "old_catalog_abbr": "屯",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1409",
+    "validation_class_id": "1259",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥷",
+    "codepoints": "U+3977",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001260",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

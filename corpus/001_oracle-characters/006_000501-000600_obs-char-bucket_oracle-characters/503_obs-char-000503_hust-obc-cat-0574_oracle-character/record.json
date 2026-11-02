@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000503",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0574",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000508_hust-obc-cat-0574_glyph.png",
+      "metadata": "images/001_asset-000508_hust-obc-cat-0574_glyph.yaml",
+      "asset_id": "asset-000508",
+      "source_image_path": "HUST-OBC/deciphered/0574/H_0574_60794_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "140",
+      "pixel_height": "204",
+      "sha256": "dfe5f5d36d9af6b855a37d535db110f0bed892ac59cab26f9163002a911b5b3a",
+      "raw_source_sha256": "f76162110f5ce6f35593edf7472aebe95e37c3c3cc6e6744cc71fbfe53f30832",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个粗重形体彼此分离：左侧为带下环和底线的分支竖干，右侧为上部弯拱及长下行侧笔。"
+    ],
+    "en": [
+      "Two bold forms stand apart: a branching vertical trunk with a lower loop on a base at left, and a curved upper arch with a long descending side at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0574_60794_0.png",
+    "prefix": "H",
+    "code": "0574_60794_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0574",
+    "validation_class_id": "502",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘴",
+    "codepoints": "U+3634",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000503",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

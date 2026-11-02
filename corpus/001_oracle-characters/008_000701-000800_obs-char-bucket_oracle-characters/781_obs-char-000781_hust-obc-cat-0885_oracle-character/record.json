@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000781",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0885",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000786_hust-obc-cat-0885_glyph.png",
+      "metadata": "images/001_asset-000786_hust-obc-cat-0885_glyph.yaml",
+      "asset_id": "asset-000786",
+      "source_image_path": "HUST-OBC/deciphered/0885/G_0885_京津243(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "22",
+      "pixel_height": "80",
+      "sha256": "76bfee2971b75f42c2fd7bd47893ca3cc7f68eb25cadfa085a06e28d3792dea3",
+      "raw_source_sha256": "f92b93b19eb7a03e07e11cda4430119477303b847edb00f172f9b9879d40901f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长中央干穿过上下尖形交叉，中央围出一个长水滴形空隙。"
+    ],
+    "en": [
+      "A narrow central stem passes through pointed crossings above and below a long enclosed teardrop-shaped opening."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0885_京津243(甲).png",
+    "prefix": "G",
+    "old_catalog": "京津243",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0885",
+    "validation_class_id": "780",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝫",
+    "codepoints": "U+376B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000781",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

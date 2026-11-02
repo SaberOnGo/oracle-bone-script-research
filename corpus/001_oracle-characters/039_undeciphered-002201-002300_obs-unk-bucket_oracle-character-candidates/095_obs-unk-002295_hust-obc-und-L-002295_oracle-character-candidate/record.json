@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002295",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002295",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003888_hust-obc-und-L-002295_glyph.jpg",
+      "metadata": "images/001_asset-003888_hust-obc-und-L-002295_glyph.yaml",
+      "asset_id": "asset-003888",
+      "source_image_path": "HUST-OBC/undeciphered/L/2295/L_？_295.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "ad06d2adadaf6c2e3aec954060ed150403dfbd687e519b21f3bdb243725c9719",
+      "raw_source_sha256": "ad06d2adadaf6c2e3aec954060ed150403dfbd687e519b21f3bdb243725c9719",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "右侧有一条较高的弯曲笔痕向上并在上部转折，内部保持浅色。左下侧聚集较短且不规则的笔痕。上部弯痕与下部笔痕未形成清晰闭合边界，末端逐渐变细且不齐。"
+    ],
+    "en": [
+      "A tall curved trace rises on the right and bends over the upper area, leaving a pale interior. Shorter irregular strokes cluster along the left lower side. The upper curve and lower strokes do not form a clearly closed boundary; their ends taper unevenly."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_295.jpg",
+    "prefix": "L",
+    "code": "？_295"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2295",
+    "source_class_path": "HUST-OBC/undeciphered/L/2295/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2295/L_？_295.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2295/L_？_295.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

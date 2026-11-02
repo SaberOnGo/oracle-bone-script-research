@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004614",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004614",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006207_hust-obc-und-X-004614_glyph.jpg",
+      "metadata": "images/001_asset-006207_hust-obc-und-X-004614_glyph.yaml",
+      "asset_id": "asset-006207",
+      "source_image_path": "HUST-OBC/undeciphered/X/170/X_？_8345_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "165",
+      "pixel_height": "275",
+      "sha256": "cc4224583a51813c3d7b5d36be88178c49f217006236a0b160472a8a9b4b2744",
+      "raw_source_sha256": "cc4224583a51813c3d7b5d36be88178c49f217006236a0b160472a8a9b4b2744",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左上痕迹形成一个内部较浅的圆弧环状形体。",
+      "中央交接点右侧另有一个向上突出的环状形体。",
+      "中央区域可见数条较粗的交叉或相接痕迹。",
+      "下部中央弯成一个开放的近 U 形轮廓。",
+      "左下方另有一条短小的分离下伸痕迹。"
+    ],
+    "en": [
+      "The upper left trace forms a rounded loop with a pale interior.",
+      "A second upper loop rises on the right side of the central junction.",
+      "The central area has several thick crossing or joined traces.",
+      "A lower central curve forms an open U-like shape.",
+      "A short detached trace descends at the lower left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8345_1.png",
+    "prefix": "X",
+    "code": "？_8345_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "170",
+    "source_class_path": "HUST-OBC/undeciphered/X/170/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/170/X_？_8345_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/170/X_？_8345_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

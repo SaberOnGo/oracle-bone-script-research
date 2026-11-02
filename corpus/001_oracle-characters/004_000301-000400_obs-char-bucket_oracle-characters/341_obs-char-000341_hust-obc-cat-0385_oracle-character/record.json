@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000341",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0385",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000346_hust-obc-cat-0385_glyph.png",
+      "metadata": "images/001_asset-000346_hust-obc-cat-0385_glyph.yaml",
+      "asset_id": "asset-000346",
+      "source_image_path": "HUST-OBC/deciphered/0385/G_0385_京津2651(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "51",
+      "pixel_height": "80",
+      "sha256": "6deec6ab8ad90c6993d5e02aafd48078172a77c48ad98ed8d37152bfcdcd584d",
+      "raw_source_sha256": "cd72c835116a763f270ce79c3217cb2e8550ce7d11401fc410e9791180e1acee",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "方形外部闭合轮廓内部有中部斜竖笔画，并带有上下方的小型延伸。"
+    ],
+    "en": [
+      "The rectangular outer enclosure contains central diagonal and vertical strokes with small upper and lower extensions."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0385_京津2651(甲).png",
+    "prefix": "G",
+    "old_catalog": "京津2651",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0385",
+    "validation_class_id": "340",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㕷",
+    "codepoints": "U+3577",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000341",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

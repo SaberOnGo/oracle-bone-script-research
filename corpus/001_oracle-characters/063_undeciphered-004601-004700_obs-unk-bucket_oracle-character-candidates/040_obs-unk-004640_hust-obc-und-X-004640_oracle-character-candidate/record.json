@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004640",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004640",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006233_hust-obc-und-X-004640_glyph.jpg",
+      "metadata": "images/001_asset-006233_hust-obc-und-X-004640_glyph.yaml",
+      "asset_id": "asset-006233",
+      "source_image_path": "HUST-OBC/undeciphered/X/196/X_？_8369_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "202",
+      "pixel_height": "300",
+      "sha256": "2ca66baab8fd775fdef965d10a087c68b5a577773623bf38e2a8cbc4a672dc39",
+      "raw_source_sha256": "2ca66baab8fd775fdef965d10a087c68b5a577773623bf38e2a8cbc4a672dc39",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重的外部轮廓在图像周围形成近方形的 U 状围合。",
+      "上方笔画较厚并呈拱形，两端各有短的向下延伸。",
+      "围合内部有一个深色矩形形体，其中留有浅色横向缝隙。",
+      "外部下方左右两侧附近各有一条分离的窄痕迹。",
+      "下方外轮廓沿底部弯曲，并连接到两侧区域。"
+    ],
+    "en": [
+      "A broad outer contour forms a squared U-like enclosure around the image.",
+      "The upper stroke is thick and arching, with two short downward ends.",
+      "Inside the enclosure is a dark rectangular form with a pale horizontal slit.",
+      "Separate narrow marks stand near both outer lower sides.",
+      "The lower outer stroke curves across the base and joins the side regions.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8369_1.png",
+    "prefix": "X",
+    "code": "？_8369_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "196",
+    "source_class_path": "HUST-OBC/undeciphered/X/196/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/196/X_？_8369_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/196/X_？_8369_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

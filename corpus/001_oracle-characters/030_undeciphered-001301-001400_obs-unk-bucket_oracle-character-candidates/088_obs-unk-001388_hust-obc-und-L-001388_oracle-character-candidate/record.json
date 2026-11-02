@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001388",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001388",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002981_hust-obc-und-L-001388_glyph.jpg",
+      "metadata": "images/001_asset-002981_hust-obc-und-L-001388_glyph.yaml",
+      "asset_id": "asset-002981",
+      "source_image_path": "HUST-OBC/undeciphered/L/1388/L_？_13897.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "56",
+      "sha256": "99e78737a323a787dc128cf858c33e8e5c4f7c26223bed32061df177ac84d230",
+      "raw_source_sha256": "99e78737a323a787dc128cf858c33e8e5c4f7c26223bed32061df177ac84d230",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央竖向笔痕穿过近圆围合痕迹，上下各有短向外笔痕。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A central vertical stroke passes through a rounded enclosure, with short projections above and below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13897.jpg",
+    "prefix": "L",
+    "code": "？_13897"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1388",
+    "source_class_path": "HUST-OBC/undeciphered/L/1388/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1388/L_？_13897.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1388/L_？_13897.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

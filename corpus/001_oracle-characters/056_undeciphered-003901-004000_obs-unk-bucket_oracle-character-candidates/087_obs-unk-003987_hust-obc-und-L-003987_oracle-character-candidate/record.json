@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-003987",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003987",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005580_hust-obc-und-L-003987_glyph.jpg",
+      "metadata": "images/001_asset-005580_hust-obc-und-L-003987_glyph.yaml",
+      "asset_id": "asset-005580",
+      "source_image_path": "HUST-OBC/undeciphered/L/3987/L_？_8441.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "1c0e0f1fa9354dcb9deda5312f66120a808a8317ee4d2419fdd9073e93e1cf70",
+      "raw_source_sha256": "1c0e0f1fa9354dcb9deda5312f66120a808a8317ee4d2419fdd9073e93e1cf70",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条直立或分叉痕迹位于较宽的矩形下部围合轮廓之上。围合内部可见斜向或交叉痕迹；围合两侧边缘部分被裁切。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005580_hust-obc-und-L-003987_glyph.jpg`",
+      "Two upright or forked traces rise above a broad rectangular lower enclosure. A diagonal or crossing trace is visible inside; the side edges of the enclosure are partly cropped."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8441.jpg",
+    "prefix": "L",
+    "code": "？_8441"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3987",
+    "source_class_path": "HUST-OBC/undeciphered/L/3987/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3987/L_？_8441.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3987/L_？_8441.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

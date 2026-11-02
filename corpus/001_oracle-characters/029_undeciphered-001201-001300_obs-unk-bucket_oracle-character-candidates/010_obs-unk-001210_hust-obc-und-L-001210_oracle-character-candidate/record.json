@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001210",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001210",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002803_hust-obc-und-L-001210_glyph.jpg",
+      "metadata": "images/001_asset-002803_hust-obc-und-L-001210_glyph.yaml",
+      "asset_id": "asset-002803",
+      "source_image_path": "HUST-OBC/undeciphered/L/1210/L_？_13458.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "35a18cdcc1d84765d1f734909b4d3207cee55050bb63d723c0867525bd5b430d",
+      "raw_source_sha256": "35a18cdcc1d84765d1f734909b4d3207cee55050bb63d723c0867525bd5b430d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集中央线簇带有上部回环、侧向突起和数条下部分支。"
+    ],
+    "en": [
+      "A dense central knot has upper loops, side projections, and several lower branching strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13458.jpg",
+    "prefix": "L",
+    "code": "？_13458"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1210",
+    "source_class_path": "HUST-OBC/undeciphered/L/1210/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1210/L_？_13458.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1210/L_？_13458.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

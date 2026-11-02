@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000706",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000706",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002299_hust-obc-und-L-000706_glyph.jpg",
+      "metadata": "images/001_asset-002299_hust-obc-und-L-000706_glyph.yaml",
+      "asset_id": "asset-002299",
+      "source_image_path": "HUST-OBC/undeciphered/L/706/L_？_12069.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "55",
+      "sha256": "74b7cfb8d32bc84acc64320fd21e2ef7f5a16c103d1bba76fd8d632672801a79",
+      "raw_source_sha256": "74b7cfb8d32bc84acc64320fd21e2ef7f5a16c103d1bba76fd8d632672801a79",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧密的上部交叉笔组连接圆形中部空隙，下方有数道弧曲下行笔画。"
+    ],
+    "en": [
+      "A compact upper crossing leads to a rounded middle opening and several curved strokes descending below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12069.jpg",
+    "prefix": "L",
+    "code": "？_12069"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "706",
+    "source_class_path": "HUST-OBC/undeciphered/L/706/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/706/L_？_12069.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/706/L_？_12069.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

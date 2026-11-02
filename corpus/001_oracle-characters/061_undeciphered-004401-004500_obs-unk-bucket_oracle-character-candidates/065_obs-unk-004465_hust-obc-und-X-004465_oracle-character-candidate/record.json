@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004465",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004465",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006058_hust-obc-und-X-004465_glyph.jpg",
+      "metadata": "images/001_asset-006058_hust-obc-und-X-004465_glyph.yaml",
+      "asset_id": "asset-006058",
+      "source_image_path": "HUST-OBC/undeciphered/X/21/X_？_8200_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "137",
+      "pixel_height": "303",
+      "sha256": "5c033c98875a302c4f7d18099cb88267f248520d778fca50a1618f29f45312f3",
+      "raw_source_sha256": "5c033c98875a302c4f7d18099cb88267f248520d778fca50a1618f29f45312f3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有一条较宽横向痕迹，内部出现数个小开口。",
+      "窄长中部痕迹从上部横线向下延伸。",
+      "中部竖向痕迹上有一个细长的局部开口。",
+      "下部两侧痕迹向外分开，中间下端呈尖状。"
+    ],
+    "en": [
+      "A broad horizontal upper bar contains several small openings.",
+      "A narrow central stem descends from the upper bar.",
+      "A small elongated opening interrupts the middle stem.",
+      "Lower side traces branch outward around a central pointed terminal."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8200_1.png",
+    "prefix": "X",
+    "code": "？_8200_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "21",
+    "source_class_path": "HUST-OBC/undeciphered/X/21/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/21/X_？_8200_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/21/X_？_8200_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

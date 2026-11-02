@@ -1,0 +1,67 @@
+{
+  "id": "obs-unk-001931",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001931",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003524_hust-obc-und-L-001931_glyph.jpg",
+      "metadata": "images/001_asset-003524_hust-obc-und-L-001931_glyph.yaml",
+      "asset_id": "asset-003524",
+      "source_image_path": "HUST-OBC/undeciphered/L/1931/L_Јї_1655.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "58",
+      "sha256": "674210886eac7dc9f5fa9464980d767f8c963301fe48666d09b9b21d62fbba15",
+      "raw_source_sha256": "674210886eac7dc9f5fa9464980d767f8c963301fe48666d09b9b21d62fbba15",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "多条弯折和曲向笔痕从左上向右下分布。中央交叠区域上方有一条短的角状笔痕。下部可见两条曲向笔痕，各自有分离的末端；未见清楚的封闭轮廓。",
+      "笔痕先后、交叠关系和可能的残损仍未复核。"
+    ],
+    "en": [
+      "Several bent and curving strokes run from the upper left toward the lower right. A short angular mark sits above the central crossing area. The lower part contains two curved strokes with separate ends; no clear closed outline is visible.",
+      "Stroke order, overlap, and possible damage remain unverified."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_Јї_1655.jpg",
+    "prefix": "L",
+    "code": "Јї_1655"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1931",
+    "source_class_path": "HUST-OBC/undeciphered/L/1931/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1931/L_？_1655.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1931/L_？_1655.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

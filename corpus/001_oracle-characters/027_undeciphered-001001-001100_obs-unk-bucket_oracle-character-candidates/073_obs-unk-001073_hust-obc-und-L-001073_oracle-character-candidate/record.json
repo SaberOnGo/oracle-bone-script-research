@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001073",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001073",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002666_hust-obc-und-L-001073_glyph.jpg",
+      "metadata": "images/001_asset-002666_hust-obc-und-L-001073_glyph.yaml",
+      "asset_id": "asset-002666",
+      "source_image_path": "HUST-OBC/undeciphered/L/1073/L_？_13028.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "50",
+      "sha256": "7708c921030a355d53ec5879aefc508fb40562c6afecd51d6955962a0e4723a8",
+      "raw_source_sha256": "7708c921030a355d53ec5879aefc508fb40562c6afecd51d6955962a0e4723a8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大的上部横向框形经中央主线连接圆曲下部线簇。"
+    ],
+    "en": [
+      "A broad upper horizontal frame leads through a central stem to a rounded lower cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13028.jpg",
+    "prefix": "L",
+    "code": "？_13028"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1073",
+    "source_class_path": "HUST-OBC/undeciphered/L/1073/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1073/L_？_13028.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1073/L_？_13028.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

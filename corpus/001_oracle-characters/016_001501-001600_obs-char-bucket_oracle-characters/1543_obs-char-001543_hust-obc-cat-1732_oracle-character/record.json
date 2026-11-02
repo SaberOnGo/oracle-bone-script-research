@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001543",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1732",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001548_hust-obc-cat-1732_glyph.png",
+      "metadata": "images/001_asset-001548_hust-obc-cat-1732_glyph.yaml",
+      "asset_id": "asset-001548",
+      "source_image_path": "HUST-OBC/deciphered/1732/X_1732_3501_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "137",
+      "pixel_height": "231",
+      "sha256": "9e8ab30d58a26147d699c5fafd07f78a9b13523a0050454df76377286d739d5b",
+      "raw_source_sha256": "907e9eb9cd2f99de5106803221a715041541c0040cddab04ba0928e513f82732",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "稀疏笔画围绕中央分枝竖笔，周围还有数个分离短笔。"
+    ],
+    "en": [
+      "Sparse strokes surround a central vertical branch, with several detached short marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1732_3501_1.png",
+    "prefix": "X",
+    "code": "1732_3501_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1732",
+    "validation_class_id": "1542",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪺",
+    "codepoints": "U+3ABA",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001543",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

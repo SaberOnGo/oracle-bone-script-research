@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000646",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0734",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000651_hust-obc-cat-0734_glyph.png",
+      "metadata": "images/001_asset-000651_hust-obc-cat-0734_glyph.yaml",
+      "asset_id": "asset-000651",
+      "source_image_path": "HUST-OBC/deciphered/0734/X_0734_5464_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "160",
+      "pixel_height": "257",
+      "sha256": "54fcd3936d6f3726ff6d56b979e634ec5f85ea2c32dbe5ba1db364d63d1816e8",
+      "raw_source_sha256": "b36b64045e241698055b67c47e599c4f9b1161723a4d9a9d3b52cc16948b7e4f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗左竖沿顶部弯曲，并向内伸出斜枝接近右侧圆弯开口环，另有短小下突。"
+    ],
+    "en": [
+      "A thick left upright curves across the top and sends a diagonal inward branch toward a rounded open loop at right, with a short separate-looking lower spur."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_0734_5464_1.png",
+    "prefix": "X",
+    "code": "0734_5464_1"
+  },
+  "dataset_category": {
+    "source_category_id": "0734",
+    "validation_class_id": "645",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛔",
+    "codepoints": "U+36D4",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000646",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

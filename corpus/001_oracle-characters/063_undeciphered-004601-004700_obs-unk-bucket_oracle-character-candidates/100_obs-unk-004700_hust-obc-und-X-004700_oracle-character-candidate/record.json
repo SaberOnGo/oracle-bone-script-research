@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004700",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004700",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006293_hust-obc-und-X-004700_glyph.jpg",
+      "metadata": "images/001_asset-006293_hust-obc-und-X-004700_glyph.yaml",
+      "asset_id": "asset-006293",
+      "source_image_path": "HUST-OBC/undeciphered/X/256/X_？_7229_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "210",
+      "pixel_height": "244",
+      "sha256": "06bcfe6cdc0789b8d2045b9cc296308edaf7d196433e0d76b9debb1bcd2ced19",
+      "raw_source_sha256": "06bcfe6cdc0789b8d2045b9cc296308edaf7d196433e0d76b9debb1bcd2ced19",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一块宽大的深色下部区域横跨图像左右两侧。",
+      "左侧上部笔画向内弯曲，并留下一个浅色开口。",
+      "右侧有第二条弯曲的上部笔画向上伸出。",
+      "一个高大的浅色开口分隔中央上部笔画。",
+      "一条右向分支从右上深色区域向外伸出。",
+      "左下侧向外伸出一条长而折角明显的末端。"
+    ],
+    "en": [
+      "A broad dark lower mass spans the image from left to right.",
+      "The left upper stroke curves inward and leaves a pale opening.",
+      "A second curved upper stroke rises on the right side.",
+      "A tall pale opening separates the central upper strokes.",
+      "A right branch extends outward from the upper-right dark mass.",
+      "The lower-left side projects into a long angular terminal.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7229_1.png",
+    "prefix": "X",
+    "code": "？_7229_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "256",
+    "source_class_path": "HUST-OBC/undeciphered/X/256/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/256/X_？_7229_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/256/X_？_7229_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

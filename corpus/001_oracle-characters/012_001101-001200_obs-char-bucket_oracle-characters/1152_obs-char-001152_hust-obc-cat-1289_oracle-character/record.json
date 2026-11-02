@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001152",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1289",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001157_hust-obc-cat-1289_glyph.png",
+      "metadata": "images/001_asset-001157_hust-obc-cat-1289_glyph.yaml",
+      "asset_id": "asset-001157",
+      "source_image_path": "HUST-OBC/deciphered/1289/H_1289_60F1C_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "210",
+      "pixel_height": "240",
+      "sha256": "9eb27f8d228ab437c0e656b07ec03c814f53297a1ee2872a6b8a35db6ddc02d0",
+      "raw_source_sha256": "dc15554435ca4916d79034b7f1fde3e4a91d5d23260c15e7fdb71ad39d545eb7",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型折角笔群有中央直立笔、向两侧外伸的笔画和宽大的下部横向底笔。"
+    ],
+    "en": [
+      "A large angular cluster has a central upright, projecting side strokes, and a broad lower horizontal base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_1289_60F1C_0.png",
+    "prefix": "H",
+    "code": "1289_60F1C_0"
+  },
+  "dataset_category": {
+    "source_category_id": "1289",
+    "validation_class_id": "1151",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㣿",
+    "codepoints": "U+38FF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001152",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004447",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004447",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006040_hust-obc-und-X-004447_glyph.jpg",
+      "metadata": "images/001_asset-006040_hust-obc-und-X-004447_glyph.yaml",
+      "asset_id": "asset-006040",
+      "source_image_path": "HUST-OBC/undeciphered/X/3/X_？_7202_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "105",
+      "pixel_height": "297",
+      "sha256": "b1663988ea2b74e6abc44249bc33dcfd5ec91c923dcde3e7465ca42ce514ebb2",
+      "raw_source_sha256": "b1663988ea2b74e6abc44249bc33dcfd5ec91c923dcde3e7465ca42ce514ebb2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一条高的中央痕迹从下部的分叉区域向上延伸。",
+      "上部开放弧线内含有一处小的角状内部痕迹。",
+      "上部开放弧线下方有一处较深的交叉处。",
+      "下部两条痕迹向左右不均匀伸展。"
+    ],
+    "en": [
+      "A tall central trace rises from a lower branching area.",
+      "An upper open curve contains a small inner angular mark.",
+      "A darker crossing sits below the upper open curve.",
+      "Two lower traces extend unevenly to the left and right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7202_1.png",
+    "prefix": "X",
+    "code": "？_7202_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "3",
+    "source_class_path": "HUST-OBC/undeciphered/X/3/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/3/X_？_7202_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/3/X_？_7202_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

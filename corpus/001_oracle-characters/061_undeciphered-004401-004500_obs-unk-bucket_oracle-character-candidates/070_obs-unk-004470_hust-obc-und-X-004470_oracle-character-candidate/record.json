@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004470",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004470",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006063_hust-obc-und-X-004470_glyph.jpg",
+      "metadata": "images/001_asset-006063_hust-obc-und-X-004470_glyph.yaml",
+      "asset_id": "asset-006063",
+      "source_image_path": "HUST-OBC/undeciphered/X/26/X_？_8204_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "143",
+      "pixel_height": "302",
+      "sha256": "3faa1697ecb438223b38837240be9e33cee47f4d2199db673a6fffe302252009",
+      "raw_source_sha256": "3faa1697ecb438223b38837240be9e33cee47f4d2199db673a6fffe302252009",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中有两组彼此分离的深色痕迹。",
+      "左侧痕迹上部有圆弧开口，下部向两侧伸出短痕。",
+      "右侧痕迹是较长的不规则竖向深色区域，并带小侧突。",
+      "下部左侧另有一个孤立的小点状痕迹。"
+    ],
+    "en": [
+      "Two separated dark mark groups occupy the image.",
+      "The left group has a rounded upper opening and two lower side spurs.",
+      "The right group is a long irregular vertical mass with small protrusions.",
+      "A small isolated dot appears below and left of the lower area."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8204_1.png",
+    "prefix": "X",
+    "code": "？_8204_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "26",
+    "source_class_path": "HUST-OBC/undeciphered/X/26/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/26/X_？_8204_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/26/X_？_8204_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001326",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1482",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001331_hust-obc-cat-1482_glyph.png",
+      "metadata": "images/001_asset-001331_hust-obc-cat-1482_glyph.yaml",
+      "asset_id": "asset-001331",
+      "source_image_path": "HUST-OBC/deciphered/1482/G_1482_粹1160(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "48",
+      "pixel_height": "80",
+      "sha256": "1e02cd58dea2fc5e17663baf0dd1670c071aab596b99c55fbdc0fb64a894be78",
+      "raw_source_sha256": "f438ae5b5ca1c5d0c9541197822e2c26edd822819b4332b298bcf98c273c60e4",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中有分离的侧部标记、中央菱形框形和长右侧下行笔画。"
+    ],
+    "en": [
+      "The image combines separated side marks with a central diamond enclosure and a long right descending stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1482_粹1160(甲).png",
+    "prefix": "G",
+    "old_catalog": "粹1160",
+    "old_catalog_abbr": "粹",
+    "old_catalog_abbr_obm_label": "殷契粹編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1482",
+    "validation_class_id": "1325",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㧀",
+    "codepoints": "U+39C0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001326",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

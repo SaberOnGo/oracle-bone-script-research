@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000699",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000699",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002292_hust-obc-und-L-000699_glyph.jpg",
+      "metadata": "images/001_asset-002292_hust-obc-und-L-000699_glyph.yaml",
+      "asset_id": "asset-002292",
+      "source_image_path": "HUST-OBC/undeciphered/L/699/L_？_12059.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "56",
+      "sha256": "2b168c6d8f2905f7ed7efaf4c54e149d7043af523b425673fef884a08b28d99d",
+      "raw_source_sha256": "2b168c6d8f2905f7ed7efaf4c54e149d7043af523b425673fef884a08b28d99d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽弧形左环与高直弧形右部并列，右部内有小空隙和下部钩状笔画。"
+    ],
+    "en": [
+      "A broad rounded left loop is paired with a tall curved right form containing a small opening and lower hook."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12059.jpg",
+    "prefix": "L",
+    "code": "？_12059"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "699",
+    "source_class_path": "HUST-OBC/undeciphered/L/699/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/699/L_？_12059.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/699/L_？_12059.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

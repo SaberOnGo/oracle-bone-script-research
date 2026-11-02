@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-003634",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003634",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005227_hust-obc-und-L-003634_glyph.jpg",
+      "metadata": "images/001_asset-005227_hust-obc-und-L-003634_glyph.yaml",
+      "asset_id": "asset-005227",
+      "source_image_path": "HUST-OBC/undeciphered/L/3634/L_？_7421.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "54",
+      "sha256": "f200899eabaea4d8d2916759067e823c1b5db32acb874fd1a577220a04ea7605",
+      "raw_source_sha256": "f200899eabaea4d8d2916759067e823c1b5db32acb874fd1a577220a04ea7605",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "The image does not show whether the outer contour is closed.简体中文：",
+      "尖顶外轮廓包围数条较深的内部笔画。",
+      "下边缘在中央两侧向上弯曲。",
+      "轮廓内部有一条短的竖向或斜向笔画。",
+      "图像不能证明外轮廓是否闭合。"
+    ],
+    "en": [
+      "A peaked outer contour encloses several darker interior strokes.",
+      "The lower edge curves upward on both sides of the center.",
+      "A short vertical or diagonal stroke rises inside the contour."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_7421.jpg",
+    "prefix": "L",
+    "code": "？_7421"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3634",
+    "source_class_path": "HUST-OBC/undeciphered/L/3634/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3634/L_？_7421.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3634/L_？_7421.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

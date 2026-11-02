@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000702",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0796",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000707_hust-obc-cat-0796_glyph.png",
+      "metadata": "images/001_asset-000707_hust-obc-cat-0796_glyph.yaml",
+      "asset_id": "asset-000707",
+      "source_image_path": "HUST-OBC/deciphered/0796/G_0796_前5.17.3(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "58",
+      "pixel_height": "80",
+      "sha256": "7b434f37900b8b0f13a6046b54450fa85765a30560123b9fe56e221388fce65e",
+      "raw_source_sha256": "569e78d48cc1cdd2b444cab2aa687b759a230f84b22778273e52b42546c93b6d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "分离短顶横位于长钩曲左笔和小中央椭圆上方，右侧高尖形分成折角下枝。"
+    ],
+    "en": [
+      "A detached short top bar stands above a long hooked left stroke and small central oval, while a tall pointed right form divides into angular lower branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0796_前5.17.3(甲).png",
+    "prefix": "G",
+    "old_catalog": "前5.17.3",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0796",
+    "validation_class_id": "701",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜒",
+    "codepoints": "U+3712",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000702",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

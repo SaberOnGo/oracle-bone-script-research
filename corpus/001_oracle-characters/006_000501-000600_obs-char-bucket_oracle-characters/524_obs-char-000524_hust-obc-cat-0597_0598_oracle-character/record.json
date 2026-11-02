@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000524",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0597_0598",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000529_hust-obc-cat-0597_0598_glyph.png",
+      "metadata": "images/001_asset-000529_hust-obc-cat-0597_0598_glyph.yaml",
+      "asset_id": "asset-000529",
+      "source_image_path": "HUST-OBC/deciphered/0597_0598/0597/G_0597_乙4641合14437.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "50",
+      "pixel_height": "80",
+      "sha256": "1a4493d3defc24e1b17b1103faaa981512d632bda7afaa2868de623db06539a1",
+      "raw_source_sha256": "915c4ddeeac6ccc71a65df7b78326e086cb54089fdc495e7a8dda97bae4dd2eb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离层叠笔画群分别呈上部三峰折线和内含数个狭窄上尖的下部杯状轮廓。"
+    ],
+    "en": [
+      "Two detached stacked clusters show an upper three-peaked zigzag and a lower cup-shaped outline containing several narrow upward points."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0597_乙4641合14437.png",
+    "prefix": "G",
+    "heji": "合14437",
+    "old_catalog": "乙4641",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0597_0598",
+    "validation_class_id": "523",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㙋㙌",
+    "codepoints": "U+364B;U+364C",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000524",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

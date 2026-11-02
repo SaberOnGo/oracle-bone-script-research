@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000489",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0554",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000494_hust-obc-cat-0554_glyph.png",
+      "metadata": "images/001_asset-000494_hust-obc-cat-0554_glyph.yaml",
+      "asset_id": "asset-000494",
+      "source_image_path": "HUST-OBC/deciphered/0554/G_0554_京津5355合36467.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "49",
+      "pixel_height": "80",
+      "sha256": "4cd9010f774e52fe8752187fd326950f20abb9282920a309217af8afc3dd7cd7",
+      "raw_source_sha256": "1badd1e4353e78d51e099c7dd23a06e6f6393f0b28869a81e228d828a9880d4d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗线轮廓形顶部圆钝而尖，两侧为长外笔，下部有宽横底线，中央留出高长空白。"
+    ],
+    "en": [
+      "A thick outlined form has a rounded pointed top, two long outer sides, and a broad horizontal base, leaving a tall open central area."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0554_京津5355合36467.png",
+    "prefix": "G",
+    "heji": "合36467",
+    "old_catalog": "京津5355",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字"
+  },
+  "dataset_category": {
+    "source_category_id": "0554",
+    "validation_class_id": "488",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘠",
+    "codepoints": "U+3620",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000489",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

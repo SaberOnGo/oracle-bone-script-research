@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000420",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0476",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000425_hust-obc-cat-0476_glyph.png",
+      "metadata": "images/001_asset-000425_hust-obc-cat-0476_glyph.yaml",
+      "asset_id": "asset-000425",
+      "source_image_path": "HUST-OBC/deciphered/0476/G_0476_乙5405(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "80",
+      "sha256": "ed5e21b871ed353697b56a39e32fe8b9fd21fe6d0abe763b5d97ad7a8f6f7dfe",
+      "raw_source_sha256": "bb65bb1288d55da89dbf3445497f607ace59c4920db375f65ecdc9c9a5ed3d41",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数条层叠折线组成狭窄竖向笔画群，上端有尖状笔画，内部有短交叉。"
+    ],
+    "en": [
+      "Several stacked zigzag strokes form a narrow vertical cluster with pointed upper tips and short internal crossings."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0476_乙5405(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙5405",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0476",
+    "validation_class_id": "419",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㗒",
+    "codepoints": "U+35D2",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000420",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

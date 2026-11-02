@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001192",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1333",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001197_hust-obc-cat-1333_glyph.png",
+      "metadata": "images/001_asset-001197_hust-obc-cat-1333_glyph.yaml",
+      "asset_id": "asset-001197",
+      "source_image_path": "HUST-OBC/deciphered/1333/G_1333_京都615(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "79",
+      "sha256": "d168689c9a51547200176ccda3af2779fd4f23bb5c1bb8dc8ef9be6f6dfa59a8",
+      "raw_source_sha256": "02dc80facfdded360ccb2ff64e4e17465151c9808e5aec5deaf9f186f4bbd9e2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条长弯笔并行下行，并在下端汇合成尖状分叉。"
+    ],
+    "en": [
+      "Two long curved strokes descend together and meet in a pointed lower fork."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1333_京都615(甲).png",
+    "prefix": "G",
+    "old_catalog": "京都615",
+    "old_catalog_abbr": "京都",
+    "old_catalog_abbr_obm_label": "京都大學人文科學研究所藏甲骨文字",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1333",
+    "validation_class_id": "1191",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㤫",
+    "codepoints": "U+392B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001192",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

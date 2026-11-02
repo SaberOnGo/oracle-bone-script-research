@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000409",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000409",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002002_hust-obc-und-L-000409_glyph.jpg",
+      "metadata": "images/001_asset-002002_hust-obc-und-L-000409_glyph.yaml",
+      "asset_id": "asset-002002",
+      "source_image_path": "HUST-OBC/undeciphered/L/409/L_？_11279.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "52",
+      "sha256": "fd407a6af74ba6bdbee59f6d6324f44225909ad1d8bbcce527dce6f7784860ec",
+      "raw_source_sha256": "fd407a6af74ba6bdbee59f6d6324f44225909ad1d8bbcce527dce6f7784860ec",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "短横上部笔位于中央下行笔干之上；下部有两个弧形侧部，并连接长横基部。"
+    ],
+    "en": [
+      "A short upper cross stroke sits over a descending central stem; two rounded lower lobes join a long horizontal base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11279.jpg",
+    "prefix": "L",
+    "code": "？_11279"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "409",
+    "source_class_path": "HUST-OBC/undeciphered/L/409/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/409/L_？_11279.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/409/L_？_11279.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001230",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001230",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002823_hust-obc-und-L-001230_glyph.jpg",
+      "metadata": "images/001_asset-002823_hust-obc-und-L-001230_glyph.yaml",
+      "asset_id": "asset-002823",
+      "source_image_path": "HUST-OBC/undeciphered/L/1230/L_？_13501.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "55",
+      "sha256": "099c93f1897a02aa0c627d523b4c7ebc494f157bef1de9c1153277f5d8f9c77e",
+      "raw_source_sha256": "099c93f1897a02aa0c627d523b4c7ebc494f157bef1de9c1153277f5d8f9c77e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "叠置的圆弧与菱状上部形位于宽大的弯曲下部框线之上。"
+    ],
+    "en": [
+      "A stacked rounded and diamond-like upper form stands above a broad curved lower frame."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13501.jpg",
+    "prefix": "L",
+    "code": "？_13501"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1230",
+    "source_class_path": "HUST-OBC/undeciphered/L/1230/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1230/L_？_13501.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1230/L_？_13501.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

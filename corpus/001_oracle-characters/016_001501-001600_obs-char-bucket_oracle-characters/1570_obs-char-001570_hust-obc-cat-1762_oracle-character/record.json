@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001570",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1762",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001575_hust-obc-cat-1762_glyph.png",
+      "metadata": "images/001_asset-001575_hust-obc-cat-1762_glyph.yaml",
+      "asset_id": "asset-001575",
+      "source_image_path": "HUST-OBC/deciphered/1762/G_1762_前1.15.6(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "73",
+      "pixel_height": "131",
+      "sha256": "15f484cd305e2825091472de0e590c48d15def0b1ec842c24228ae675d7f042e",
+      "raw_source_sha256": "aa23d5e620df5eee3144f5d9d248988b718ff197008356a170855619f34acefa",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "组合形体有上部圆折框形、侧部标记和密集下部分枝笔画群。"
+    ],
+    "en": [
+      "A composite has an upper rounded enclosure, side marks, and a dense lower branching cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1762_前1.15.6(甲).png",
+    "prefix": "G",
+    "old_catalog": "前1.15.6",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1762",
+    "validation_class_id": "1569",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫘",
+    "codepoints": "U+3AD8",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001570",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

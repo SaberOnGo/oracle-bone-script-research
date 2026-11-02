@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002107",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002107",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003700_hust-obc-und-L-002107_glyph.jpg",
+      "metadata": "images/001_asset-003700_hust-obc-und-L-002107_glyph.yaml",
+      "asset_id": "asset-003700",
+      "source_image_path": "HUST-OBC/undeciphered/L/2107/L_？_2349.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "32",
+      "pixel_height": "56",
+      "sha256": "c6345f54485f22a19ac0f76403a975f0e56b621894963d6b511ba9579786301d",
+      "raw_source_sha256": "c6345f54485f22a19ac0f76403a975f0e56b621894963d6b511ba9579786301d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两组折角状笔痕上下排列。上部有短平转折和小的尖角形笔痕；下部向下弯曲，并以钩状转折收尾。"
+    ],
+    "en": [
+      "Two angular stroke groups are stacked vertically. The upper group contains a short flat turn and a small pointed shape; the lower group curves downward and ends in a hook-like turn."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2349.jpg",
+    "prefix": "L",
+    "code": "？_2349"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2107",
+    "source_class_path": "HUST-OBC/undeciphered/L/2107/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2107/L_？_2349.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2107/L_？_2349.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

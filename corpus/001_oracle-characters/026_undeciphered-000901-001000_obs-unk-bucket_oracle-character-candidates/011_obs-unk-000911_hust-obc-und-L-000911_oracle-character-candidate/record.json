@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000911",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000911",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002504_hust-obc-und-L-000911_glyph.jpg",
+      "metadata": "images/001_asset-002504_hust-obc-und-L-000911_glyph.yaml",
+      "asset_id": "asset-002504",
+      "source_image_path": "HUST-OBC/undeciphered/L/911/L_？_12602.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "58",
+      "sha256": "c8a61ab827dddf578c83ddd43fc16bf305fe51fe7d2856bdfec9f2375da762fd",
+      "raw_source_sha256": "c8a61ab827dddf578c83ddd43fc16bf305fe51fe7d2856bdfec9f2375da762fd",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "带短突的圆曲上部围合连接下部回环主线；右侧另有分离曲线。"
+    ],
+    "en": [
+      "A rounded upper enclosure with short projections leads into a lower looped stem; a separate curve stands at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12602.jpg",
+    "prefix": "L",
+    "code": "？_12602"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "911",
+    "source_class_path": "HUST-OBC/undeciphered/L/911/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/911/L_？_12602.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/911/L_？_12602.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000025",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0030",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000030_hust-obc-cat-0030_glyph.png",
+      "metadata": "images/001_asset-000030_hust-obc-cat-0030_glyph.yaml",
+      "asset_id": "asset-000030",
+      "source_image_path": "HUST-OBC/deciphered/0030/G_0030_甲193(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "48",
+      "pixel_height": "80",
+      "sha256": "ba3262b379dc8134dfda35adb0d38cac1d0c310e2d1250c2ae7d26162fa8960b",
+      "raw_source_sha256": "8d24b7ac0e06100c47e85cafc13ecd8b305626e09838a4b9adc14fa1075a26a8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细直立图像有中央竖画、向左分出的两处痕迹，右侧有长斜向笔画。"
+    ],
+    "en": [
+      "The thin upright image has a central vertical stroke, two leftward branching marks, and a long diagonal stroke on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0030_甲193(甲).png",
+    "prefix": "G",
+    "old_catalog": "甲193",
+    "old_catalog_abbr": "甲",
+    "old_catalog_abbr_obm_label": "甲骨卜辭",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0030",
+    "validation_class_id": "24",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㐔",
+    "codepoints": "U+3414",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000025",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-004041",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004041",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005634_hust-obc-und-L-004041_glyph.jpg",
+      "metadata": "images/001_asset-005634_hust-obc-und-L-004041_glyph.yaml",
+      "asset_id": "asset-005634",
+      "source_image_path": "HUST-OBC/undeciphered/L/4041/L_？_8635.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "59",
+      "sha256": "b33b5a42998f1e1b159fae490b85e678c9dc7755b4d0a39c3b8b21114739e559",
+      "raw_source_sha256": "b33b5a42998f1e1b159fae490b85e678c9dc7755b4d0a39c3b8b21114739e559",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中部是紧凑的深色竖向痕迹。上方有数条短折痕，中部较粗，内部可见较窄的浅色断开。下缘渐收或弯曲，连接关系待核查。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005634_hust-obc-und-L-004041_glyph.jpg`",
+      "A dark, compact vertical mark occupies the crop. Short upper strokes form an irregular top; a thicker central body contains a narrow lighter break. Lower edges taper or curve, but joins remain uncertain."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8635.jpg",
+    "prefix": "L",
+    "code": "？_8635"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4041",
+    "source_class_path": "HUST-OBC/undeciphered/L/4041/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4041/L_？_8635.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4041/L_？_8635.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

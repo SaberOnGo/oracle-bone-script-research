@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001348",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1505",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001353_hust-obc-cat-1505_glyph.png",
+      "metadata": "images/001_asset-001353_hust-obc-cat-1505_glyph.yaml",
+      "asset_id": "asset-001353",
+      "source_image_path": "HUST-OBC/deciphered/1505/G_1505_京都1932合28231無名組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "63",
+      "pixel_height": "80",
+      "sha256": "23c153857de6af634a462f6de7a766f6a22269af45b80ac173ade9f8c0564493",
+      "raw_source_sha256": "00d085db99afac890173b05a16bd1f142db2aa439e91c409a45ca56064a3a7ba",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数条分离的左侧弧线旁有右侧尖状框形，内部有分隔笔画并接下部笔干。"
+    ],
+    "en": [
+      "Several detached left curves accompany a right pointed enclosure with inner divisions and a lower stem."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1505_京都1932合28231無名組.png",
+    "prefix": "G",
+    "heji": "合28231",
+    "old_catalog": "京都1932",
+    "old_catalog_abbr": "京都",
+    "old_catalog_abbr_obm_label": "京都大學人文科學研究所藏甲骨文字",
+    "group_or_note": "無名組"
+  },
+  "dataset_category": {
+    "source_category_id": "1505",
+    "validation_class_id": "1347",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㧗",
+    "codepoints": "U+39D7",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001348",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

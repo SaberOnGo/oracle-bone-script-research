@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004596",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004596",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006189_hust-obc-und-X-004596_glyph.jpg",
+      "metadata": "images/001_asset-006189_hust-obc-und-X-004596_glyph.yaml",
+      "asset_id": "asset-006189",
+      "source_image_path": "HUST-OBC/undeciphered/X/152/X_？_8329_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "163",
+      "pixel_height": "291",
+      "sha256": "a0a88a6b817a5b7fff7ebcf43b51e26ddc11d320a0851cbed234f74df39aa4b9",
+      "raw_source_sha256": "a0a88a6b817a5b7fff7ebcf43b51e26ddc11d320a0851cbed234f74df39aa4b9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央主痕向上连接一条粗的右上斜向末端。",
+      "左侧短分支向上弯曲形成圆曲钩状轮廓。",
+      "下部主痕分成两条长的斜向痕迹。",
+      "两条下部分支在不同位置结束。",
+      "右上末端明显比下部分支更粗重。"
+    ],
+    "en": [
+      "A central stem rises to a thick diagonal upper-right terminal.",
+      "A short left branch curves upward into a rounded hook.",
+      "The lower stem divides into two long diagonal traces.",
+      "The two lower traces end at different positions.",
+      "The upper-right terminal is visibly thicker than the lower traces."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8329_1.png",
+    "prefix": "X",
+    "code": "？_8329_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "152",
+    "source_class_path": "HUST-OBC/undeciphered/X/152/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/152/X_？_8329_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/152/X_？_8329_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

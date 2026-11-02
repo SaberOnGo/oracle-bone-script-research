@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001495",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1677",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001500_hust-obc-cat-1677_glyph.png",
+      "metadata": "images/001_asset-001500_hust-obc-cat-1677_glyph.yaml",
+      "asset_id": "asset-001500",
+      "source_image_path": "HUST-OBC/deciphered/1677/G_1677_乙1405合1899賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "50",
+      "pixel_height": "80",
+      "sha256": "d1294d0c354a548d4a7aa7d4032e6a767a8632100da83e478fe51e9854fd72d3",
+      "raw_source_sha256": "e6b7626d863f6d0092654c7a10ed94e9dcb1cbdef8cb0353ceb2fadd644344a1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高大斜向轮廓有上部横笔、小型环形和尖状下端。"
+    ],
+    "en": [
+      "A tall slanted contour has an upper bar, a small loop, and a pointed end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1677_乙1405合1899賓組.png",
+    "prefix": "G",
+    "heji": "合1899",
+    "old_catalog": "乙1405",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1677",
+    "validation_class_id": "1494",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪃",
+    "codepoints": "U+3A83",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001495",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

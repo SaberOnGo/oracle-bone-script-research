@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001042",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1168",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001047_hust-obc-cat-1168_glyph.png",
+      "metadata": "images/001_asset-001047_hust-obc-cat-1168_glyph.yaml",
+      "asset_id": "asset-001047",
+      "source_image_path": "HUST-OBC/deciphered/1168/G_1168_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "62",
+      "pixel_height": "64",
+      "sha256": "3f67d66aa0bfa86c6b255f0956f5a768e27cd75454cc6fc0e9195224e8b858b4",
+      "raw_source_sha256": "63bbe83acbaa96cb9a6aadefdf75d63918a48957728e604cc6e76aa635ebbec4",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "单个粗重方框状闭合轮廓由近似直线的四边构成，内部未见明显笔迹。"
+    ],
+    "en": [
+      "A single thick square-like enclosure is formed by four nearly straight sides, with no visible interior mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1168_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "1168",
+    "validation_class_id": "1041",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㢆",
+    "codepoints": "U+3886",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001042",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

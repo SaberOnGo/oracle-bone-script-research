@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001439",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1612",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001444_hust-obc-cat-1612_glyph.png",
+      "metadata": "images/001_asset-001444_hust-obc-cat-1612_glyph.yaml",
+      "asset_id": "asset-001444",
+      "source_image_path": "HUST-OBC/deciphered/1612/G_1612_乙7390合13360賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "32",
+      "pixel_height": "79",
+      "sha256": "f082c7797bf2ecad9702194961333648397bf983c16b0178d14af4692f00dd0e",
+      "raw_source_sha256": "a86d635288fb0cffa828298a118eaa4cd3d8e732f04384c4695a3e43c3f21add",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型叶状上部形体有数条分离下部笔画。"
+    ],
+    "en": [
+      "A small leaf-like upper form has several separated lower strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1612_乙7390合13360賓組.png",
+    "prefix": "G",
+    "heji": "合13360",
+    "old_catalog": "乙7390",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1612",
+    "validation_class_id": "1438",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㩂",
+    "codepoints": "U+3A42",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001439",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

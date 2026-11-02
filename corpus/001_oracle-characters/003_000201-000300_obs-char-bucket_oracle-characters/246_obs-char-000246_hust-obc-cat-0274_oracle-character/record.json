@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000246",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0274",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000251_hust-obc-cat-0274_glyph.png",
+      "metadata": "images/001_asset-000251_hust-obc-cat-0274_glyph.yaml",
+      "asset_id": "asset-000251",
+      "source_image_path": "HUST-OBC/deciphered/0274/G_0274_拾8.7(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "47",
+      "pixel_height": "80",
+      "sha256": "538a419c840903a666f5b9f31daced619bacded3a1dc62839064fa205aa8daf5",
+      "raw_source_sha256": "b82105afcae853960b76142acc6f10d9c48b522aea12b4ac250a749d458c5e51",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三道高直内部笔画从开放圆弧下部轮廓中上行，形成紧凑上聚形，顶部没有闭合外框。"
+    ],
+    "en": [
+      "Three tall interior strokes rise from an open rounded lower contour, forming a compact upward cluster without a closed upper frame."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0274_拾8.7(甲).png",
+    "prefix": "G",
+    "old_catalog": "拾8.7",
+    "old_catalog_abbr": "拾",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0274",
+    "validation_class_id": "245",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㔈",
+    "codepoints": "U+3508",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000246",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

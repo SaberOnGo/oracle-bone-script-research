@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001866",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001866",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003459_hust-obc-und-L-001866_glyph.jpg",
+      "metadata": "images/001_asset-003459_hust-obc-und-L-001866_glyph.yaml",
+      "asset_id": "asset-003459",
+      "source_image_path": "HUST-OBC/undeciphered/L/1866/L_？_15199.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "62",
+      "sha256": "126000badf81c535da5548bdc4812a2f891d36593971f240aa0363046ca2cd67",
+      "raw_source_sha256": "126000badf81c535da5548bdc4812a2f891d36593971f240aa0363046ca2cd67",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条弯曲外笔痕形成开口的中央菱形，内部有交叉笔痕。中央下方悬着小型尖收围合。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "Two curved outer strokes form an open central diamond with crossing internal marks. A small pointed enclosure hangs below the central area."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_15199.jpg",
+    "prefix": "L",
+    "code": "？_15199"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1866",
+    "source_class_path": "HUST-OBC/undeciphered/L/1866/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1866/L_？_15199.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1866/L_？_15199.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

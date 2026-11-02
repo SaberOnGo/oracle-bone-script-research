@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000020",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0023_0024",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000025_hust-obc-cat-0023_0024_glyph.png",
+      "metadata": "images/001_asset-000025_hust-obc-cat-0023_0024_glyph.yaml",
+      "asset_id": "asset-000025",
+      "source_image_path": "HUST-OBC/deciphered/0023_0024/0023/L_0023_9141.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "59",
+      "sha256": "0fddb32b095479e5cb64746454382015b0ff708a647ae6655c68657ee08c1fc3",
+      "raw_source_sha256": "6283de0e17830ed0a9e99f57f5a10ecd028a9740594f922506a27115d46187ef",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "深色图像呈长方形下框，内部有两条平行竖向笔画，并有窄小底部。"
+    ],
+    "en": [
+      "The dark image shows a rectangular lower frame containing two parallel upright strokes and a narrow base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0023_9141.jpg",
+    "prefix": "L",
+    "code": "0023_9141"
+  },
+  "dataset_category": {
+    "source_category_id": "0023_0024",
+    "validation_class_id": "19",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㐍㐎",
+    "codepoints": "U+340D;U+340E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000020",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

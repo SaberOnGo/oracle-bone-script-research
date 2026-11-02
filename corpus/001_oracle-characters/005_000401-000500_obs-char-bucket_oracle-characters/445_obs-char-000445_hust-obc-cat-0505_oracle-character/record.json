@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000445",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0505",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000450_hust-obc-cat-0505_glyph.png",
+      "metadata": "images/001_asset-000450_hust-obc-cat-0505_glyph.yaml",
+      "asset_id": "asset-000450",
+      "source_image_path": "HUST-OBC/deciphered/0505/G_0505_乙8896合22246子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "80",
+      "pixel_height": "72",
+      "sha256": "4479bde4bff6169f25f1eed293f51ba56ae3af2e5e10b1e3720b57056dd836ca",
+      "raw_source_sha256": "ae54e69698483cb511edea8b0965a8bb07cf0e10e1f6228953edcb064aebb664",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个紧凑形体彼此分离：左侧有长顶横和中央下行笔画，右侧有小型上部围框及弯折下部延伸。"
+    ],
+    "en": [
+      "Two compact forms stand apart: the left has a long top bar and descending central stroke, while the right has a small upper enclosure and a bent lower extension."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0505_乙8896合22246子組.png",
+    "prefix": "G",
+    "heji": "合22246",
+    "old_catalog": "乙8896",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "0505",
+    "validation_class_id": "444",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㗯",
+    "codepoints": "U+35EF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000445",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

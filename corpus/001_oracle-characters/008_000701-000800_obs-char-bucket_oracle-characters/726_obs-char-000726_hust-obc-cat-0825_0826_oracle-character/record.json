@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000726",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0825_0826",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000731_hust-obc-cat-0825_0826_glyph.png",
+      "metadata": "images/001_asset-000731_hust-obc-cat-0825_0826_glyph.yaml",
+      "asset_id": "asset-000731",
+      "source_image_path": "HUST-OBC/deciphered/0825_0826/0825/G_0825_前7.38.1(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "20",
+      "pixel_height": "80",
+      "sha256": "572a3f7519c4636219ba257750c7166aad2f3e1ba15fcc0eb127e17ffb57a7e3",
+      "raw_source_sha256": "ab87c6172053bbbd2a64f408a67bbbbf8fb48737024e8eda3944e6eee2297f76",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型折角上轮廓与中央竖笔及中部短横相交，随后收束为一条略有波折的长下笔。"
+    ],
+    "en": [
+      "A small angular upper outline crosses a central upright and short middle bar, then narrows into one long slightly wavering lower stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0825_前7.38.1(甲).png",
+    "prefix": "G",
+    "old_catalog": "前7.38.1",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0825_0826",
+    "validation_class_id": "725",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㜯㜰",
+    "codepoints": "U+372F;U+3730",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000726",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

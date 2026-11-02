@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001529",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1715",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001534_hust-obc-cat-1715_glyph.png",
+      "metadata": "images/001_asset-001534_hust-obc-cat-1715_glyph.yaml",
+      "asset_id": "asset-001534",
+      "source_image_path": "HUST-OBC/deciphered/1715/X_1715_5160_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "183",
+      "pixel_height": "314",
+      "sha256": "d983a978e4cfa6ce20cad30d021423ad78dd20ce3ab940d10c67f15791a632a9",
+      "raw_source_sha256": "4ec5c3393da112b7ec564882241d6cf9ef37af041e3f70c6dcbffcfbcffabb13",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集高大轮廓有数个上部分叉、两个内部开口和弧形下部尾笔。"
+    ],
+    "en": [
+      "A dense tall contour has several upper prongs, two inner openings, and curved lower tails."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1715_5160_1.png",
+    "prefix": "X",
+    "code": "1715_5160_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1715",
+    "validation_class_id": "1528",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪩",
+    "codepoints": "U+3AA9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001529",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

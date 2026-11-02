@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000370",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000370",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001963_hust-obc-und-L-000370_glyph.jpg",
+      "metadata": "images/001_asset-001963_hust-obc-und-L-000370_glyph.yaml",
+      "asset_id": "asset-001963",
+      "source_image_path": "HUST-OBC/undeciphered/L/370/L_？_11165.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "53",
+      "sha256": "60aa9a65b7bfff2e3ff9d2b3caaac98b11b43ec613d4867233f1564f87bcfb2a",
+      "raw_source_sha256": "60aa9a65b7bfff2e3ff9d2b3caaac98b11b43ec613d4867233f1564f87bcfb2a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集折角组合体带短上部外伸、中部交叉笔画和弯曲下缘。"
+    ],
+    "en": [
+      "A dense angular composite has a short upper projection, crossing middle strokes, and a curved lower edge."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11165.jpg",
+    "prefix": "L",
+    "code": "？_11165"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "370",
+    "source_class_path": "HUST-OBC/undeciphered/L/370/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/370/L_？_11165.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/370/L_？_11165.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

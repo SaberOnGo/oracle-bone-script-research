@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001649",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001649",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003242_hust-obc-und-L-001649_glyph.jpg",
+      "metadata": "images/001_asset-003242_hust-obc-und-L-001649_glyph.yaml",
+      "asset_id": "asset-003242",
+      "source_image_path": "HUST-OBC/undeciphered/L/1649/L_？_1454.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "57",
+      "sha256": "b0534ffe6062e3714fe4088070deefe5f4e23f6a397d2218a473a8409086f14e",
+      "raw_source_sha256": "b0534ffe6062e3714fe4088070deefe5f4e23f6a397d2218a473a8409086f14e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条较长斜向笔画构成开放的折角形主体，右侧有下降轮廓，底部附近有短横向基线。"
+    ],
+    "en": [
+      "Two long diagonal strokes form an open angular body, with a descending right-side contour and a short horizontal base near the bottom."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1454.jpg",
+    "prefix": "L",
+    "code": "？_1454"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1649",
+    "source_class_path": "HUST-OBC/undeciphered/L/1649/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1649/L_？_1454.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1649/L_？_1454.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

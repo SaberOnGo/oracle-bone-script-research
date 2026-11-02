@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001079",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1207_1208",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001084_hust-obc-cat-1207_1208_glyph.png",
+      "metadata": "images/001_asset-001084_hust-obc-cat-1207_1208_glyph.yaml",
+      "asset_id": "asset-001084",
+      "source_image_path": "HUST-OBC/deciphered/1207_1208/1207/G_1207_摭續85(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "64",
+      "pixel_height": "80",
+      "sha256": "062541aaf272325d2c8f218df6d7795beb2eb04e904e90eb86155aa121bc87ea",
+      "raw_source_sha256": "375db9382e9cc2451c531891d760ec2a0cb9dc4b7514f12c483099c48b9ec3fb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离的相似直立形体各自有尖状上部分枝和短下部侧笔。"
+    ],
+    "en": [
+      "Two separated similar upright forms each have pointed upper branches and short lower side strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1207_摭續85(甲).png",
+    "prefix": "G",
+    "old_catalog": "摭續85",
+    "old_catalog_abbr": "摭續",
+    "old_catalog_abbr_obm_label": "甲骨摭續",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1207_1208",
+    "validation_class_id": "1078",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㢭㢮",
+    "codepoints": "U+38AD;U+38AE",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001079",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

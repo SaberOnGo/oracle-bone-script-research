@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000799",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0905",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000804_hust-obc-cat-0905_glyph.png",
+      "metadata": "images/001_asset-000804_hust-obc-cat-0905_glyph.yaml",
+      "asset_id": "asset-000804",
+      "source_image_path": "HUST-OBC/deciphered/0905/G_0905_乙7342合3291.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "80",
+      "sha256": "42a1d52e715ecbe0986ecc59a7497a7fa2a8b50cf2990bf43a4c16987e790b6b",
+      "raw_source_sha256": "827aca5da689b34de6a21a9039b79b99dee4dec470fc1f89ad084741fbb33be3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高长弯曲外轮廓围住长斜向内空隙，下端伸出数条向外展开的短根。"
+    ],
+    "en": [
+      "A tall curved outer outline surrounds a long inner diagonal opening and ends in several short spreading lower roots."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0905_乙7342合3291.png",
+    "prefix": "G",
+    "heji": "合3291",
+    "old_catalog": "乙7342",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0905",
+    "validation_class_id": "798",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝿",
+    "codepoints": "U+377F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000799",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

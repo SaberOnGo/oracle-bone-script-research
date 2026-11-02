@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000798",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0904",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000803_hust-obc-cat-0904_glyph.png",
+      "metadata": "images/001_asset-000803_hust-obc-cat-0904_glyph.yaml",
+      "asset_id": "asset-000803",
+      "source_image_path": "HUST-OBC/deciphered/0904/G_0904_京津4387(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "80",
+      "sha256": "b6a77602c5a39e244ef448a34d08165d7517c1210e28b3c9f53b0376752b537a",
+      "raw_source_sha256": "a2086b1757ea3adabbeebf4e10d7293eb11ab04cd41323952bfba0e673581443",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个相邻竖干向上分出短枝，并向下收束至底部小型分离 U 形空隙。"
+    ],
+    "en": [
+      "Two adjacent stems fork into short upper branches and descend toward a small detached U-shaped opening at the bottom."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0904_京津4387(甲).png",
+    "prefix": "G",
+    "old_catalog": "京津4387",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0904",
+    "validation_class_id": "797",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝾",
+    "codepoints": "U+377E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000798",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

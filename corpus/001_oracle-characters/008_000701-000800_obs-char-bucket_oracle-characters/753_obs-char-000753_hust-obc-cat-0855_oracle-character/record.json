@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000753",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0855",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000758_hust-obc-cat-0855_glyph.png",
+      "metadata": "images/001_asset-000758_hust-obc-cat-0855_glyph.yaml",
+      "asset_id": "asset-000758",
+      "source_image_path": "HUST-OBC/deciphered/0855/G_0855_佚195(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "24",
+      "pixel_height": "80",
+      "sha256": "5a17b4eb71884fa3084712e0d303ed5d765f9eac7cf9aac8530b3bad802ea9a1",
+      "raw_source_sha256": "64d87df1fd8235aa7c47e33dd6a8a96d61473dc15ffd3d0397f51b0c6cd7e84c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三个分离形纵向叠置：带分隔的尖顶上环、小型向下中部尖角和带短放射枝的下部竖干。"
+    ],
+    "en": [
+      "Three detached forms are stacked vertically: a pointed divided upper loop, a small middle downward chevron, and a lower upright with short radiating branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0855_佚195(甲).png",
+    "prefix": "G",
+    "old_catalog": "佚195",
+    "old_catalog_abbr": "佚",
+    "old_catalog_abbr_obm_label": "殷契佚存補編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0855",
+    "validation_class_id": "752",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝍",
+    "codepoints": "U+374D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000753",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

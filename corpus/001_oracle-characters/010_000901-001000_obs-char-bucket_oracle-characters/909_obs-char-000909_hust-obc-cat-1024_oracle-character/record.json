@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000909",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1024",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000914_hust-obc-cat-1024_glyph.png",
+      "metadata": "images/001_asset-000914_hust-obc-cat-1024_glyph.yaml",
+      "asset_id": "asset-000914",
+      "source_image_path": "HUST-OBC/deciphered/1024/H_1024_60F49_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "246",
+      "pixel_height": "278",
+      "sha256": "2876e98dd688bc997e0fce4946fa5dc04203c66adeccaf4104d3af892ee35aa5",
+      "raw_source_sha256": "9ac89b147f61d131aa100441a4a1244fa61e178e4d45ac739dd4f498efe61d7a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重外部 U 形轮廓围住中央交叉笔群，旁有分离侧痕迹和三条尖形下伸笔。"
+    ],
+    "en": [
+      "A very bold outer U-shaped contour surrounds a central crossed cluster, with detached side marks and three pointed lower projections."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_1024_60F49_0.png",
+    "prefix": "H",
+    "code": "1024_60F49_0"
+  },
+  "dataset_category": {
+    "source_category_id": "1024",
+    "validation_class_id": "908",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟶",
+    "codepoints": "U+37F6",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000909",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000808",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000808",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002401_hust-obc-und-L-000808_glyph.jpg",
+      "metadata": "images/001_asset-002401_hust-obc-und-L-000808_glyph.yaml",
+      "asset_id": "asset-002401",
+      "source_image_path": "HUST-OBC/undeciphered/L/808/L_？_12358.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "62",
+      "sha256": "a89ead703d3a97005f482c8f1e887b5dc8831ab2a9d7aeadcffa8ede5520d004",
+      "raw_source_sha256": "a89ead703d3a97005f482c8f1e887b5dc8831ab2a9d7aeadcffa8ede5520d004",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集环状上部笔组经长弧曲笔向下延伸，左下方另有分离笔记。"
+    ],
+    "en": [
+      "A dense looped upper cluster descends through a long curved stroke, with a detached lower-left mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12358.jpg",
+    "prefix": "L",
+    "code": "？_12358"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "808",
+    "source_class_path": "HUST-OBC/undeciphered/L/808/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/808/L_？_12358.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/808/L_？_12358.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

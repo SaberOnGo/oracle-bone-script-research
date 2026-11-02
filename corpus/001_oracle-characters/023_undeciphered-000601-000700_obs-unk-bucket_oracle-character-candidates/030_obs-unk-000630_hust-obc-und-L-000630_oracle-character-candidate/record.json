@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000630",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000630",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002223_hust-obc-und-L-000630_glyph.jpg",
+      "metadata": "images/001_asset-002223_hust-obc-und-L-000630_glyph.yaml",
+      "asset_id": "asset-002223",
+      "source_image_path": "HUST-OBC/undeciphered/L/630/L_？_11890.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "61",
+      "sha256": "38579d8948e6a81e87b05563027cbd97be2fa8b21a6cb9edbf4edceb7c3f7f9d",
+      "raw_source_sha256": "38579d8948e6a81e87b05563027cbd97be2fa8b21a6cb9edbf4edceb7c3f7f9d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型上部笔帽和分支痕迹位于带横带矩形笔块之上，下方有短基座。"
+    ],
+    "en": [
+      "A small upper cap and branching mark sit above a rectangular banded block with a short lower base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11890.jpg",
+    "prefix": "L",
+    "code": "？_11890"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "630",
+    "source_class_path": "HUST-OBC/undeciphered/L/630/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/630/L_？_11890.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/630/L_？_11890.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

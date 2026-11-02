@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004449",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004449",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006042_hust-obc-und-X-004449_glyph.jpg",
+      "metadata": "images/001_asset-006042_hust-obc-und-X-004449_glyph.yaml",
+      "asset_id": "asset-006042",
+      "source_image_path": "HUST-OBC/undeciphered/X/5/X_？_8184_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "105",
+      "pixel_height": "315",
+      "sha256": "56081657e6051334742afa7e2808849b84b21a56899e2710d5c94af6d59edfdc",
+      "raw_source_sha256": "56081657e6051334742afa7e2808849b84b21a56899e2710d5c94af6d59edfdc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高的中央竖干向上分出两条短小的侧向痕迹。",
+      "中央竖干继续穿过中部区域向下延伸。",
+      "下部有一处向两侧变宽的大型开放轮廓。",
+      "下部竖干以弯曲的钩状末端收尾。"
+    ],
+    "en": [
+      "A tall central stem rises into two short upper side traces.",
+      "The stem continues downward through the middle area.",
+      "A large lower open outline widens toward both sides.",
+      "The lower stem ends in a curved hook-like terminal."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8184_1.png",
+    "prefix": "X",
+    "code": "？_8184_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "5",
+    "source_class_path": "HUST-OBC/undeciphered/X/5/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/5/X_？_8184_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/5/X_？_8184_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

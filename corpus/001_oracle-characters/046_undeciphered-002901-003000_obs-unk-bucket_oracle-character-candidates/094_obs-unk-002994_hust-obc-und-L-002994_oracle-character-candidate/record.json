@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-002994",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002994",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004587_hust-obc-und-L-002994_glyph.jpg",
+      "metadata": "images/001_asset-004587_hust-obc-und-L-002994_glyph.yaml",
+      "asset_id": "asset-004587",
+      "source_image_path": "HUST-OBC/undeciphered/L/2994/L_？_5313.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "54",
+      "sha256": "74154d93df2b0cc90d55e1c53558b27ae357a7a3d14349bab5fb88cc693035e2",
+      "raw_source_sha256": "74154d93df2b0cc90d55e1c53558b27ae357a7a3d14349bab5fb88cc693035e2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像上部可见尖向笔画，下方为较宽的滴状外轮廓。",
+      "一条细内部笔画分隔下方的围合区域。",
+      "下部外轮廓在裁切范围内收成圆转尖端。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "The crop shows a pointed upper stroke above a broad teardrop-like outline.",
+      "A thin inner stroke divides the lower enclosed area.",
+      "The lower outline ends in a rounded point within the crop.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_5313.jpg",
+    "prefix": "L",
+    "code": "？_5313"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2994",
+    "source_class_path": "HUST-OBC/undeciphered/L/2994/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2994/L_？_5313.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2994/L_？_5313.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

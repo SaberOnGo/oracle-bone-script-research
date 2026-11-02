@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000755",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000755",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002348_hust-obc-und-L-000755_glyph.jpg",
+      "metadata": "images/001_asset-002348_hust-obc-und-L-000755_glyph.yaml",
+      "asset_id": "asset-002348",
+      "source_image_path": "HUST-OBC/undeciphered/L/755/L_？_12221.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "57",
+      "sha256": "a3dba0864f0c601f79a2ca13987ad93d11899b70a266fcc691a2f533d5c22b1c",
+      "raw_source_sha256": "a3dba0864f0c601f79a2ca13987ad93d11899b70a266fcc691a2f533d5c22b1c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集环状左部笔组旁有分离的弧曲右侧直笔，末端接长下钩。"
+    ],
+    "en": [
+      "A dense looped left cluster stands beside a separate curved right stem with a long lower hook."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12221.jpg",
+    "prefix": "L",
+    "code": "？_12221"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "755",
+    "source_class_path": "HUST-OBC/undeciphered/L/755/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/755/L_？_12221.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/755/L_？_12221.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

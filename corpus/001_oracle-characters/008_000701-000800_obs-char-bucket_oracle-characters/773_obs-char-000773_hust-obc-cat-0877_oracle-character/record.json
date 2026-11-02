@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000773",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0877",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000778_hust-obc-cat-0877_glyph.png",
+      "metadata": "images/001_asset-000778_hust-obc-cat-0877_glyph.yaml",
+      "asset_id": "asset-000778",
+      "source_image_path": "HUST-OBC/deciphered/0877/G_0877_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "53",
+      "pixel_height": "81",
+      "sha256": "06c3506d870b2ebdf40a69169f1f5244e9d649cb56ac5c56d0d5936ca9d3b89f",
+      "raw_source_sha256": "1ca627bb8bcaff1bc7c413315c3b5a565fea6f8beaa13bbedb8ad8e3c04c3167",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个小型放射上痕位于中央圆角矩形环上方；环内有微小痕，下方另有分离的弯曲分隔形。"
+    ],
+    "en": [
+      "Two small radiating upper marks stand above a central rounded rectangular loop; a tiny inner mark and a detached curved divided form appear below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0877_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "0877",
+    "validation_class_id": "772",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝣",
+    "codepoints": "U+3763",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000773",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

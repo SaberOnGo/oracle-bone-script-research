@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004220",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004220",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005813_hust-obc-und-L-004220_glyph.jpg",
+      "metadata": "images/001_asset-005813_hust-obc-und-L-004220_glyph.yaml",
+      "asset_id": "asset-005813",
+      "source_image_path": "HUST-OBC/undeciphered/L/4220/L_？_9226.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "59",
+      "sha256": "62125d4c22ffdfb6375ada9b0729ac0404de794340500927501e8f2335d4f084",
+      "raw_source_sha256": "62125d4c22ffdfb6375ada9b0729ac0404de794340500927501e8f2335d4f084",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：左侧有一个较高的开放轮廓。",
+      "中文：两条横向内部笔画穿过左侧轮廓。",
+      "中文：右侧有一条细长笔画向下延伸。",
+      "中文：下端形态不均，连接关系并不清楚。"
+    ],
+    "en": [
+      "English: A tall open outline occupies the left side.",
+      "English: Two horizontal inner bars cross the left outline.",
+      "English: A long narrow stroke descends along the right side.",
+      "English: The lower ends are uneven and not clearly joined."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9226.jpg",
+    "prefix": "L",
+    "code": "？_9226"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4220",
+    "source_class_path": "HUST-OBC/undeciphered/L/4220/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4220/L_？_9226.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4220/L_？_9226.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

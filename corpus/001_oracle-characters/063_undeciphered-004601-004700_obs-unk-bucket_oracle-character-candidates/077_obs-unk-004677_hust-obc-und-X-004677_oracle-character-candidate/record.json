@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004677",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004677",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006270_hust-obc-und-X-004677_glyph.jpg",
+      "metadata": "images/001_asset-006270_hust-obc-und-X-004677_glyph.yaml",
+      "asset_id": "asset-006270",
+      "source_image_path": "HUST-OBC/undeciphered/X/233/X_？_8402_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "115",
+      "pixel_height": "329",
+      "sha256": "9c937a72c9401bbcdd45cb8008adcfe42f9888f75c1b6f5bf1a34a9ff8efe38c",
+      "raw_source_sha256": "9c937a72c9401bbcdd45cb8008adcfe42f9888f75c1b6f5bf1a34a9ff8efe38c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中有一条近似竖直贯穿中央的长笔画。",
+      "上端向左右分出几条短笔画。",
+      "一条长斜笔画穿过中央区域并伸向右侧。",
+      "中央交叉附近可见一个小的浅色开口。",
+      "中部右侧另有一段分离的短竖向残片。",
+      "下部笔干继续向下，并带有向右的侧向分支。"
+    ],
+    "en": [
+      "A tall central stroke runs almost vertically through the image.",
+      "The upper end branches into short strokes toward the left and right.",
+      "A long diagonal stroke crosses the central area toward the right.",
+      "A small pale opening appears near the central crossing.",
+      "A separate short upright fragment stands to the right of the middle.",
+      "The lower stem continues downward and has a rightward side branch.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8402_1.png",
+    "prefix": "X",
+    "code": "？_8402_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "233",
+    "source_class_path": "HUST-OBC/undeciphered/X/233/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/233/X_？_8402_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/233/X_？_8402_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

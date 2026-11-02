@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000838",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0947",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000843_hust-obc-cat-0947_glyph.png",
+      "metadata": "images/001_asset-000843_hust-obc-cat-0947_glyph.yaml",
+      "asset_id": "asset-000843",
+      "source_image_path": "HUST-OBC/deciphered/0947/G_0947_庫267合39528.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "79",
+      "sha256": "cfd3936cde938ac4b48ed7bb2bdea1456bc5dae08a486fdfa2265ae6b6ddd81e",
+      "raw_source_sha256": "cd144f04b16b14efdd25c85b90fb66c62d47f326c3b297db127f0dd457555cff",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "多条纤细竖笔和略弯笔形成两个疏松笔群，中间有间隔；细连接难以辨认。"
+    ],
+    "en": [
+      "Many thin vertical and slightly curved strokes form two loose groups with gaps; fine connections are difficult to resolve."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0947_庫267合39528.png",
+    "prefix": "G",
+    "heji": "合39528",
+    "old_catalog": "庫267",
+    "old_catalog_abbr": "庫",
+    "old_catalog_abbr_obm_label": "庫方二氏所藏甲骨卜辭"
+  },
+  "dataset_category": {
+    "source_category_id": "0947",
+    "validation_class_id": "837",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㞩",
+    "codepoints": "U+37A9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000838",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

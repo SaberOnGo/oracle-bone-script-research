@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000750",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0852",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000755_hust-obc-cat-0852_glyph.png",
+      "metadata": "images/001_asset-000755_hust-obc-cat-0852_glyph.yaml",
+      "asset_id": "asset-000755",
+      "source_image_path": "HUST-OBC/deciphered/0852/G_0852_乙960(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "44",
+      "pixel_height": "80",
+      "sha256": "22e6c7a08e501cf26b66ed52fb8a06a116d04067fdea6991182b415c0a4306d1",
+      "raw_source_sha256": "c9bd48738dc80f3875e2bdf4484d5f0191fe11b2990286d117f3a706e9903059",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三个小型倾斜环位于上排，连接外展斜枝；斜枝在中央分叉处汇合，下接两条狭长下笔。"
+    ],
+    "en": [
+      "Three small tilted loops occupy the upper row and attach to spreading diagonal branches that meet at a central fork above two narrow descending strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0852_乙960(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙960",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0852",
+    "validation_class_id": "749",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝊",
+    "codepoints": "U+374A",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_obimd_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-obimd"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000750",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

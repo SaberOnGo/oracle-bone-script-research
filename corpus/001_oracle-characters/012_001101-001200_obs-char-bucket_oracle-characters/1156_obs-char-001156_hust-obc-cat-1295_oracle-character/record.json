@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001156",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1295",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001161_hust-obc-cat-1295_glyph.png",
+      "metadata": "images/001_asset-001161_hust-obc-cat-1295_glyph.yaml",
+      "asset_id": "asset-001161",
+      "source_image_path": "HUST-OBC/deciphered/1295/G_1295_乙6638(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "80",
+      "sha256": "e27cc011d8f73b908e7dd85b22c29ee6146888535df9e717f6b69f8814de8d94",
+      "raw_source_sha256": "66d0cc00b19b9cad5f67ba20634bc8afdf66471415682b53455bccf7c02124b8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型直立梯形框廓顶部狭窄开放，下部轮廓呈圆弧状。"
+    ],
+    "en": [
+      "A small upright trapezoidal enclosure has a narrow open top and a rounded lower contour."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1295_乙6638(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙6638",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1295",
+    "validation_class_id": "1155",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㤅",
+    "codepoints": "U+3905",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001156",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

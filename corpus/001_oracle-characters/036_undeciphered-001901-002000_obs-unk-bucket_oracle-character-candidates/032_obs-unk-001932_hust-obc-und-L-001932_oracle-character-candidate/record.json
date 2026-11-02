@@ -1,0 +1,67 @@
+{
+  "id": "obs-unk-001932",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001932",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003525_hust-obc-und-L-001932_glyph.jpg",
+      "metadata": "images/001_asset-003525_hust-obc-und-L-001932_glyph.yaml",
+      "asset_id": "asset-003525",
+      "source_image_path": "HUST-OBC/undeciphered/L/1932/L_Јї_1656.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "54",
+      "sha256": "77398c5b34c7d25b45651b8f156fabb8f61d77d276b0b2ce3f1429bd1a7c2140",
+      "raw_source_sha256": "77398c5b34c7d25b45651b8f156fabb8f61d77d276b0b2ce3f1429bd1a7c2140",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央有一组由多条斜向和近竖向笔痕组成的密集墨痕。左侧有曲向笔痕向下延伸，右侧有数条较高的笔痕继续向下。下方中央附近另有小的分离斜痕，整体外缘不规则。",
+      "密集交叠处和可能的残缺笔端需要按来源原始分辨率复核。"
+    ],
+    "en": [
+      "A dense central cluster is made from many diagonal and near-vertical strokes. A curved stroke extends down on the left, while several taller strokes continue on the right. A small separate diagonal mark appears near the lower centre; the outer edges are irregular.",
+      "The dense crossings and possible damaged ends require source-resolution review."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_Јї_1656.jpg",
+    "prefix": "L",
+    "code": "Јї_1656"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1932",
+    "source_class_path": "HUST-OBC/undeciphered/L/1932/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1932/L_？_1656.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1932/L_？_1656.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

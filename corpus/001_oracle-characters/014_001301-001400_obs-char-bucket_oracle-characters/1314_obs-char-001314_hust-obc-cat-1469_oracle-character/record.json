@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001314",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1469",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001319_hust-obc-cat-1469_glyph.png",
+      "metadata": "images/001_asset-001319_hust-obc-cat-1469_glyph.yaml",
+      "asset_id": "asset-001319",
+      "source_image_path": "HUST-OBC/deciphered/1469/L_1469_6860.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "59",
+      "sha256": "4a8f3c1a5cc7c2df3e40de43609235df1e62b135763dbb57179f1dc920981387",
+      "raw_source_sha256": "c0f2a7bc3df7763f681380a4edb2fb5ef6f908989fb24430c7bcdc8dda00697a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型较淡形体有圆拱上横部、细中央笔干和尖状下部环形。"
+    ],
+    "en": [
+      "A small faint form has a rounded upper bar, a thin central stem, and a pointed lower loop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1469_6860.jpg",
+    "prefix": "L",
+    "code": "1469_6860"
+  },
+  "dataset_category": {
+    "source_category_id": "1469",
+    "validation_class_id": "1313",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㦳",
+    "codepoints": "U+39B3",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001314",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

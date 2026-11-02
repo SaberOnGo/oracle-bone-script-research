@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001301",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001301",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002894_hust-obc-und-L-001301_glyph.jpg",
+      "metadata": "images/001_asset-002894_hust-obc-und-L-001301_glyph.yaml",
+      "asset_id": "asset-002894",
+      "source_image_path": "HUST-OBC/undeciphered/L/1301/L_？_13686.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "a34c35d13b367db2b7a6cd41f1f31b5d508174455d91bbc546f7391d87ac8eda",
+      "raw_source_sha256": "a34c35d13b367db2b7a6cd41f1f31b5d508174455d91bbc546f7391d87ac8eda",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中央是一条偏窄的纵向形体。上部两侧各有弯曲笔痕，下部聚集多条较短深色笔痕，整体近似三角形，但边界不清。"
+    ],
+    "en": [
+      "A narrow vertical form is centered in the crop. Two curved strokes rise near the upper sides, while the lower area contains a dense, roughly triangular cluster of short dark strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13686.jpg",
+    "prefix": "L",
+    "code": "？_13686"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1301",
+    "source_class_path": "HUST-OBC/undeciphered/L/1301/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1301/L_？_13686.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1301/L_？_13686.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

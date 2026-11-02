@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004675",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004675",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006268_hust-obc-und-X-004675_glyph.jpg",
+      "metadata": "images/001_asset-006268_hust-obc-und-X-004675_glyph.yaml",
+      "asset_id": "asset-006268",
+      "source_image_path": "HUST-OBC/undeciphered/X/231/X_？_8400_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "137",
+      "pixel_height": "324",
+      "sha256": "e15035fbb1f6689a9501854c3a2b0df5f1758678dbfc5e17b7994015baea4670",
+      "raw_source_sha256": "e15035fbb1f6689a9501854c3a2b0df5f1758678dbfc5e17b7994015baea4670",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中是一组高而大体竖向排列的深色笔画。",
+      "上部的一条分叉笔画向左上和右上展开。",
+      "中央圆钝的深色区域内有三个浅色开口。",
+      "一段狭窄连接部把它与下方矩形区域相连。",
+      "下方区域内有两个小型浅色开口。",
+      "一条较长的下部笔画向下延伸并向右弯曲。"
+    ],
+    "en": [
+      "The image presents a tall, mostly vertical arrangement of dark strokes.",
+      "A forked upper stroke opens toward the upper left and upper right.",
+      "The central rounded mass contains three pale internal openings.",
+      "A narrow neck connects that mass to a lower rectangular mass.",
+      "The lower mass contains two small pale openings.",
+      "A long lower stroke descends and bends toward the right.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8400_1.png",
+    "prefix": "X",
+    "code": "？_8400_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "231",
+    "source_class_path": "HUST-OBC/undeciphered/X/231/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/231/X_？_8400_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/231/X_？_8400_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

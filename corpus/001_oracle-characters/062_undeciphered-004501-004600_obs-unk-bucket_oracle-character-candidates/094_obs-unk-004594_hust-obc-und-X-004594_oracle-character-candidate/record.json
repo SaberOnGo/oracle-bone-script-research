@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004594",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004594",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006187_hust-obc-und-X-004594_glyph.jpg",
+      "metadata": "images/001_asset-006187_hust-obc-und-X-004594_glyph.yaml",
+      "asset_id": "asset-006187",
+      "source_image_path": "HUST-OBC/undeciphered/X/150/X_？_8327_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "227",
+      "pixel_height": "236",
+      "sha256": "10053e4a5189cf4cf5210baf274c27059a0a31b916c57ead35a502b448343d2e",
+      "raw_source_sha256": "10053e4a5189cf4cf5210baf274c27059a0a31b916c57ead35a502b448343d2e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像中有两个明显分离的深色痕迹簇。",
+      "左侧痕迹簇有横痕、上部尖突和下部尖端。",
+      "右侧痕迹簇有直立痕、横向分支和下部尖端。",
+      "右侧痕迹簇下方另有一个分离的小深色点。",
+      "当前裁切中看不见两个痕迹簇之间的连接。"
+    ],
+    "en": [
+      "The image contains two visibly separated dark trace clusters.",
+      "The left cluster has a horizontal bar, an upper spike, and a lower point.",
+      "The right cluster has an upright trace, a horizontal branch, and a lower point.",
+      "A small detached dark dot appears below the right cluster.",
+      "No connection between the two clusters is visible in this crop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8327_1.png",
+    "prefix": "X",
+    "code": "？_8327_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "150",
+    "source_class_path": "HUST-OBC/undeciphered/X/150/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/150/X_？_8327_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/150/X_？_8327_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

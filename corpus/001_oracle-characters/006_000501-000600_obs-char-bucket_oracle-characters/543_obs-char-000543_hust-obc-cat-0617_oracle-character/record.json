@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000543",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0617",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000548_hust-obc-cat-0617_glyph.png",
+      "metadata": "images/001_asset-000548_hust-obc-cat-0617_glyph.yaml",
+      "asset_id": "asset-000548",
+      "source_image_path": "HUST-OBC/deciphered/0617/G_0617_京津2632(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "28",
+      "pixel_height": "80",
+      "sha256": "76444c1a9fc82168718c6f78b7a34f20c7a0ac63bf555e320d5d58b679c3109f",
+      "raw_source_sha256": "7fd49b0a641ed011addfc91990b3a0660375102f877ae0ac799550ab35123b9b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条狭长锯折竖笔并列，在数个斜向接点处相交，下端形成彼此分离的尖形延伸。"
+    ],
+    "en": [
+      "Two narrow jagged vertical strokes run side by side, meeting at several diagonal junctions and ending in separated pointed lower extensions."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0617_京津2632(甲).png",
+    "prefix": "G",
+    "old_catalog": "京津2632",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0617",
+    "validation_class_id": "542",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙟",
+    "codepoints": "U+365F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000543",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

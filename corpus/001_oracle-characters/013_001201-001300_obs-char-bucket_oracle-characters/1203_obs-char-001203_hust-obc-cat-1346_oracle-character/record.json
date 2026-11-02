@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001203",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1346",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001208_hust-obc-cat-1346_glyph.png",
+      "metadata": "images/001_asset-001208_hust-obc-cat-1346_glyph.yaml",
+      "asset_id": "asset-001208",
+      "source_image_path": "HUST-OBC/deciphered/1346/X_1346_224_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "163",
+      "pixel_height": "262",
+      "sha256": "855be2b9d4eb2912fa090577ce7d7ad5770683a736b4f9dc0eaa4ea6fd6dc0ba",
+      "raw_source_sha256": "8db90a3b3b9a9244beac0d21132ec73aca34abef3e4f7e023278f5c2d86b108b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个高而分离的直立笔群有长外侧笔、短内部枝笔和中央小型分离痕迹。"
+    ],
+    "en": [
+      "Two tall separated upright clusters have long outer strokes, short inner branches, and a small detached central mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1346_224_1.png",
+    "prefix": "X",
+    "code": "1346_224_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1346",
+    "validation_class_id": "1202",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㤸",
+    "codepoints": "U+3938",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001203",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001163",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1302",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001168_hust-obc-cat-1302_glyph.png",
+      "metadata": "images/001_asset-001168_hust-obc-cat-1302_glyph.yaml",
+      "asset_id": "asset-001168",
+      "source_image_path": "HUST-OBC/deciphered/1302/G_1302_京津2769合7927𠂤賓間.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "45",
+      "pixel_height": "80",
+      "sha256": "c29986a259d89648f36525888b557dea7bf9916a3735a791b31c9593f9c4657d",
+      "raw_source_sha256": "1befbbaf507248850be522f7fba2d4ad650452909e1509a017249db631730d4c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖顶上部形体有宽横笔、两条短下行痕迹和圆弧形下部框廓。"
+    ],
+    "en": [
+      "A peaked upper form has a broad horizontal bar, two short downward marks, and a rounded lower enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1302_京津2769合7927𠂤賓間.png",
+    "prefix": "G",
+    "heji": "合7927",
+    "old_catalog": "京津2769",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "𠂤賓間"
+  },
+  "dataset_category": {
+    "source_category_id": "1302",
+    "validation_class_id": "1162",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㤌",
+    "codepoints": "U+390C",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001163",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

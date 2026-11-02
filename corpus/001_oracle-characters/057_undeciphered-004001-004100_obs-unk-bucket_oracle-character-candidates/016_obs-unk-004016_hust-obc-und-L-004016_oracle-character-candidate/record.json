@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-004016",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004016",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005609_hust-obc-und-L-004016_glyph.jpg",
+      "metadata": "images/001_asset-005609_hust-obc-und-L-004016_glyph.yaml",
+      "asset_id": "asset-005609",
+      "source_image_path": "HUST-OBC/undeciphered/L/4016/L_？_8542.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "55",
+      "sha256": "c169894f868f0914032f6e1a0c51749a3d9d21cb5acc2552a5fa3d599b10aa20",
+      "raw_source_sha256": "c169894f868f0914032f6e1a0c51749a3d9d21cb5acc2552a5fa3d599b10aa20",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部中央有尖顶的三角或折角状痕迹，下方接近中央处有一条窄直痕。下缘有独立的波曲状痕迹，中央周围还可见少量分离痕迹。图像较小，各痕迹之间的关系尚不明确。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005609_hust-obc-und-L-004016_glyph.jpg`",
+      "A pointed triangular or chevron-like trace is near the upper center, with a narrow vertical trace below it. A separate wavy cluster occupies the lower edge, and small isolated marks appear around the central area. The crop is small and leaves the relation between these marks uncertain."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8542.jpg",
+    "prefix": "L",
+    "code": "？_8542"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4016",
+    "source_class_path": "HUST-OBC/undeciphered/L/4016/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4016/L_？_8542.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4016/L_？_8542.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

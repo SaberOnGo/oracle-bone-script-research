@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001396",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1561",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001401_hust-obc-cat-1561_glyph.png",
+      "metadata": "images/001_asset-001401_hust-obc-cat-1561_glyph.yaml",
+      "asset_id": "asset-001401",
+      "source_image_path": "HUST-OBC/deciphered/1561/G_1561_乙7285合14542.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "63",
+      "pixel_height": "80",
+      "sha256": "ef387c1a46d49cebf4c84271f37a7ed0eaca03ea9a51edb702728b1ac5993712",
+      "raw_source_sha256": "134a68df054c06f485d5263b889e699b42c21305775abad2cee1413395880d69",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个短上部横笔位于数条分离直下笔之上。"
+    ],
+    "en": [
+      "Two short upper bars stand above several separated straight lower strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1561_乙7285合14542.png",
+    "prefix": "G",
+    "heji": "合14542",
+    "old_catalog": "乙7285",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1561",
+    "validation_class_id": "1395",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨏",
+    "codepoints": "U+3A0F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001396",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

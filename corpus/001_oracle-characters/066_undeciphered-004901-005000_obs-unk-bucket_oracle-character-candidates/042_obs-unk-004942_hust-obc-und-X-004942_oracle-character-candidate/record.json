@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004942",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004942",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006535_hust-obc-und-X-004942_glyph.jpg",
+      "metadata": "images/001_asset-006535_hust-obc-und-X-004942_glyph.yaml",
+      "asset_id": "asset-006535",
+      "source_image_path": "HUST-OBC/undeciphered/X/498/X_？_7481_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "161",
+      "pixel_height": "267",
+      "sha256": "5c3a4657f09ce7c4cbb29e7f9256a294acba6062862f0b12a7c549c3886fd5b5",
+      "raw_source_sha256": "5c3a4657f09ce7c4cbb29e7f9256a294acba6062862f0b12a7c549c3886fd5b5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧狭窄结构中有一个小型浅色椭圆开口和下部分枝。",
+      "图像中央附近有数个分开的短小标记。",
+      "右侧较高结构由横向和矩形形态上下叠置组成。",
+      "右侧结构底部有数条细长笔画向下延伸。",
+      "当前本地图像未包含第二个来源视图。"
+    ],
+    "en": [
+      "A narrow left group has a small light oval opening and lower branches.",
+      "Several separated small marks sit near the center of the image.",
+      "A taller right group stacks horizontal and rectangular forms.",
+      "The right group has several thin strokes descending below its base.",
+      "The local image does not show the second source view.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7481_1.png",
+    "prefix": "X",
+    "code": "？_7481_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "498",
+    "source_class_path": "HUST-OBC/undeciphered/X/498/",
+    "source_image_count": 2,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/498/X_？_7481_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/498/X_？_7481_2.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

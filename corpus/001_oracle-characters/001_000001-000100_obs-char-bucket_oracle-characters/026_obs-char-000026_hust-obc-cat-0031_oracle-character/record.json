@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000026",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0031",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000031_hust-obc-cat-0031_glyph.png",
+      "metadata": "images/001_asset-000031_hust-obc-cat-0031_glyph.yaml",
+      "asset_id": "asset-000031",
+      "source_image_path": "HUST-OBC/deciphered/0031/L_0031_1415.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "32",
+      "pixel_height": "59",
+      "sha256": "318fd258c855a00a0a27f30579b37d5fdaee42c32281fb4a048c0f5979cc01e4",
+      "raw_source_sha256": "594adfe01965161528f08eeda77bd94119f7dd825baf5da4ac929691fa1248c2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "灰度较浅的图像呈分叉中部形体，并有短斜向笔画向两侧伸出。"
+    ],
+    "en": [
+      "The low-contrast image shows a branching central form with short diagonal strokes extending to both sides."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0031_1415.jpg",
+    "prefix": "L",
+    "code": "0031_1415"
+  },
+  "dataset_category": {
+    "source_category_id": "0031",
+    "validation_class_id": "25",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㐕",
+    "codepoints": "U+3415",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000026",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

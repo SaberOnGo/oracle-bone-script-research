@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004890",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004890",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006483_hust-obc-und-X-004890_glyph.jpg",
+      "metadata": "images/001_asset-006483_hust-obc-und-X-004890_glyph.yaml",
+      "asset_id": "asset-006483",
+      "source_image_path": "HUST-OBC/undeciphered/X/446/X_？_7428_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "149",
+      "pixel_height": "322",
+      "sha256": "63ec7a1a490e0bae1db695df64b3e2cf598d4ae2faba1583704c8775bfcc74b9",
+      "raw_source_sha256": "63ec7a1a490e0bae1db695df64b3e2cf598d4ae2faba1583704c8775bfcc74b9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部结构形成一个菱形外框，内部留有浅色区域。",
+      "菱形下角有一条尖状笔画向下延伸。",
+      "下方另有一个圆钝的 U 形外框。",
+      "下部外框上缘升起两条较高的分叉笔画。",
+      "下部外框内部留有宽大的浅色开口。",
+      "上、下两组结构之间留有空白。"
+    ],
+    "en": [
+      "The upper group forms a diamond-like outline with a pale interior.",
+      "A pointed stroke descends from the lower corner of that outline.",
+      "A separate lower group has a rounded U-like outline.",
+      "Two tall forked strokes rise from the lower group's upper edge.",
+      "The lower group contains a broad pale interior opening.",
+      "A blank gap separates the upper and lower groups.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7428_1.png",
+    "prefix": "X",
+    "code": "？_7428_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "446",
+    "source_class_path": "HUST-OBC/undeciphered/X/446/",
+    "source_image_count": 2,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/446/X_？_7428_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/446/X_？_7428_2.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -89,6 +89,23 @@ Execution record (step 2a): 329,575 files in 190 buckets were collapsed into
 registers; OBIMD images moved to the ignored archive; tracked files dropped
 to about 187,800. Character merging (step 2b) has not run yet.
 
+执行记录（2026-11-02，第 2b 步）：
+
+- 10,986 个单字目录合并为 `README.md` + `record.json` + `images/`；
+  10 个含人工复核记录的目录留待第 5 步。共删除约 15.2 万个模板文件，
+  跟踪文件降到 46,582 个。
+- 新档案全部通过门禁 G2、G3、G5、G6、G11；资产索引 21,363 条路径全部
+  存在。
+- 抽样 3,000 个语料 Markdown：模板行由 79.3% 降到 44.0%，其余行由
+  13.2% 升到 41.2%。剩余模板行主要是同类档案共用的章节标题和状态行。
+- 合并中发现并修正：Windows 260 字符路径限制、4 位编号目录被漏匹配、
+  "甲骨文N"通用文件名被误判为旧著录（48 份已修正）。
+- 发现：HUST-OBC 未释类中 6,207 个只有 1 张样本；8 个已释类的数据集
+  标签是部首码位。
+
+Execution record (step 2b): 10,986 directories merged; tracked files fell
+to 46,582; all dossiers pass the content gates.
+
 ## 第 3 步：重构测试 / Restructure Tests
 
 - 按对象编写的测试（`test_obs_char_000963_*`、`test_ihp_*_1216_1217`

@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000389",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0441",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000394_hust-obc-cat-0441_glyph.png",
+      "metadata": "images/001_asset-000394_hust-obc-cat-0441_glyph.yaml",
+      "asset_id": "asset-000394",
+      "source_image_path": "HUST-OBC/deciphered/0441/H_0441_611B1_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "167",
+      "pixel_height": "263",
+      "sha256": "0f1a93710fd862f2c259929733cdde3d4a1f4fadcea6635dfd454adee29a3b29",
+      "raw_source_sha256": "0dd7634c09c41109a6555bdaae89017726a01723b451f093659b4c4441f7e269",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "可见两个分离形体：上方为带侧向分支的分叉主干，下方为独立 V 状环形轮廓。"
+    ],
+    "en": [
+      "Two separated forms are visible: an upper forked stem with side branches and a detached lower V-shaped loop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0441_611B1_0.png",
+    "prefix": "H",
+    "code": "0441_611B1_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0441",
+    "validation_class_id": "388",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㖯",
+    "codepoints": "U+35AF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000389",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

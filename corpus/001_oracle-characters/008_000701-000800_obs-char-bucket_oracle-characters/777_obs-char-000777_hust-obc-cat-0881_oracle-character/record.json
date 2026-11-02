@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000777",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0881",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000782_hust-obc-cat-0881_glyph.png",
+      "metadata": "images/001_asset-000782_hust-obc-cat-0881_glyph.yaml",
+      "asset_id": "asset-000782",
+      "source_image_path": "HUST-OBC/deciphered/0881/G_0881_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "96",
+      "sha256": "01e39d962ba571b71ab886f2d59c581741f58bacb29b60cb3cdad674d6fb2e95",
+      "raw_source_sha256": "b59f706e517777fb6670d682ba54b4b9e60def5c57a539a4bfc8d07e91e7f680",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高长尖顶外轮廓围住大型中央水滴形空隙，内有较小环；下干交叉后伸出四条短外展枝。"
+    ],
+    "en": [
+      "A tall pointed outer outline surrounds a large central teardrop opening with a smaller inner loop; its lower stem crosses into four short spreading branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0881_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0881",
+    "validation_class_id": "776",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝧",
+    "codepoints": "U+3767",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000777",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

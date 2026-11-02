@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-003953",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003953",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005546_hust-obc-und-L-003953_glyph.jpg",
+      "metadata": "images/001_asset-005546_hust-obc-und-L-003953_glyph.yaml",
+      "asset_id": "asset-005546",
+      "source_image_path": "HUST-OBC/undeciphered/L/3953/L_？_8339.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "55",
+      "sha256": "ddc197f8e8a826148102b4eb5069d84b9ea47f2cb90aab627566ae6249532194",
+      "raw_source_sha256": "ddc197f8e8a826148102b4eb5069d84b9ea47f2cb90aab627566ae6249532194",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "裁切图中是一个较窄的直立形体。上部可见短横痕与中央竖向或斜向痕相交；下部有数条短折线向两侧分开。墨痕密度和裁切边缘限制细部比较。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005546_hust-obc-und-L-003953_glyph.jpg`",
+      "The cropped image shows a narrow upright form. Near the top, a short bar crosses a central vertical or diagonal trace. Below it, several short angular traces diverge toward both lower sides. Stroke density and crop edges limit finer comparison."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8339.jpg",
+    "prefix": "L",
+    "code": "？_8339"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3953",
+    "source_class_path": "HUST-OBC/undeciphered/L/3953/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3953/L_？_8339.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3953/L_？_8339.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

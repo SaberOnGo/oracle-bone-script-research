@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001271",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1421_1422",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001276_hust-obc-cat-1421_1422_glyph.png",
+      "metadata": "images/001_asset-001276_hust-obc-cat-1421_1422_glyph.yaml",
+      "asset_id": "asset-001276",
+      "source_image_path": "HUST-OBC/deciphered/1421_1422/1421/G_1421_乙8696合22289子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "70",
+      "pixel_height": "75",
+      "sha256": "082b49c2eef50965edd4e3cf0e0841689a82a5e554dc28e909027a122807826b",
+      "raw_source_sha256": "522b6b9c83850b6828d6e769e61d11995423821ba01ce7f4c218fe8b9fe84c22",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央圆折矩形形体位于笔干之上，两侧有分离弧形标记，右侧另有短横点画。"
+    ],
+    "en": [
+      "A central rounded rectangular form sits on a stem, with separated curving side marks and a short right dash."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1421_乙8696合22289子組.png",
+    "prefix": "G",
+    "heji": "合22289",
+    "old_catalog": "乙8696",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "1421_1422",
+    "validation_class_id": "1270",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㦃㦄",
+    "codepoints": "U+3983;U+3984",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001271",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

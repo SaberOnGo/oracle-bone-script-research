@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002267",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002267",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003860_hust-obc-und-L-002267_glyph.jpg",
+      "metadata": "images/001_asset-003860_hust-obc-und-L-002267_glyph.yaml",
+      "asset_id": "asset-003860",
+      "source_image_path": "HUST-OBC/undeciphered/L/2267/L_？_290.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "57",
+      "sha256": "578040478d843cdcd82414f5c4f41e3d62494e9e5702c73df7d4c65185e63213",
+      "raw_source_sha256": "578040478d843cdcd82414f5c4f41e3d62494e9e5702c73df7d4c65185e63213",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条较高的弯曲笔痕分列于中央空隙两侧。右侧向下连接较密的弯曲笔痕，左侧保持为较细的独立曲线。末端形状不规则。"
+    ],
+    "en": [
+      "Two tall curved strokes flank an open central gap. The right side continues into a denser lower curl, while the left side remains a thin, separate curve. The ends are irregular."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_290.jpg",
+    "prefix": "L",
+    "code": "？_290"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2267",
+    "source_class_path": "HUST-OBC/undeciphered/L/2267/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2267/L_？_290.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2267/L_？_290.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001421",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1592",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001426_hust-obc-cat-1592_glyph.png",
+      "metadata": "images/001_asset-001426_hust-obc-cat-1592_glyph.yaml",
+      "asset_id": "asset-001426",
+      "source_image_path": "HUST-OBC/deciphered/1592/G_1592_乙1115合11483賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "44",
+      "pixel_height": "80",
+      "sha256": "db80f18d18c27f2f0e7a1982d88cce3658d6d0a2d0da2a2ad685fbea49fcfea8",
+      "raw_source_sha256": "6a3ff5fbed0bbe8d9bf88a36d4f6b67e7bca3b7d66101b563e23707a229224d3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "叠置形体有上部尖拱、小型中部框形和底座。"
+    ],
+    "en": [
+      "A stacked form has an upper chevron, a small middle enclosure, and a base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1592_乙1115合11483賓組.png",
+    "prefix": "G",
+    "heji": "合11483",
+    "old_catalog": "乙1115",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1592",
+    "validation_class_id": "1420",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨮",
+    "codepoints": "U+3A2E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001421",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000480",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000480",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002073_hust-obc-und-L-000480_glyph.jpg",
+      "metadata": "images/001_asset-002073_hust-obc-und-L-000480_glyph.yaml",
+      "asset_id": "asset-002073",
+      "source_image_path": "HUST-OBC/undeciphered/L/480/L_？_11470.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "56",
+      "sha256": "5aceac4a6c2a41a36ee651e93d5b0e805aac986b24b9025ede54ab927a8bc8cd",
+      "raw_source_sha256": "5aceac4a6c2a41a36ee651e93d5b0e805aac986b24b9025ede54ab927a8bc8cd",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧弧形痕迹连接右侧弯曲笔干，笔干上方有分离的小型笔块；仅作与 obs-unk-000476 的视觉比较。"
+    ],
+    "en": [
+      "A rounded left mark connects to a curved right stem ending below a small detached upper block; it is visually similar to obs-unk-000476 only."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11470.jpg",
+    "prefix": "L",
+    "code": "？_11470"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "480",
+    "source_class_path": "HUST-OBC/undeciphered/L/480/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/480/L_？_11470.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/480/L_？_11470.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000555",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0629",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000560_hust-obc-cat-0629_glyph.png",
+      "metadata": "images/001_asset-000560_hust-obc-cat-0629_glyph.yaml",
+      "asset_id": "asset-000560",
+      "source_image_path": "HUST-OBC/deciphered/0629/G_0629_乙5321合22045午組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "55",
+      "pixel_height": "80",
+      "sha256": "368bae65d86318dc307017726577b549ca7da0c34ac1504b9ca7db92636449cd",
+      "raw_source_sha256": "cce7ae4993bd5ccd30d3a5f7eed8b1f0f505ffb85f847fca08ac0ad4b177a4e8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧长下行笔连接小型折角顶框，右侧分离小弯环位于一条短斜顶痕下方。"
+    ],
+    "en": [
+      "A long left descending stroke joins a small angular top enclosure, while a separate small bent loop at right lies below a short sloping top mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0629_乙5321合22045午組.png",
+    "prefix": "G",
+    "heji": "合22045",
+    "old_catalog": "乙5321",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "午組"
+  },
+  "dataset_category": {
+    "source_category_id": "0629",
+    "validation_class_id": "554",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙫",
+    "codepoints": "U+366B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000555",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

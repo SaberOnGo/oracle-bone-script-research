@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002616",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002616",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004209_hust-obc-und-L-002616_glyph.jpg",
+      "metadata": "images/001_asset-004209_hust-obc-und-L-002616_glyph.yaml",
+      "asset_id": "asset-004209",
+      "source_image_path": "HUST-OBC/undeciphered/L/2616/L_？_4049.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "ba97f9b25ae59de17477ddc2ffda37532ceffcbfeba0c5f47b4ad7828e446424",
+      "raw_source_sha256": "ba97f9b25ae59de17477ddc2ffda37532ceffcbfeba0c5f47b4ad7828e446424",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部宽笔痕横跨一组窄的竖向和斜向线条。中央区域向下分出数条笔痕，其中一条长斜笔痕向右下延伸。交汇处较深，部分笔痕已经相互合并。"
+    ],
+    "en": [
+      "A broad upper stroke crosses a group of narrow vertical and diagonal lines. Several lower strokes branch from the central area, with one long diagonal extending down and right. The intersections are dark and partly merged."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_4049.jpg",
+    "prefix": "L",
+    "code": "？_4049"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2616",
+    "source_class_path": "HUST-OBC/undeciphered/L/2616/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2616/L_？_4049.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2616/L_？_4049.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

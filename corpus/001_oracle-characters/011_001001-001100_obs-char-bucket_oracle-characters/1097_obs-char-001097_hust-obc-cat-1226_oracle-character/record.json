@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001097",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1226",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001102_hust-obc-cat-1226_glyph.png",
+      "metadata": "images/001_asset-001102_hust-obc-cat-1226_glyph.yaml",
+      "asset_id": "asset-001102",
+      "source_image_path": "HUST-OBC/deciphered/1226/G_1226_合387反(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "58",
+      "pixel_height": "80",
+      "sha256": "8e31cf8a0dce8372eade7340d284416a3344765463cb4016c39a68e329f9672a",
+      "raw_source_sha256": "a2988de1b6f2254b1f14d1e5d98accb3b90941381f877b5a9093dbc642b620cb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集直立笔群有两条短上部分枝、圆弧中央闭合轮廓和下部侧笔。"
+    ],
+    "en": [
+      "A dense upright cluster has two short upper branches, a rounded central enclosure, and lower side strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1226_合387反(甲).png",
+    "prefix": "G",
+    "heji": "合387",
+    "group_or_note": "反(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1226",
+    "validation_class_id": "1096",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㣀",
+    "codepoints": "U+38C0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001097",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

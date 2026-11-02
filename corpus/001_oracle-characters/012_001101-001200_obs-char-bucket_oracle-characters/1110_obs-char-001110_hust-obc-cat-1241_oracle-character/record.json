@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001110",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1241",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001115_hust-obc-cat-1241_glyph.png",
+      "metadata": "images/001_asset-001115_hust-obc-cat-1241_glyph.yaml",
+      "asset_id": "asset-001115",
+      "source_image_path": "HUST-OBC/deciphered/1241/L_1241_8745.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "53",
+      "sha256": "a5d2a0b1edaf97711ae0e619295f8a9bebffdcd8e1ff6fd0a9dea0b237c7b9b3",
+      "raw_source_sha256": "48a0d0d4a745574345c352c146121c4a7015d9942aaa040fc5762f4f143a9938",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "较淡灰色图像显示两个相邻部分：圆弧左侧环笔和带短上部横笔的棱角右侧笔群；对比度较低。"
+    ],
+    "en": [
+      "A faint gray image shows two adjacent parts: a rounded left loop and an angular right cluster with a short upper bar; contrast is low."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1241_8745.jpg",
+    "prefix": "L",
+    "code": "1241_8745"
+  },
+  "dataset_category": {
+    "source_category_id": "1241",
+    "validation_class_id": "1109",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㣏",
+    "codepoints": "U+38CF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001110",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

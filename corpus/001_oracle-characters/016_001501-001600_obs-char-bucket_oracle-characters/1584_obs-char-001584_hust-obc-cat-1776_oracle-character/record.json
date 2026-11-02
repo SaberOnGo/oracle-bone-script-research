@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001584",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1776",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001589_hust-obc-cat-1776_glyph.png",
+      "metadata": "images/001_asset-001589_hust-obc-cat-1776_glyph.yaml",
+      "asset_id": "asset-001589",
+      "source_image_path": "HUST-OBC/deciphered/1776/L_1776_14846.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "54",
+      "sha256": "f89265923f52872a0da449e7bc6f46f994e0f36dcf573191e27754831b3fcdc5",
+      "raw_source_sha256": "b05e20309acbb3f72ebf57aed28b81b62ff8a3587997bcb5b62652bff65f188f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "低清灰度图像保留紧凑中央笔画群，外部轮廓难以辨清。"
+    ],
+    "en": [
+      "A low-resolution gray image preserves a compact central cluster with an indistinct outer contour."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1776_14846.jpg",
+    "prefix": "L",
+    "code": "1776_14846"
+  },
+  "dataset_category": {
+    "source_category_id": "1776",
+    "validation_class_id": "1583",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫦",
+    "codepoints": "U+3AE6",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001584",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

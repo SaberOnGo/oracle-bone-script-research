@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001257",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1405",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001262_hust-obc-cat-1405_glyph.png",
+      "metadata": "images/001_asset-001262_hust-obc-cat-1405_glyph.yaml",
+      "asset_id": "asset-001262",
+      "source_image_path": "HUST-OBC/deciphered/1405/L_1405_7181.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "59",
+      "sha256": "1666f3c2bc1cbd85ee828d2945c0e9ff667c616dd2a098d2025cf539e131ff55",
+      "raw_source_sha256": "4a25aefa2e591c8e31f2d90dc7066db75f2e8f4241b08624162437d88bd3677f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长折角形体有短上部横笔，两条下行笔画之间形成开放中部。"
+    ],
+    "en": [
+      "A narrow angular form has a short upper cross-stroke and two descending strokes leaving an open middle."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1405_7181.jpg",
+    "prefix": "L",
+    "code": "1405_7181"
+  },
+  "dataset_category": {
+    "source_category_id": "1405",
+    "validation_class_id": "1256",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥳",
+    "codepoints": "U+3973",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001257",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

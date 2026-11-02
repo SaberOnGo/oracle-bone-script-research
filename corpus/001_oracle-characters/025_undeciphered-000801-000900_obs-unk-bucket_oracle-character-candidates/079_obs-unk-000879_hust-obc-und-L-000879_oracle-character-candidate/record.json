@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000879",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000879",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002472_hust-obc-und-L-000879_glyph.jpg",
+      "metadata": "images/001_asset-002472_hust-obc-und-L-000879_glyph.yaml",
+      "asset_id": "asset-002472",
+      "source_image_path": "HUST-OBC/undeciphered/L/879/L_？_12508.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "56",
+      "sha256": "91e76594186b7083fe6a4182ddbd23ca55a695e402974e37266fd8c35cf07dfa",
+      "raw_source_sha256": "91e76594186b7083fe6a4182ddbd23ca55a695e402974e37266fd8c35cf07dfa",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个直立形态彼此分离：左侧为带主线的回环，右侧为下部曲折的折角形。"
+    ],
+    "en": [
+      "Two upright figures stand apart: a looped left form on a stem and an angular right form with a zigzag lower part."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12508.jpg",
+    "prefix": "L",
+    "code": "？_12508"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "879",
+    "source_class_path": "HUST-OBC/undeciphered/L/879/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/879/L_？_12508.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/879/L_？_12508.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

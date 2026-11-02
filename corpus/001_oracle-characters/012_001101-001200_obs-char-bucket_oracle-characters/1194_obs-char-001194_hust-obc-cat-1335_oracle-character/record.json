@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001194",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1335",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001199_hust-obc-cat-1335_glyph.png",
+      "metadata": "images/001_asset-001199_hust-obc-cat-1335_glyph.yaml",
+      "asset_id": "asset-001199",
+      "source_image_path": "HUST-OBC/deciphered/1335/G_1335_京都2894合33201𠂤歷間.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "80",
+      "sha256": "7e65d54cb5d37afd7c938bcda8c08c9d9948dd8d4e3e7bba31b2cfbb8817a648",
+      "raw_source_sha256": "5b0cdcff42de70818f8bd2c58ed9173fefdde4fc88c326271027114132f6dbdb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个相邻的密集笔群有重复折角分枝和数个尖状下部外伸笔。"
+    ],
+    "en": [
+      "Two adjacent dense clusters have repeated angular branches and several pointed lower projections."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1335_京都2894合33201𠂤歷間.png",
+    "prefix": "G",
+    "heji": "合33201",
+    "old_catalog": "京都2894",
+    "old_catalog_abbr": "京都",
+    "old_catalog_abbr_obm_label": "京都大學人文科學研究所藏甲骨文字",
+    "group_or_note": "𠂤歷間"
+  },
+  "dataset_category": {
+    "source_category_id": "1335",
+    "validation_class_id": "1193",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㤭",
+    "codepoints": "U+392D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001194",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

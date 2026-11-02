@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000693",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0784",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000698_hust-obc-cat-0784_glyph.png",
+      "metadata": "images/001_asset-000698_hust-obc-cat-0784_glyph.yaml",
+      "asset_id": "asset-000698",
+      "source_image_path": "HUST-OBC/deciphered/0784/G_0784_七B43合11496賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "66",
+      "pixel_height": "80",
+      "sha256": "19c3ee7e968238836e0fcd3e43542bb031192ea0a51b01a3301f530224a0535f",
+      "raw_source_sha256": "dc66bfba27b10de8ffed0f6144008deddc8d1024bc51b44d55366a5f71ecff98",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央 Y 形直干从长横底升起，中部高度两侧各有一个小型分离矩形环。"
+    ],
+    "en": [
+      "A central Y-shaped upright rises from a long horizontal base, with a small detached rectangular loop positioned on each side at mid-height."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0784_七B43合11496賓組.png",
+    "prefix": "G",
+    "heji": "合11496",
+    "old_catalog": "七B43",
+    "old_catalog_abbr": "七B",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0784",
+    "validation_class_id": "692",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜆",
+    "codepoints": "U+3706",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000693",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

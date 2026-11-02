@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000689",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0780",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000694_hust-obc-cat-0780_glyph.png",
+      "metadata": "images/001_asset-000694_hust-obc-cat-0780_glyph.yaml",
+      "asset_id": "asset-000694",
+      "source_image_path": "HUST-OBC/deciphered/0780/G_0780_乙161合22349子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "52",
+      "pixel_height": "80",
+      "sha256": "a826b63e37ad8204c862989d0c4b3a838891e64cdfc0393b8c5b997f012a1faf",
+      "raw_source_sha256": "8da15e70276122bed378c12101757a2435ec92aa267d04bcdff68d618eef20b6",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数个分离小椭圆痕组成疏松左列，狭窄右干带圆弯侧环并分成尖形下笔。"
+    ],
+    "en": [
+      "Several detached small oval marks form a loose left column, while a narrow right stem carries a rounded side loop and divides into pointed lower strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0780_乙161合22349子組.png",
+    "prefix": "G",
+    "heji": "合22349",
+    "old_catalog": "乙161",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "0780",
+    "validation_class_id": "688",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜂",
+    "codepoints": "U+3702",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000689",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

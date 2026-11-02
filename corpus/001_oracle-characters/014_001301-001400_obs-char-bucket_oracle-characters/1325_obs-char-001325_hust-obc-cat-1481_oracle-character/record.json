@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001325",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1481",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001330_hust-obc-cat-1481_glyph.png",
+      "metadata": "images/001_asset-001330_hust-obc-cat-1481_glyph.yaml",
+      "asset_id": "asset-001330",
+      "source_image_path": "HUST-OBC/deciphered/1481/G_1481_京津4001(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "80",
+      "sha256": "fab7f7fb2e0702c4a58a338a36410e4aee58588e6de143500e27577b1c316293",
+      "raw_source_sha256": "4e33257a8c7ed9d1faba19528b101a57981b28ae8ebac1c4c9bbb947681d03dc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长形体有小型折角上部框形、长下行弧线和短下部钩笔。"
+    ],
+    "en": [
+      "A narrow form has a small angular upper enclosure, a long descending curve, and a short lower hook."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1481_京津4001(甲).png",
+    "prefix": "G",
+    "old_catalog": "京津4001",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1481",
+    "validation_class_id": "1324",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㦿",
+    "codepoints": "U+39BF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001325",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

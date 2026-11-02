@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004504",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004504",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006097_hust-obc-und-X-004504_glyph.jpg",
+      "metadata": "images/001_asset-006097_hust-obc-und-X-004504_glyph.yaml",
+      "asset_id": "asset-006097",
+      "source_image_path": "HUST-OBC/undeciphered/X/60/X_？_8245_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "198",
+      "pixel_height": "353",
+      "sha256": "4c52e4a9e035fa5bda25520bd06b9326de9409b8b1a33f85c9b9d7e4b4c38749",
+      "raw_source_sha256": "4c52e4a9e035fa5bda25520bd06b9326de9409b8b1a33f85c9b9d7e4b4c38749",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "当前渲染图像呈现为高的深色矩形区域。",
+      "深色区域内部可见多条浅色分叉空隙或痕迹。",
+      "上部有一条较窄的浅色斜向空隙。",
+      "中央浅色区域向多个不规则方向分叉。",
+      "下边缘不平整，中央附近有较大的浅色缺口。 The observed light/dark polarity may reflect image processing rather than the physical surface. It requires source-packet and raster review.可见的深浅极性可能来自图像处理，而非实物表面，需核对来源包和栅格处理。"
+    ],
+    "en": [
+      "The rendered image is a tall dark rectangular field.",
+      "Several light branching gaps or traces appear inside the dark field.",
+      "A narrow light diagonal gap appears in the upper area.",
+      "The central light area branches into several uneven directions.",
+      "The lower edge is irregular, with a larger light notch near the center."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8245_1.png",
+    "prefix": "X",
+    "code": "？_8245_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "60",
+    "source_class_path": "HUST-OBC/undeciphered/X/60/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/60/X_？_8245_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/60/X_？_8245_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001401",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1569",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001406_hust-obc-cat-1569_glyph.png",
+      "metadata": "images/001_asset-001406_hust-obc-cat-1569_glyph.yaml",
+      "asset_id": "asset-001406",
+      "source_image_path": "HUST-OBC/deciphered/1569/G_1569_拾4.9(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "80",
+      "sha256": "8041e4be2853600e13e901d23db3fa2f3f3e8617127c6d465ff816b2566670f0",
+      "raw_source_sha256": "9c23a994734f1a7cd17732fa7b304c48094fed66e9786d5f78c3cabf805fd223",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高大开放形体有角状上盖、中央主体和下部分叉。"
+    ],
+    "en": [
+      "A tall open form has an angular upper cap, a central body, and lower prongs."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1569_拾4.9(甲).png",
+    "prefix": "G",
+    "old_catalog": "拾4.9",
+    "old_catalog_abbr": "拾",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1569",
+    "validation_class_id": "1400",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨗",
+    "codepoints": "U+3A17",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001401",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

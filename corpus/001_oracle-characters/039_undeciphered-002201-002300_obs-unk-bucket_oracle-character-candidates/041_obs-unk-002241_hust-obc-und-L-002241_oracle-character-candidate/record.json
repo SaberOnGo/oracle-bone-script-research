@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002241",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002241",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003834_hust-obc-und-L-002241_glyph.jpg",
+      "metadata": "images/001_asset-003834_hust-obc-und-L-002241_glyph.yaml",
+      "asset_id": "asset-003834",
+      "source_image_path": "HUST-OBC/undeciphered/L/2241/L_？_2810.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "58",
+      "sha256": "abd52297e7766165034a9b616edd2bd60733c25f9acb40ef0714847721c1bba0",
+      "raw_source_sha256": "abd52297e7766165034a9b616edd2bd60733c25f9acb40ef0714847721c1bba0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧有小的圆转或钩状笔痕。中央和右侧有两道竖向笔痕，另有短横向笔痕和下部斜向笔痕；末端不齐。"
+    ],
+    "en": [
+      "A small rounded or hooked cluster appears on the left. Two upright strokes occupy the centre and right, with short transverse marks and a diagonal lower stroke; the ends are uneven."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2810.jpg",
+    "prefix": "L",
+    "code": "？_2810"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2241",
+    "source_class_path": "HUST-OBC/undeciphered/L/2241/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2241/L_？_2810.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2241/L_？_2810.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000862",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000862",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002455_hust-obc-und-L-000862_glyph.jpg",
+      "metadata": "images/001_asset-002455_hust-obc-und-L-000862_glyph.yaml",
+      "asset_id": "asset-002455",
+      "source_image_path": "HUST-OBC/undeciphered/L/862/L_？_12469.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "55",
+      "sha256": "ec7f8c6e4728f20e49d535763fe89960af5c446132d4eadcf3aaab1a8b89fc4c",
+      "raw_source_sha256": "ec7f8c6e4728f20e49d535763fe89960af5c446132d4eadcf3aaab1a8b89fc4c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖顶上部轮廓叠在宽大曲线下部之上；右侧有折角笔画下行。"
+    ],
+    "en": [
+      "A peaked upper contour overlaps a broad curved lower form; an angular stroke descends on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12469.jpg",
+    "prefix": "L",
+    "code": "？_12469"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "862",
+    "source_class_path": "HUST-OBC/undeciphered/L/862/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/862/L_？_12469.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/862/L_？_12469.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

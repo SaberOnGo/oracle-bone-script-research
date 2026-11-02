@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000490",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0555",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000495_hust-obc-cat-0555_glyph.png",
+      "metadata": "images/001_asset-000495_hust-obc-cat-0555_glyph.yaml",
+      "asset_id": "asset-000495",
+      "source_image_path": "HUST-OBC/deciphered/0555/H_0555_611FC_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "186",
+      "pixel_height": "250",
+      "sha256": "da9dc0e17d979fea8ea62bdf9b68d0ccee6f1374e7d511843e300daeab4edadd",
+      "raw_source_sha256": "e4c101799588d6fa8ed31379a2ce13e4f640f3fdc87613300593aa27aca833b2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型尖拱形包围三组分离内形：左下小框、中央弯曲主干，以及被短横穿过的右侧长竖。"
+    ],
+    "en": [
+      "A large pointed arch encloses three separated inner groups: a small lower-left box, a curved central stem, and a long right vertical crossed by short bars."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0555_611FC_0.png",
+    "prefix": "H",
+    "code": "0555_611FC_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0555",
+    "validation_class_id": "489",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘡",
+    "codepoints": "U+3621",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_obimd_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-obimd"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000490",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

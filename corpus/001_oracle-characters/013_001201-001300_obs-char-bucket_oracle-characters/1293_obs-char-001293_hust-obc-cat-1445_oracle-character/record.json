@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001293",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1445",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001298_hust-obc-cat-1445_glyph.png",
+      "metadata": "images/001_asset-001298_hust-obc-cat-1445_glyph.yaml",
+      "asset_id": "asset-001298",
+      "source_image_path": "HUST-OBC/deciphered/1445/G_1445_乙6693反(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "31",
+      "pixel_height": "79",
+      "sha256": "3545a540458c9185cef3b5c031f46868a286c66c6c139d43bb8560229cac42c4",
+      "raw_source_sha256": "145c6985d10d0f693b2880e511e7d6feaccdec8a78302d717995466daceb8f3e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条长外侧竖笔框住小型中央圆拱框形，内部有一条短横笔。"
+    ],
+    "en": [
+      "Two long outer verticals frame a small central rounded enclosure with a short inner horizontal."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1445_乙6693反(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙6693",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1445",
+    "validation_class_id": "1292",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㦛",
+    "codepoints": "U+399B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001293",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

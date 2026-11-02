@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000088",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000088",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001681_hust-obc-und-L-000088_glyph.jpg",
+      "metadata": "images/001_asset-001681_hust-obc-und-L-000088_glyph.yaml",
+      "asset_id": "asset-001681",
+      "source_image_path": "HUST-OBC/undeciphered/L/88/L_？_10271.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "29",
+      "pixel_height": "52",
+      "sha256": "b7e3363160b1d5a7e0bbd496f4e9468888e57254f63392e12335e5d4644759d3",
+      "raw_source_sha256": "b7e3363160b1d5a7e0bbd496f4e9468888e57254f63392e12335e5d4644759d3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高而紧凑的形体上部有两条斜线，下部形成交叉尖点。本记录不确认字形身份。"
+    ],
+    "en": [
+      "The tall compact form has two upper diagonals and a crossed lower point."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_10271.jpg",
+    "prefix": "L",
+    "code": "？_10271"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "88",
+    "source_class_path": "HUST-OBC/undeciphered/L/88/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/88/L_？_10271.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/88/L_？_10271.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

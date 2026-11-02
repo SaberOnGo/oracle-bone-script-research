@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000864",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0974",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000869_hust-obc-cat-0974_glyph.png",
+      "metadata": "images/001_asset-000869_hust-obc-cat-0974_glyph.yaml",
+      "asset_id": "asset-000869",
+      "source_image_path": "HUST-OBC/deciphered/0974/G_0974_合5362(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "44",
+      "pixel_height": "80",
+      "sha256": "192eff9f2c2f1211d9b7738e8be638318aac2ae8217d3dadf69a9083f24b8d74",
+      "raw_source_sha256": "bb8e409d6e3cf2efebed133ce147935f69589897f59c24f2a2227b6a37ff7def",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长笔群中，弯曲侧笔之间有高长尖形空隙，右侧另有小型分离痕迹。"
+    ],
+    "en": [
+      "A narrow cluster contains a tall pointed central space between curved side strokes, with small detached marks at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0974_合5362(甲).png",
+    "prefix": "G",
+    "heji": "合5362",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0974",
+    "validation_class_id": "863",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟄",
+    "codepoints": "U+37C4",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000864",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

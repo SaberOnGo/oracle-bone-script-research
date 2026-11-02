@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-001501",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1685",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001506_hust-obc-cat-1685_glyph.png",
+      "metadata": "images/001_asset-001506_hust-obc-cat-1685_glyph.yaml",
+      "asset_id": "asset-001506",
+      "source_image_path": "HUST-OBC/deciphered/1685/G_1685_七W12.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "47",
+      "pixel_height": "80",
+      "sha256": "0c7c93c4b0cfc7aa81a9b25c6fb7a8039cdc2478a5f665f694a346afb18d4bf1",
+      "raw_source_sha256": "eeb2c75db0641cb8bf9ab4432dff219c62d46741102c3829529f1498a8a6ae05",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧凑组合形体有上部分叉笔画、右侧框形和两条下垂线。"
+    ],
+    "en": [
+      "A compact composite has upper forked strokes, a right enclosure, and two descending lines."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1685_七W12.png",
+    "prefix": "G",
+    "old_catalog": "七W12",
+    "old_catalog_abbr": "七W",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1685",
+    "validation_class_id": "1500",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪋",
+    "codepoints": "U+3A8B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001501",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000847",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0956",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000852_hust-obc-cat-0956_glyph.png",
+      "metadata": "images/001_asset-000852_hust-obc-cat-0956_glyph.yaml",
+      "asset_id": "asset-000852",
+      "source_image_path": "HUST-OBC/deciphered/0956/G_0956_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "72",
+      "sha256": "24e7d27b1a2f95fa61bd18d1a67d3e5310a6929db8ef5d229f116c1b3bcce605",
+      "raw_source_sha256": "d7c9c3986c712c0f667edefd6a6df3fd8a275e6397e2caf105ffdad7f035935e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型灰度图像显示中央交叉、上方短分枝和下方两处分离痕迹；细连接难辨。"
+    ],
+    "en": [
+      "The small gray image shows a central crossing with short upper branches and two detached lower marks; fine joins are unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0956_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "0956",
+    "validation_class_id": "846",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㞲",
+    "codepoints": "U+37B2",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000847",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

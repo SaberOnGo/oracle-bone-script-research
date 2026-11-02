@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000807",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0914",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000812_hust-obc-cat-0914_glyph.png",
+      "metadata": "images/001_asset-000812_hust-obc-cat-0914_glyph.yaml",
+      "asset_id": "asset-000812",
+      "source_image_path": "HUST-OBC/deciphered/0914/G_0914_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "81",
+      "sha256": "6d67a96c2e8dfe1addd9f95f98ca3dcc5335c39f303b40e5a161a484ca035d7b",
+      "raw_source_sha256": "6b3d247f0a4f1d3ed04aa2299c6cb55c21937fbde03c198b138745144cf3ed09",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高长矩形轮廓内由横笔和竖笔交叉分隔，一条细直立笔向框上下两端延伸。"
+    ],
+    "en": [
+      "A tall rectangular outline is divided by crossing horizontal and vertical strokes; a narrow stem extends above and below the frame."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0914_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "0914",
+    "validation_class_id": "806",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㞈",
+    "codepoints": "U+3788",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000807",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

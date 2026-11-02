@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001575",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1767",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001580_hust-obc-cat-1767_glyph.png",
+      "metadata": "images/001_asset-001580_hust-obc-cat-1767_glyph.yaml",
+      "asset_id": "asset-001580",
+      "source_image_path": "HUST-OBC/deciphered/1767/G_1767_河677(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "132",
+      "sha256": "ef7d654fdb8f667a52416cd63b91e0dd16736b926d3e36863315ffe343848a36",
+      "raw_source_sha256": "168f64ded3cca4ea1658caa8a28b089082d4a9da0e85de3a3e32da129c4c1f24",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高大组合形体有上部短笔、中央斜向主体、下部盆状形和分离侧部标记。"
+    ],
+    "en": [
+      "A tall composite has upper short strokes, a central diagonal body, a lower bowl, and a detached side mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1767_河677(甲).png",
+    "prefix": "G",
+    "old_catalog": "河677",
+    "old_catalog_abbr": "河",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1767",
+    "validation_class_id": "1574",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫝",
+    "codepoints": "U+3ADD",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001575",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

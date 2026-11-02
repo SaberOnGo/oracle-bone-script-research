@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-003958",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003958",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005551_hust-obc-und-L-003958_glyph.jpg",
+      "metadata": "images/001_asset-005551_hust-obc-und-L-003958_glyph.yaml",
+      "asset_id": "asset-005551",
+      "source_image_path": "HUST-OBC/undeciphered/L/3958/L_？_8351.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "61",
+      "sha256": "b2c1c52d4c39588c168be0c7d4f4bfadb2d6d8b0727142951713df28500ca7b9",
+      "raw_source_sha256": "b2c1c52d4c39588c168be0c7d4f4bfadb2d6d8b0727142951713df28500ca7b9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "裁切形体有较宽的弧状围合轮廓，内部有短斜痕。下方伸出两条窄痕，并与低处弧线或横痕相接；外侧边缘裁切较紧。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005551_hust-obc-und-L-003958_glyph.jpg`",
+      "The cropped form has a broad rounded enclosure with a short angled inner trace. Two narrow traces extend below it and meet a low curved or horizontal stroke; the outer edges are tightly cropped."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8351.jpg",
+    "prefix": "L",
+    "code": "？_8351"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3958",
+    "source_class_path": "HUST-OBC/undeciphered/L/3958/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3958/L_？_8351.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3958/L_？_8351.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

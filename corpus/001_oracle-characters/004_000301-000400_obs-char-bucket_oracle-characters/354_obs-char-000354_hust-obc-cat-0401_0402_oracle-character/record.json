@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000354",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0401_0402",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000359_hust-obc-cat-0401_0402_glyph.png",
+      "metadata": "images/001_asset-000359_hust-obc-cat-0401_0402_glyph.yaml",
+      "asset_id": "asset-000359",
+      "source_image_path": "HUST-OBC/deciphered/0401_0402/0401/G_0401_乙103合20927.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "80",
+      "sha256": "17100dfca202af16af5f43aa6c26ec753d613e05338b43d931af78a93846dee0",
+      "raw_source_sha256": "bafea7fbe09c83dd80a5c5e4de4065e960fc74af402f927aeee0fd6424a7ce4b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中部尖状闭合轮廓被短横笔画穿过，并连接下方纤细主干。"
+    ],
+    "en": [
+      "A central pointed enclosure is crossed by a short horizontal stroke and joined to a thin lower stem."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0401_乙103合20927.png",
+    "prefix": "G",
+    "heji": "合20927",
+    "old_catalog": "乙103",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0401_0402",
+    "validation_class_id": "353",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㖇㖈",
+    "codepoints": "U+3587;U+3588",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000354",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

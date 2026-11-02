@@ -1,0 +1,69 @@
+{
+  "id": "obs-unk-004722",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004722",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006315_hust-obc-und-X-004722_glyph.jpg",
+      "metadata": "images/001_asset-006315_hust-obc-und-X-004722_glyph.yaml",
+      "asset_id": "asset-006315",
+      "source_image_path": "HUST-OBC/undeciphered/X/278/X_？_7254_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "95",
+      "pixel_height": "296",
+      "sha256": "39aab4c4e5f28039db3c0050cf5a18d88161ea1f24e397099fa8e2cfe5fddcb4",
+      "raw_source_sha256": "39aab4c4e5f28039db3c0050cf5a18d88161ea1f24e397099fa8e2cfe5fddcb4",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [],
+    "en": [
+      "A tall central trunk rises into three short upper projections.",
+      "The upper-left projection angles outward, while the upper-right one curves.",
+      "The lower strokes split around a long narrow pale interior space.",
+      "The left lower stroke runs diagonally toward the lower-left edge.",
+      "A short curved terminal extends from the lower-right base.",
+      "Source metadata expects seventeen images, but only one local review image exists.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7254_1.png",
+    "prefix": "X",
+    "code": "？_7254_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "278",
+    "source_class_path": "HUST-OBC/undeciphered/X/278/",
+    "source_image_count": 17,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/278/X_？_7254_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/278/X_？_7258_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

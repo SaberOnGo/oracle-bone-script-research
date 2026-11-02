@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004651",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004651",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006244_hust-obc-und-X-004651_glyph.jpg",
+      "metadata": "images/001_asset-006244_hust-obc-und-X-004651_glyph.yaml",
+      "asset_id": "asset-006244",
+      "source_image_path": "HUST-OBC/undeciphered/X/207/X_？_8379_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "255",
+      "pixel_height": "218",
+      "sha256": "0155b1dfa9e48ad6b7df638fba895bbf1588ecd70d375e473cfaf69355f1f3fc",
+      "raw_source_sha256": "0155b1dfa9e48ad6b7df638fba895bbf1588ecd70d375e473cfaf69355f1f3fc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一条宽的三角拱形轮廓构成主要外部形体。",
+      "轮廓围出大块浅色中央空间。",
+      "下边缘左侧有横向段，右侧有弧形段。",
+      "右侧以粗重的圆钝端部收束。",
+      "顶部尖点较宽，并带有轻微不规则起伏。"
+    ],
+    "en": [
+      "A broad triangular arch forms the main outer contour.",
+      "The contour encloses a large pale central field.",
+      "The lower edge has a left horizontal segment and a right curved segment.",
+      "The right side ends in a thick rounded terminal.",
+      "The upper apex is broad and slightly uneven.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8379_1.png",
+    "prefix": "X",
+    "code": "？_8379_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "207",
+    "source_class_path": "HUST-OBC/undeciphered/X/207/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/207/X_？_8379_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/207/X_？_8379_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

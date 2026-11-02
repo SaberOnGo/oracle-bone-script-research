@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-003630",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003630",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005223_hust-obc-und-L-003630_glyph.jpg",
+      "metadata": "images/001_asset-005223_hust-obc-und-L-003630_glyph.yaml",
+      "asset_id": "asset-005223",
+      "source_image_path": "HUST-OBC/undeciphered/L/3630/L_？_7417.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "56",
+      "sha256": "0b46849e36d17ac10bbc27def04e2d83715f351d57671132a64d56d379cdb367",
+      "raw_source_sha256": "0b46849e36d17ac10bbc27def04e2d83715f351d57671132a64d56d379cdb367",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "The crop does not establish whether the turns are continuous.简体中文：",
+      "中央有一条带折转的窄笔画向下延伸。",
+      "数条短斜笔画向右上方伸出。",
+      "中部附近有一条较深的笔画向左伸展。",
+      "图像不能证明折转部分是否连续。"
+    ],
+    "en": [
+      "A narrow stroke runs down the central area with angular turns.",
+      "Short diagonal strokes extend toward the upper-right side.",
+      "A darker stroke projects toward the left near the middle."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_7417.jpg",
+    "prefix": "L",
+    "code": "？_7417"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3630",
+    "source_class_path": "HUST-OBC/undeciphered/L/3630/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3630/L_？_7417.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3630/L_？_7417.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

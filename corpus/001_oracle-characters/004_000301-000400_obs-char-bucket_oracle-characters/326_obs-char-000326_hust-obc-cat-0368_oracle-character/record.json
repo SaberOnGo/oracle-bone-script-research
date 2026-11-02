@@ -1,0 +1,79 @@
+{
+  "id": "obs-char-000326",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0368",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000331_hust-obc-cat-0368_glyph.png",
+      "metadata": "images/001_asset-000331_hust-obc-cat-0368_glyph.yaml",
+      "asset_id": "asset-000331",
+      "source_image_path": "HUST-OBC/deciphered/0368/G_0368_乙1049合21729子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "44",
+      "pixel_height": "80",
+      "sha256": "d6d69d7d6563d93da737289975d0ab8d93c6fbee53d3fe3d93d2b59a0ac1fe6e",
+      "raw_source_sha256": "085e61895c8e654d96a78538d37df44eb12e4a5376ab7c747ba0005fe3d60bc7",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上方两个圆弧末端形体由横笔画连接，中部有一条直笔画向下延伸。"
+    ],
+    "en": [
+      "Two rounded terminal forms are joined by an upper horizontal stroke, with a single central vertical stroke descending below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0368_乙1049合21729子組.png",
+    "prefix": "G",
+    "heji": "合21729",
+    "old_catalog": "乙1049",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "0368",
+    "validation_class_id": "325",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㕦",
+    "codepoints": "U+3566",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_obimd_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-obimd"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000326",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

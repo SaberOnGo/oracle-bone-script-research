@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000894",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1006",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000899_hust-obc-cat-1006_glyph.png",
+      "metadata": "images/001_asset-000899_hust-obc-cat-1006_glyph.yaml",
+      "asset_id": "asset-000899",
+      "source_image_path": "HUST-OBC/deciphered/1006/G_1006_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "58",
+      "pixel_height": "80",
+      "sha256": "ee02801faac9e161e9441f09e5a7f4f173866979731679e41cbafbef553dc3d0",
+      "raw_source_sha256": "7d0ba10cb48c74c17da3b3fb8274ec33347947c0af0ca0acabed772f02b28613",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧长弯曲笔与右侧折角笔群分离，右侧有尖形上部和数条下行笔。"
+    ],
+    "en": [
+      "A long curved stroke at left stands apart from an angular right-hand cluster with a pointed upper form and several descending strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1006_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "1006",
+    "validation_class_id": "893",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟤",
+    "codepoints": "U+37E4",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000894",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

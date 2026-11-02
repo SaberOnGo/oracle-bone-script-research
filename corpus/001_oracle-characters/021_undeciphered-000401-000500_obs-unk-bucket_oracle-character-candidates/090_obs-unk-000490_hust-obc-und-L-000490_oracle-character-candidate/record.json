@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000490",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000490",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002083_hust-obc-und-L-000490_glyph.jpg",
+      "metadata": "images/001_asset-002083_hust-obc-und-L-000490_glyph.yaml",
+      "asset_id": "asset-002083",
+      "source_image_path": "HUST-OBC/undeciphered/L/490/L_？_11497.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "53",
+      "sha256": "972d173a35c1706d548c3c050c7b5aaab269fea9323b0890bc34ed9a2a6ba5c8",
+      "raw_source_sha256": "972d173a35c1706d548c3c050c7b5aaab269fea9323b0890bc34ed9a2a6ba5c8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "双瓣状上横笔位于数条下行笔之上；右侧另有弧角三角痕迹。"
+    ],
+    "en": [
+      "A double-lobed upper bar sits above several descending strokes; a separate rounded triangular mark stands on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11497.jpg",
+    "prefix": "L",
+    "code": "？_11497"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "490",
+    "source_class_path": "HUST-OBC/undeciphered/L/490/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/490/L_？_11497.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/490/L_？_11497.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001146",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1280_1281",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001151_hust-obc-cat-1280_1281_glyph.png",
+      "metadata": "images/001_asset-001151_hust-obc-cat-1280_1281_glyph.yaml",
+      "asset_id": "asset-001151",
+      "source_image_path": "HUST-OBC/deciphered/1280_1281/1280/G_1280_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "65",
+      "pixel_height": "80",
+      "sha256": "5ab36fe49931e6edaf3423c5518ded8ed9a2cd6a38436c37477df8e5ad37a004",
+      "raw_source_sha256": "a13fea9b70d32441be4d0c044344ff66e8386b1320bb9ecebf707ba697d3acd8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大的左侧弯曲轮廓连接右侧小型闭合环，下面有长下行笔。"
+    ],
+    "en": [
+      "A broad curved left contour joins a small enclosed loop on the right, with a long descending stroke below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1280_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "1280_1281",
+    "validation_class_id": "1145",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㣶㣷",
+    "codepoints": "U+38F6;U+38F7",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001146",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

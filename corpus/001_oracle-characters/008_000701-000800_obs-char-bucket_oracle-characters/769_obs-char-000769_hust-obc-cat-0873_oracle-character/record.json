@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000769",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0873",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000774_hust-obc-cat-0873_glyph.png",
+      "metadata": "images/001_asset-000774_hust-obc-cat-0873_glyph.yaml",
+      "asset_id": "asset-000774",
+      "source_image_path": "HUST-OBC/deciphered/0873/G_0873_後2.3.2合11323𠂤賓間.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "80",
+      "sha256": "cc6cabf641fd86063ed0b287e18eb76ed4f32a0355c4acb342f9eb633f361153",
+      "raw_source_sha256": "41fa16e188f911170b2ab1eb62fa43821e46ed8579a6336c30daa0dfb781687f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离分枝剪影并列：较短左形上下分叉，较高右形上部交叉浓重并带长侧枝。"
+    ],
+    "en": [
+      "Two detached branching silhouettes stand side by side: the shorter left form forks above and below, while the taller right form has a dense upper crossing and long side branch."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0873_後2.3.2合11323𠂤賓間.png",
+    "prefix": "G",
+    "heji": "合11323",
+    "old_catalog": "後2.3.2",
+    "old_catalog_abbr": "後",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "𠂤賓間"
+  },
+  "dataset_category": {
+    "source_category_id": "0873",
+    "validation_class_id": "768",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝟",
+    "codepoints": "U+375F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000769",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000650",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000650",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002243_hust-obc-und-L-000650_glyph.jpg",
+      "metadata": "images/001_asset-002243_hust-obc-und-L-000650_glyph.yaml",
+      "asset_id": "asset-002243",
+      "source_image_path": "HUST-OBC/undeciphered/L/650/L_？_11952.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "52",
+      "sha256": "8258b044fafbc3d4b54fbd3b993b2795a2193733e5f3cde2a682535d6901d18b",
+      "raw_source_sha256": "8258b044fafbc3d4b54fbd3b993b2795a2193733e5f3cde2a682535d6901d18b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧高直笔画带短分支，右侧弧形围合内可见横痕和竖向笔画。"
+    ],
+    "en": [
+      "A tall left stroke with a short branch stands beside a rounded right enclosure containing a horizontal bar and upright stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11952.jpg",
+    "prefix": "L",
+    "code": "？_11952"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "650",
+    "source_class_path": "HUST-OBC/undeciphered/L/650/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/650/L_？_11952.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/650/L_？_11952.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001214",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1359",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001219_hust-obc-cat-1359_glyph.png",
+      "metadata": "images/001_asset-001219_hust-obc-cat-1359_glyph.yaml",
+      "asset_id": "asset-001219",
+      "source_image_path": "HUST-OBC/deciphered/1359/G_1359_京津1630合17482.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "80",
+      "sha256": "3398be3d6a14547da080836fd2f5be3ae8ce925d7f385989d030d6f68ddbc3cb",
+      "raw_source_sha256": "708410685eeecc8e97413806db5bb9ca8939e43a52f15460d0dc212493bbf54c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型折角上部框廓连接中央横向交叉和长下部竖笔。"
+    ],
+    "en": [
+      "A small angular upper enclosure joins a central horizontal crossing and a long lower vertical stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1359_京津1630合17482.png",
+    "prefix": "G",
+    "heji": "合17482",
+    "old_catalog": "京津1630",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字"
+  },
+  "dataset_category": {
+    "source_category_id": "1359",
+    "validation_class_id": "1213",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥅",
+    "codepoints": "U+3945",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001214",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

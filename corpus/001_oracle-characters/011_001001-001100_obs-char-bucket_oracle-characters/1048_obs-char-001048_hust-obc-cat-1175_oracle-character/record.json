@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001048",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1175",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001053_hust-obc-cat-1175_glyph.png",
+      "metadata": "images/001_asset-001053_hust-obc-cat-1175_glyph.yaml",
+      "asset_id": "asset-001053",
+      "source_image_path": "HUST-OBC/deciphered/1175/G_1175_坊間4.91(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "30",
+      "pixel_height": "80",
+      "sha256": "b39c865e433b58d899b6872e3966a34fc2b5acb551af0a332a1d443cb4474397",
+      "raw_source_sha256": "69513e492ef643aeade6344f52be594234091003e30b9c116b4b61ca04534de9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "星状上部交叉笔位于水平横笔和一条单独下行直立笔之上。"
+    ],
+    "en": [
+      "A star-like upper crossing sits above a horizontal bar and a single descending upright stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1175_坊間4.91(甲).png",
+    "prefix": "G",
+    "old_catalog": "坊間4.91",
+    "old_catalog_abbr": "坊間",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1175",
+    "validation_class_id": "1047",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㢍",
+    "codepoints": "U+388D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001048",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

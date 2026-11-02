@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000464",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0526",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000469_hust-obc-cat-0526_glyph.png",
+      "metadata": "images/001_asset-000469_hust-obc-cat-0526_glyph.yaml",
+      "asset_id": "asset-000469",
+      "source_image_path": "HUST-OBC/deciphered/0526/G_0526_京都2330(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "80",
+      "sha256": "eeb3e892a7db636d586bccc0397451c793e5b4f7490e9891dd650ed270ab0ab6",
+      "raw_source_sha256": "6aeee075f15ef41cb8a3360c3fe026377e5ab5571573f05f7366726f38efe232",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "折角外轮廓围绕紧凑卷曲内笔画群，中央下方有两条略弯的长笔下垂。"
+    ],
+    "en": [
+      "An angular outer outline surrounds a compact curled inner cluster, with two long slightly curved strokes descending below the center."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0526_京都2330(甲).png",
+    "prefix": "G",
+    "old_catalog": "京都2330",
+    "old_catalog_abbr": "京都",
+    "old_catalog_abbr_obm_label": "京都大學人文科學研究所藏甲骨文字",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0526",
+    "validation_class_id": "463",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘄",
+    "codepoints": "U+3604",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000464",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

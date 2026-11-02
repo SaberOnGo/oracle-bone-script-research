@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000716",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0813",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000721_hust-obc-cat-0813_glyph.png",
+      "metadata": "images/001_asset-000721_hust-obc-cat-0813_glyph.yaml",
+      "asset_id": "asset-000721",
+      "source_image_path": "HUST-OBC/deciphered/0813/X_0813_2313_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "197",
+      "pixel_height": "263",
+      "sha256": "9bc1810d7090d1ea72a2df4c8bca81fc433a8d743a44d2ebc0df13c4c0adb977",
+      "raw_source_sha256": "41d8a98ca07907b4fa7ac471722b0d962f0a3a6aa99c9cf76bd945cefa6dd25a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条高细干带上部侧环、横栏和短斜枝，立于两端高起的宽圆弯下槽上方。"
+    ],
+    "en": [
+      "Two tall thin stems carry upper side loops, crossbars, and short diagonal branches, and stand above a broad rounded lower basin with high side ends."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_0813_2313_1.png",
+    "prefix": "X",
+    "code": "0813_2313_1"
+  },
+  "dataset_category": {
+    "source_category_id": "0813",
+    "validation_class_id": "715",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜣",
+    "codepoints": "U+3723",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000716",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

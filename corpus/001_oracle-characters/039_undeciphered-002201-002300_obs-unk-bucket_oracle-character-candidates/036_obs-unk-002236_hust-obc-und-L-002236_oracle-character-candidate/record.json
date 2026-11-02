@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002236",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002236",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003829_hust-obc-und-L-002236_glyph.jpg",
+      "metadata": "images/001_asset-003829_hust-obc-und-L-002236_glyph.yaml",
+      "asset_id": "asset-003829",
+      "source_image_path": "HUST-OBC/undeciphered/L/2236/L_？_2799.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "55",
+      "sha256": "1aae651a587f026bc00543a8d95aec68657f3b841937dd08ef383626456f7520",
+      "raw_source_sha256": "1aae651a587f026bc00543a8d95aec68657f3b841937dd08ef383626456f7520",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有尖状左侧笔痕和短的中央竖向笔痕。下部数道较长笔痕向下并向外展开，下缘有短的横向底部笔痕。"
+    ],
+    "en": [
+      "A compact upper group has a pointed left stroke and a short central upright. Several long strokes descend and spread outward, with a short horizontal base at the lower edge."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2799.jpg",
+    "prefix": "L",
+    "code": "？_2799"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2236",
+    "source_class_path": "HUST-OBC/undeciphered/L/2236/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2236/L_？_2799.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2236/L_？_2799.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

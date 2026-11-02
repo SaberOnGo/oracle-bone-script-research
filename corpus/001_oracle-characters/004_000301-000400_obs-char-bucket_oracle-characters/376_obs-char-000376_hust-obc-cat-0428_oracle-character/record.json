@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000376",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0428",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000381_hust-obc-cat-0428_glyph.png",
+      "metadata": "images/001_asset-000381_hust-obc-cat-0428_glyph.yaml",
+      "asset_id": "asset-000381",
+      "source_image_path": "HUST-OBC/deciphered/0428/G_0428_乙5317合1051賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "80",
+      "sha256": "7ce4c2c5d0f6e9f96954e6a5c4818c96b51b274a80321a6dde89fb614fc69608",
+      "raw_source_sha256": "8abfd926382c12e21b97b0a3c77a78743262dfa3c8b195bfb1a77549fee406bd",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细中央主干分出尖状上部分叉和两条长侧向笔画。"
+    ],
+    "en": [
+      "A thin central stem branches into a pointed upper fork and two long side strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0428_乙5317合1051賓組.png",
+    "prefix": "G",
+    "heji": "合1051",
+    "old_catalog": "乙5317",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0428",
+    "validation_class_id": "375",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㖢",
+    "codepoints": "U+35A2",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000376",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

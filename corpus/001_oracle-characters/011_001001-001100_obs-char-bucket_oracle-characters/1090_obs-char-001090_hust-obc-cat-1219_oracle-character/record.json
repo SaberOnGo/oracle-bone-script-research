@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001090",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1219",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001095_hust-obc-cat-1219_glyph.png",
+      "metadata": "images/001_asset-001095_hust-obc-cat-1219_glyph.yaml",
+      "asset_id": "asset-001095",
+      "source_image_path": "HUST-OBC/deciphered/1219/G_1219_後1.13.5合33040𠂤賓間.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "58",
+      "pixel_height": "80",
+      "sha256": "a2f23a887e6620311c5150e9806c70985c5d5e4fed8f106d4ae9cfb8920b27c8",
+      "raw_source_sha256": "97ddfb81d85f2196ad93c18cca61eedd3dcf1a86470be66b79c56ce7a0bff282",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "低位圆弧闭合轮廓被中央直立笔穿过，两侧有两条短上部笔。"
+    ],
+    "en": [
+      "A low rounded enclosure is crossed by a central upright and accompanied by two short upper side strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1219_後1.13.5合33040𠂤賓間.png",
+    "prefix": "G",
+    "heji": "合33040",
+    "old_catalog": "後1.13.5",
+    "old_catalog_abbr": "後",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "𠂤賓間"
+  },
+  "dataset_category": {
+    "source_category_id": "1219",
+    "validation_class_id": "1089",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㢹",
+    "codepoints": "U+38B9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001090",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

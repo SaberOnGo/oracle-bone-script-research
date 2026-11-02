@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001219",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1364",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001224_hust-obc-cat-1364_glyph.png",
+      "metadata": "images/001_asset-001224_hust-obc-cat-1364_glyph.yaml",
+      "asset_id": "asset-001224",
+      "source_image_path": "HUST-OBC/deciphered/1364/L_1364_1002.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "59",
+      "sha256": "ac9372359e769120ff02003b860a7e67a4df2f3766ac35028029515585152131",
+      "raw_source_sha256": "e1cb89967777f5cec126396184dcf21ddc0432e0755e7eb688e8451f7c697c28",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "较淡的小型圆弧框廓包含内部环和短上部笔；图像对比度较低。"
+    ],
+    "en": [
+      "A faint small rounded enclosure contains an inner loop and a short upper stroke; contrast is low."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1364_1002.jpg",
+    "prefix": "L",
+    "code": "1364_1002"
+  },
+  "dataset_category": {
+    "source_category_id": "1364",
+    "validation_class_id": "1218",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥊",
+    "codepoints": "U+394A",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001219",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

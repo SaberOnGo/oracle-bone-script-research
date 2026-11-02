@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001153",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1290_1291_1292",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001158_hust-obc-cat-1290_1291_1292_glyph.png",
+      "metadata": "images/001_asset-001158_hust-obc-cat-1290_1291_1292_glyph.yaml",
+      "asset_id": "asset-001158",
+      "source_image_path": "HUST-OBC/deciphered/1290_1291_1292/1290/G_1290_合21623子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "80",
+      "sha256": "cd91d4580dd9d2d6426bae9dcb0322428fdd3671d8c5d33b9104f78ba2a885d9",
+      "raw_source_sha256": "400768cfec94ab7dde866251b8a470803593261ef4a4a5e9b0f36486c347fea5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "较淡的狭长形体有左侧小型闭合环、中央分枝笔和右侧长下行笔。"
+    ],
+    "en": [
+      "A faint narrow form has a small enclosed left loop, a central branching stroke, and a long descending right stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1290_合21623子組.png",
+    "prefix": "G",
+    "heji": "合21623",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "1290_1291_1292",
+    "validation_class_id": "1152",
+    "category_member_count": "3"
+  },
+  "dataset_label": {
+    "label": "㤀㤁㤂",
+    "codepoints": "U+3900;U+3901;U+3902",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001153",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

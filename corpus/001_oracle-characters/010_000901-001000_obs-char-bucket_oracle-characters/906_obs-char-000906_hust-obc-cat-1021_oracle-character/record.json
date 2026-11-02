@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000906",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1021",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000911_hust-obc-cat-1021_glyph.png",
+      "metadata": "images/001_asset-000911_hust-obc-cat-1021_glyph.yaml",
+      "asset_id": "asset-000911",
+      "source_image_path": "HUST-OBC/deciphered/1021/G_1021_甲2858(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "76",
+      "sha256": "1b095ec4235138ac8130f3df24c7205bd446da1203d86226b85028c1d4c198a9",
+      "raw_source_sha256": "b4007ea3fdb7b77adf48e8feffdac74182c9df2e6e59556d3e215ccc9426d878",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细对称竖向形体有小型上部环状笔、成对侧分枝笔和分开的下部笔干。"
+    ],
+    "en": [
+      "A thin symmetrical vertical form has a small upper loop, paired branching side strokes, and a split lower stem."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1021_甲2858(甲).png",
+    "prefix": "G",
+    "old_catalog": "甲2858",
+    "old_catalog_abbr": "甲",
+    "old_catalog_abbr_obm_label": "甲骨卜辭",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1021",
+    "validation_class_id": "905",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟳",
+    "codepoints": "U+37F3",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000906",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

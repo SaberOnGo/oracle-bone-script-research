@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001716",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001716",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003309_hust-obc-und-L-001716_glyph.jpg",
+      "metadata": "images/001_asset-003309_hust-obc-und-L-001716_glyph.yaml",
+      "asset_id": "asset-003309",
+      "source_image_path": "HUST-OBC/undeciphered/L/1716/L_？_14720.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "60",
+      "sha256": "147c56fe94114a97085dc8352b864d0a63967d434755080f989cc251f0b35afe",
+      "raw_source_sha256": "147c56fe94114a97085dc8352b864d0a63967d434755080f989cc251f0b35afe",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央有高形环状或菱状轮廓，左右有短笔痕，下部有交叉延伸；当前派生图像与 obs-unk-001710 视觉相同。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A tall central loop or diamond is flanked by short strokes, with a crossing lower mark below the main form. It is visually the same as obs-unk-001710; source duplication remains pending."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14720.jpg",
+    "prefix": "L",
+    "code": "？_14720"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1716",
+    "source_class_path": "HUST-OBC/undeciphered/L/1716/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1716/L_？_14720.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1716/L_？_14720.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

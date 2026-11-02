@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000580",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0658",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000585_hust-obc-cat-0658_glyph.png",
+      "metadata": "images/001_asset-000585_hust-obc-cat-0658_glyph.yaml",
+      "asset_id": "asset-000585",
+      "source_image_path": "HUST-OBC/deciphered/0658/G_0658_粹863(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "f2d28b0a42dc244d4f6384ab24f66a9bcceede69792efa05893aa3b312e9e861",
+      "raw_source_sha256": "054fcc568b4de1ea8f73a07a015087b1dd5f2e0a835967ffe8855d35c0efc1fa",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条分离长微弯竖笔近乎平行排列，各自在不同高度带两条短折侧枝。"
+    ],
+    "en": [
+      "Two detached long slightly curving vertical strokes stand nearly parallel, each carrying two short angled side branches at different heights."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0658_粹863(甲).png",
+    "prefix": "G",
+    "old_catalog": "粹863",
+    "old_catalog_abbr": "粹",
+    "old_catalog_abbr_obm_label": "殷契粹編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0658",
+    "validation_class_id": "579",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚈",
+    "codepoints": "U+3688",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000580",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

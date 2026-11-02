@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000165",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0181",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000170_hust-obc-cat-0181_glyph.png",
+      "metadata": "images/001_asset-000170_hust-obc-cat-0181_glyph.yaml",
+      "asset_id": "asset-000170",
+      "source_image_path": "HUST-OBC/deciphered/0181/L_0181_7055.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "32",
+      "pixel_height": "55",
+      "sha256": "93e81d4ee4685a43721a5fb2b79bd0c7083c6022ee83b2f87761d3e46a70f619",
+      "raw_source_sha256": "e9ed967e70acd32af43da3725d7f48cf3f4d76066c3e20b0dde22a5dde36a9d1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "低分辨率灰度图像上方有密集横向笔群，下方有细弯曲笔向下延伸。"
+    ],
+    "en": [
+      "The low-resolution gray image has a dense upper horizontal cluster and a thin curved stroke descending below it."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0181_7055.jpg",
+    "prefix": "L",
+    "code": "0181_7055"
+  },
+  "dataset_category": {
+    "source_category_id": "0181",
+    "validation_class_id": "164",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㒫",
+    "codepoints": "U+34AB",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000165",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

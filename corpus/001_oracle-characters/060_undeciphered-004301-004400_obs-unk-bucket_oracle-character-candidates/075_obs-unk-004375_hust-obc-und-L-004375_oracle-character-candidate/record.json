@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004375",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004375",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005968_hust-obc-und-L-004375_glyph.jpg",
+      "metadata": "images/001_asset-005968_hust-obc-und-L-004375_glyph.yaml",
+      "asset_id": "asset-005968",
+      "source_image_path": "HUST-OBC/undeciphered/L/4375/L_？_9713.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "45",
+      "pixel_height": "50",
+      "sha256": "82b14e389bed778d6a7163a72d1b1f32b12fd55c8744560a8123d0ffbcb6be01",
+      "raw_source_sha256": "82b14e389bed778d6a7163a72d1b1f32b12fd55c8744560a8123d0ffbcb6be01",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧有一条较长的弧曲痕迹向中央延伸。",
+      "中央区域有一条短斜向交叉痕迹。",
+      "上部有一条尖状痕迹向右侧外伸。",
+      "右下方有一个短小的弧曲或钩状末端。"
+    ],
+    "en": [
+      "A long curved trace extends from the left into the center.",
+      "A short diagonal trace crosses the central area.",
+      "A pointed upper trace projects toward the right.",
+      "The lower right has a short curved or hooked terminal."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9713.jpg",
+    "prefix": "L",
+    "code": "？_9713"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4375",
+    "source_class_path": "HUST-OBC/undeciphered/L/4375/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4375/L_？_9713.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4375/L_？_9713.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

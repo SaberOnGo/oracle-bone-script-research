@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-000964",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1084",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000969_hust-obc-cat-1084_glyph.png",
+      "metadata": "images/001_asset-000969_hust-obc-cat-1084_glyph.yaml",
+      "asset_id": "asset-000969",
+      "source_image_path": "HUST-OBC/deciphered/1084/G_1084_中大33.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "47",
+      "pixel_height": "80",
+      "sha256": "e8cb965899ab9097112f54dcc1d8f6c58e533440fd4d2a423e6788fdbc2d6ae2",
+      "raw_source_sha256": "8970a9ca27e59678f3e03e28fdaa1a625e510162c94ebdf9b7b3bc1e7e5f86bc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高长圆角矩形闭合轮廓由横、竖笔分隔为数个区段。"
+    ],
+    "en": [
+      "A tall rounded rectangular enclosure is divided into several compartments by horizontal and vertical strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1084_中大33.png",
+    "prefix": "G",
+    "old_catalog": "中大33",
+    "old_catalog_abbr": "中大",
+    "old_catalog_abbr_obm_label": "中央大學歷史博物館藏甲骨文字"
+  },
+  "dataset_category": {
+    "source_category_id": "1084",
+    "validation_class_id": "963",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㠲",
+    "codepoints": "U+3832",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000964",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

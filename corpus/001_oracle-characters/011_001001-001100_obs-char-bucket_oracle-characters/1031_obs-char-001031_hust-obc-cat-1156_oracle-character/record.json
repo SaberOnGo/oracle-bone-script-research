@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001031",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1156",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001036_hust-obc-cat-1156_glyph.png",
+      "metadata": "images/001_asset-001036_hust-obc-cat-1156_glyph.yaml",
+      "asset_id": "asset-001036",
+      "source_image_path": "HUST-OBC/deciphered/1156/G_1156_乙1290(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "76",
+      "pixel_height": "80",
+      "sha256": "4f7ce1285325a3930fb2dcabd887b33b1be3946cd26bbb8f21021261ed20cf40",
+      "raw_source_sha256": "10ca33b6d30abd514471e9e79dc8be7203df738cd9feae748fb11f807daf9f7d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "长左向水平笔穿过中央直立笔，并与右侧弯曲棱角形体相接。"
+    ],
+    "en": [
+      "A long left-pointing horizontal stroke crosses a central upright and meets a curved angular form on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1156_乙1290(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙1290",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1156",
+    "validation_class_id": "1030",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㡺",
+    "codepoints": "U+387A",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001031",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

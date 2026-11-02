@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004127",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004127",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005720_hust-obc-und-L-004127_glyph.jpg",
+      "metadata": "images/001_asset-005720_hust-obc-und-L-004127_glyph.yaml",
+      "asset_id": "asset-005720",
+      "source_image_path": "HUST-OBC/undeciphered/L/4127/L_？_8893.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "b626364e16a14ed662844e7235c87c604507839645112e96e43e56c6083db04c",
+      "raw_source_sha256": "b626364e16a14ed662844e7235c87c604507839645112e96e43e56c6083db04c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：图像中央有一组较窄的竖向深色笔痕。",
+      "中文：左缘可见一条较长的折转或带角痕迹。",
+      "中文：右上方可见数条短而尖的斜向痕迹。",
+      "中文：下部有重叠的深色痕迹，并见一处弯曲末端。"
+    ],
+    "en": [
+      "English: A narrow upright group of dark strokes occupies the image center.",
+      "English: The left edge has a longer angular or turning trace.",
+      "English: Short pointed strokes are visible at the upper right.",
+      "English: The lower portion has overlapping dark marks and a curved end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8893.jpg",
+    "prefix": "L",
+    "code": "？_8893"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4127",
+    "source_class_path": "HUST-OBC/undeciphered/L/4127/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4127/L_？_8893.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4127/L_？_8893.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

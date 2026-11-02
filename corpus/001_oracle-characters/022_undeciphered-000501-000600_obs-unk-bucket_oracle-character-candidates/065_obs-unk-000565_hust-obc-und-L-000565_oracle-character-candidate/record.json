@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000565",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000565",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002158_hust-obc-und-L-000565_glyph.jpg",
+      "metadata": "images/001_asset-002158_hust-obc-und-L-000565_glyph.yaml",
+      "asset_id": "asset-002158",
+      "source_image_path": "HUST-OBC/undeciphered/L/565/L_？_11692.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "61",
+      "sha256": "27341e0002e2c7c0eaf06ded65b33a0b6d45c32894690ca54b7ee2329a2b573d",
+      "raw_source_sha256": "27341e0002e2c7c0eaf06ded65b33a0b6d45c32894690ca54b7ee2329a2b573d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "弧形上部环连接宽幅弧形下部轮廓，下缘有三个尖角外伸。"
+    ],
+    "en": [
+      "A rounded upper loop flows into a broad curved lower contour with three pointed lower projections."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11692.jpg",
+    "prefix": "L",
+    "code": "？_11692"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "565",
+    "source_class_path": "HUST-OBC/undeciphered/L/565/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/565/L_？_11692.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/565/L_？_11692.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

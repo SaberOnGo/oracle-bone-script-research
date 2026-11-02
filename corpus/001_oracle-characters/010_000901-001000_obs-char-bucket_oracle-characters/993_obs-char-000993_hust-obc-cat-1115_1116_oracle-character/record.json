@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-000993",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1115_1116",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000998_hust-obc-cat-1115_1116_glyph.png",
+      "metadata": "images/001_asset-000998_hust-obc-cat-1115_1116_glyph.yaml",
+      "asset_id": "asset-000998",
+      "source_image_path": "HUST-OBC/deciphered/1115_1116/1115/G_1115_七S73.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "30",
+      "pixel_height": "80",
+      "sha256": "de853ee5e362a23619fc9de42e6ad00b5fcc7f6df49b55f075915ff9997661a1",
+      "raw_source_sha256": "50805fd5e9e019343b01b96203ce582bea91dc00f22553455068e0ff547c98f5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型上部分枝笔群位于矩形中央闭合轮廓之上，下方有两条侧笔。"
+    ],
+    "en": [
+      "A small upper branching cluster sits above a rectangular central enclosure and two lower side strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1115_七S73.png",
+    "prefix": "G",
+    "old_catalog": "七S73",
+    "old_catalog_abbr": "七S",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1115_1116",
+    "validation_class_id": "992",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㡑㡒",
+    "codepoints": "U+3851;U+3852",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000993",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

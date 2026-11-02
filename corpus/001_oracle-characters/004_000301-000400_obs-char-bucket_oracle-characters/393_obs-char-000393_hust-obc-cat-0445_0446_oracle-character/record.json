@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000393",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0445_0446",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000398_hust-obc-cat-0445_0446_glyph.png",
+      "metadata": "images/001_asset-000398_hust-obc-cat-0445_0446_glyph.yaml",
+      "asset_id": "asset-000398",
+      "source_image_path": "HUST-OBC/deciphered/0445_0446/0445/G_0445_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "59",
+      "pixel_height": "73",
+      "sha256": "d734a4d46fc64cc054eb8ed7ace3305b953633f4477d8c507967124b7dede15c",
+      "raw_source_sha256": "b84596d78feb5dfb1ad338461b27dd020dbcd0eaa9b5adafceaa46ff2ff42602",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央屋顶状轮廓和竖向主干两侧各有一个分离的小型卷曲痕迹。"
+    ],
+    "en": [
+      "A central roof-like outline and vertical stem are flanked by two small detached curled marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0445_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "0445_0446",
+    "validation_class_id": "392",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㖳㖴",
+    "codepoints": "U+35B3;U+35B4",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000393",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

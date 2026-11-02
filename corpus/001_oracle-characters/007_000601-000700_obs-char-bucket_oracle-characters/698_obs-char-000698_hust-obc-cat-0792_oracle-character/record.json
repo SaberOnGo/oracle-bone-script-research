@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-000698",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0792",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000703_hust-obc-cat-0792_glyph.png",
+      "metadata": "images/001_asset-000703_hust-obc-cat-0792_glyph.yaml",
+      "asset_id": "asset-000703",
+      "source_image_path": "HUST-OBC/deciphered/0792/G_0792_合22942出組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "80",
+      "sha256": "fc9fbb7d10e122d86e1aa364f78e927e3c2507a91e3c9576aa4ac49144d6a1a6",
+      "raw_source_sha256": "190bee6c6603869df7e5e517ac4a57f7e113c806ee85d1cd2b660ed5d855dfaf",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高长左竖在中部出枝，并连接底部圆角矩形环；右侧另有纤细分枝斜笔下垂。"
+    ],
+    "en": [
+      "A tall left upright branches at mid-height and joins a rounded rectangular loop at its base; a separate thin slanting branched stroke descends at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0792_合22942出組.png",
+    "prefix": "G",
+    "heji": "合22942",
+    "group_or_note": "出組"
+  },
+  "dataset_category": {
+    "source_category_id": "0792",
+    "validation_class_id": "697",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜎",
+    "codepoints": "U+370E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000698",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

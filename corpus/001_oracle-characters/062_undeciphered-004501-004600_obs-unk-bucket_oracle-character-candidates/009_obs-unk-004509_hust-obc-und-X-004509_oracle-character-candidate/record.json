@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004509",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004509",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006102_hust-obc-und-X-004509_glyph.jpg",
+      "metadata": "images/001_asset-006102_hust-obc-und-X-004509_glyph.yaml",
+      "asset_id": "asset-006102",
+      "source_image_path": "HUST-OBC/undeciphered/X/65/X_？_8250_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "223",
+      "pixel_height": "186",
+      "sha256": "fddd7966ba88d052c4fc363bcc3061d3d7567a33a5e78e01510d70f0db653c79",
+      "raw_source_sha256": "fddd7966ba88d052c4fc363bcc3061d3d7567a33a5e78e01510d70f0db653c79",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "本地 JPG 中左右并列有两个彼此分开的形态。",
+      "左侧形态有宽大的弧形轮廓和短的上部外伸痕。",
+      "右侧形态轮廓较窄，上边缘带有斜向折角。",
+      "两个形态的轮廓内部都保留浅色或开放区域。",
+      "来源索引预期两个图像记录，但当前仅有一个本地 JPG。"
+    ],
+    "en": [
+      "The local JPG contains two separated forms placed side by side.",
+      "The left form has a broad curved outline and a short upper projection.",
+      "The right form has a narrower outline with an angled upper edge.",
+      "Both forms have open or light interior areas within their outlines.",
+      "The source index expects two image records, while one local JPG is present."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8250_1.png",
+    "prefix": "X",
+    "code": "？_8250_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "65",
+    "source_class_path": "HUST-OBC/undeciphered/X/65/",
+    "source_image_count": 2,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/65/X_？_8250_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/65/X_？_8250_2.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

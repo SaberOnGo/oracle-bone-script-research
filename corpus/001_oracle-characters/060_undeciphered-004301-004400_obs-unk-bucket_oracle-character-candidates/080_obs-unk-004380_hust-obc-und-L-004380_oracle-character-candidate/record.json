@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004380",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004380",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005973_hust-obc-und-L-004380_glyph.jpg",
+      "metadata": "images/001_asset-005973_hust-obc-und-L-004380_glyph.yaml",
+      "asset_id": "asset-005973",
+      "source_image_path": "HUST-OBC/undeciphered/L/4380/L_？_9731.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "55",
+      "sha256": "a00b529890621b1082fb51da8b6d264ac16923e3e8f890b525973feb086eba7c",
+      "raw_source_sha256": "a00b529890621b1082fb51da8b6d264ac16923e3e8f890b525973feb086eba7c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像左下方有一处较圆的深色痕迹群。",
+      "左侧和下缘可见数处短小伸出痕迹。",
+      "右侧有一条向上弯曲并在末端向内收的长痕。",
+      "圆形痕迹群与右侧长痕之间的中部连接较深。"
+    ],
+    "en": [
+      "A rounded dark mass sits toward the lower left of the image.",
+      "Several short projections extend from the left and lower edges.",
+      "A long curved trace rises on the right and bends inward at its end.",
+      "The central connection between the rounded mass and right trace is dark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9731.jpg",
+    "prefix": "L",
+    "code": "？_9731"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4380",
+    "source_class_path": "HUST-OBC/undeciphered/L/4380/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4380/L_？_9731.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4380/L_？_9731.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

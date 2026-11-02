@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001842",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001842",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003435_hust-obc-und-L-001842_glyph.jpg",
+      "metadata": "images/001_asset-003435_hust-obc-und-L-001842_glyph.yaml",
+      "asset_id": "asset-003435",
+      "source_image_path": "HUST-OBC/undeciphered/L/1842/L_？_15089.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "55",
+      "sha256": "26017f05d22df2091af93a2e51aeb5e931e57d7a8aa8f077c9ce16aed58a5b41",
+      "raw_source_sha256": "26017f05d22df2091af93a2e51aeb5e931e57d7a8aa8f077c9ce16aed58a5b41",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "可见相邻的两个竖向区域：左侧是层叠的圆转横笔，右侧是带弯曲外笔的狭窄下行笔痕簇。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "Two adjacent vertical zones are visible: stacked rounded bars on the left and a narrow descending cluster with a curved outer stroke on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_15089.jpg",
+    "prefix": "L",
+    "code": "？_15089"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1842",
+    "source_class_path": "HUST-OBC/undeciphered/L/1842/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1842/L_？_15089.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1842/L_？_15089.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

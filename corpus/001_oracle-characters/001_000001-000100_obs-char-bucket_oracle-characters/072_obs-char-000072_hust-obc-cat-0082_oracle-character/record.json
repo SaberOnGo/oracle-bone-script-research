@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000072",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0082",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000077_hust-obc-cat-0082_glyph.png",
+      "metadata": "images/001_asset-000077_hust-obc-cat-0082_glyph.yaml",
+      "asset_id": "asset-000077",
+      "source_image_path": "HUST-OBC/deciphered/0082/G_0082_乙7795合6834賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "80",
+      "pixel_height": "64",
+      "sha256": "da29b5cb590c782ae2388a1a30fddea2c63249de9fb96eb663ce6263710974a8",
+      "raw_source_sha256": "89dd27a8994c7b2145588c176348b9bf695416f962c7d778367975982dce405b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型图像呈圆角长方形闭合框，外缘为连续深色笔画。"
+    ],
+    "en": [
+      "The small image shows a rounded rectangular enclosure with a continuous dark outer stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0082_乙7795合6834賓組.png",
+    "prefix": "G",
+    "heji": "合6834",
+    "old_catalog": "乙7795",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0082",
+    "validation_class_id": "71",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㑈",
+    "codepoints": "U+3448",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000072",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

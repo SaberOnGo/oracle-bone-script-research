@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001016",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1141",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001021_hust-obc-cat-1141_glyph.png",
+      "metadata": "images/001_asset-001021_hust-obc-cat-1141_glyph.yaml",
+      "asset_id": "asset-001021",
+      "source_image_path": "HUST-OBC/deciphered/1141/G_1141_前2.17.4合36844黃組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "49",
+      "pixel_height": "80",
+      "sha256": "8edb854863e17f3a417f2ab74059b5707e7d8e9bac2375bb4f73b5b7109fd921",
+      "raw_source_sha256": "ef49999931b08e12f7b35c432492b8f072121a38bb89666018a4d1fc388a0945",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "可见两个分离笔形：左侧为高而不规则的分枝形，右侧为含两条内部笔的椭圆闭合轮廓。"
+    ],
+    "en": [
+      "Two separate marks are visible: a tall irregular branching form at left and a small oval enclosure with two interior marks at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1141_前2.17.4合36844黃組.png",
+    "prefix": "G",
+    "heji": "合36844",
+    "old_catalog": "前2.17.4",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "黃組"
+  },
+  "dataset_category": {
+    "source_category_id": "1141",
+    "validation_class_id": "1015",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㡫",
+    "codepoints": "U+386B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001016",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

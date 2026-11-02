@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000337",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0380",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000342_hust-obc-cat-0380_glyph.png",
+      "metadata": "images/001_asset-000342_hust-obc-cat-0380_glyph.yaml",
+      "asset_id": "asset-000342",
+      "source_image_path": "HUST-OBC/deciphered/0380/G_0380_京津2453合695賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "80",
+      "pixel_height": "80",
+      "sha256": "46494b2e4133700dc1b4d027572ad9d384ccdbec77ecca43e3f085312f77e515",
+      "raw_source_sha256": "1c9e05e899a84dfc43ba2c6594a012a434c0a1b25e92e3692488136e106eb17c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大的圆弧外轮廓内部有数个深色圆弧痕迹，下部有不规则交叉区域。"
+    ],
+    "en": [
+      "The broad rounded outer contour contains several dark internal rounded marks and an irregular lower crossing area."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0380_京津2453合695賓組.png",
+    "prefix": "G",
+    "heji": "合695",
+    "old_catalog": "京津2453",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0380",
+    "validation_class_id": "336",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㕲",
+    "codepoints": "U+3572",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000337",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

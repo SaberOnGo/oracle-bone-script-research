@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000715",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0811_0812",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000720_hust-obc-cat-0811_0812_glyph.png",
+      "metadata": "images/001_asset-000720_hust-obc-cat-0811_0812_glyph.yaml",
+      "asset_id": "asset-000720",
+      "source_image_path": "HUST-OBC/deciphered/0811_0812/0811/G_0811_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "59",
+      "pixel_height": "88",
+      "sha256": "54881abc1f7af6c39c85f1600f20b53cff1cb41895dcca30f9a2766c6ba5b2a4",
+      "raw_source_sha256": "8b7ad4e085cbd8f3bd17d2b62930e35411ca40df53ec0f200566059b38fdeb76",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离粗重尖形并列，各有中空下三角空隙；较高右形另带短侧突。"
+    ],
+    "en": [
+      "Two detached bold pointed forms stand side by side, each with a hollow lower triangular opening; the taller right form has an extra short side projection."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0811_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0811_0812",
+    "validation_class_id": "714",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㜡㜢",
+    "codepoints": "U+3721;U+3722",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000715",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

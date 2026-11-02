@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001370",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001370",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002963_hust-obc-und-L-001370_glyph.jpg",
+      "metadata": "images/001_asset-002963_hust-obc-und-L-001370_glyph.yaml",
+      "asset_id": "asset-002963",
+      "source_image_path": "HUST-OBC/undeciphered/L/1370/L_？_13860.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "55",
+      "sha256": "c9ce2043452f94e2e0b405de88a8d853a8a7594744bd6562971d29bb1e9b602b",
+      "raw_source_sha256": "c9ce2043452f94e2e0b405de88a8d853a8a7594744bd6562971d29bb1e9b602b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧近圆形体内部有深色痕迹并连接中央弯钩，右侧有高而弯曲的上行笔痕；它与 001367 相近，但这里只记录相似性，不确认同字。"
+    ],
+    "en": [
+      "A rounded left lobe with a dark inner mark connects to a central hook, while a tall curved stroke rises on the right. It resembles 001367, recorded only as similarity."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13860.jpg",
+    "prefix": "L",
+    "code": "？_13860"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1370",
+    "source_class_path": "HUST-OBC/undeciphered/L/1370/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1370/L_？_13860.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1370/L_？_13860.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

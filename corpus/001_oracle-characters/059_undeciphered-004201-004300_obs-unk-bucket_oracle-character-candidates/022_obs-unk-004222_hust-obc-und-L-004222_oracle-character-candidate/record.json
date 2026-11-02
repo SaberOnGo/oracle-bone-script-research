@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004222",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004222",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005815_hust-obc-und-L-004222_glyph.jpg",
+      "metadata": "images/001_asset-005815_hust-obc-und-L-004222_glyph.yaml",
+      "asset_id": "asset-005815",
+      "source_image_path": "HUST-OBC/undeciphered/L/4222/L_？_9228.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "4915fcd3aef4a4d131d1346f90f095a5be2e98c27de202ca0a3df3f6a07babbd",
+      "raw_source_sha256": "4915fcd3aef4a4d131d1346f90f095a5be2e98c27de202ca0a3df3f6a07babbd",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：棱角状笔画在左侧形成一个开放楔状轮廓。",
+      "中文：上部有一条较短笔画指向右侧。",
+      "中文：楔状轮廓下方有一条较宽的下部横向弯曲笔画。",
+      "中文：上下痕迹之间的间隙不均一。"
+    ],
+    "en": [
+      "English: Angular strokes form an open wedge on the left.",
+      "English: A short upper stroke points toward the right side.",
+      "English: A broad lower stroke curves horizontally beneath the wedge.",
+      "English: Gaps between the upper and lower marks are uneven."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9228.jpg",
+    "prefix": "L",
+    "code": "？_9228"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4222",
+    "source_class_path": "HUST-OBC/undeciphered/L/4222/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4222/L_？_9228.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4222/L_？_9228.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

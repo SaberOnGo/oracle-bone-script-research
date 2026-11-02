@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000752",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0854",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000757_hust-obc-cat-0854_glyph.png",
+      "metadata": "images/001_asset-000757_hust-obc-cat-0854_glyph.yaml",
+      "asset_id": "asset-000757",
+      "source_image_path": "HUST-OBC/deciphered/0854/G_0854_乙7160(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "80",
+      "sha256": "470999789e15c2678ca25eea7567609313445ff55f19c0d850eb71eb3162ece9",
+      "raw_source_sha256": "4e4671ded334f5cbecc62cc091b9da413bf8af6a701fc21b82799b7db1df535f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "分叉上干穿过长横和小型中央三角状空隙，随后延续为开放下框两条向外倾斜的长侧笔。"
+    ],
+    "en": [
+      "A forked upper stem crosses a long horizontal and a small central triangle-like opening, then continues into two long outward-slanting sides of an open lower frame."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0854_乙7160(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙7160",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0854",
+    "validation_class_id": "751",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝌",
+    "codepoints": "U+374C",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000752",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

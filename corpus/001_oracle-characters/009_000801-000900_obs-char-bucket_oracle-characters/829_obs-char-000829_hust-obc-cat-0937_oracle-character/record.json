@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000829",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0937",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000834_hust-obc-cat-0937_glyph.png",
+      "metadata": "images/001_asset-000834_hust-obc-cat-0937_glyph.yaml",
+      "asset_id": "asset-000834",
+      "source_image_path": "HUST-OBC/deciphered/0937/G_0937_林1.8.12合38969.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "62",
+      "pixel_height": "80",
+      "sha256": "f07c6f4eb533f8406dbe1562d32c307ff59a23c1b620c0573197c0452e26bb8d",
+      "raw_source_sha256": "9a9cd90b20b9c64050391843dcdfb3fd332c21da0ccf5dad7545378b7975d581",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧两条长弯曲笔旁有由短竖笔和横笔组成的紧凑格状笔群；两组保持分离。"
+    ],
+    "en": [
+      "Two long curved strokes at left stand beside a compact grid of short vertical and horizontal strokes; the groups remain separated."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0937_林1.8.12合38969.png",
+    "prefix": "G",
+    "heji": "合38969",
+    "old_catalog": "林1.8.12",
+    "old_catalog_abbr": "林",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0937",
+    "validation_class_id": "828",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㞟",
+    "codepoints": "U+379F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000829",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

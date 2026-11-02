@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001183",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1323",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001188_hust-obc-cat-1323_glyph.png",
+      "metadata": "images/001_asset-001188_hust-obc-cat-1323_glyph.yaml",
+      "asset_id": "asset-001188",
+      "source_image_path": "HUST-OBC/deciphered/1323/G_1323_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "65",
+      "pixel_height": "93",
+      "sha256": "b2ade220bb2744ef054ab87b67a906fe874f247e296c6921ca17b713b6c5c51c",
+      "raw_source_sha256": "2a946f09221ca9cfe41100ea1e96cd20e731b87090036d23a67f163dde336931",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重直立形体结合宽大上部横笔、中央竖笔和数个下部横向转折。"
+    ],
+    "en": [
+      "A bold upright form combines a broad upper cross-stroke, a central vertical, and several lower horizontal turns."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1323_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "1323",
+    "validation_class_id": "1182",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㤡",
+    "codepoints": "U+3921",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001183",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000696",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0790",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000701_hust-obc-cat-0790_glyph.png",
+      "metadata": "images/001_asset-000701_hust-obc-cat-0790_glyph.yaml",
+      "asset_id": "asset-000701",
+      "source_image_path": "HUST-OBC/deciphered/0790/G_0790_佚600合19569.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "56",
+      "pixel_height": "80",
+      "sha256": "b09f24c9a48e40e3689cbded0d6143d4b7beb7729d1f9170ffeefbeede44aeb4",
+      "raw_source_sha256": "9d5003e4513cd74368f28c32402a3d11c99cbb560aabcc10086a13a0148d40d9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "带短内横的圆弯下部矩形轮廓支撑两条分离直干，每条直干顶部均收成小叉。"
+    ],
+    "en": [
+      "A rounded lower rectangular outline with a short inner horizontal supports two detached upright stems, each ending above in a small fork."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0790_佚600合19569.png",
+    "prefix": "G",
+    "heji": "合19569",
+    "old_catalog": "佚600",
+    "old_catalog_abbr": "佚",
+    "old_catalog_abbr_obm_label": "殷契佚存補編"
+  },
+  "dataset_category": {
+    "source_category_id": "0790",
+    "validation_class_id": "695",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜌",
+    "codepoints": "U+370C",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000696",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

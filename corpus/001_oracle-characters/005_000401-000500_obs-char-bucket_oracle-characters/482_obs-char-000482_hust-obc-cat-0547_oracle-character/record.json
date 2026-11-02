@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000482",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0547",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000487_hust-obc-cat-0547_glyph.png",
+      "metadata": "images/001_asset-000487_hust-obc-cat-0547_glyph.yaml",
+      "asset_id": "asset-000487",
+      "source_image_path": "HUST-OBC/deciphered/0547/H_0547_60A03_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "133",
+      "pixel_height": "263",
+      "sha256": "91217560c08f9e72d70a62473c61a4cdbfb07bcfa9e33b3cf05279af5bf5a2b2",
+      "raw_source_sha256": "66a9f278df0ae400d6100c42ae34f7762ee55070694f2b5f0866e0b03ca2f8fb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "长横被两条上行斜笔穿过，中央下部主干贯穿细长环形，并以深弯钩收尾。"
+    ],
+    "en": [
+      "A long horizontal stroke is crossed by two upward diagonals, while a central lower stem passes through an elongated loop and ends in a deep curved hook."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0547_60A03_0.png",
+    "prefix": "H",
+    "code": "0547_60A03_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0547",
+    "validation_class_id": "481",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘙",
+    "codepoints": "U+3619",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000482",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

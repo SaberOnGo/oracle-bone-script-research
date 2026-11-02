@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001124",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1255",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001129_hust-obc-cat-1255_glyph.png",
+      "metadata": "images/001_asset-001129_hust-obc-cat-1255_glyph.yaml",
+      "asset_id": "asset-001129",
+      "source_image_path": "HUST-OBC/deciphered/1255/L_1255_1501.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "59",
+      "sha256": "613787b8eb802ce5a9ebf38f64055c3f2a08135899ed8d0ee67c45f2dd749c3d",
+      "raw_source_sha256": "49cdd3ca49c7339d8a4c6016bd1b2f178cc9304a982f07cfe03a776a77e46b05",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "较淡灰色斜向笔群有尖状上部分叉、弯曲中央笔干和短下部分枝；对比度较低。"
+    ],
+    "en": [
+      "A faint gray diagonal cluster has a pointed upper fork, a curved central stem, and short lower branches; contrast is low."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1255_1501.jpg",
+    "prefix": "L",
+    "code": "1255_1501"
+  },
+  "dataset_category": {
+    "source_category_id": "1255",
+    "validation_class_id": "1123",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㣝",
+    "codepoints": "U+38DD",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001124",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

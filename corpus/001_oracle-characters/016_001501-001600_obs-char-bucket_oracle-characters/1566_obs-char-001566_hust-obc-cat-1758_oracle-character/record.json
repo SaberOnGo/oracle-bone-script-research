@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001566",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1758",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001571_hust-obc-cat-1758_glyph.png",
+      "metadata": "images/001_asset-001571_hust-obc-cat-1758_glyph.yaml",
+      "asset_id": "asset-001571",
+      "source_image_path": "HUST-OBC/deciphered/1758/X_1758_214_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "184",
+      "pixel_height": "281",
+      "sha256": "51bf25c57c04486079a36403c93988413f18277c1c0df40cae74c77ca9c5b983",
+      "raw_source_sha256": "0d81f44633f5cffab0e4757015bccae2e170d82c1f0d7038983a69f990d806aa",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数个分叉标记围绕中央竖干，中央有两个小型圆折开口。"
+    ],
+    "en": [
+      "Several forked marks surround a central stem with two small rounded openings."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1758_214_1.png",
+    "prefix": "X",
+    "code": "1758_214_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1758",
+    "validation_class_id": "1565",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫔",
+    "codepoints": "U+3AD4",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001566",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

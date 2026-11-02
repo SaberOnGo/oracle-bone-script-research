@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000207",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000207",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001800_hust-obc-und-L-000207_glyph.jpg",
+      "metadata": "images/001_asset-001800_hust-obc-und-L-000207_glyph.yaml",
+      "asset_id": "asset-001800",
+      "source_image_path": "HUST-OBC/undeciphered/L/207/L_？_10632.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "51",
+      "sha256": "4c409b50c302a3cab5fcd274cef40dc3490b9d14acc7b5b899b7a886fcb182b7",
+      "raw_source_sha256": "4c409b50c302a3cab5fcd274cef40dc3490b9d14acc7b5b899b7a886fcb182b7",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像有大致椭圆的外围围合，内部为中央直笔，下部附近有一处短斜笔。"
+    ],
+    "en": [
+      "An oval outer enclosure contains a central upright stroke with a short diagonal mark near its lower portion."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_10632.jpg",
+    "prefix": "L",
+    "code": "？_10632"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "207",
+    "source_class_path": "HUST-OBC/undeciphered/L/207/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/207/L_？_10632.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/207/L_？_10632.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

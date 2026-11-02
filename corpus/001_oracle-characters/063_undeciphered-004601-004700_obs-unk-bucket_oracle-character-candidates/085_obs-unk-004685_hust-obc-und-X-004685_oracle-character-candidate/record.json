@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004685",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004685",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006278_hust-obc-und-X-004685_glyph.jpg",
+      "metadata": "images/001_asset-006278_hust-obc-und-X-004685_glyph.yaml",
+      "asset_id": "asset-006278",
+      "source_image_path": "HUST-OBC/undeciphered/X/241/X_？_8409_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "204",
+      "pixel_height": "134",
+      "sha256": "3f4188108b27d4cd922f13e1fb37e0d97daa1328700bb3f7988f71b1ec1c00d4",
+      "raw_source_sha256": "3f4188108b27d4cd922f13e1fb37e0d97daa1328700bb3f7988f71b1ec1c00d4",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一组紧凑的横向深色形体横跨图像的大部分宽度。",
+      "左侧向上形成尖峰，再向下进入一个谷部。",
+      "中央偏右有一个较大的圆钝峰部。",
+      "最右侧向下收束为短而尖的末端。",
+      "一条狭窄浅色裂隙打断中央偏右的深色区域。",
+      "下边缘不规则，中央有更深的下凹。"
+    ],
+    "en": [
+      "A compact horizontal dark form spans most of the image width.",
+      "The left side rises to a pointed peak and descends into a valley.",
+      "A larger rounded peak occupies the central-right area.",
+      "The far right descends into a short pointed terminal.",
+      "A narrow pale slit interrupts the central-right dark mass.",
+      "The lower edge is uneven, with a deeper central dip.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8409_1.png",
+    "prefix": "X",
+    "code": "？_8409_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "241",
+    "source_class_path": "HUST-OBC/undeciphered/X/241/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/241/X_？_8409_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/241/X_？_8409_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

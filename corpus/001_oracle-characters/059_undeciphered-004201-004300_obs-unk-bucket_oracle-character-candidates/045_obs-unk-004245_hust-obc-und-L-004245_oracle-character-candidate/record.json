@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004245",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004245",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005838_hust-obc-und-L-004245_glyph.jpg",
+      "metadata": "images/001_asset-005838_hust-obc-und-L-004245_glyph.yaml",
+      "asset_id": "asset-005838",
+      "source_image_path": "HUST-OBC/undeciphered/L/4245/L_？_9355.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "ad7809e44113060cc95125228cc00ac3281f1fdc0a08ebd49ccf45301f41d113",
+      "raw_source_sha256": "ad7809e44113060cc95125228cc00ac3281f1fdc0a08ebd49ccf45301f41d113",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：上部左右附近各有一条细长弯曲痕迹向上伸展。",
+      "中文：一条较窄的中央痕迹在上部痕迹之间向下延伸。",
+      "中文：下部有一处近似围合并带交叉痕迹的形态。",
+      "中文：下端有一条向右伸出的短痕迹，末端粗细不均。"
+    ],
+    "en": [
+      "English: Two thin curved strokes rise near the upper left and right.",
+      "English: A narrow central trace descends between the upper strokes.",
+      "English: The lower area has a rounded enclosed-looking mark with crossings.",
+      "English: A short lower terminal projects to the right and tapers unevenly."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9355.jpg",
+    "prefix": "L",
+    "code": "？_9355"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4245",
+    "source_class_path": "HUST-OBC/undeciphered/L/4245/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4245/L_？_9355.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4245/L_？_9355.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

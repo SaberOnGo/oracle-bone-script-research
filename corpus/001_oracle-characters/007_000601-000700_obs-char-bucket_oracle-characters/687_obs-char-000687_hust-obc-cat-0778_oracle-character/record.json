@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000687",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0778",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000692_hust-obc-cat-0778_glyph.png",
+      "metadata": "images/001_asset-000692_hust-obc-cat-0778_glyph.yaml",
+      "asset_id": "asset-000692",
+      "source_image_path": "HUST-OBC/deciphered/0778/G_0778_甲185(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "56",
+      "pixel_height": "80",
+      "sha256": "b1545fdb9e99f4a065988adc1a264ba6c75329cd825215c8e2cd852c584d9e89",
+      "raw_source_sha256": "31787c2f2073467ce559ab926dcdc5a4fdaf536554de213b56f48d9cba010506",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个粗重矩形形体隔着白隙上下层叠：上形含小内矩形，下形有宽而不齐的开口。"
+    ],
+    "en": [
+      "Two bold rectangular forms are stacked with a white gap between them: the upper encloses a small inner rectangle, and the lower has a broad uneven opening."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0778_甲185(甲).png",
+    "prefix": "G",
+    "old_catalog": "甲185",
+    "old_catalog_abbr": "甲",
+    "old_catalog_abbr_obm_label": "甲骨卜辭",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0778",
+    "validation_class_id": "686",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㜀",
+    "codepoints": "U+3700",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000687",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

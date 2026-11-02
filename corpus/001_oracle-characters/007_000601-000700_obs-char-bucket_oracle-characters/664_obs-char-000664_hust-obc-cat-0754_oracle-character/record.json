@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000664",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0754",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000669_hust-obc-cat-0754_glyph.png",
+      "metadata": "images/001_asset-000669_hust-obc-cat-0754_glyph.yaml",
+      "asset_id": "asset-000669",
+      "source_image_path": "HUST-OBC/deciphered/0754/G_0754_前4.34.7(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "26",
+      "pixel_height": "80",
+      "sha256": "094bbf28d66e3840a62c0b45ba59b13a07d03295c4c51e44334d058b10f7013b",
+      "raw_source_sha256": "2ce845b8535b2c9a4a84a7ec0b26c96df77e3a3c03ef7aa7912f48ba5d0d5c3f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三个分离形体竖向层叠：中空三角、浅矩形轮廓，以及分成尖枝的下部交叉干。"
+    ],
+    "en": [
+      "Three separated forms are stacked vertically: a hollow triangle, a shallow rectangular outline, and a lower crossed stem that splits into pointed branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0754_前4.34.7(甲).png",
+    "prefix": "G",
+    "old_catalog": "前4.34.7",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0754",
+    "validation_class_id": "663",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛨",
+    "codepoints": "U+36E8",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000664",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

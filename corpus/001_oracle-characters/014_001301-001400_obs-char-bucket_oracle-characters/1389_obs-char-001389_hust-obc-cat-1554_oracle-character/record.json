@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001389",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1554",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001394_hust-obc-cat-1554_glyph.png",
+      "metadata": "images/001_asset-001394_hust-obc-cat-1554_glyph.yaml",
+      "asset_id": "asset-001394",
+      "source_image_path": "HUST-OBC/deciphered/1554/G_1554_乙5403合7352賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "68",
+      "pixel_height": "80",
+      "sha256": "1949b48d52b71715e1012e2825f9a5d31fadff6d7209dfe7cff708e3f93c9f5d",
+      "raw_source_sha256": "c897279c4e19fe43d5a250a236bc937b6aada77200ea9b49cf863f2e9439ae41",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "相邻两个形体组合为左侧弧形笔画群和右侧尖状环形。"
+    ],
+    "en": [
+      "Two adjacent forms combine a left curved cluster with a right pointed loop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1554_乙5403合7352賓組.png",
+    "prefix": "G",
+    "heji": "合7352",
+    "old_catalog": "乙5403",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1554",
+    "validation_class_id": "1388",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨈",
+    "codepoints": "U+3A08",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001389",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

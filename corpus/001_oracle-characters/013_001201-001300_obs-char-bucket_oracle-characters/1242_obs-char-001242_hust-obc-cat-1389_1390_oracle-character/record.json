@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001242",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1389_1390",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001247_hust-obc-cat-1389_1390_glyph.png",
+      "metadata": "images/001_asset-001247_hust-obc-cat-1389_1390_glyph.yaml",
+      "asset_id": "asset-001247",
+      "source_image_path": "HUST-OBC/deciphered/1389_1390/1389/G_1389_乙107合20412𠂤組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "74",
+      "pixel_height": "80",
+      "sha256": "89b19f1678b1ea5c2c099ada17c06fb2d1b6e0b5cd217176959eb28a1870499f",
+      "raw_source_sha256": "5100e79479539fcc0e552695cd299394063abf261e9a83d88db387a6e6a9d36d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "简洁的横顶形体有长中央笔干、左侧开放弧线和下部钩状转折。"
+    ],
+    "en": [
+      "A simple horizontal-topped form has a long central stem, an open left curve, and a hooked lower turn."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1389_乙107合20412𠂤組.png",
+    "prefix": "G",
+    "heji": "合20412",
+    "old_catalog": "乙107",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "𠂤組"
+  },
+  "dataset_category": {
+    "source_category_id": "1389_1390",
+    "validation_class_id": "1241",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㥣㥤",
+    "codepoints": "U+3963;U+3964",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001242",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

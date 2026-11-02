@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001309",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001309",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002902_hust-obc-und-L-001309_glyph.jpg",
+      "metadata": "images/001_asset-002902_hust-obc-und-L-001309_glyph.yaml",
+      "asset_id": "asset-002902",
+      "source_image_path": "HUST-OBC/undeciphered/L/1309/L_？_13716.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "30",
+      "pixel_height": "49",
+      "sha256": "c6738f4ef7aebe7c6df7670238bf3d0a698a4667748720e759cda46b5ec3b10b",
+      "raw_source_sha256": "c6738f4ef7aebe7c6df7670238bf3d0a698a4667748720e759cda46b5ec3b10b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部矩形轮廓内有一条横向内部笔痕。中央向下伸出较窄的竖线，末端接一个小型分叉或交叉笔组。"
+    ],
+    "en": [
+      "A rectangular upper frame contains a horizontal inner stroke. A narrow vertical line descends from its center, ending in a small branching or crossed cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13716.jpg",
+    "prefix": "L",
+    "code": "？_13716"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1309",
+    "source_class_path": "HUST-OBC/undeciphered/L/1309/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1309/L_？_13716.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1309/L_？_13716.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

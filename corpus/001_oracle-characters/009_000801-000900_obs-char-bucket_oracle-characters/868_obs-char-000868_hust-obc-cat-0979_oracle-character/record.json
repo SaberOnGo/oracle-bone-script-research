@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000868",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0979",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000873_hust-obc-cat-0979_glyph.png",
+      "metadata": "images/001_asset-000873_hust-obc-cat-0979_glyph.yaml",
+      "asset_id": "asset-000873",
+      "source_image_path": "HUST-OBC/deciphered/0979/G_0979_京津3835合29907.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "80",
+      "sha256": "f1208c634c0a609c075af4cc66285f513fe42faacda74d89ba8e3483cf0260b7",
+      "raw_source_sha256": "09ba32066b8a37c032d74eba4b63c3446f6666566024e8e512f642fecb02c0a1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细左侧下垂笔旁有紧凑折角上部形体和下方矩形闭合轮廓。"
+    ],
+    "en": [
+      "A thin left descending stroke stands beside a compact angular upper form and a lower rectangular enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0979_京津3835合29907.png",
+    "prefix": "G",
+    "heji": "合29907",
+    "old_catalog": "京津3835",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字"
+  },
+  "dataset_category": {
+    "source_category_id": "0979",
+    "validation_class_id": "867",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟉",
+    "codepoints": "U+37C9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000868",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

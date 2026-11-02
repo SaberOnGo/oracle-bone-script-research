@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000665",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0755",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000670_hust-obc-cat-0755_glyph.png",
+      "metadata": "images/001_asset-000670_hust-obc-cat-0755_glyph.yaml",
+      "asset_id": "asset-000670",
+      "source_image_path": "HUST-OBC/deciphered/0755/X_0755_1582_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "187",
+      "pixel_height": "276",
+      "sha256": "13b0cbead8903550977a0363c4b3934dd505df07b920ffc1b43615a448551baf",
+      "raw_source_sha256": "759d8dcbb12ae01f96313003c990fc7094dc6828d94f5b533657b2ef634b3222",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型粗重中央轮廓含左上小圆空隙、宽圆右上环和曲折下缘，右侧另有分离波折竖干。"
+    ],
+    "en": [
+      "A large bold central outline includes a small round opening at upper left, a broad rounded upper-right loop, and a winding lower edge; a separate wavering stem stands right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_0755_1582_1.png",
+    "prefix": "X",
+    "code": "0755_1582_1"
+  },
+  "dataset_category": {
+    "source_category_id": "0755",
+    "validation_class_id": "664",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛩",
+    "codepoints": "U+36E9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000665",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

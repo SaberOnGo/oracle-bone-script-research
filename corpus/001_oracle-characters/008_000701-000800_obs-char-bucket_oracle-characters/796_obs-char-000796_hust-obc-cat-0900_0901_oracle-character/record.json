@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000796",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0900_0901",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000801_hust-obc-cat-0900_0901_glyph.png",
+      "metadata": "images/001_asset-000801_hust-obc-cat-0900_0901_glyph.yaml",
+      "asset_id": "asset-000801",
+      "source_image_path": "HUST-OBC/deciphered/0900_0901/0901/G_0901_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "47",
+      "pixel_height": "98",
+      "sha256": "804d161024666697083e5134ada2e2b2a79451aedb0975ad1f71993373ad87c0",
+      "raw_source_sha256": "7c71a6e53e2f393edf1e0e1c439c934ded76838cffa5ce7a91cf9c917925cc8c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条高长分枝竖笔下接矩形下框，下框由横笔分隔，并向下伸出短根。"
+    ],
+    "en": [
+      "Two tall branching uprights descend into a lower rectangular frame divided by a horizontal bar, with short roots extending below the frame."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0901_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0900_0901",
+    "validation_class_id": "795",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㝺㝻",
+    "codepoints": "U+377A;U+377B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000796",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

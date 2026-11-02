@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001562",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1753",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001567_hust-obc-cat-1753_glyph.png",
+      "metadata": "images/001_asset-001567_hust-obc-cat-1753_glyph.yaml",
+      "asset_id": "asset-001567",
+      "source_image_path": "HUST-OBC/deciphered/1753/G_1753_掇2.403(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "54",
+      "pixel_height": "132",
+      "sha256": "d44972cd7f82000c6c97f7d9f054d29dc128676d1af81a362562e93e136a480f",
+      "raw_source_sha256": "68c82c30192b670fe0eff5d24bd6c41109f81d6fa9da07c12e164a3ea2701283",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "稀疏形体有右侧长竖笔、两个左侧小环和下部盆状标记。"
+    ],
+    "en": [
+      "A sparse form has a long right vertical, two small left loops, and a lower bowl-like mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1753_掇2.403(甲).png",
+    "prefix": "G",
+    "old_catalog": "掇2.403",
+    "old_catalog_abbr": "掇",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1753",
+    "validation_class_id": "1561",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫏",
+    "codepoints": "U+3ACF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001562",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-004086",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004086",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005679_hust-obc-und-L-004086_glyph.jpg",
+      "metadata": "images/001_asset-005679_hust-obc-und-L-004086_glyph.yaml",
+      "asset_id": "asset-005679",
+      "source_image_path": "HUST-OBC/undeciphered/L/4086/L_？_8768.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "56",
+      "sha256": "c47bfa2481dc1a4b609a81ddb554c64a88dd5f0c485ed23c82f3337be9eb8917",
+      "raw_source_sha256": "c47bfa2481dc1a4b609a81ddb554c64a88dd5f0c485ed23c82f3337be9eb8917",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有较宽的浅弧形轮廓，下方接一条狭长的下行痕迹。下部形成一个较小的折角轮廓，内部较深；当前尺寸下它与 004082 视觉上相近，但尚未进行checksum 或去重比较。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005679_hust-obc-und-L-004086_glyph.jpg`",
+      "A broad shallow upper outline sits over a narrow descending trace. The lower part forms a small angular enclosure with a dark interior; it is visually similar at this scale to 004082, but no checksum or deduplication comparison has been performed."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8768.jpg",
+    "prefix": "L",
+    "code": "？_8768"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4086",
+    "source_class_path": "HUST-OBC/undeciphered/L/4086/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4086/L_？_8768.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4086/L_？_8768.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001478",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1660",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001483_hust-obc-cat-1660_glyph.png",
+      "metadata": "images/001_asset-001483_hust-obc-cat-1660_glyph.yaml",
+      "asset_id": "asset-001483",
+      "source_image_path": "HUST-OBC/deciphered/1660/G_1660_乙1044合9946.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "45",
+      "pixel_height": "80",
+      "sha256": "0f6365f00ff6f84b94750106d516c4542b8834fedf6e649a9a77e06c78b095a0",
+      "raw_source_sha256": "ebfd671ca0a19cc9ae1923a685b611d4b8b9487e45b0dde6391259fe6f43504d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长高大笔画群有分枝左缘和分离右侧短笔。"
+    ],
+    "en": [
+      "A narrow tall cluster has a branching left edge and detached right marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1660_乙1044合9946.png",
+    "prefix": "G",
+    "heji": "合9946",
+    "old_catalog": "乙1044",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1660",
+    "validation_class_id": "1477",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㩲",
+    "codepoints": "U+3A72",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001478",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

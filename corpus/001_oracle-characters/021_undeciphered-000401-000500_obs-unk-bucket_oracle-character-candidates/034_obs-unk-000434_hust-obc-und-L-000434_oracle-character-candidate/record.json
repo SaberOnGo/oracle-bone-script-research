@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000434",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000434",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002027_hust-obc-und-L-000434_glyph.jpg",
+      "metadata": "images/001_asset-002027_hust-obc-und-L-000434_glyph.yaml",
+      "asset_id": "asset-002027",
+      "source_image_path": "HUST-OBC/undeciphered/L/434/L_？_11368.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "61",
+      "sha256": "83bb023bfd58ab622588ba27c97c1f0e39927790190d09fc15866b53d73af75b",
+      "raw_source_sha256": "83bb023bfd58ab622588ba27c97c1f0e39927790190d09fc15866b53d73af75b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "分叉上部笔组位于宽幅开放下部轮廓之上，最下端有小型弧形尖点；仅作与 obs-unk-000428 的视觉比较。"
+    ],
+    "en": [
+      "A forked upper cluster sits above a broad open lower contour with a small rounded point; it is visually similar to obs-unk-000428 only."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11368.jpg",
+    "prefix": "L",
+    "code": "？_11368"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "434",
+    "source_class_path": "HUST-OBC/undeciphered/L/434/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/434/L_？_11368.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/434/L_？_11368.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

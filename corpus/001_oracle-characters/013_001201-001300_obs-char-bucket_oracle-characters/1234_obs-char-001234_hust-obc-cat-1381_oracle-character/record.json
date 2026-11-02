@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001234",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1381",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001239_hust-obc-cat-1381_glyph.png",
+      "metadata": "images/001_asset-001239_hust-obc-cat-1381_glyph.yaml",
+      "asset_id": "asset-001239",
+      "source_image_path": "HUST-OBC/deciphered/1381/X_1381_1238_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "141",
+      "pixel_height": "296",
+      "sha256": "13ee37a1b1eaec5c719d19d805b951aa17e28a5172826cd2f5d4f2016fc8a99c",
+      "raw_source_sha256": "827ee221741ede91fba26e6cf54456e5ab30c798e8a024bbbfd19a1392b2e49b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高而复杂的形体有上部尖状环、中央长笔、下部分枝笔群和分离的右侧线。"
+    ],
+    "en": [
+      "A tall complex form has an upper pointed loop, a long central stroke, a lower branching cluster, and a detached right line."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1381_1238_1.png",
+    "prefix": "X",
+    "code": "1381_1238_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1381",
+    "validation_class_id": "1233",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥛",
+    "codepoints": "U+395B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001234",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

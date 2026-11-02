@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002567",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002567",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004160_hust-obc-und-L-002567_glyph.jpg",
+      "metadata": "images/001_asset-004160_hust-obc-und-L-002567_glyph.yaml",
+      "asset_id": "asset-004160",
+      "source_image_path": "HUST-OBC/undeciphered/L/2567/L_？_3915.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "51",
+      "sha256": "c739e245592ef21f5acd00bbb3092c2180a9f0d08d098b458098efd74ad0bdfc",
+      "raw_source_sha256": "c739e245592ef21f5acd00bbb3092c2180a9f0d08d098b458098efd74ad0bdfc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "顶部有尖顶轮廓，内侧下方有小的笔痕。左下方有折角笔痕，右下方有弯曲向下的线条。底部横过一条短横痕；内部边界不作划分。"
+    ],
+    "en": [
+      "A peaked contour occupies the top, with a small inner mark below it. The lower left has angular strokes and the lower right has a curved descending line. A short horizontal stroke spans the bottom; internal boundaries are not assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_3915.jpg",
+    "prefix": "L",
+    "code": "？_3915"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2567",
+    "source_class_path": "HUST-OBC/undeciphered/L/2567/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2567/L_？_3915.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2567/L_？_3915.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001341",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1497",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001346_hust-obc-cat-1497_glyph.png",
+      "metadata": "images/001_asset-001346_hust-obc-cat-1497_glyph.yaml",
+      "asset_id": "asset-001346",
+      "source_image_path": "HUST-OBC/deciphered/1497/G_1497_乙6978合9526.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "80",
+      "sha256": "dabd8e534b93d3bd5c71d495f00fb587b2a6204aaec6413c093cfbf8b8c782fd",
+      "raw_source_sha256": "57870ca5914c5595f51eb5ac1819f7c85116c115282dfc933db7395ba13432ba",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型直立形体有矩形下部格状框形、中央竖笔和短上部分枝。"
+    ],
+    "en": [
+      "A small upright form has a rectangular lower grid, a central vertical, and a short upper branch."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1497_乙6978合9526.png",
+    "prefix": "G",
+    "heji": "合9526",
+    "old_catalog": "乙6978",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1497",
+    "validation_class_id": "1340",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㧏",
+    "codepoints": "U+39CF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001341",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

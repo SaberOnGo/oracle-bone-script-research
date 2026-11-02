@@ -1,0 +1,79 @@
+{
+  "id": "obs-char-001249",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1397",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001254_hust-obc-cat-1397_glyph.png",
+      "metadata": "images/001_asset-001254_hust-obc-cat-1397_glyph.yaml",
+      "asset_id": "asset-001254",
+      "source_image_path": "HUST-OBC/deciphered/1397/G_1397_乙3188合939賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "57",
+      "pixel_height": "80",
+      "sha256": "36850624460032853b6e6c1b7f30768b1fb45edb026e780d87c1993c54836a3a",
+      "raw_source_sha256": "41898920da68c8044368d44060df634106a9e18d6a655fe142917938e3562cad",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧凑的深色形体上缘开放，有数条直立分隔笔画和方折的下部框形。"
+    ],
+    "en": [
+      "A compact dark form has an open upper edge, several upright divisions, and a squared lower enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1397_乙3188合939賓組.png",
+    "prefix": "G",
+    "heji": "合939",
+    "old_catalog": "乙3188",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1397",
+    "validation_class_id": "1248",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥫",
+    "codepoints": "U+396B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001249",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004611",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004611",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006204_hust-obc-und-X-004611_glyph.jpg",
+      "metadata": "images/001_asset-006204_hust-obc-und-X-004611_glyph.yaml",
+      "asset_id": "asset-006204",
+      "source_image_path": "HUST-OBC/undeciphered/X/167/X_？_8343_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "200",
+      "pixel_height": "265",
+      "sha256": "77f0a2136567c2a6456d13d82a2d58721e52bc4fdee12840e1c8bff687e94b20",
+      "raw_source_sha256": "77f0a2136567c2a6456d13d82a2d58721e52bc4fdee12840e1c8bff687e94b20",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像左部和上部有一片较宽的深色形体。",
+      "上部轮廓在右侧以钝圆、略带弯曲的末端收束。",
+      "三条短小痕迹在不同高度向右伸出。",
+      "下部痕迹转为一条近水平的长底痕。",
+      "底痕右端以圆钝的深色末端结束。"
+    ],
+    "en": [
+      "A broad dark mass occupies the left and upper part of the image.",
+      "The upper contour ends in a blunt, slightly hooked right tip.",
+      "Three short projections extend toward the right at different heights.",
+      "The lower trace turns into a long nearly horizontal baseline.",
+      "The baseline ends in a rounded dark terminal on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8343_1.png",
+    "prefix": "X",
+    "code": "？_8343_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "167",
+    "source_class_path": "HUST-OBC/undeciphered/X/167/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/167/X_？_8343_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/167/X_？_8343_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

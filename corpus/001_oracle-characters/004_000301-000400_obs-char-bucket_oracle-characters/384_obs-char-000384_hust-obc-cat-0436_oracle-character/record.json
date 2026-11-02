@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000384",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0436",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000389_hust-obc-cat-0436_glyph.png",
+      "metadata": "images/001_asset-000389_hust-obc-cat-0436_glyph.yaml",
+      "asset_id": "asset-000389",
+      "source_image_path": "HUST-OBC/deciphered/0436/G_0436_合17027賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "80",
+      "sha256": "e4483f96d2bb3df63d4b53df0d9a5f12faee099222b0c18b5f380ead4636c055",
+      "raw_source_sha256": "11127e354be91e1c13675dd67f5cf5d225c97a7681c82f5574850158d0557e9b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "长中央竖笔画穿过两个重叠矩形轮廓，下端接短折线。"
+    ],
+    "en": [
+      "A long central vertical stroke passes through two overlapping rectangular outlines and ends in a short lower zigzag."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0436_合17027賓組.png",
+    "prefix": "G",
+    "heji": "合17027",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0436",
+    "validation_class_id": "383",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㖪",
+    "codepoints": "U+35AA",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000384",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

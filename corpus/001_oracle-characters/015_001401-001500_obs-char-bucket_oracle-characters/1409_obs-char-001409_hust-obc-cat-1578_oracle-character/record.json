@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-001409",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1578",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001414_hust-obc-cat-1578_glyph.png",
+      "metadata": "images/001_asset-001414_hust-obc-cat-1578_glyph.yaml",
+      "asset_id": "asset-001414",
+      "source_image_path": "HUST-OBC/deciphered/1578/G_1578_七R5.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "65",
+      "pixel_height": "80",
+      "sha256": "fc5b1469ab93793c89da6d3b67e2c4545b540297caa41fd072321fd04170397e",
+      "raw_source_sha256": "c1f6de749d7c1b8cf0a45d9f187df4faf0dcf5afb9d6668ab56cb22e3c0bd80a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条高大竖干有短上盖、内部枝笔和长下部笔画。"
+    ],
+    "en": [
+      "Two tall stems have short upper caps, inner branches, and long lower strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1578_七R5.png",
+    "prefix": "G",
+    "old_catalog": "七R5",
+    "old_catalog_abbr": "七R",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1578",
+    "validation_class_id": "1408",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㨠",
+    "codepoints": "U+3A20",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001409",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

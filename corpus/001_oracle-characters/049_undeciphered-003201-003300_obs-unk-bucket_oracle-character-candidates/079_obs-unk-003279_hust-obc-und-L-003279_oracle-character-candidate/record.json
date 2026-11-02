@@ -1,0 +1,69 @@
+{
+  "id": "obs-unk-003279",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003279",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004872_hust-obc-und-L-003279_glyph.jpg",
+      "metadata": "images/001_asset-004872_hust-obc-und-L-003279_glyph.yaml",
+      "asset_id": "asset-004872",
+      "source_image_path": "HUST-OBC/undeciphered/L/3279/L_？_6213.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "58",
+      "sha256": "b6b85fe4007d1d779cbe97bbef61e354281a3bb0525293b49f31a9e457213929",
+      "raw_source_sha256": "b6b85fe4007d1d779cbe97bbef61e354281a3bb0525293b49f31a9e457213929",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "This record describes the opened derivative only; it does not establish a character identity, component, variant relation, or reading.简体中文：",
+      "图像中可见紧凑圆弧上部笔画群，内部有短横笔画，并有长弯曲线向右下延伸。",
+      "当前裁片未显示可见的卜辞上下文、比例尺、图版号或相邻著录标记。",
+      "本记录只描述已打开的派生图像，不确认字种、构件、异体关系或释读。"
+    ],
+    "en": [
+      "The crop shows a compact rounded upper cluster, a short interior horizontal stroke, and a long curved line descending toward the lower right.",
+      "The crop contains no visible inscription context, scale, plate number, or neighboring catalog marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_6213.jpg",
+    "prefix": "L",
+    "code": "？_6213"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3279",
+    "source_class_path": "HUST-OBC/undeciphered/L/3279/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3279/L_？_6213.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3279/L_？_6213.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

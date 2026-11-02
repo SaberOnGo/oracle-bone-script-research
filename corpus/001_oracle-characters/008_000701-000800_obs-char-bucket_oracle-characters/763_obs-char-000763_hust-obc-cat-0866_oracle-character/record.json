@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000763",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0866",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000768_hust-obc-cat-0866_glyph.png",
+      "metadata": "images/001_asset-000768_hust-obc-cat-0866_glyph.yaml",
+      "asset_id": "asset-000768",
+      "source_image_path": "HUST-OBC/deciphered/0866/H_0866_611AA_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "189",
+      "pixel_height": "233",
+      "sha256": "5e4be6e52648c23397b5330a4b6e56eced1b632df6a9e6a6c332454b3c2fb153",
+      "raw_source_sha256": "636c21942f756b37f37253e8745032c71ee30d07c4f683d048a64dc1143cc59d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个分离形并列：左侧高干上下分枝，右侧围成长尖椭圆空隙并在中部连接。"
+    ],
+    "en": [
+      "Two detached forms stand side by side: the left is a tall stem branching above and below, while the right forms a long pointed oval opening joined at its middle."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0866_611AA_0.png",
+    "prefix": "H",
+    "code": "0866_611AA_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0866",
+    "validation_class_id": "762",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝘",
+    "codepoints": "U+3758",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000763",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

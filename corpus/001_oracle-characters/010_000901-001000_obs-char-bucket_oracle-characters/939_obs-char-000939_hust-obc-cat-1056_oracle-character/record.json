@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000939",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1056",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000944_hust-obc-cat-1056_glyph.png",
+      "metadata": "images/001_asset-000944_hust-obc-cat-1056_glyph.yaml",
+      "asset_id": "asset-000944",
+      "source_image_path": "HUST-OBC/deciphered/1056/G_1056_前2.17.6(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "51e47a4f311ab023e4093cb74d8cc3039fe140203a958331b3fc4dd7a474077b",
+      "raw_source_sha256": "c3baa0c0d5cf61e0f0309feeb0f515ef85fa6b4099742152bc0ac67673d73153",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型上部折角环、下部叉形笔群和分离弯笔构成三个可见部分。"
+    ],
+    "en": [
+      "A small upper angular loop, a lower forked cluster, and a detached curved stroke form three visible parts."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1056_前2.17.6(甲).png",
+    "prefix": "G",
+    "old_catalog": "前2.17.6",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1056",
+    "validation_class_id": "938",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㠖",
+    "codepoints": "U+3816",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000939",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

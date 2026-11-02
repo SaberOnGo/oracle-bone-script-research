@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004471",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004471",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006064_hust-obc-und-X-004471_glyph.jpg",
+      "metadata": "images/001_asset-006064_hust-obc-und-X-004471_glyph.yaml",
+      "asset_id": "asset-006064",
+      "source_image_path": "HUST-OBC/undeciphered/X/27/X_？_8205_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "148",
+      "pixel_height": "307",
+      "sha256": "13dda54641639d2ad208ef3b0485844075155c45be8c4f19d02d4dcf6ff73d07",
+      "raw_source_sha256": "13dda54641639d2ad208ef3b0485844075155c45be8c4f19d02d4dcf6ff73d07",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "顶部宽横痕向两侧伸展，位于中部竖向痕迹之上。",
+      "中部竖轴上连续出现多个圆弧或菱状开口。",
+      "深色连接处把这些开口分隔成重复的段落。",
+      "底端收束为小型交叉，并带有两个短尖点。"
+    ],
+    "en": [
+      "A broad top stroke extends to both sides above the central stem.",
+      "Several stacked rounded or diamond-like openings run down the stem.",
+      "Dark junctions separate the openings into repeated sections.",
+      "The bottom terminates in a small crossing and two short points."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8205_1.png",
+    "prefix": "X",
+    "code": "？_8205_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "27",
+    "source_class_path": "HUST-OBC/undeciphered/X/27/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/27/X_？_8205_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/27/X_？_8205_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

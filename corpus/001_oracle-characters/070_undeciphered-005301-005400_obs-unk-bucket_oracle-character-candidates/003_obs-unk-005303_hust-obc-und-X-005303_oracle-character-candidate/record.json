@@ -1,0 +1,68 @@
+{
+  "id": "obs-unk-005303",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-005303",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006896_hust-obc-und-X-005303_glyph.jpg",
+      "metadata": "images/001_asset-006896_hust-obc-und-X-005303_glyph.yaml",
+      "asset_id": "asset-006896",
+      "source_image_path": "HUST-OBC/undeciphered/X/859/X_？_7162_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "71",
+      "pixel_height": "350",
+      "sha256": "05d0815b941147fba7b43f19d089ab6e4e0b2ea389cf47408babd8ac4a4fd22d",
+      "raw_source_sha256": "05d0815b941147fba7b43f19d089ab6e4e0b2ea389cf47408babd8ac4a4fd22d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "pixel_profile",
+    "zh": [
+      "像素 profile 只记录像素，不分割单独笔画，也不确认字形。图像为 71 × 350 像素，角点背景为浅色，阈值痕迹像素占 26.95%，平均灰度186.33。",
+      "痕迹范围为 (2,3)–(68,347)，跨度 67 × 345 px，标记矩形高于宽。"
+    ],
+    "en": [
+      "The profile records pixels only; it does not segment individual strokes or establish a glyph shape.",
+      "Image profile: 71 × 350 px, mode RGB; corner background is light; thresholded marked pixels occupy 26.95%; mean luma 186.33.",
+      "Marked-pixel bounds: (2,3)–(68,347); span 67 × 345 px; marked rectangle is taller than wide."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7162_1.png",
+    "prefix": "X",
+    "code": "？_7162_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "859",
+    "source_class_path": "HUST-OBC/undeciphered/X/859/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/859/X_？_7162_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/859/X_？_7162_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

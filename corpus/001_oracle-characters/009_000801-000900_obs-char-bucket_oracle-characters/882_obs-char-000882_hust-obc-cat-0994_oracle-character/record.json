@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000882",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0994",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000887_hust-obc-cat-0994_glyph.png",
+      "metadata": "images/001_asset-000887_hust-obc-cat-0994_glyph.yaml",
+      "asset_id": "asset-000887",
+      "source_image_path": "HUST-OBC/deciphered/0994/L_0994_5321.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "54",
+      "sha256": "6cd55fe46f64e56926d08cbd35f1d1f7d5a41813a9f0bfff4d0db50147bdd63a",
+      "raw_source_sha256": "b6dfac2c8223b95209558129a22d2f1ef1e481ec04c2beb1b46c9d8c81313ce2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "微小灰度图像显示小型圆弧中央痕迹、上方短伸笔和下方数处分离痕迹；细连接难辨。"
+    ],
+    "en": [
+      "The tiny gray image shows a small rounded central mark with short upper projections and several detached marks below; fine joins are unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_0994_5321.jpg",
+    "prefix": "L",
+    "code": "0994_5321"
+  },
+  "dataset_category": {
+    "source_category_id": "0994",
+    "validation_class_id": "881",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟘",
+    "codepoints": "U+37D8",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000882",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

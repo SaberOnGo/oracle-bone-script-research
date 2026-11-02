@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001066",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1193",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001071_hust-obc-cat-1193_glyph.png",
+      "metadata": "images/001_asset-001071_hust-obc-cat-1193_glyph.yaml",
+      "asset_id": "asset-001071",
+      "source_image_path": "HUST-OBC/deciphered/1193/Y_1193_609A4.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "174",
+      "pixel_height": "251",
+      "sha256": "4681cbab2b84a2e1c1d92cffa90356de8805c8a32cd211b69dcee8b0bf65f7e6",
+      "raw_source_sha256": "398197ec89c07ed2ae3a1fbd34e57649806dbaa484fce97df217021ec957d420",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "极为粗重的左侧形体有圆弧上部闭合轮廓和数条长下部弯笔，右侧另有分离的棱角分枝形体。"
+    ],
+    "en": [
+      "A very bold left form has a rounded upper enclosure and several long lower curves, beside a separate angular branching form on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "Y_1193_609A4.jpg",
+    "prefix": "Y",
+    "code": "1193_609A4"
+  },
+  "dataset_category": {
+    "source_category_id": "1193",
+    "validation_class_id": "1065",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㢟",
+    "codepoints": "U+389F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001066",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

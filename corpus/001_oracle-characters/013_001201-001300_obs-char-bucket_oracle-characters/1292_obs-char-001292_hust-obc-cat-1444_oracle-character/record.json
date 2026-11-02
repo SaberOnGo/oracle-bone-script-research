@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001292",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1444",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001297_hust-obc-cat-1444_glyph.png",
+      "metadata": "images/001_asset-001297_hust-obc-cat-1444_glyph.yaml",
+      "asset_id": "asset-001297",
+      "source_image_path": "HUST-OBC/deciphered/1444/G_1444_乙5329合10976賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "50",
+      "pixel_height": "80",
+      "sha256": "72c7c67357b12ce05296bfa2efbaeb646e250973c2364a83f80e473aa9e2792b",
+      "raw_source_sha256": "8a96c9a72a9a676aa1ea519002290d7d404f8dfc18fce8420d992aca6d0524d1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖顶上部框形包含由短笔组成的交错内部结构，下方展开为两条弧线。"
+    ],
+    "en": [
+      "A peaked upper enclosure contains a lattice of short inner strokes and opens into two lower curves."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1444_乙5329合10976賓組.png",
+    "prefix": "G",
+    "heji": "合10976",
+    "old_catalog": "乙5329",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1444",
+    "validation_class_id": "1291",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㦚",
+    "codepoints": "U+399A",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001292",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

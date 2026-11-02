@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001276",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1427",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001281_hust-obc-cat-1427_glyph.png",
+      "metadata": "images/001_asset-001281_hust-obc-cat-1427_glyph.yaml",
+      "asset_id": "asset-001281",
+      "source_image_path": "HUST-OBC/deciphered/1427/H_1427_608B1_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "212",
+      "pixel_height": "278",
+      "sha256": "49d00badf5aa64e603bdd5dcdd617f0bd7a63d9e8e370a3d5340744467ed347b",
+      "raw_source_sha256": "d10e6dab2b2b8b361c53fc43e46575c4d5a0797b3e7e249f5fb38a7a3a482045",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型复杂形体有尖顶上部横笔、中央框内标记、两侧分枝和一条横扫式下部长笔画。"
+    ],
+    "en": [
+      "A large complex form has a peaked upper bar, a central enclosed mark, side branches, and a sweeping lower stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_1427_608B1_0.png",
+    "prefix": "H",
+    "code": "1427_608B1_0"
+  },
+  "dataset_category": {
+    "source_category_id": "1427",
+    "validation_class_id": "1275",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㦉",
+    "codepoints": "U+3989",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001276",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

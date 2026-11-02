@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002516",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002516",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004109_hust-obc-und-L-002516_glyph.jpg",
+      "metadata": "images/001_asset-004109_hust-obc-und-L-002516_glyph.yaml",
+      "asset_id": "asset-004109",
+      "source_image_path": "HUST-OBC/undeciphered/L/2516/L_？_3774.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "62",
+      "sha256": "236d8ea1249817878fd7c05f2d8f5d73e124dc6c9a859b77a1d914af1c58228e",
+      "raw_source_sha256": "236d8ea1249817878fd7c05f2d8f5d73e124dc6c9a859b77a1d914af1c58228e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "弧形上部轮廓围合中央下行笔痕，右侧沿边缘另有一条较长笔痕。"
+    ],
+    "en": [
+      "An arched upper outline encloses a central descending stroke, with another long stroke along the right edge."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_3774.jpg",
+    "prefix": "L",
+    "code": "？_3774"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2516",
+    "source_class_path": "HUST-OBC/undeciphered/L/2516/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2516/L_？_3774.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2516/L_？_3774.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

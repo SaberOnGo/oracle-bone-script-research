@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001324",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001324",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002917_hust-obc-und-L-001324_glyph.jpg",
+      "metadata": "images/001_asset-002917_hust-obc-und-L-001324_glyph.yaml",
+      "asset_id": "asset-002917",
+      "source_image_path": "HUST-OBC/undeciphered/L/1324/L_？_13760.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "54",
+      "sha256": "780d960cdc830f223547896f4e799bc5ad32965c9f13237f4c6bcddce52fcac5",
+      "raw_source_sha256": "780d960cdc830f223547896f4e799bc5ad32965c9f13237f4c6bcddce52fcac5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部近圆环状痕迹与中央紧凑笔痕，下接向两侧展开的折线状笔痕。图形与 001323 相近，但这里只记录视觉相似，不判断同字。"
+    ],
+    "en": [
+      "The rounded upper loop and compact central mark are followed by broad angular lower strokes. The crop resembles 001323, which is recorded only as a visual similarity."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13760.jpg",
+    "prefix": "L",
+    "code": "？_13760"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1324",
+    "source_class_path": "HUST-OBC/undeciphered/L/1324/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1324/L_？_13760.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1324/L_？_13760.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

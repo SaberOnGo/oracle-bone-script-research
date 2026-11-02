@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000650",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0738",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000655_hust-obc-cat-0738_glyph.png",
+      "metadata": "images/001_asset-000655_hust-obc-cat-0738_glyph.yaml",
+      "asset_id": "asset-000655",
+      "source_image_path": "HUST-OBC/deciphered/0738/X_0738_5455_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "204",
+      "pixel_height": "294",
+      "sha256": "999ee69ee7986f9961dbd29ffcf0bd61be4dc88a00e13da8c01a1891d032a5d1",
+      "raw_source_sha256": "291f0e614e8591c79b9a6ed4703cacb8276fb4d99405ff2f7ca2e8d0f2cea020",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央高竖顶端为中空尖三角，并在倒三角空隙上方被横笔穿过；弯侧枝连接两条长外腿。"
+    ],
+    "en": [
+      "A central tall upright is capped by a hollow pointed triangle and crossed above an inverted triangular opening; curved side branches lead to two long outer legs."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_0738_5455_1.png",
+    "prefix": "X",
+    "code": "0738_5455_1"
+  },
+  "dataset_category": {
+    "source_category_id": "0738",
+    "validation_class_id": "649",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛘",
+    "codepoints": "U+36D8",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000650",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

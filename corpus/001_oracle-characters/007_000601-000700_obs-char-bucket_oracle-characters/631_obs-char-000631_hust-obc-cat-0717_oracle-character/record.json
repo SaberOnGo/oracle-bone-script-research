@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000631",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0717",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000636_hust-obc-cat-0717_glyph.png",
+      "metadata": "images/001_asset-000636_hust-obc-cat-0717_glyph.yaml",
+      "asset_id": "asset-000636",
+      "source_image_path": "HUST-OBC/deciphered/0717/G_0717_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "77",
+      "pixel_height": "102",
+      "sha256": "3c44a0647c2578dc9082e780395a7b75b548e5bf6f3409f11eddd6953033e359",
+      "raw_source_sha256": "a5d1b52900319aff94d8ce5360845f3c794a8b0a4dd9d5591814cc908fc3c779",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽上部矩形轮廓被分成数个小格，两侧有卷曲侧笔；两条狭腿从其圆弯底部下垂。"
+    ],
+    "en": [
+      "A broad upper rectangular outline is divided into smaller compartments and flanked by curled side strokes; two narrow legs descend from its rounded base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0717_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0717",
+    "validation_class_id": "630",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛃",
+    "codepoints": "U+36C3",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000631",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

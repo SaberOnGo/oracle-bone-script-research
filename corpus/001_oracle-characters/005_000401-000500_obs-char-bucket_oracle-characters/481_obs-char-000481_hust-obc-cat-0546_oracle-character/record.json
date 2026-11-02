@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000481",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0546",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000486_hust-obc-cat-0546_glyph.png",
+      "metadata": "images/001_asset-000486_hust-obc-cat-0546_glyph.yaml",
+      "asset_id": "asset-000486",
+      "source_image_path": "HUST-OBC/deciphered/0546/G_0546_乙8688合35501黃組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "72",
+      "pixel_height": "80",
+      "sha256": "02800cb4a17b67cb99478e50eef61608cdb17e0d4e07dc41dec92acbbccddab9",
+      "raw_source_sha256": "3e8de95bc5a80b4767bcbecd7530f7ebf5c4a006df7e900e328f4fc04a7b19bb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽尖顶上部轮廓围绕中央竖笔，竖笔被数条短横或斜笔穿过，外侧笔画部分断离。"
+    ],
+    "en": [
+      "A broad pointed upper outline surrounds a central vertical stroke crossed by several short horizontal or slanting bars; the outer sides remain partly separated."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0546_乙8688合35501黃組.png",
+    "prefix": "G",
+    "heji": "合35501",
+    "old_catalog": "乙8688",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "黃組"
+  },
+  "dataset_category": {
+    "source_category_id": "0546",
+    "validation_class_id": "480",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘘",
+    "codepoints": "U+3618",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000481",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

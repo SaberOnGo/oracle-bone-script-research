@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001811",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001811",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003404_hust-obc-und-L-001811_glyph.jpg",
+      "metadata": "images/001_asset-003404_hust-obc-und-L-001811_glyph.yaml",
+      "asset_id": "asset-003404",
+      "source_image_path": "HUST-OBC/undeciphered/L/1811/L_？_14962.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "51",
+      "sha256": "b226efbcf9460b3a212ad6c4691dd69997cb0cf9fac1e894eb86cc615c2d757a",
+      "raw_source_sha256": "b226efbcf9460b3a212ad6c4691dd69997cb0cf9fac1e894eb86cc615c2d757a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧不规则弯笔连接右侧密集竖向笔痕簇；下端分别收尖。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "An irregular curved stroke on the left meets a dense vertical cluster on the right; the lower ends taper separately."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14962.jpg",
+    "prefix": "L",
+    "code": "？_14962"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1811",
+    "source_class_path": "HUST-OBC/undeciphered/L/1811/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1811/L_？_14962.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1811/L_？_14962.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

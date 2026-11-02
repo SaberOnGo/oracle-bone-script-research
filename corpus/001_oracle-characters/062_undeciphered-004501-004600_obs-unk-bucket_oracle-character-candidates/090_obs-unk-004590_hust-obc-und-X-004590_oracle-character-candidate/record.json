@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004590",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004590",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006183_hust-obc-und-X-004590_glyph.jpg",
+      "metadata": "images/001_asset-006183_hust-obc-und-X-004590_glyph.yaml",
+      "asset_id": "asset-006183",
+      "source_image_path": "HUST-OBC/undeciphered/X/146/X_？_8324_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "220",
+      "pixel_height": "280",
+      "sha256": "5dc40b24a1c405f705c21fdab91a80dfcba1886eba1b537cc453e7c25776465c",
+      "raw_source_sha256": "5dc40b24a1c405f705c21fdab91a80dfcba1886eba1b537cc453e7c25776465c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有一条宽的圆曲横向轮廓。",
+      "右上端收窄形成外部尖端。",
+      "两条分离的下行痕迹从下缘悬垂。",
+      "左侧悬垂痕迹较窄，并在下端形成尖端。",
+      "右侧悬垂痕迹中有一个小的浅色开口。"
+    ],
+    "en": [
+      "A broad rounded horizontal form spans the top.",
+      "The right upper end narrows into a pointed outer tip.",
+      "Two separate lower traces hang from the underside.",
+      "The left hanging trace is narrow and pointed at the bottom.",
+      "The right hanging trace contains a small light opening."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8324_1.png",
+    "prefix": "X",
+    "code": "？_8324_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "146",
+    "source_class_path": "HUST-OBC/undeciphered/X/146/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/146/X_？_8324_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/146/X_？_8324_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

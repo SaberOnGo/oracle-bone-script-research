@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000944",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1061",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000949_hust-obc-cat-1061_glyph.png",
+      "metadata": "images/001_asset-000949_hust-obc-cat-1061_glyph.yaml",
+      "asset_id": "asset-000949",
+      "source_image_path": "HUST-OBC/deciphered/1061/G_1061_佚547合37471黃組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "80",
+      "sha256": "551e32e5e84ce2c8a5ca86e21c4fca47f0e7c3209b28aa519778312af34bee15",
+      "raw_source_sha256": "59dc4db6154e2fad8c8e246e1e2841662cbb557fc22d28a3107f3c47db3006a2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧密密集形体结合深色上部叉形笔、中央下行笔、下部环状笔和右侧分枝。"
+    ],
+    "en": [
+      "A compact dense form combines a dark upper fork, a central descending stroke, lower loops, and a right branch."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1061_佚547合37471黃組.png",
+    "prefix": "G",
+    "heji": "合37471",
+    "old_catalog": "佚547",
+    "old_catalog_abbr": "佚",
+    "old_catalog_abbr_obm_label": "殷契佚存補編",
+    "group_or_note": "黃組"
+  },
+  "dataset_category": {
+    "source_category_id": "1061",
+    "validation_class_id": "943",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㠛",
+    "codepoints": "U+381B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000944",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

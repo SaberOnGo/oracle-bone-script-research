@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000745",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0847",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000750_hust-obc-cat-0847_glyph.png",
+      "metadata": "images/001_asset-000750_hust-obc-cat-0847_glyph.yaml",
+      "asset_id": "asset-000750",
+      "source_image_path": "HUST-OBC/deciphered/0847/H_0847_60A9A_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "119",
+      "pixel_height": "281",
+      "sha256": "285e3ed2fab13d7c4ee28267c51f1bfc76ee55496efb7b4afc1fe2dc62b4d2a2",
+      "raw_source_sha256": "baeee45899e2bad4c5a6f56d387a7d2d3dcdbb27107f68d34f3c85146fe4c8e6",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧凑上部分枝笔群位于宽大尖底圆弯轮廓上方；下轮廓两侧上端开口，并带两条向内短痕。"
+    ],
+    "en": [
+      "A compact upper branching cluster stands above a broad pointed rounded lower outline that is open at both upper sides and carries two short inward-facing marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0847_60A9A_0.png",
+    "prefix": "H",
+    "code": "0847_60A9A_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0847",
+    "validation_class_id": "744",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝅",
+    "codepoints": "U+3745",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000745",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-003700",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-003700",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005293_hust-obc-und-L-003700_glyph.jpg",
+      "metadata": "images/001_asset-005293_hust-obc-und-L-003700_glyph.yaml",
+      "asset_id": "asset-005293",
+      "source_image_path": "HUST-OBC/undeciphered/L/3700/L_？_7614.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "56",
+      "sha256": "847163010e000f0669ae9a57fae488425487db572a6eda653107dd44e7de7180",
+      "raw_source_sha256": "847163010e000f0669ae9a57fae488425487db572a6eda653107dd44e7de7180",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "The small image does not establish the stroke order or joins.简体中文：",
+      "一条短横向笔画构成左上部边界。",
+      "一条竖向笔画从上部向下延伸。",
+      "中央有数条短横笔画相交或相接。",
+      "一条斜向笔画向右下方延伸。",
+      "小尺寸图像不足以确认笔顺或笔画连接关系。"
+    ],
+    "en": [
+      "A short horizontal stroke forms the top-left boundary.",
+      "A vertical stroke descends from the upper area.",
+      "Several short horizontal strokes cross the centre.",
+      "A diagonal stroke extends toward the lower-right area."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_7614.jpg",
+    "prefix": "L",
+    "code": "？_7614"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "3700",
+    "source_class_path": "HUST-OBC/undeciphered/L/3700/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/3700/L_？_7614.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/3700/L_？_7614.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

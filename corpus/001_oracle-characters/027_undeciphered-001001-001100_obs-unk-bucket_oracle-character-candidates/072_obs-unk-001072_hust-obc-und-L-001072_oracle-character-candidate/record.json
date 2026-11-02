@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001072",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001072",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002665_hust-obc-und-L-001072_glyph.jpg",
+      "metadata": "images/001_asset-002665_hust-obc-und-L-001072_glyph.yaml",
+      "asset_id": "asset-002665",
+      "source_image_path": "HUST-OBC/undeciphered/L/1072/L_？_13027.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "58",
+      "sha256": "8514773b86fa4d6b37cd548a7d34f778d589d2add386d058cd9ba7376092d45b",
+      "raw_source_sha256": "8514773b86fa4d6b37cd548a7d34f778d589d2add386d058cd9ba7376092d45b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "竖向分支形体含内部开口，并向右下延出长弧线。"
+    ],
+    "en": [
+      "A vertical branching form contains inner openings and extends into a long curved stroke on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13027.jpg",
+    "prefix": "L",
+    "code": "？_13027"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1072",
+    "source_class_path": "HUST-OBC/undeciphered/L/1072/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1072/L_？_13027.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1072/L_？_13027.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

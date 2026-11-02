@@ -1,0 +1,68 @@
+{
+  "id": "obs-unk-004730",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004730",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006323_hust-obc-und-X-004730_glyph.jpg",
+      "metadata": "images/001_asset-006323_hust-obc-und-X-004730_glyph.yaml",
+      "asset_id": "asset-006323",
+      "source_image_path": "HUST-OBC/undeciphered/X/286/X_？_7265_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "185",
+      "pixel_height": "287",
+      "sha256": "9072dff1e0914533aa3909a1bf072ca6b26d0b7b029d2db5e5e87f6092bc8833",
+      "raw_source_sha256": "9072dff1e0914533aa3909a1bf072ca6b26d0b7b029d2db5e5e87f6092bc8833",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [],
+    "en": [
+      "The upper form branches left and right from a dark central junction.",
+      "A pale opening is enclosed near the upper-right branch.",
+      "The right branch bends down and ends in a long curved terminal.",
+      "A separate U-shaped dark stroke appears below the upper form.",
+      "The lower separate stroke has two rounded upward ends.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7265_1.png",
+    "prefix": "X",
+    "code": "？_7265_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "286",
+    "source_class_path": "HUST-OBC/undeciphered/X/286/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/286/X_？_7265_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/286/X_？_7265_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

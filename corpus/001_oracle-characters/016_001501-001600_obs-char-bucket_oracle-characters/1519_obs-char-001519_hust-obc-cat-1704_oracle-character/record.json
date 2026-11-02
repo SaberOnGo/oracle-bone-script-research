@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001519",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1704",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001524_hust-obc-cat-1704_glyph.png",
+      "metadata": "images/001_asset-001524_hust-obc-cat-1704_glyph.yaml",
+      "asset_id": "asset-001524",
+      "source_image_path": "HUST-OBC/deciphered/1704/X_1704_489_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "206",
+      "pixel_height": "280",
+      "sha256": "d3723c816ba07a40d010d18f007d204d411b176c18b901329f3c6fc1470b4061",
+      "raw_source_sha256": "961b2d07ef59d635c68ecb38f30c81dbd66e0fa228df68a1e963e7479a8e3a8f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型组合形体将四向上部交叉与宽大的下部圆折框形相配。"
+    ],
+    "en": [
+      "A large composite pairs a four-way upper cross with a broad rounded lower enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1704_489_1.png",
+    "prefix": "X",
+    "code": "1704_489_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1704",
+    "validation_class_id": "1518",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪞",
+    "codepoints": "U+3A9E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001519",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

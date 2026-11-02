@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000997",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000997",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002590_hust-obc-und-L-000997_glyph.jpg",
+      "metadata": "images/001_asset-002590_hust-obc-und-L-000997_glyph.yaml",
+      "asset_id": "asset-002590",
+      "source_image_path": "HUST-OBC/undeciphered/L/997/L_？_12830.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "60",
+      "sha256": "df6df829c75975d89b7fceb60e9f3a4bb2fecd44b2e51962cdbec24957f6274c",
+      "raw_source_sha256": "df6df829c75975d89b7fceb60e9f3a4bb2fecd44b2e51962cdbec24957f6274c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型回环围合带弧形左缘、右侧小回环和长下部回环。"
+    ],
+    "en": [
+      "A large looped enclosure has a curved left border, small right loops, and a long lower loop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12830.jpg",
+    "prefix": "L",
+    "code": "？_12830"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "997",
+    "source_class_path": "HUST-OBC/undeciphered/L/997/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/997/L_？_12830.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/997/L_？_12830.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000561",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000561",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002154_hust-obc-und-L-000561_glyph.jpg",
+      "metadata": "images/001_asset-002154_hust-obc-und-L-000561_glyph.yaml",
+      "asset_id": "asset-002154",
+      "source_image_path": "HUST-OBC/undeciphered/L/561/L_？_11680.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "55",
+      "sha256": "947004b0ab191c106b83d8e6c54a73a7459adf26bfd65790537c2397b36acf69",
+      "raw_source_sha256": "947004b0ab191c106b83d8e6c54a73a7459adf26bfd65790537c2397b36acf69",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "弧形上部环和两条斜向侧笔位于宽幅弧形下部围合之上。"
+    ],
+    "en": [
+      "A rounded upper loop and two diagonal side strokes sit above a broad curved lower enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11680.jpg",
+    "prefix": "L",
+    "code": "？_11680"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "561",
+    "source_class_path": "HUST-OBC/undeciphered/L/561/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/561/L_？_11680.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/561/L_？_11680.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

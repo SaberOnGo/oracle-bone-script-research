@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004121",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004121",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005714_hust-obc-und-L-004121_glyph.jpg",
+      "metadata": "images/001_asset-005714_hust-obc-und-L-004121_glyph.yaml",
+      "asset_id": "asset-005714",
+      "source_image_path": "HUST-OBC/undeciphered/L/4121/L_？_8877.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "3703bd335f2b6fd4d11835304e6ede06071aa6623a66ca93711b9fa5ae765997",
+      "raw_source_sha256": "3703bd335f2b6fd4d11835304e6ede06071aa6623a66ca93711b9fa5ae765997",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：上部为较宽的斜向形态，顶部有深色边缘，内部较为开放。",
+      "中文：图像中部可见数条相交的斜向笔画。",
+      "中文：下部散开为细小的折线或分支痕迹。",
+      "中文：上部边界和下部端点目前仍不确定。"
+    ],
+    "en": [
+      "English: A broad angled upper form has a dark top edge and open interior.",
+      "English: Several diagonal strokes cross the middle of the image.",
+      "English: The lower portion breaks into thin jagged or branching traces.",
+      "English: The exact upper boundary and lower endpoints remain uncertain."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8877.jpg",
+    "prefix": "L",
+    "code": "？_8877"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4121",
+    "source_class_path": "HUST-OBC/undeciphered/L/4121/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4121/L_？_8877.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4121/L_？_8877.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

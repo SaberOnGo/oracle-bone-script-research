@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004652",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004652",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006245_hust-obc-und-X-004652_glyph.jpg",
+      "metadata": "images/001_asset-006245_hust-obc-und-X-004652_glyph.yaml",
+      "asset_id": "asset-006245",
+      "source_image_path": "HUST-OBC/undeciphered/X/208/X_？_8380_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "163",
+      "pixel_height": "283",
+      "sha256": "b5b3fc20bf9023b242b93f810d2bdc6409bc2e7363751354c0e738f30a73b7a6",
+      "raw_source_sha256": "b5b3fc20bf9023b242b93f810d2bdc6409bc2e7363751354c0e738f30a73b7a6",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一条高而窄的轮廓向上收至尖状区域。",
+      "上部附近围出一个小的浅色开口。",
+      "左侧以较宽且略不规则的笔画向下延伸。",
+      "右侧以较细的近竖向笔画向下延伸。",
+      "下端保持开口，未形成闭合底部。",
+      "来源元数据预期有两张图，但当前只有一张本地复核图；第二张来源图仍需重新获取。"
+    ],
+    "en": [
+      "A tall narrow contour rises to a pointed upper region.",
+      "A small pale opening is enclosed near the upper part.",
+      "The left side descends as a broad, slightly irregular stroke.",
+      "The right side descends as a thinner near-vertical stroke.",
+      "The lower end remains open rather than forming a closed base.",
+      "Source metadata expects two images, but only one local review image is present; the second source image still needs retrieval.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8380_1.png",
+    "prefix": "X",
+    "code": "？_8380_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "208",
+    "source_class_path": "HUST-OBC/undeciphered/X/208/",
+    "source_image_count": 2,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/208/X_？_8380_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/208/X_？_8380_2.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

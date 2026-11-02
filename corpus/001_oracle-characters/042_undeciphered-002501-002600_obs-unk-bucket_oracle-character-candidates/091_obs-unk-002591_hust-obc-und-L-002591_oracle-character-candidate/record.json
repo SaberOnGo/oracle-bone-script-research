@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002591",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002591",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004184_hust-obc-und-L-002591_glyph.jpg",
+      "metadata": "images/001_asset-004184_hust-obc-und-L-002591_glyph.yaml",
+      "asset_id": "asset-004184",
+      "source_image_path": "HUST-OBC/undeciphered/L/2591/L_？_4010.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "61",
+      "sha256": "3a6c23364fa8155ac837315cd001f53cb7c26d9e0b581524ec1198cfa8427cd5",
+      "raw_source_sha256": "3a6c23364fa8155ac837315cd001f53cb7c26d9e0b581524ec1198cfa8427cd5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有一条较宽的斜向笔痕，下面靠近处有一条较短的斜笔痕。上部与下部小组之间可见间隙；下部由下行笔痕和短斜痕组成。两组笔痕尚未完全连接。"
+    ],
+    "en": [
+      "A broad oblique stroke occupies the upper area, with a shorter angled stroke close beneath it. A visible gap separates this upper group from a small lower group made of a descending stroke and a short diagonal trace. The two groups are not fully connected."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_4010.jpg",
+    "prefix": "L",
+    "code": "？_4010"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2591",
+    "source_class_path": "HUST-OBC/undeciphered/L/2591/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2591/L_？_4010.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2591/L_？_4010.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

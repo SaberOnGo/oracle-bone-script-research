@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-000686",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0777",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000691_hust-obc-cat-0777_glyph.png",
+      "metadata": "images/001_asset-000691_hust-obc-cat-0777_glyph.yaml",
+      "asset_id": "asset-000691",
+      "source_image_path": "HUST-OBC/deciphered/0777/G_0777_中大261.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "64",
+      "pixel_height": "80",
+      "sha256": "05c35dfe23686a1b8d6c373f037a767f0021872082d2d4be2c37a9e9b1bd7392",
+      "raw_source_sha256": "43e90f3978debf3fd02cb993245860bbd69c42d8a6e33c1b5c4b2fd137c80f0f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧有带中横的小型分离菱形环；较高右形带尖顶、弯中央干和两条外展下枝。"
+    ],
+    "en": [
+      "A small detached diamond-like loop with a middle bar stands at left; a taller right form has a pointed top, bent central stem, and two spreading lower branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0777_中大261.png",
+    "prefix": "G",
+    "old_catalog": "中大261",
+    "old_catalog_abbr": "中大",
+    "old_catalog_abbr_obm_label": "中央大學歷史博物館藏甲骨文字"
+  },
+  "dataset_category": {
+    "source_category_id": "0777",
+    "validation_class_id": "685",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛿",
+    "codepoints": "U+36FF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000686",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

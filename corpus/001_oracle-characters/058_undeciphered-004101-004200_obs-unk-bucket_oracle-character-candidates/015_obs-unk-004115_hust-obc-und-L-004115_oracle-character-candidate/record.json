@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004115",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004115",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005708_hust-obc-und-L-004115_glyph.jpg",
+      "metadata": "images/001_asset-005708_hust-obc-und-L-004115_glyph.yaml",
+      "asset_id": "asset-005708",
+      "source_image_path": "HUST-OBC/undeciphered/L/4115/L_？_8856.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "ee9e847fc23e6cd39d816371b5fffd8dacb2f9f314f77412ff5c97eb9b152ec1",
+      "raw_source_sha256": "ee9e847fc23e6cd39d816371b5fffd8dacb2f9f314f77412ff5c97eb9b152ec1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：两条较高的斜向笔画围合紧凑的上中部痕迹簇。",
+      "中文：中央区域可见密集的交叉或重叠痕迹。",
+      "中文：下部有近圆弧或横向基部，并见小的深色延伸。",
+      "中文：笔画连接处和下部边界仍有部分不确定。"
+    ],
+    "en": [
+      "English: Two tall angled strokes frame a compact upper-middle cluster.",
+      "English: The central area contains dense crossing or overlapping marks.",
+      "English: A rounded or horizontal lower base has small dark extensions.",
+      "English: Stroke joins and the lower boundary are partly uncertain."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8856.jpg",
+    "prefix": "L",
+    "code": "？_8856"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4115",
+    "source_class_path": "HUST-OBC/undeciphered/L/4115/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4115/L_？_8856.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4115/L_？_8856.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

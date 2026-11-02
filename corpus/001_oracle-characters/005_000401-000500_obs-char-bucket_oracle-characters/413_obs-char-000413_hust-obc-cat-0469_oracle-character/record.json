@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000413",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0469",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000418_hust-obc-cat-0469_glyph.png",
+      "metadata": "images/001_asset-000418_hust-obc-cat-0469_glyph.yaml",
+      "asset_id": "asset-000418",
+      "source_image_path": "HUST-OBC/deciphered/0469/G_0469_乙192合20072𠂤組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "45",
+      "pixel_height": "80",
+      "sha256": "1dcf92c9ff4be6ebc467b9a116b6d1358bd68127f16e7b96a43f6a11a9074767",
+      "raw_source_sha256": "e1d5b934bccceae5cb3fee3cb4c7b8f787eee48fdaa936ff13dc21e89ba7f492",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大开放三角形上部向下收窄为小型中央环形笔画，并连接长折角下部延伸。"
+    ],
+    "en": [
+      "A broad open triangular top narrows into small central loops and a long angular lower extension."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0469_乙192合20072𠂤組.png",
+    "prefix": "G",
+    "heji": "合20072",
+    "old_catalog": "乙192",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "𠂤組"
+  },
+  "dataset_category": {
+    "source_category_id": "0469",
+    "validation_class_id": "412",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㗋",
+    "codepoints": "U+35CB",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000413",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

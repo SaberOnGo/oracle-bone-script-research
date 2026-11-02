@@ -1,0 +1,68 @@
+{
+  "id": "obs-unk-004789",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004789",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006382_hust-obc-und-X-004789_glyph.jpg",
+      "metadata": "images/001_asset-006382_hust-obc-und-X-004789_glyph.yaml",
+      "asset_id": "asset-006382",
+      "source_image_path": "HUST-OBC/undeciphered/X/345/X_？_7327_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "213",
+      "pixel_height": "174",
+      "sha256": "71f30cc3da089b5717b4f79a897c9c6817ac17a8bc569e0bcc6b2327a1cca469",
+      "raw_source_sha256": "71f30cc3da089b5717b4f79a897c9c6817ac17a8bc569e0bcc6b2327a1cca469",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [],
+    "en": [
+      "A broad lower enclosure spans most of the image width.",
+      "Several pale openings appear inside the enclosure.",
+      "Short upper strokes branch from a dense central band.",
+      "A tall curved stroke rises at the right edge of the enclosure.",
+      "The lower outline remains visually continuous around the openings.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7327_1.png",
+    "prefix": "X",
+    "code": "？_7327_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "345",
+    "source_class_path": "HUST-OBC/undeciphered/X/345/",
+    "source_image_count": 4,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/345/X_？_7327_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/345/X_？_7327_4.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

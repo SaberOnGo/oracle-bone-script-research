@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000488",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0553",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000493_hust-obc-cat-0553_glyph.png",
+      "metadata": "images/001_asset-000493_hust-obc-cat-0553_glyph.yaml",
+      "asset_id": "asset-000493",
+      "source_image_path": "HUST-OBC/deciphered/0553/G_0553_京都264合10425賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "60",
+      "pixel_height": "80",
+      "sha256": "b64ad6b77a7ff2113447a0caaf76afbc255e16e6b621d37c4d101b04867018b8",
+      "raw_source_sha256": "653059a6e644f57d1f51286088bc3535f10a4645da42572a58027e9412982f51",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重宽拱形围绕较小内拱和数条长平行弯笔，这些弯笔从上部区域向下延伸。"
+    ],
+    "en": [
+      "A bold broad arch surrounds a smaller inner arch and several long parallel curved strokes that descend from its upper area."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0553_京都264合10425賓組.png",
+    "prefix": "G",
+    "heji": "合10425",
+    "old_catalog": "京都264",
+    "old_catalog_abbr": "京都",
+    "old_catalog_abbr_obm_label": "京都大學人文科學研究所藏甲骨文字",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0553",
+    "validation_class_id": "487",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㘟",
+    "codepoints": "U+361F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000488",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001357",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1514",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001362_hust-obc-cat-1514_glyph.png",
+      "metadata": "images/001_asset-001362_hust-obc-cat-1514_glyph.yaml",
+      "asset_id": "asset-001362",
+      "source_image_path": "HUST-OBC/deciphered/1514/X_1514_6211_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "213",
+      "pixel_height": "263",
+      "sha256": "97b8c407dff143c27d1f59b03804ebac135110d789422aba5826625104a86653",
+      "raw_source_sha256": "f3ce65879f5452201330949a8f4713604d6f3684d36cb9341ad32b82b9251b98",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大的水平框形位于大型开放下部弧线之上，下部两侧有向上支臂。"
+    ],
+    "en": [
+      "A broad horizontal enclosure sits above a large open lower curve with two upward side prongs."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1514_6211_1.png",
+    "prefix": "X",
+    "code": "1514_6211_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1514",
+    "validation_class_id": "1356",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㧠",
+    "codepoints": "U+39E0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001357",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

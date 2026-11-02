@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004973",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004973",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006566_hust-obc-und-X-004973_glyph.jpg",
+      "metadata": "images/001_asset-006566_hust-obc-und-X-004973_glyph.yaml",
+      "asset_id": "asset-006566",
+      "source_image_path": "HUST-OBC/undeciphered/X/529/X_？_7509_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "167",
+      "pixel_height": "282",
+      "sha256": "f64de1cbb66aa9bd4295bad125de0580e3bbe179af67695b5e7899bc681fa931",
+      "raw_source_sha256": "f64de1cbb66aa9bd4295bad125de0580e3bbe179af67695b5e7899bc681fa931",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "右侧高位主干顶部向两侧伸出分枝。",
+      "顶部连接处上方和左侧有数条分离短痕。",
+      "右侧主干下行，在侧面形成一处近环状开口。",
+      "右侧开口下方继续有一条较细下行笔画。",
+      "左侧另有一组带短上臂和下行主干的分离结构。"
+    ],
+    "en": [
+      "A tall right stroke rises into two upper projecting branches.",
+      "Several short detached marks appear above and left of the top junction.",
+      "The right shaft descends into a side loop-like opening.",
+      "A thin lower stroke continues below the right-side opening.",
+      "A separate left form has a short upper arm and a descending stem.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7509_1.png",
+    "prefix": "X",
+    "code": "？_7509_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "529",
+    "source_class_path": "HUST-OBC/undeciphered/X/529/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/529/X_？_7509_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/529/X_？_7509_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

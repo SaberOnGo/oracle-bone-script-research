@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001181",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1321",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001186_hust-obc-cat-1321_glyph.png",
+      "metadata": "images/001_asset-001186_hust-obc-cat-1321_glyph.yaml",
+      "asset_id": "asset-001186",
+      "source_image_path": "HUST-OBC/deciphered/1321/G_1321_乙5405合22099子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "d2188642e31a9cc83a2ba92fcbc3dbdd9a85c638d27f674b8d79879acec056ed",
+      "raw_source_sha256": "3d3f936274b9a2d95971656e3327c0fbae3b30e85625a6cac6bba20e9b97c9be",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高而狭长的形体有上部分枝笔、长左侧轮廓和数条右侧下行弯笔。"
+    ],
+    "en": [
+      "A tall slender form has a branched upper stroke, a long left contour, and several descending right curves."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1321_乙5405合22099子組.png",
+    "prefix": "G",
+    "heji": "合22099",
+    "old_catalog": "乙5405",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "1321",
+    "validation_class_id": "1180",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㤟",
+    "codepoints": "U+391F",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001181",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

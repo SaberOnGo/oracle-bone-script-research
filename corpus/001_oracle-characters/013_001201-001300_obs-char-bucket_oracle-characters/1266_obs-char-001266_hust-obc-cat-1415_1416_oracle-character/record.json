@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001266",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1415_1416",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001271_hust-obc-cat-1415_1416_glyph.png",
+      "metadata": "images/001_asset-001271_hust-obc-cat-1415_1416_glyph.yaml",
+      "asset_id": "asset-001271",
+      "source_image_path": "HUST-OBC/deciphered/1415_1416/1415/L_1415_10934.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "58",
+      "sha256": "f4469b4b064895924dbfd9ec62abdc96d0628d37297d8ed447bae4b77e2f7141",
+      "raw_source_sha256": "824645a59588cd765f5e62f0ea0e1b6ff3e04f9b13b29ea6e97ee1544aa15f25",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧凑近对称形体有成对上部弧线、中央框形主体和尖状下部延伸。"
+    ],
+    "en": [
+      "A compact symmetrical form has paired upper curves, a central enclosed body, and a pointed lower extension."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1415_10934.jpg",
+    "prefix": "L",
+    "code": "1415_10934"
+  },
+  "dataset_category": {
+    "source_category_id": "1415_1416",
+    "validation_class_id": "1265",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㥽㥾",
+    "codepoints": "U+397D;U+397E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001266",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

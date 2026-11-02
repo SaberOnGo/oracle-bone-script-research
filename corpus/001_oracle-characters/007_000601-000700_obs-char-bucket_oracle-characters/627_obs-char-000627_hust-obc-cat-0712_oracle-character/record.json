@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000627",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0712",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000632_hust-obc-cat-0712_glyph.png",
+      "metadata": "images/001_asset-000632_hust-obc-cat-0712_glyph.yaml",
+      "asset_id": "asset-000632",
+      "source_image_path": "HUST-OBC/deciphered/0712/G_0712_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "60",
+      "pixel_height": "102",
+      "sha256": "935176521237d797ab5b3dd2fe1169ce819bf32918ad9295052be59c488d2df5",
+      "raw_source_sha256": "3ffad1b963b7ccbb8f02a4b2c8490ac166927b0125026a19be58b9557c3dac51",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧有小型分离矩形环；右侧略弯高竖带交叉顶栏和宽横底。"
+    ],
+    "en": [
+      "A small detached rectangular loop stands at left; at right, a tall slightly bowed vertical carries crossed top bars and a broad horizontal base."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0712_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0712",
+    "validation_class_id": "626",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚾",
+    "codepoints": "U+36BE",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000627",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-004068",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004068",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005661_hust-obc-und-L-004068_glyph.jpg",
+      "metadata": "images/001_asset-005661_hust-obc-und-L-004068_glyph.yaml",
+      "asset_id": "asset-005661",
+      "source_image_path": "HUST-OBC/undeciphered/L/4068/L_？_8713.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "56",
+      "sha256": "879f806056dc79f1b61e574ac2c2f430fe31026f65c700c93a7e51672d8faeee",
+      "raw_source_sha256": "879f806056dc79f1b61e574ac2c2f430fe31026f65c700c93a7e51672d8faeee",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧有一个紧凑痕迹组，上部有短横痕迹，下方为圆弧或折角轮廓，向下收窄成尖点。右侧另有一条细长竖向痕迹，顶部附近带短斜痕；它是否属于同一痕迹组尚未确定。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005661_hust-obc-und-L-004068_glyph.jpg`",
+      "A compact left-hand group has a short upper bar and a rounded or angular enclosure that narrows to a lower point. A separate thin vertical trace appears on the right with a short angled mark near its top; whether it belongs to the same group is unresolved."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8713.jpg",
+    "prefix": "L",
+    "code": "？_8713"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4068",
+    "source_class_path": "HUST-OBC/undeciphered/L/4068/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4068/L_？_8713.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4068/L_？_8713.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

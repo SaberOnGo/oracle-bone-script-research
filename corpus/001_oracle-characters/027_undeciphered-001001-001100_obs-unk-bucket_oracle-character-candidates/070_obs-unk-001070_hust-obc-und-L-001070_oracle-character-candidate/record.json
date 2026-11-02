@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001070",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001070",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002663_hust-obc-und-L-001070_glyph.jpg",
+      "metadata": "images/001_asset-002663_hust-obc-und-L-001070_glyph.yaml",
+      "asset_id": "asset-002663",
+      "source_image_path": "HUST-OBC/undeciphered/L/1070/L_？_13017.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "55",
+      "sha256": "6d3bac09be9b7e386b368aa53d5655bb741fd28b2d15900991b70ed69cdaa2e8",
+      "raw_source_sha256": "6d3bac09be9b7e386b368aa53d5655bb741fd28b2d15900991b70ed69cdaa2e8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集中央分支线簇向上连接尖形围合，右侧为高大的折线形体。"
+    ],
+    "en": [
+      "A dense branching central cluster rises into a pointed upper enclosure beside a tall angular right form."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13017.jpg",
+    "prefix": "L",
+    "code": "？_13017"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1070",
+    "source_class_path": "HUST-OBC/undeciphered/L/1070/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1070/L_？_13017.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1070/L_？_13017.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

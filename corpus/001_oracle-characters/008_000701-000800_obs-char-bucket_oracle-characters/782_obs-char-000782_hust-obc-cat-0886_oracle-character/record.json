@@ -1,0 +1,79 @@
+{
+  "id": "obs-char-000782",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0886",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000787_hust-obc-cat-0886_glyph.png",
+      "metadata": "images/001_asset-000787_hust-obc-cat-0886_glyph.yaml",
+      "asset_id": "asset-000787",
+      "source_image_path": "HUST-OBC/deciphered/0886/G_0886_粹1276(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "68",
+      "pixel_height": "80",
+      "sha256": "ed983282684a9df8bb6fb5c2ce1e2fdd49060bf3893b3116abaf849674eff2fb",
+      "raw_source_sha256": "d6307356bba60466413ef3da7eb39ea29341ff8c11e3858ac11f5f87ba3748cf",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个相邻形体并列：左侧为浓重分枝笔群，右侧有尖顶上框、圆弯中部空隙和长弯下尾。"
+    ],
+    "en": [
+      "Two adjacent forms stand together: the left is a dense branching cluster, while the right has a pointed upper frame, a rounded middle opening, and a long curved lower tail."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0886_粹1276(甲).png",
+    "prefix": "G",
+    "old_catalog": "粹1276",
+    "old_catalog_abbr": "粹",
+    "old_catalog_abbr_obm_label": "殷契粹編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0886",
+    "validation_class_id": "781",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝬",
+    "codepoints": "U+376C",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "matched_obimd_and_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-obimd",
+      "src-evobc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000782",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001217",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1362",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001222_hust-obc-cat-1362_glyph.png",
+      "metadata": "images/001_asset-001222_hust-obc-cat-1362_glyph.yaml",
+      "asset_id": "asset-001222",
+      "source_image_path": "HUST-OBC/deciphered/1362/G_1362_佚344合17464賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "47",
+      "pixel_height": "80",
+      "sha256": "aeaecef1575b835bbf817c0d90bc16969532eb8ce303d4a58f17bb58820b899f",
+      "raw_source_sha256": "2403548bdeada52b2de6866697f6139a0ca5628f7b1d2ff18a61c69c271981e9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集直立笔群有上部横笔、中央圆弧框廓和尖状下部环。"
+    ],
+    "en": [
+      "A dense upright cluster has an upper cross-stroke, a central rounded enclosure, and a pointed lower loop."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1362_佚344合17464賓組.png",
+    "prefix": "G",
+    "heji": "合17464",
+    "old_catalog": "佚344",
+    "old_catalog_abbr": "佚",
+    "old_catalog_abbr_obm_label": "殷契佚存補編",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1362",
+    "validation_class_id": "1216",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥈",
+    "codepoints": "U+3948",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001217",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

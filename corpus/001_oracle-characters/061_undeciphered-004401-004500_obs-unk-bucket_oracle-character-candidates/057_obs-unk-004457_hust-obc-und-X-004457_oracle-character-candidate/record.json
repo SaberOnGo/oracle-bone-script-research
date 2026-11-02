@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004457",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004457",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006050_hust-obc-und-X-004457_glyph.jpg",
+      "metadata": "images/001_asset-006050_hust-obc-und-X-004457_glyph.yaml",
+      "asset_id": "asset-006050",
+      "source_image_path": "HUST-OBC/undeciphered/X/13/X_？_8193_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "134",
+      "pixel_height": "304",
+      "sha256": "a8d1777498e500296a9d3a7e115bbda61ca2cca25c9d621c7ba3e480e085ba26",
+      "raw_source_sha256": "a8d1777498e500296a9d3a7e115bbda61ca2cca25c9d621c7ba3e480e085ba26",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三角状上部轮廓内部留有较亮区域。",
+      "一条较长的分段痕迹从三角轮廓下方向下延伸。",
+      "中部痕迹含有两处开放的圆弧空间。",
+      "下部末端分成数处不均匀的短端。"
+    ],
+    "en": [
+      "A triangular upper outline has a light interior.",
+      "A long segmented trace descends below the triangle.",
+      "The middle trace contains two open rounded spaces.",
+      "The lower terminal splits into short uneven ends."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8193_1.png",
+    "prefix": "X",
+    "code": "？_8193_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "13",
+    "source_class_path": "HUST-OBC/undeciphered/X/13/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/13/X_？_8193_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/13/X_？_8193_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

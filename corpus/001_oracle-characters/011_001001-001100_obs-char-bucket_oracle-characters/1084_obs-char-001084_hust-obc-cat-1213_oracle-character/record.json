@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001084",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1213",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001089_hust-obc-cat-1213_glyph.png",
+      "metadata": "images/001_asset-001089_hust-obc-cat-1213_glyph.yaml",
+      "asset_id": "asset-001089",
+      "source_image_path": "HUST-OBC/deciphered/1213/G_1213_佚722(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "60",
+      "pixel_height": "80",
+      "sha256": "7b4ff9c9c656b9f4b59a0234529348cd04bbdfd06c5155cdd9447960e1131206",
+      "raw_source_sha256": "d59eda3626d5395b1689209174faf184933fdb415f1cf207c931b34ce60e8b2c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长直立笔群结合尖状上部外伸、右侧弯笔和短下部分枝。"
+    ],
+    "en": [
+      "A narrow upright cluster combines a pointed upper projection, a curved right side, and a short lower branch."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1213_佚722(甲).png",
+    "prefix": "G",
+    "old_catalog": "佚722",
+    "old_catalog_abbr": "佚",
+    "old_catalog_abbr_obm_label": "殷契佚存補編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1213",
+    "validation_class_id": "1083",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㢳",
+    "codepoints": "U+38B3",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001084",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

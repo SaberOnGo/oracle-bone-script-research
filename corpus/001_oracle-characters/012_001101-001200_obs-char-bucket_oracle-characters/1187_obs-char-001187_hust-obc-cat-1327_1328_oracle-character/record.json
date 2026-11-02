@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001187",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1327_1328",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001192_hust-obc-cat-1327_1328_glyph.png",
+      "metadata": "images/001_asset-001192_hust-obc-cat-1327_1328_glyph.yaml",
+      "asset_id": "asset-001192",
+      "source_image_path": "HUST-OBC/deciphered/1327_1328/1327/L_1327_4931.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "50",
+      "sha256": "368a943d49f70f7fea1d622602ae7f29d26f42d11950be9817b6d24399fb5b8a",
+      "raw_source_sha256": "d54f97e349c8a4bef8baa5ccd35806d428f24998fe897ac73ad6fb3fe286eda8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "较淡的紧凑图像显示短横底笔上方的两个狭长直立形体，并有小型上部分枝。"
+    ],
+    "en": [
+      "A faint compact image shows two narrow upright forms above a short horizontal base, with a small upper branch."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_1327_4931.jpg",
+    "prefix": "L",
+    "code": "1327_4931"
+  },
+  "dataset_category": {
+    "source_category_id": "1327_1328",
+    "validation_class_id": "1186",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㤥㤦",
+    "codepoints": "U+3925;U+3926",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001187",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

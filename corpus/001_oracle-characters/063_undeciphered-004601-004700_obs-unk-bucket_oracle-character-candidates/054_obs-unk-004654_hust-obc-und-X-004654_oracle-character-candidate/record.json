@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004654",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004654",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006247_hust-obc-und-X-004654_glyph.jpg",
+      "metadata": "images/001_asset-006247_hust-obc-und-X-004654_glyph.yaml",
+      "asset_id": "asset-006247",
+      "source_image_path": "HUST-OBC/undeciphered/X/210/X_？_8382_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "157",
+      "pixel_height": "295",
+      "sha256": "d5cd8314f6e86f2cb8603f35423b6d69aa7028a07f3911de775d97ea079647a6",
+      "raw_source_sha256": "d5cd8314f6e86f2cb8603f35423b6d69aa7028a07f3911de775d97ea079647a6",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条高的侧向笔画从各自的上部尖点向下延伸。",
+      "中央深色连接处在两侧之间形成深的 V 状缺口。",
+      "左上内部附近可见一个小的浅色开口。",
+      "左侧笔画较粗，右侧笔画较窄且不规则。",
+      "两个下端都渐尖收束为尖状或不规则端部。"
+    ],
+    "en": [
+      "Two tall side strokes descend from separate upper peaks.",
+      "A central dark junction forms a deep V-like notch between the sides.",
+      "A small pale opening is visible near the upper-left interior.",
+      "The left side is thicker; the right side is narrower and uneven.",
+      "Both lower ends taper into pointed or irregular terminals.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8382_1.png",
+    "prefix": "X",
+    "code": "？_8382_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "210",
+    "source_class_path": "HUST-OBC/undeciphered/X/210/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/210/X_？_8382_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/210/X_？_8382_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

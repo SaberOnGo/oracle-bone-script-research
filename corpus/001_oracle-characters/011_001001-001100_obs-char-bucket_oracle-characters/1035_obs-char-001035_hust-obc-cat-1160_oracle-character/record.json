@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001035",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1160",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001040_hust-obc-cat-1160_glyph.png",
+      "metadata": "images/001_asset-001040_hust-obc-cat-1160_glyph.yaml",
+      "asset_id": "asset-001040",
+      "source_image_path": "HUST-OBC/deciphered/1160/G_1160_掇1.454合10406賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "80",
+      "sha256": "d8acc260d6a5ab7469908bc0e705fa9fe23ac59a35f38cf8eb5efe60fd16bda5",
+      "raw_source_sha256": "d7a80c99de7a595da8dd241a1fc2dea270059b996374dd7ad3f27e563df4fab7",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集直立笔群结合左侧尖状外伸、中央水平带和长右侧直立笔。"
+    ],
+    "en": [
+      "A dense upright cluster combines a pointed left projection, a horizontal central bar, and a long right upright stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1160_掇1.454合10406賓組.png",
+    "prefix": "G",
+    "heji": "合10406",
+    "old_catalog": "掇1.454",
+    "old_catalog_abbr": "掇",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1160",
+    "validation_class_id": "1034",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㡾",
+    "codepoints": "U+387E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001035",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

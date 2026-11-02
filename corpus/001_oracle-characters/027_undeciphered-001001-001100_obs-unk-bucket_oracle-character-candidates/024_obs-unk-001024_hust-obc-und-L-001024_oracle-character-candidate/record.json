@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001024",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001024",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002617_hust-obc-und-L-001024_glyph.jpg",
+      "metadata": "images/001_asset-002617_hust-obc-und-L-001024_glyph.yaml",
+      "asset_id": "asset-002617",
+      "source_image_path": "HUST-OBC/undeciphered/L/1024/L_？_12893.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "55",
+      "sha256": "55b708968484262e4c392b1d3e4cd17c78bcf46f22bbe89721c048d0e05f29f5",
+      "raw_source_sha256": "55b708968484262e4c392b1d3e4cd17c78bcf46f22bbe89721c048d0e05f29f5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "竖向层叠中央形体顶部有圆曲横带，两侧有痕迹，下方为 U 形围合并带分离点。"
+    ],
+    "en": [
+      "A vertical stacked central form has a rounded top band, side marks, and a lower U-shaped enclosure with detached dots."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12893.jpg",
+    "prefix": "L",
+    "code": "？_12893"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1024",
+    "source_class_path": "HUST-OBC/undeciphered/L/1024/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1024/L_？_12893.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1024/L_？_12893.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

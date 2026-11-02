@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000757",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0859",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000762_hust-obc-cat-0859_glyph.png",
+      "metadata": "images/001_asset-000762_hust-obc-cat-0859_glyph.yaml",
+      "asset_id": "asset-000762",
+      "source_image_path": "HUST-OBC/deciphered/0859/G_0859_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "95",
+      "pixel_height": "90",
+      "sha256": "e533a0bca179399154bb979bcb1463cf2854b2552e3ff2cc39e33794407db287",
+      "raw_source_sha256": "b635cd32b156245772b4c54f359e9a9ac2867bf6f94d4ba79463e8136c36b0ec",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "浓重矩形交叉网格内有数个白色小格，顶部、两侧和下缘放射出多条长短尖枝。"
+    ],
+    "en": [
+      "A dense rectangular crossing grid has several white compartments, with many short and long pointed branches radiating from its top, sides, and lower edge."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0859_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0859",
+    "validation_class_id": "756",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝑",
+    "codepoints": "U+3751",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000757",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000119",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0133",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000124_hust-obc-cat-0133_glyph.png",
+      "metadata": "images/001_asset-000124_hust-obc-cat-0133_glyph.yaml",
+      "asset_id": "asset-000124",
+      "source_image_path": "HUST-OBC/deciphered/0133/H_0133_607D1_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "109",
+      "pixel_height": "305",
+      "sha256": "301dfe2b84c42c2cee6e90b83698f95a911f6267253c399ffb6557fe45e55117",
+      "raw_source_sha256": "29c6079ebef2b2a1282b72ff8345c9a8fae39378b0b59dd5ce2df51eaf4b12f2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高而深色的图像上方有宽横笔，斜向笔画在中部汇合，下方有长竖笔和交叉伸出笔。"
+    ],
+    "en": [
+      "The tall dark image has a broad top bar, diagonal strokes converging at the center, a long lower vertical, and crossing lower projections."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0133_607D1_0.png",
+    "prefix": "H",
+    "code": "0133_607D1_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0133",
+    "validation_class_id": "118",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㑻",
+    "codepoints": "U+347B",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000119",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

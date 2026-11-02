@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000191",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0212_0213",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000196_hust-obc-cat-0212_0213_glyph.png",
+      "metadata": "images/001_asset-000196_hust-obc-cat-0212_0213_glyph.yaml",
+      "asset_id": "asset-000196",
+      "source_image_path": "HUST-OBC/deciphered/0212_0213/0212/G_0212_乙145合20338𠂤組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "80",
+      "pixel_height": "75",
+      "sha256": "5a8408f25ac8a0f2c2cded9519fc1a55d4fea1dde9d7aa04e99170c4d649e84e",
+      "raw_source_sha256": "5db36814f9ffd9578d8394866dc6ef9b8d6b865cbe2d3d13f622e31d683dc311",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大图像有长横向带状笔，数道短竖笔穿过其间，下方伸出长短不齐的笔画。"
+    ],
+    "en": [
+      "The broad image has a long horizontal band crossed by several short upright strokes, with uneven projections extending below it."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0212_乙145合20338𠂤組.png",
+    "prefix": "G",
+    "heji": "合20338",
+    "old_catalog": "乙145",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "𠂤組"
+  },
+  "dataset_category": {
+    "source_category_id": "0212_0213",
+    "validation_class_id": "190",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㓊㓋",
+    "codepoints": "U+34CA;U+34CB",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000191",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

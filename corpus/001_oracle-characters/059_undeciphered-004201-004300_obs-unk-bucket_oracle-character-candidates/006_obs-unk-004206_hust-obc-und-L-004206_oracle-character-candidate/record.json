@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004206",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004206",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005799_hust-obc-und-L-004206_glyph.jpg",
+      "metadata": "images/001_asset-005799_hust-obc-und-L-004206_glyph.yaml",
+      "asset_id": "asset-005799",
+      "source_image_path": "HUST-OBC/undeciphered/L/4206/L_？_9161.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "30",
+      "pixel_height": "52",
+      "sha256": "589cdec115a5a5dfa3ab0bc12ecdf269ca9ad65b9b4d6f71a6eba95f03284fbf",
+      "raw_source_sha256": "589cdec115a5a5dfa3ab0bc12ecdf269ca9ad65b9b4d6f71a6eba95f03284fbf",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：上部紧凑区域内有数条横向痕迹。",
+      "中文：下部较宽的形态向下缘逐渐收窄。",
+      "中文：下部形态中可见两条较深的直立痕迹。",
+      "中文：上下两部分之间的过渡关系不清楚。"
+    ],
+    "en": [
+      "English: A compact upper block contains several horizontal traces.",
+      "English: A wider lower body tapers toward its bottom edge.",
+      "English: Two dark upright traces are visible in the lower body.",
+      "English: The transition between upper and lower parts is unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9161.jpg",
+    "prefix": "L",
+    "code": "？_9161"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4206",
+    "source_class_path": "HUST-OBC/undeciphered/L/4206/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4206/L_？_9161.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4206/L_？_9161.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

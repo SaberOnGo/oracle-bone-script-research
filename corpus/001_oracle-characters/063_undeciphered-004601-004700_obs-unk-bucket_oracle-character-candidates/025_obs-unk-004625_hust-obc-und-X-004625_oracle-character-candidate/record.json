@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004625",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004625",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006218_hust-obc-und-X-004625_glyph.jpg",
+      "metadata": "images/001_asset-006218_hust-obc-und-X-004625_glyph.yaml",
+      "asset_id": "asset-006218",
+      "source_image_path": "HUST-OBC/undeciphered/X/181/X_？_8355_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "129",
+      "pixel_height": "297",
+      "sha256": "303a53e3819bb82663e3648e77acf94ece2a5283c10bea3bc9c1c29eb5a94f57",
+      "raw_source_sha256": "303a53e3819bb82663e3648e77acf94ece2a5283c10bea3bc9c1c29eb5a94f57",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "一条高长的尖顶弧形轮廓从粗横向交接点向上伸出。",
+      "交接横痕右端圆钝，并略向外伸出。",
+      "横向交接点下方悬有一个小型矩形框状形体。",
+      "左侧有数个分离的深色点状或短痕，沿侧边向下排列。",
+      "小框内部较浅，底部有一条深色底边。"
+    ],
+    "en": [
+      "A tall pointed arch rises above a thick horizontal junction.",
+      "The right end of the junction is rounded and extends slightly outward.",
+      "A small rectangular enclosure hangs below the horizontal junction.",
+      "Several small detached dark dots or short traces run down the left side.",
+      "The enclosure has a pale interior and a dark lower edge."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8355_1.png",
+    "prefix": "X",
+    "code": "？_8355_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "181",
+    "source_class_path": "HUST-OBC/undeciphered/X/181/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/181/X_？_8355_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/181/X_？_8355_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

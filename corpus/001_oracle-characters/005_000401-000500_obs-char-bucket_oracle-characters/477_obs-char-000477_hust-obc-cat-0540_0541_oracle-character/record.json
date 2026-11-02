@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000477",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0540_0541",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000482_hust-obc-cat-0540_0541_glyph.png",
+      "metadata": "images/001_asset-000482_hust-obc-cat-0540_0541_glyph.yaml",
+      "asset_id": "asset-000482",
+      "source_image_path": "HUST-OBC/deciphered/0540_0541/0540/H_0540_60A4F_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "191",
+      "pixel_height": "210",
+      "sha256": "09f470c761ef7b10a7d52d3836afdc02ca5729072cb808b61600f09d819401a2",
+      "raw_source_sha256": "a4c04b87a3623354bf602cd8dd1f089b9a08d92645440fcdb82763c14ed45f5a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型粗重尖拱形包围一条中央长横，其上有三处短痕，下方有三条分离竖向痕迹。"
+    ],
+    "en": [
+      "A large bold pointed arch encloses a long central horizontal bar, three short marks above it, and three separated vertical marks below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0540_60A4F_0.png",
+    "prefix": "H",
+    "code": "0540_60A4F_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0540_0541",
+    "validation_class_id": "476",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㘒㘓",
+    "codepoints": "U+3612;U+3613",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000477",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

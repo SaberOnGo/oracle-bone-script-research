@@ -1,0 +1,67 @@
+{
+  "id": "obs-unk-001934",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001934",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003527_hust-obc-und-L-001934_glyph.jpg",
+      "metadata": "images/001_asset-003527_hust-obc-und-L-001934_glyph.yaml",
+      "asset_id": "asset-003527",
+      "source_image_path": "HUST-OBC/undeciphered/L/1934/L_Јї_1658.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "61",
+      "sha256": "2a8f70d8f2fb39bb67d1fb2fd5008f7e53ef58aded9da21452af465eb6d2bfab",
+      "raw_source_sha256": "2a8f70d8f2fb39bb67d1fb2fd5008f7e53ef58aded9da21452af465eb6d2bfab",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左上和右上各有一组相互分离的短斜向笔痕。右侧有较长的曲向和角状笔痕向下延伸，下端附近出现钩状转折。上部两组笔痕与下行笔痕之间的中央区域大体保持开放。",
+      "分离关系和下端转折仍需按来源原始分辨率确认。"
+    ],
+    "en": [
+      "Two small diagonal clusters sit apart near the upper left and upper right. A longer curved and angular stroke descends on the right side, with a hooked turn near its lower end. The central area remains mostly open between the upper clusters and the lower stroke.",
+      "The separation and lower turn need confirmation at source resolution."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_Јї_1658.jpg",
+    "prefix": "L",
+    "code": "Јї_1658"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1934",
+    "source_class_path": "HUST-OBC/undeciphered/L/1934/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1934/L_？_1658.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1934/L_？_1658.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

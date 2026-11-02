@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000566",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0642",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000571_hust-obc-cat-0642_glyph.png",
+      "metadata": "images/001_asset-000571_hust-obc-cat-0642_glyph.yaml",
+      "asset_id": "asset-000571",
+      "source_image_path": "HUST-OBC/deciphered/0642/G_0642_乙1800(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "57",
+      "pixel_height": "80",
+      "sha256": "e55f3b206ee84965d0b48173cbee918e1d75d64c20ba67b37780c238403b0595",
+      "raw_source_sha256": "ab4ef2c526a7fcf7e8423fa383463d67edaff9533d9750095e53d42d5b71677e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "长中央竖笔上下各有短横帽，两侧为带短内向分枝的弓曲外笔。"
+    ],
+    "en": [
+      "A long central vertical has short horizontal caps at top and bottom, flanked by two bowed outer strokes with short inward branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0642_乙1800(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙1800",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0642",
+    "validation_class_id": "565",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙸",
+    "codepoints": "U+3678",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000566",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

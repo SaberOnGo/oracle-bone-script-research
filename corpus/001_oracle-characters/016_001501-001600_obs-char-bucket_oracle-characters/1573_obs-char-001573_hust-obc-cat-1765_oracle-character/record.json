@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001573",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1765",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001578_hust-obc-cat-1765_glyph.png",
+      "metadata": "images/001_asset-001578_hust-obc-cat-1765_glyph.yaml",
+      "asset_id": "asset-001578",
+      "source_image_path": "HUST-OBC/deciphered/1765/G_1765_佚292(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "88",
+      "pixel_height": "132",
+      "sha256": "3ff931459b36455136e248d824b9691a78bfa86d3804a309078ac05cf71be6e6",
+      "raw_source_sha256": "b9577c064c7c0991c107f79fbe8dfc0369114c4720bd9bd298f3951995a65c85",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个相邻形体左侧有密集分枝轮廓，右侧有分离的狭长笔画。"
+    ],
+    "en": [
+      "Two adjacent forms show a dense branching left contour and a separate narrow right stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1765_佚292(甲).png",
+    "prefix": "G",
+    "old_catalog": "佚292",
+    "old_catalog_abbr": "佚",
+    "old_catalog_abbr_obm_label": "殷契佚存補編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1765",
+    "validation_class_id": "1572",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫛",
+    "codepoints": "U+3ADB",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001573",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

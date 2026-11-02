@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000521",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0594",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000526_hust-obc-cat-0594_glyph.png",
+      "metadata": "images/001_asset-000526_hust-obc-cat-0594_glyph.yaml",
+      "asset_id": "asset-000526",
+      "source_image_path": "HUST-OBC/deciphered/0594/G_0594_乙1208合21626子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "80",
+      "sha256": "1149558e5c9f601e3a88dc194377d8a4ea1e7215e162de3aa81a3296940a0224",
+      "raw_source_sha256": "4bd24dcc8e852b61169a6ab6f49c4a213aa1d5872c5b3a500549c634e170f9d0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "长中央竖笔下端形成小型椭圆环，上端分成数条向上弯曲的枝笔。"
+    ],
+    "en": [
+      "A long central vertical stroke ends in a small oval loop below and divides above into several curved upward branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0594_乙1208合21626子組.png",
+    "prefix": "G",
+    "heji": "合21626",
+    "old_catalog": "乙1208",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "0594",
+    "validation_class_id": "520",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙈",
+    "codepoints": "U+3648",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000521",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

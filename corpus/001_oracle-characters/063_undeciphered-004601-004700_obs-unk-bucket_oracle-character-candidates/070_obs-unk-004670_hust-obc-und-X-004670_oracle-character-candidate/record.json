@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004670",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004670",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006263_hust-obc-und-X-004670_glyph.jpg",
+      "metadata": "images/001_asset-006263_hust-obc-und-X-004670_glyph.yaml",
+      "asset_id": "asset-006263",
+      "source_image_path": "HUST-OBC/undeciphered/X/226/X_？_8395_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "158",
+      "pixel_height": "277",
+      "sha256": "3190e840219c163e1821f4b9731ad0e0f3a02fd356d6b88a3071b6faa9839106",
+      "raw_source_sha256": "3190e840219c163e1821f4b9731ad0e0f3a02fd356d6b88a3071b6faa9839106",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部横向区域叠置着三条宽笔画。",
+      "左右边缘沿叠置笔画两侧向下延伸。",
+      "两条竖向笔画从横向组下方继续向下。",
+      "下端由一条圆弧状 U 形笔画连接。",
+      "横向笔画的端部不均匀且较粗。"
+    ],
+    "en": [
+      "Three broad horizontal strokes are stacked across the upper region.",
+      "The left and right edges descend beside the stacked strokes.",
+      "Two vertical strokes continue downward below the horizontal group.",
+      "A rounded U-like curve connects the lower ends.",
+      "The horizontal strokes have uneven, thickened terminals.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8395_1.png",
+    "prefix": "X",
+    "code": "？_8395_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "226",
+    "source_class_path": "HUST-OBC/undeciphered/X/226/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/226/X_？_8395_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/226/X_？_8395_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

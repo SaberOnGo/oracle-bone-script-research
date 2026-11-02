@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000822",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0930",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000827_hust-obc-cat-0930_glyph.png",
+      "metadata": "images/001_asset-000827_hust-obc-cat-0930_glyph.yaml",
+      "asset_id": "asset-000827",
+      "source_image_path": "HUST-OBC/deciphered/0930/G_0930_乙2035(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "51cdfc304a57da8daf9463207ce4d9e20922af54e520e47a6451b7f13ccc8584",
+      "raw_source_sha256": "2f6a9b58dd21c04fdec40aad4e8d90cbc26b1502f557e16a14626e8ea597048a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细中央直立笔在顶部和下中部都有分枝；两条分离的短侧笔分列两旁，下方延伸尖形笔干。"
+    ],
+    "en": [
+      "A thin central upright branches at the top and lower center; two detached short side strokes flank it and a pointed stem descends below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0930_乙2035(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙2035",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0930",
+    "validation_class_id": "821",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㞘",
+    "codepoints": "U+3798",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000822",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

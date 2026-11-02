@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004607",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004607",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006200_hust-obc-und-X-004607_glyph.jpg",
+      "metadata": "images/001_asset-006200_hust-obc-und-X-004607_glyph.yaml",
+      "asset_id": "asset-006200",
+      "source_image_path": "HUST-OBC/undeciphered/X/163/X_？_8339_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "110",
+      "pixel_height": "294",
+      "sha256": "43b6cbc1964355a790b36f9a454524e87d8e8c1585a2d063dd25126d1ae52231",
+      "raw_source_sha256": "43b6cbc1964355a790b36f9a454524e87d8e8c1585a2d063dd25126d1ae52231",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像显示一条高长的外围轮廓，内部有较宽的浅色空间。",
+      "左上端和右上端各向上弯成短钩状痕迹。",
+      "左侧轮廓不规则，并在数处向内弯曲。",
+      "右侧主要是一条连续的深色轮廓。",
+      "下端收合为圆弧状、略扁的末端。"
+    ],
+    "en": [
+      "The image shows a tall enclosing contour with a broad pale interior.",
+      "The upper left and upper right ends curve upward as short hooks.",
+      "The left side is irregular and bends inward at several points.",
+      "The right side is a mostly continuous dark contour.",
+      "The bottom closes into a rounded, slightly flattened terminal."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8339_1.png",
+    "prefix": "X",
+    "code": "？_8339_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "163",
+    "source_class_path": "HUST-OBC/undeciphered/X/163/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/163/X_？_8339_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/163/X_？_8339_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

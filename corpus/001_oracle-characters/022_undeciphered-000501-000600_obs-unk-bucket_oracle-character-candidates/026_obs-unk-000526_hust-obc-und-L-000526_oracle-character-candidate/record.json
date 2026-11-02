@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000526",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000526",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002119_hust-obc-und-L-000526_glyph.jpg",
+      "metadata": "images/001_asset-002119_hust-obc-und-L-000526_glyph.yaml",
+      "asset_id": "asset-002119",
+      "source_image_path": "HUST-OBC/undeciphered/L/526/L_？_11582.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "57",
+      "sha256": "963d6b3a6d466e378f4d57a7ab102a6023149140833b86f997cf44e42b8100b8",
+      "raw_source_sha256": "963d6b3a6d466e378f4d57a7ab102a6023149140833b86f997cf44e42b8100b8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高直窄形体中部有交叉，下部有弧形空隙。"
+    ],
+    "en": [
+      "A tall narrow form has a crossing middle and a rounded lower opening."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11582.jpg",
+    "prefix": "L",
+    "code": "？_11582"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "526",
+    "source_class_path": "HUST-OBC/undeciphered/L/526/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/526/L_？_11582.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/526/L_？_11582.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

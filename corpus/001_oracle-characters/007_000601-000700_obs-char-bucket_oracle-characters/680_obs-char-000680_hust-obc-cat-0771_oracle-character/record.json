@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000680",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0771",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000685_hust-obc-cat-0771_glyph.png",
+      "metadata": "images/001_asset-000685_hust-obc-cat-0771_glyph.yaml",
+      "asset_id": "asset-000685",
+      "source_image_path": "HUST-OBC/deciphered/0771/G_0771_前4.33.6合18805賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "bf01324c6a53d49f30901a39d4ee20bc7472637f5515fae29d9305402a7f5c2e",
+      "raw_source_sha256": "f164a5457f018a5ebec424fe1b3425dcfaeb661768c48ec1cfe1ccae01b4d01f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭窄竖形起于左上小矩形环和横栏，经尖形中部空隙后分成折角左枝和长右干。"
+    ],
+    "en": [
+      "A narrow vertical form begins with a small upper-left rectangular loop and crossbar, passes a pointed middle opening, and divides into an angular left branch and long right stem."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0771_前4.33.6合18805賓組.png",
+    "prefix": "G",
+    "heji": "合18805",
+    "old_catalog": "前4.33.6",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0771",
+    "validation_class_id": "679",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛹",
+    "codepoints": "U+36F9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000680",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001375",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001375",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002968_hust-obc-und-L-001375_glyph.jpg",
+      "metadata": "images/001_asset-002968_hust-obc-und-L-001375_glyph.yaml",
+      "asset_id": "asset-002968",
+      "source_image_path": "HUST-OBC/undeciphered/L/1375/L_？_1387.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "227ada8f6753e1829cca8d03a4ffe0bdd707d7f09f93073c6b5334c1f12c2733",
+      "raw_source_sha256": "227ada8f6753e1829cca8d03a4ffe0bdd707d7f09f93073c6b5334c1f12c2733",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "细长竖向主笔向上连接分叉状顶部；上部中段有短横向侧笔。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A thin vertical stem rises to a forked, branching top; a short side stroke projects near the upper middle."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1387.jpg",
+    "prefix": "L",
+    "code": "？_1387"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1375",
+    "source_class_path": "HUST-OBC/undeciphered/L/1375/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1375/L_？_1387.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1375/L_？_1387.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

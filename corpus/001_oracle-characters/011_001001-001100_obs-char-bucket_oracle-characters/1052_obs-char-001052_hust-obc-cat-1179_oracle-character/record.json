@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001052",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1179",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001057_hust-obc-cat-1179_glyph.png",
+      "metadata": "images/001_asset-001057_hust-obc-cat-1179_glyph.yaml",
+      "asset_id": "asset-001057",
+      "source_image_path": "HUST-OBC/deciphered/1179/G_1179_乙5317合1051賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "64",
+      "pixel_height": "79",
+      "sha256": "60af899924469d18ccdb73808209345f09cea429549fa2ea66b86f9fb900155c",
+      "raw_source_sha256": "5d94ccad713b4dd92cc322edd0f996ee508e2815da56467a1391d8867b8031aa",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧密笔群结合左侧短斜笔、中央长弯笔和右侧圆弧闭合笔。"
+    ],
+    "en": [
+      "A compact cluster combines short left diagonal marks, a long central curve, and a rounded right enclosed mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1179_乙5317合1051賓組.png",
+    "prefix": "G",
+    "heji": "合1051",
+    "old_catalog": "乙5317",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1179",
+    "validation_class_id": "1051",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㢑",
+    "codepoints": "U+3891",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001052",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-001556",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1747",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001561_hust-obc-cat-1747_glyph.png",
+      "metadata": "images/001_asset-001561_hust-obc-cat-1747_glyph.yaml",
+      "asset_id": "asset-001561",
+      "source_image_path": "HUST-OBC/deciphered/1747/G_1747_合20281(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "71",
+      "pixel_height": "132",
+      "sha256": "8769652cdec93dcdb7ee1351d1274914026049a23fcd2b22aa8e11ba2ce2f33f",
+      "raw_source_sha256": "f75f1bb0deaf7c3a91688cca099456c02770d9c03b8ab13fde968a79d00f034f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数个小型折角框形围绕长下斜笔排列。"
+    ],
+    "en": [
+      "Several small angular enclosures are arranged around a long descending diagonal."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1747_合20281(甲).png",
+    "prefix": "G",
+    "heji": "合20281",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1747",
+    "validation_class_id": "1555",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㫉",
+    "codepoints": "U+3AC9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001556",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

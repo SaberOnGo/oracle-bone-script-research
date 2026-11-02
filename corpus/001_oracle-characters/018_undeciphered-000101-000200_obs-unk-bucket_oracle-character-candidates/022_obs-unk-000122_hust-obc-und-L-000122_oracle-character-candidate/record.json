@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000122",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000122",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001715_hust-obc-und-L-000122_glyph.jpg",
+      "metadata": "images/001_asset-001715_hust-obc-und-L-000122_glyph.yaml",
+      "asset_id": "asset-001715",
+      "source_image_path": "HUST-OBC/undeciphered/L/122/L_？_10371.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "51",
+      "sha256": "ba830f6d26e5f19cdebb70aaeae8cfff58cd98d39a7588c36d87e6ec7321b89e",
+      "raw_source_sha256": "ba830f6d26e5f19cdebb70aaeae8cfff58cd98d39a7588c36d87e6ec7321b89e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "椭圆围合内有斜向中央笔画，下方有一处短分支。"
+    ],
+    "en": [
+      "An oval enclosure contains a slanting central stroke and a short lower branch."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_10371.jpg",
+    "prefix": "L",
+    "code": "？_10371"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "122",
+    "source_class_path": "HUST-OBC/undeciphered/L/122/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/122/L_？_10371.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/122/L_？_10371.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000794",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0898",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000799_hust-obc-cat-0898_glyph.png",
+      "metadata": "images/001_asset-000799_hust-obc-cat-0898_glyph.yaml",
+      "asset_id": "asset-000799",
+      "source_image_path": "HUST-OBC/deciphered/0898/G_0898_乙1016合19275.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "44",
+      "pixel_height": "80",
+      "sha256": "66c3ce48ba724e361550a2125a29432d63ca437fd407a9a2ab7f0bf268529e1f",
+      "raw_source_sha256": "5e2274aaea7f79e8fa5fd30e297bc94fb77bd70f81412075044f5bbf0868cd0e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "微小淡弱图像含两个狭长上部分叉组、右侧分离短斜笔和较浓重下部分枝群；细接点仍难辨。"
+    ],
+    "en": [
+      "The tiny faint image contains two slim upper forked groups, a detached short diagonal at right, and a denser lower branching cluster; fine joins remain unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0898_乙1016合19275.png",
+    "prefix": "G",
+    "heji": "合19275",
+    "old_catalog": "乙1016",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0898",
+    "validation_class_id": "793",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㝸",
+    "codepoints": "U+3778",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000794",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

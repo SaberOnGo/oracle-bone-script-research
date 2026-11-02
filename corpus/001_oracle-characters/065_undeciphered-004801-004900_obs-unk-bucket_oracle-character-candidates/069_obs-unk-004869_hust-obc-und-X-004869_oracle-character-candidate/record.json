@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004869",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004869",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006462_hust-obc-und-X-004869_glyph.jpg",
+      "metadata": "images/001_asset-006462_hust-obc-und-X-004869_glyph.yaml",
+      "asset_id": "asset-006462",
+      "source_image_path": "HUST-OBC/undeciphered/X/425/X_？_7409_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "152",
+      "pixel_height": "329",
+      "sha256": "c2cfa00550c9ea3a294696a8b9bdc8fc93ebaf41ea9a7e257490094e1361fca4",
+      "raw_source_sha256": "c2cfa00550c9ea3a294696a8b9bdc8fc93ebaf41ea9a7e257490094e1361fca4",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "画面中央有一条贯穿上下的深色长笔画。",
+      "上部结构有数个短突笔和一个浅色开口。",
+      "中部有一处宽大的深色交叉，打断中央长笔画。",
+      "下部形成较大的圆钝外框，内部留有浅色区域。",
+      "下缘不规则，左侧可见短横向外伸笔画。",
+      "下部浅色区域内可见一个孤立的小深色痕迹。"
+    ],
+    "en": [
+      "A tall dark stroke runs through the center of the image.",
+      "The upper group has several short projections and a pale opening.",
+      "A broad dark crossing interrupts the central vertical stroke.",
+      "The lower group forms a large rounded enclosure with a pale interior.",
+      "The lower edge is uneven, with a short horizontal extension at the left.",
+      "A small isolated dark mark appears inside the lower pale area.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7409_1.png",
+    "prefix": "X",
+    "code": "？_7409_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "425",
+    "source_class_path": "HUST-OBC/undeciphered/X/425/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/425/X_？_7409_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/425/X_？_7409_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

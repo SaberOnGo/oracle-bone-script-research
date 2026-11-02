@@ -1,0 +1,75 @@
+{
+  "id": "obs-char-000562",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0637",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000567_hust-obc-cat-0637_glyph.png",
+      "metadata": "images/001_asset-000567_hust-obc-cat-0637_glyph.yaml",
+      "asset_id": "asset-000567",
+      "source_image_path": "HUST-OBC/deciphered/0637/G_0637_合36908(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "247ff69b7556dc15e11847fab5123661fc5e32ba7e8f71729de191713bd1dd85",
+      "raw_source_sha256": "4c54b755dd004b084b5336a4d99d6564327ca785a5b3e4cdfb86c5986e411d80",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型高长不规则外轮廓内有数条短竖、短斜和交叉痕，下部收窄为尖端。"
+    ],
+    "en": [
+      "A small tall irregular outer outline contains several short vertical, diagonal, and crossing marks and narrows into a pointed lower end."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0637_合36908(甲).png",
+    "prefix": "G",
+    "heji": "合36908",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0637",
+    "validation_class_id": "561",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙳",
+    "codepoints": "U+3673",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000562",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

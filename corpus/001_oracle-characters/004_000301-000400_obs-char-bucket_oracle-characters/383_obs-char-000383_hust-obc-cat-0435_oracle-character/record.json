@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000383",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0435",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000388_hust-obc-cat-0435_glyph.png",
+      "metadata": "images/001_asset-000388_hust-obc-cat-0435_glyph.yaml",
+      "asset_id": "asset-000388",
+      "source_image_path": "HUST-OBC/deciphered/0435/H_0435_60016_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "98",
+      "pixel_height": "316",
+      "sha256": "5c1e4e2c9f68ce556aae95cec868c08b36d4a8af0040d78b09997059e4a18b05",
+      "raw_source_sha256": "43e4f78206b16222fde4ed9f497ac05568913800530a3e32b98f5b5b991e4880",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重中央环状笔画在两个上部分支与长竖向下部延伸之间扭转交接。"
+    ],
+    "en": [
+      "A bold central loop twists between two upper branches and a long lower vertical extension."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0435_60016_0.png",
+    "prefix": "H",
+    "code": "0435_60016_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0435",
+    "validation_class_id": "382",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㖩",
+    "codepoints": "U+35A9",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000383",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

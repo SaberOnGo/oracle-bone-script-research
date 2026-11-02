@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001036",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001036",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002629_hust-obc-und-L-001036_glyph.jpg",
+      "metadata": "images/001_asset-002629_hust-obc-und-L-001036_glyph.yaml",
+      "asset_id": "asset-002629",
+      "source_image_path": "HUST-OBC/undeciphered/L/1036/L_？_12929.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "53",
+      "sha256": "716c296512bf71069ac1d3a36fa9d4c7bcff74a9efe4ce93c135c8ee842dcd15",
+      "raw_source_sha256": "716c296512bf71069ac1d3a36fa9d4c7bcff74a9efe4ce93c135c8ee842dcd15",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "大型左弧线连接中央椭圆回环和右侧直立主线，下方接小框状形体。"
+    ],
+    "en": [
+      "A large left arc borders an oval central loop and a right upright stem, followed by a small lower framed form."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12929.jpg",
+    "prefix": "L",
+    "code": "？_12929"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1036",
+    "source_class_path": "HUST-OBC/undeciphered/L/1036/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1036/L_？_12929.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1036/L_？_12929.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

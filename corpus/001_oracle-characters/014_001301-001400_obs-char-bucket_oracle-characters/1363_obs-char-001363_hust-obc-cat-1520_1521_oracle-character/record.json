@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001363",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1520_1521",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001368_hust-obc-cat-1520_1521_glyph.png",
+      "metadata": "images/001_asset-001368_hust-obc-cat-1520_1521_glyph.yaml",
+      "asset_id": "asset-001368",
+      "source_image_path": "HUST-OBC/deciphered/1520_1521/1520/G_1520_後1.19.6合27641無名組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "24",
+      "pixel_height": "80",
+      "sha256": "3fab5e827c509da88b34b380ee113228d8b3bed81e6b713fc2f406a58e0587b8",
+      "raw_source_sha256": "0d6693422d492f8018ab7d217561eb5675c0db148680d5ed15cf399ba1265497",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高耸开放形体有钩状上横笔、中央斜笔和下部分叉。"
+    ],
+    "en": [
+      "A tall open form has a hooked upper bar, a central diagonal, and lower forks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1520_後1.19.6合27641無名組.png",
+    "prefix": "G",
+    "heji": "合27641",
+    "old_catalog": "後1.19.6",
+    "old_catalog_abbr": "後",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "無名組"
+  },
+  "dataset_category": {
+    "source_category_id": "1520_1521",
+    "validation_class_id": "1362",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㧦㧧",
+    "codepoints": "U+39E6;U+39E7",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001363",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

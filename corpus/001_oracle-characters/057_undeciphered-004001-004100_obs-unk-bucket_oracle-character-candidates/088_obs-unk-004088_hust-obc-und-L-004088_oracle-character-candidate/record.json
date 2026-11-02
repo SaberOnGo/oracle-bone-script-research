@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-004088",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004088",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005681_hust-obc-und-L-004088_glyph.jpg",
+      "metadata": "images/001_asset-005681_hust-obc-und-L-004088_glyph.yaml",
+      "asset_id": "asset-005681",
+      "source_image_path": "HUST-OBC/undeciphered/L/4088/L_？_8777.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "50",
+      "sha256": "04ea3738c17ce7c55bcee68355dfe424bc901ac265c7a54637bfe4d3dfb9e209",
+      "raw_source_sha256": "04ea3738c17ce7c55bcee68355dfe424bc901ac265c7a54637bfe4d3dfb9e209",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三个竖向的圆弧或环状痕迹彼此靠近。每个痕迹内部较深，下端带尖点或收窄；它们之间的间距和可能的连接关系尚不清楚。"
+    ],
+    "en": [
+      "Image opened: `03_visual-assets/001_asset-005681_hust-obc-und-L-004088_glyph.jpg`",
+      "Three upright rounded or loop-like traces stand close together. Each has a darker interior and a pointed or tapered lower end; the spacing and possible connections between them are unclear."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8777.jpg",
+    "prefix": "L",
+    "code": "？_8777"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4088",
+    "source_class_path": "HUST-OBC/undeciphered/L/4088/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4088/L_？_8777.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4088/L_？_8777.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

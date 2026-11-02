@@ -1,0 +1,76 @@
+{
+  "id": "obs-unk-004891",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004891",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006484_hust-obc-und-X-004891_glyph.jpg",
+      "metadata": "images/001_asset-006484_hust-obc-und-X-004891_glyph.yaml",
+      "asset_id": "asset-006484",
+      "source_image_path": "HUST-OBC/undeciphered/X/447/X_？_7429_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "170",
+      "pixel_height": "289",
+      "sha256": "bb1fd70f492676c59422c2cde1e2a7e121567c9a9ef9e2ccb1d02d8c83e53096",
+      "raw_source_sha256": "bb1fd70f492676c59422c2cde1e2a7e121567c9a9ef9e2ccb1d02d8c83e53096",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "画面左侧有一条粗大的弧形长笔画向下延伸。",
+      "中部有一条分枝向右斜向伸出。",
+      "左侧弧形笔画向内分出数条较短笔画。",
+      "右下方另有一个圆钝浅色外框。",
+      "下部外框边缘较粗且不规则。",
+      "上、下两组笔画在中部附近发生重叠。"
+    ],
+    "en": [
+      "A thick curved stroke runs down the left side of the image.",
+      "A central branch extends diagonally toward the right.",
+      "Several shorter strokes project inward from the left curve.",
+      "A separate lower-right outline forms a rounded pale enclosure.",
+      "The lower enclosure has a thick uneven outer edge.",
+      "The upper and lower stroke groups overlap near the center.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7429_1.png",
+    "prefix": "X",
+    "code": "？_7429_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "447",
+    "source_class_path": "HUST-OBC/undeciphered/X/447/",
+    "source_image_count": 4,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/447/X_？_7429_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/447/X_？_7429_4.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

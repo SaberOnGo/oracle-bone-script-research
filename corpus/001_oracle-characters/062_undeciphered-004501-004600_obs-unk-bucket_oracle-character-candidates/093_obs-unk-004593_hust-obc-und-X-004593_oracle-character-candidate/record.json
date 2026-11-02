@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004593",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004593",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006186_hust-obc-und-X-004593_glyph.jpg",
+      "metadata": "images/001_asset-006186_hust-obc-und-X-004593_glyph.yaml",
+      "asset_id": "asset-006186",
+      "source_image_path": "HUST-OBC/undeciphered/X/149/X_？_8326_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "142",
+      "pixel_height": "288",
+      "sha256": "0b79e5411d228d06dab116745446c9e91032399dc5f85622f9e88fe43172a9f3",
+      "raw_source_sha256": "0b79e5411d228d06dab116745446c9e91032399dc5f85622f9e88fe43172a9f3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高的弧形外部轮廓围住中央区域。",
+      "左上内部有一个小的浅色开口。",
+      "深色中央块状痕迹向下延伸到内部下方。",
+      "外部轮廓向下收窄成尖状末端。",
+      "上部内部附近可见几条短的尖状痕迹。"
+    ],
+    "en": [
+      "A tall curved outer contour encloses the central area.",
+      "The upper left interior contains a small light opening.",
+      "A dense dark central mass descends into the lower interior.",
+      "The outer contour narrows toward a pointed lower terminal.",
+      "Several short pointed traces appear near the upper interior."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8326_1.png",
+    "prefix": "X",
+    "code": "？_8326_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "149",
+    "source_class_path": "HUST-OBC/undeciphered/X/149/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/149/X_？_8326_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/149/X_？_8326_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

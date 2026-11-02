@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001668",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001668",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003261_hust-obc-und-L-001668_glyph.jpg",
+      "metadata": "images/001_asset-003261_hust-obc-und-L-001668_glyph.yaml",
+      "asset_id": "asset-003261",
+      "source_image_path": "HUST-OBC/undeciphered/L/1668/L_？_14560.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "56",
+      "sha256": "22020cf98b42b9b25634f16fea9b7c1b6ee16e53b0b41bce3110dac372fc01e9",
+      "raw_source_sha256": "22020cf98b42b9b25634f16fea9b7c1b6ee16e53b0b41bce3110dac372fc01e9",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "较宽的上部横条位于密集中部交叉笔画之上，下方有长斜向外伸笔画。"
+    ],
+    "en": [
+      "A broad upper horizontal bar sits above a dense central crossing and a long diagonal lower extension."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14560.jpg",
+    "prefix": "L",
+    "code": "？_14560"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1668",
+    "source_class_path": "HUST-OBC/undeciphered/L/1668/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1668/L_？_14560.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1668/L_？_14560.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

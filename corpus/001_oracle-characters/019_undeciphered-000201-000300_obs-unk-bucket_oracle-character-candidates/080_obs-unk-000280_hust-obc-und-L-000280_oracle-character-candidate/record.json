@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000280",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000280",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001873_hust-obc-und-L-000280_glyph.jpg",
+      "metadata": "images/001_asset-001873_hust-obc-und-L-000280_glyph.yaml",
+      "asset_id": "asset-001873",
+      "source_image_path": "HUST-OBC/undeciphered/L/280/L_？_10892.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "47",
+      "pixel_height": "53",
+      "sha256": "a06a0837ebc4cdff713f0c49973dc1a3e09ef4eb1879e194c609a220520efa28",
+      "raw_source_sha256": "a06a0837ebc4cdff713f0c49973dc1a3e09ef4eb1879e194c609a220520efa28",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "四个三角或楔状外伸部分围绕中央交叉汇合，形成紧凑的放射状排列。"
+    ],
+    "en": [
+      "Four triangular or wedge-like projections meet around a central crossing to form a compact radial arrangement."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_10892.jpg",
+    "prefix": "L",
+    "code": "？_10892"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "280",
+    "source_class_path": "HUST-OBC/undeciphered/L/280/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/280/L_？_10892.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/280/L_？_10892.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

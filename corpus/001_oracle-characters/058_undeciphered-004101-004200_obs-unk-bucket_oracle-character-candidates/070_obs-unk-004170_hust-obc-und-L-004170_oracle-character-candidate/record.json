@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004170",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004170",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005763_hust-obc-und-L-004170_glyph.jpg",
+      "metadata": "images/001_asset-005763_hust-obc-und-L-004170_glyph.yaml",
+      "asset_id": "asset-005763",
+      "source_image_path": "HUST-OBC/undeciphered/L/4170/L_？_9036.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "53",
+      "sha256": "aca4bc535c31d123ae2e60199e76f0891439a804cf9e7a9524d0262239920c2b",
+      "raw_source_sha256": "aca4bc535c31d123ae2e60199e76f0891439a804cf9e7a9524d0262239920c2b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：左侧有一列由多个小型相连环状痕迹组成的纵向形态。",
+      "中文：右侧另有一条较长、基本直立的笔画。",
+      "中文：左侧链状形态包含数个重复的窄小开口。",
+      "中文：两组形态的上端和下端连接关系仍不确定。"
+    ],
+    "en": [
+      "English: The left side contains a vertical chain of small linked loops.",
+      "English: A long, mostly upright stroke stands separately on the right.",
+      "English: The left chain has several repeated narrow openings.",
+      "English: The top and bottom joins of both groups remain uncertain."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9036.jpg",
+    "prefix": "L",
+    "code": "？_9036"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4170",
+    "source_class_path": "HUST-OBC/undeciphered/L/4170/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4170/L_？_9036.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4170/L_？_9036.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

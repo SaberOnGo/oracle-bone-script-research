@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002653",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002653",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004246_hust-obc-und-L-002653_glyph.jpg",
+      "metadata": "images/001_asset-004246_hust-obc-und-L-002653_glyph.yaml",
+      "asset_id": "asset-004246",
+      "source_image_path": "HUST-OBC/undeciphered/L/2653/L_？_4136.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "62",
+      "sha256": "918ab79944cfe0adb540de43209f02d8e71264e930766f751dca72eee6e1f702",
+      "raw_source_sha256": "918ab79944cfe0adb540de43209f02d8e71264e930766f751dca72eee6e1f702",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部中央分出数条短笔痕。一条纵向笔痕向下接至横向底部，底部围住较浅的下方区域。"
+    ],
+    "en": [
+      "Several short strokes branch from the upper center. A vertical line descends to a horizontal base, which encloses a pale lower area."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_4136.jpg",
+    "prefix": "L",
+    "code": "？_4136"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2653",
+    "source_class_path": "HUST-OBC/undeciphered/L/2653/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2653/L_？_4136.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2653/L_？_4136.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

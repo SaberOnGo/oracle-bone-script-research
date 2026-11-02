@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004142",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004142",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005735_hust-obc-und-L-004142_glyph.jpg",
+      "metadata": "images/001_asset-005735_hust-obc-und-L-004142_glyph.yaml",
+      "asset_id": "asset-005735",
+      "source_image_path": "HUST-OBC/undeciphered/L/4142/L_？_8957.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "55",
+      "sha256": "19d0f59e907626ff25dadd0838bfb17d1c76b0ca00eec60fe598c8999ceea117",
+      "raw_source_sha256": "19d0f59e907626ff25dadd0838bfb17d1c76b0ca00eec60fe598c8999ceea117",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：图像中央有一个圆弧状的包围轮廓。",
+      "中文：一条横向深色痕迹穿过轮廓的上中部。",
+      "中文：下部内部可见一些深色痕迹。",
+      "中文：轮廓和内部边界有些位置并不平整。"
+    ],
+    "en": [
+      "English: A rounded enclosing outline occupies the image center.",
+      "English: A horizontal dark trace crosses its upper-middle area.",
+      "English: Inner dark traces are visible within the lower part.",
+      "English: The outline and internal boundaries are uneven in places."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8957.jpg",
+    "prefix": "L",
+    "code": "？_8957"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4142",
+    "source_class_path": "HUST-OBC/undeciphered/L/4142/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4142/L_？_8957.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4142/L_？_8957.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

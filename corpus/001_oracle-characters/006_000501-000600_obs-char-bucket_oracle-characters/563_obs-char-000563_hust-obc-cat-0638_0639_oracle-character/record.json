@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-000563",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0638_0639",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000568_hust-obc-cat-0638_0639_glyph.png",
+      "metadata": "images/001_asset-000568_hust-obc-cat-0638_0639_glyph.yaml",
+      "asset_id": "asset-000568",
+      "source_image_path": "HUST-OBC/deciphered/0638_0639/0638/G_0638_乙1390.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "80",
+      "pixel_height": "70",
+      "sha256": "ae6e858290602977f5955b6abf8aabc54e902f9a63f9e4d9fb5b258c9324339a",
+      "raw_source_sha256": "0cd371c77c00e07db23e0d59e5a226a2bf234002b65f555e27ac25c49479da16",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条分离弯折分支笔隔宽空隙相向排列，右侧形体延续为较长渐尖下斜笔。"
+    ],
+    "en": [
+      "Two detached bent branching strokes face one another across a wide gap; the right form continues into a longer tapered lower diagonal."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0638_乙1390.png",
+    "prefix": "G",
+    "old_catalog": "乙1390",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "0638_0639",
+    "validation_class_id": "562",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㙴㙵",
+    "codepoints": "U+3674;U+3675",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000563",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

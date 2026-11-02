@@ -1,0 +1,69 @@
+{
+  "id": "obs-unk-002838",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002838",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004431_hust-obc-und-L-002838_glyph.jpg",
+      "metadata": "images/001_asset-004431_hust-obc-und-L-002838_glyph.yaml",
+      "asset_id": "asset-004431",
+      "source_image_path": "HUST-OBC/undeciphered/L/2838/L_锛焈4750.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "62",
+      "sha256": "d28f93dbcddd9a4bd9d1a3a480f206013f196b06cc3611fcab9483410f7af31b",
+      "raw_source_sha256": "d28f93dbcddd9a4bd9d1a3a480f206013f196b06cc3611fcab9483410f7af31b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "顶部有小型分叉线组，向下连接一条较长弯曲线。",
+      "下部线迹向内弯成开口环状转折，图像中未见周围环境。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "A small forked stroke group at the top leads into one long curved descending line.",
+      "The lower line curls inward to form an open loop-like turn, with no surrounding context visible.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈4750.jpg",
+    "prefix": "L",
+    "code": "锛焈4750"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2838",
+    "source_class_path": "HUST-OBC/undeciphered/L/2838/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2838/L_？_4750.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2838/L_？_4750.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

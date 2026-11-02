@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004148",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004148",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005741_hust-obc-und-L-004148_glyph.jpg",
+      "metadata": "images/001_asset-005741_hust-obc-und-L-004148_glyph.yaml",
+      "asset_id": "asset-005741",
+      "source_image_path": "HUST-OBC/undeciphered/L/4148/L_？_8984.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "51",
+      "sha256": "e31e26e8286e6e0e7711e6ca7222be9b6241370233fde3763214ed5d754f1749",
+      "raw_source_sha256": "e31e26e8286e6e0e7711e6ca7222be9b6241370233fde3763214ed5d754f1749",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：一条横向痕迹穿过图像中央区域。",
+      "中文：左侧可见一个较窄的竖向轮廓。",
+      "中文：右侧有带尖端的上部轮廓和外侧竖向痕迹。",
+      "中文：中央痕迹及下端的连接关系仍不确定。"
+    ],
+    "en": [
+      "English: A horizontal trace crosses the central image area.",
+      "English: A narrow upright outline appears on the left side.",
+      "English: The right side has a pointed upper outline and outer vertical trace.",
+      "English: Connections at the central trace and lower ends are uncertain."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8984.jpg",
+    "prefix": "L",
+    "code": "？_8984"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4148",
+    "source_class_path": "HUST-OBC/undeciphered/L/4148/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4148/L_？_8984.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4148/L_？_8984.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

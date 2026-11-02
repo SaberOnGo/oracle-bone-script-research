@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001099",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1228",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001104_hust-obc-cat-1228_glyph.png",
+      "metadata": "images/001_asset-001104_hust-obc-cat-1228_glyph.yaml",
+      "asset_id": "asset-001104",
+      "source_image_path": "HUST-OBC/deciphered/1228/G_1228_掇2.62(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "80",
+      "sha256": "b50c05fc5bc78485023cccb4e6cf2456ba55a66e0905fbcc09cd082bf75d4ee7",
+      "raw_source_sha256": "5eb97e1e020f045626db575124591353b1c53a741196cd34ae3b4528d512303d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长竖向形体有尖状上部分枝、中央直立笔和圆弧下部弯笔。"
+    ],
+    "en": [
+      "A narrow vertical form has a pointed upper branch, a central upright, and a rounded lower curve."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1228_掇2.62(甲).png",
+    "prefix": "G",
+    "old_catalog": "掇2.62",
+    "old_catalog_abbr": "掇",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1228",
+    "validation_class_id": "1098",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㣂",
+    "codepoints": "U+38C2",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001099",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

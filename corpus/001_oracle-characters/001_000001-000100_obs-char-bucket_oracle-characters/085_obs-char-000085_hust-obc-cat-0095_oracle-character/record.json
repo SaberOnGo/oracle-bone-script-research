@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000085",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0095",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000090_hust-obc-cat-0095_glyph.png",
+      "metadata": "images/001_asset-000090_hust-obc-cat-0095_glyph.yaml",
+      "asset_id": "asset-000090",
+      "source_image_path": "HUST-OBC/deciphered/0095/G_0095_乙2844合11018賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "80",
+      "sha256": "3c44dbfb50f430e343624fad6094d7df3758a86432d840ec944d6d0a3694de92",
+      "raw_source_sha256": "f4fc6291b72291a1d607f9b61510c086634d35cfe146b0765c8a21b0aef7fcb6",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "孤立的狭长图像主要由一条长弯曲笔画构成，上部向内回转，底部收成钩状。"
+    ],
+    "en": [
+      "The isolated narrow image consists mainly of one long curving stroke that turns inward near the upper part and ends in a lower hook."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0095_乙2844合11018賓組.png",
+    "prefix": "G",
+    "heji": "合11018",
+    "old_catalog": "乙2844",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0095",
+    "validation_class_id": "84",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㑕",
+    "codepoints": "U+3455",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000085",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

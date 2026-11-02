@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000354",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000354",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001947_hust-obc-und-L-000354_glyph.jpg",
+      "metadata": "images/001_asset-001947_hust-obc-und-L-000354_glyph.yaml",
+      "asset_id": "asset-001947",
+      "source_image_path": "HUST-OBC/undeciphered/L/354/L_？_11125.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "55",
+      "sha256": "aed5c89fcd75062aca362d372cf20a67664c6a8a3d33e2e14efbba5c3d18fabb",
+      "raw_source_sha256": "aed5c89fcd75062aca362d372cf20a67664c6a8a3d33e2e14efbba5c3d18fabb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两组分离直立形体各自含小型上部笔块、中部交叉和短下部延伸。"
+    ],
+    "en": [
+      "Two separated upright groups each contain a small upper block, crossing middle strokes, and a short lower extension."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11125.jpg",
+    "prefix": "L",
+    "code": "？_11125"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "354",
+    "source_class_path": "HUST-OBC/undeciphered/L/354/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/354/L_？_11125.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/354/L_？_11125.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

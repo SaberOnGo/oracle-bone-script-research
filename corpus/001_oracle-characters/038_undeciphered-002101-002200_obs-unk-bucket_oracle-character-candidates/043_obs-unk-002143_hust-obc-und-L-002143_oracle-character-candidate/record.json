@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002143",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002143",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003736_hust-obc-und-L-002143_glyph.jpg",
+      "metadata": "images/001_asset-003736_hust-obc-und-L-002143_glyph.yaml",
+      "asset_id": "asset-003736",
+      "source_image_path": "HUST-OBC/undeciphered/L/2143/L_？_2452.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "26",
+      "pixel_height": "55",
+      "sha256": "3b1f5e893841118db85f96fea2b447bdb6c29ef6ae8eb742b0dc26d5b330f340",
+      "raw_source_sha256": "3b1f5e893841118db85f96fea2b447bdb6c29ef6ae8eb742b0dc26d5b330f340",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央竖线的上方有小的弯曲回环。下端变宽并形成短横笔痕，图像边缘较软且不均匀。"
+    ],
+    "en": [
+      "A small curved loop sits above a central vertical line. The lower end broadens into a short cross-stroke, and the image edges are soft and uneven."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2452.jpg",
+    "prefix": "L",
+    "code": "？_2452"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2143",
+    "source_class_path": "HUST-OBC/undeciphered/L/2143/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2143/L_？_2452.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2143/L_？_2452.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

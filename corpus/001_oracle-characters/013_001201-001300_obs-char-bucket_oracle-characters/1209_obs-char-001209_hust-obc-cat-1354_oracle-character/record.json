@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001209",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1354",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001214_hust-obc-cat-1354_glyph.png",
+      "metadata": "images/001_asset-001214_hust-obc-cat-1354_glyph.yaml",
+      "asset_id": "asset-001214",
+      "source_image_path": "HUST-OBC/deciphered/1354/G_1354_乙1215合6477賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "79",
+      "sha256": "e1ae308d4a778a176419c26b44cb1adf884a15236d354a213d778d6c0163c810",
+      "raw_source_sha256": "9243dbb320fd97e12ba2376f65316cc7f9541bb5c26266c3e1d7f23abbb96a53",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长分叉上部形体分成两条长下行弯笔，并在下端汇成尖状转折。"
+    ],
+    "en": [
+      "A narrow forked upper form divides into two long descending curves that join in a pointed lower turn."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1354_乙1215合6477賓組.png",
+    "prefix": "G",
+    "heji": "合6477",
+    "old_catalog": "乙1215",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1354",
+    "validation_class_id": "1208",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥀",
+    "codepoints": "U+3940",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001209",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

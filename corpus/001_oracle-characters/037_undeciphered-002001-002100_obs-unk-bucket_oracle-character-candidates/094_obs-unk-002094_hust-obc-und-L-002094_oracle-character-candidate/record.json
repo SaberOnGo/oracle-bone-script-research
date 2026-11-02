@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002094",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002094",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003687_hust-obc-und-L-002094_glyph.jpg",
+      "metadata": "images/001_asset-003687_hust-obc-und-L-002094_glyph.yaml",
+      "asset_id": "asset-003687",
+      "source_image_path": "HUST-OBC/undeciphered/L/2094/L_？_2245.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "60",
+      "sha256": "f97b55dc862e3e20037b22aff6b2e38d1361b9ea9aeedea069d8ec8ba3201ecb",
+      "raw_source_sha256": "f97b55dc862e3e20037b22aff6b2e38d1361b9ea9aeedea069d8ec8ba3201ecb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "这是一个窄而复杂的竖向笔画簇。上部有向两侧展开的交叉斜笔；中部包含数道直立或弯曲笔痕，下部较为密集，并有较深的钩状或折角笔痕组。边缘较软，看不到上下文。"
+    ],
+    "en": [
+      "This is a narrow, complex vertical cluster. The upper segment has crossed diagonal strokes spreading to both sides. The middle contains several upright or curved marks, and the lower part is denser, with a dark hooked or angled group. Edges are soft; no context is visible."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2245.jpg",
+    "prefix": "L",
+    "code": "？_2245"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2094",
+    "source_class_path": "HUST-OBC/undeciphered/L/2094/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2094/L_？_2245.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2094/L_？_2245.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-002958",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002958",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004551_hust-obc-und-L-002958_glyph.jpg",
+      "metadata": "images/001_asset-004551_hust-obc-und-L-002958_glyph.yaml",
+      "asset_id": "asset-004551",
+      "source_image_path": "HUST-OBC/undeciphered/L/2958/L_锛焈5224.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "50",
+      "sha256": "cec07aab9ca46dc56a1227a4b5b605467fd9a3b003c5e69eda4b89cce8c82b48",
+      "raw_source_sha256": "cec07aab9ca46dc56a1227a4b5b605467fd9a3b003c5e69eda4b89cce8c82b48",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像为小幅灰度裁切图，可见尖状上部轮廓及斜向两侧。",
+      "轮廓内部有一条短小圆转或竖向笔画。",
+      "下部保持开放，两侧笔画彼此分开。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "The small grayscale crop shows a pointed upper contour with sloping sides.",
+      "A short central loop or vertical mark sits inside the contour.",
+      "The lower area remains open, with separated strokes at the sides.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈5224.jpg",
+    "prefix": "L",
+    "code": "锛焈5224"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2958",
+    "source_class_path": "HUST-OBC/undeciphered/L/2958/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2958/L_？_5224.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2958/L_？_5224.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

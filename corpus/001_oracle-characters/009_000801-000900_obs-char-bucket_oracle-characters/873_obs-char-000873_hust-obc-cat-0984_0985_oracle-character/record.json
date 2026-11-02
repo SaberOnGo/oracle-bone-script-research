@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000873",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0984_0985",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000878_hust-obc-cat-0984_0985_glyph.png",
+      "metadata": "images/001_asset-000878_hust-obc-cat-0984_0985_glyph.yaml",
+      "asset_id": "asset-000878",
+      "source_image_path": "HUST-OBC/deciphered/0984_0985/0984/G_0984_乙7336合8310賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "59",
+      "pixel_height": "80",
+      "sha256": "074b96ea8559043b220762c86dde1dbafc507ab6c682a501a5286588533c1a44",
+      "raw_source_sha256": "a037684f39ef46906d31d9a3cf0362421d7ee0786879af79e471ef40e782bd92",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数条纤细斜笔在下中部形成三角接点，两侧有高长侧笔，右侧另有分离短笔。"
+    ],
+    "en": [
+      "Several thin diagonal strokes form a central triangular lower junction, with tall side strokes and a detached short mark at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0984_乙7336合8310賓組.png",
+    "prefix": "G",
+    "heji": "合8310",
+    "old_catalog": "乙7336",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0984_0985",
+    "validation_class_id": "872",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㟎㟏",
+    "codepoints": "U+37CE;U+37CF",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000873",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

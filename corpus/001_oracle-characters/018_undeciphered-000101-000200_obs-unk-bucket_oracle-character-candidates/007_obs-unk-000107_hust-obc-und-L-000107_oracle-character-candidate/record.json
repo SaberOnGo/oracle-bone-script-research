@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000107",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000107",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001700_hust-obc-und-L-000107_glyph.jpg",
+      "metadata": "images/001_asset-001700_hust-obc-und-L-000107_glyph.yaml",
+      "asset_id": "asset-001700",
+      "source_image_path": "HUST-OBC/undeciphered/L/107/L_？_10319.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "61",
+      "sha256": "255cd9ae0014a3427093f3a4e38e41ae2ca703ae128b525d199c43463161705b",
+      "raw_source_sha256": "255cd9ae0014a3427093f3a4e38e41ae2ca703ae128b525d199c43463161705b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "紧凑图像上方有尖状轮廓，中部有窄的交叉笔，下方有多处短伸出。"
+    ],
+    "en": [
+      "A compact image has a pointed upper contour, a narrow central crossing, and several short lower projections."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_10319.jpg",
+    "prefix": "L",
+    "code": "？_10319"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "107",
+    "source_class_path": "HUST-OBC/undeciphered/L/107/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/107/L_？_10319.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/107/L_？_10319.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

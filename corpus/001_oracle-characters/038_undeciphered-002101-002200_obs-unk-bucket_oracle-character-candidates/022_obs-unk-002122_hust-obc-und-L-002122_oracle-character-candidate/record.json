@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002122",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002122",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003715_hust-obc-und-L-002122_glyph.jpg",
+      "metadata": "images/001_asset-003715_hust-obc-und-L-002122_glyph.yaml",
+      "asset_id": "asset-003715",
+      "source_image_path": "HUST-OBC/undeciphered/L/2122/L_？_2384.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "46",
+      "pixel_height": "56",
+      "sha256": "3d41baddd47f009770bcf168a81b5f131848a349d9863b5eef2c9c9d008922cf",
+      "raw_source_sha256": "3d41baddd47f009770bcf168a81b5f131848a349d9863b5eef2c9c9d008922cf",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧有一道较粗的弯曲笔痕向下，并在下部弯成圆转的回折。上右侧另有一个独立的小深色矩形笔痕。"
+    ],
+    "en": [
+      "A thick curved stroke descends on the left and turns upward into a rounded lower bend. A small dark rectangular mark is separate at the upper right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2384.jpg",
+    "prefix": "L",
+    "code": "？_2384"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2122",
+    "source_class_path": "HUST-OBC/undeciphered/L/2122/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2122/L_？_2384.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2122/L_？_2384.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

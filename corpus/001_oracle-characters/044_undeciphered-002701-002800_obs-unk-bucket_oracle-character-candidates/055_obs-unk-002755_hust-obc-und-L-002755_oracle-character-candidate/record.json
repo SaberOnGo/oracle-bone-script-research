@@ -1,0 +1,69 @@
+{
+  "id": "obs-unk-002755",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002755",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004348_hust-obc-und-L-002755_glyph.jpg",
+      "metadata": "images/001_asset-004348_hust-obc-und-L-002755_glyph.yaml",
+      "asset_id": "asset-004348",
+      "source_image_path": "HUST-OBC/undeciphered/L/2755/L_锛焈4491.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "53",
+      "sha256": "7ed5c34263de13c98fce8bd477000eb02a6b7eef658c6c558c0a77e1824fc6bc",
+      "raw_source_sha256": "7ed5c34263de13c98fce8bd477000eb02a6b7eef658c6c558c0a77e1824fc6bc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像显示一个带短横笔画的小型圆弧上部形态。",
+      "一条长斜向笔画从中央向下延伸，并与较短下部笔画相交。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "The image shows a small rounded upper form with a short horizontal stroke.",
+      "A long diagonal stroke descends from the center and crosses a shorter lower stroke.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈4491.jpg",
+    "prefix": "L",
+    "code": "锛焈4491"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2755",
+    "source_class_path": "HUST-OBC/undeciphered/L/2755/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2755/L_？_4491.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2755/L_？_4491.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

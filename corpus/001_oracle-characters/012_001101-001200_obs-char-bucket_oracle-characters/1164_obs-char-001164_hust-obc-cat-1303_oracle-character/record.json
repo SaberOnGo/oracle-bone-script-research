@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001164",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1303",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001169_hust-obc-cat-1303_glyph.png",
+      "metadata": "images/001_asset-001169_hust-obc-cat-1303_glyph.yaml",
+      "asset_id": "asset-001169",
+      "source_image_path": "HUST-OBC/deciphered/1303/G_1303_後2.6.2(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "49",
+      "pixel_height": "80",
+      "sha256": "e18bc8d6c4f5e789e4b47ff57c6a6a7336a2787d87e03ccd28be4727ffcfba05",
+      "raw_source_sha256": "7fb3b414a1f5b6f630225be84e56cdb5d2faa575ce60556960eaa95f1be02037",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个折角块面由中央交叉相连，左侧有尖状外伸，右侧有圆弧形框廓。"
+    ],
+    "en": [
+      "Two angular masses are linked by a central crossing, with a pointed left projection and a rounded right enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1303_後2.6.2(甲).png",
+    "prefix": "G",
+    "old_catalog": "後2.6.2",
+    "old_catalog_abbr": "後",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1303",
+    "validation_class_id": "1163",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㤍",
+    "codepoints": "U+390D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001164",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

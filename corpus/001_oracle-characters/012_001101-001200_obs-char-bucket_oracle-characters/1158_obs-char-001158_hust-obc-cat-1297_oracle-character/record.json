@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001158",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1297",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001163_hust-obc-cat-1297_glyph.png",
+      "metadata": "images/001_asset-001163_hust-obc-cat-1297_glyph.yaml",
+      "asset_id": "asset-001163",
+      "source_image_path": "HUST-OBC/deciphered/1297/X_1297_4676_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "140",
+      "pixel_height": "299",
+      "sha256": "b462551a8a980106fa5340c421e2fe360129faa3a035820bcc33173159e10fd2",
+      "raw_source_sha256": "63c4d11ce08a33ed3aaecf5a2d8faa56482e8ec7cd94762058479cd4ca17d354",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高而密集的形体有中央长直立笔、向左挥出的笔、右侧弯曲框廓和数条下行线。"
+    ],
+    "en": [
+      "A tall dense form has a long central upright, a sweeping left stroke, a curved right enclosure, and several lower descending lines."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1297_4676_1.png",
+    "prefix": "X",
+    "code": "1297_4676_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1297",
+    "validation_class_id": "1157",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㤇",
+    "codepoints": "U+3907",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001158",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

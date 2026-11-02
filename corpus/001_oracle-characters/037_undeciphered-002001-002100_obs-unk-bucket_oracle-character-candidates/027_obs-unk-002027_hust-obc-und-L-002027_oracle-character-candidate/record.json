@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002027",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002027",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003620_hust-obc-und-L-002027_glyph.jpg",
+      "metadata": "images/001_asset-003620_hust-obc-und-L-002027_glyph.yaml",
+      "asset_id": "asset-003620",
+      "source_image_path": "HUST-OBC/undeciphered/L/2027/L_？_2025.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "31",
+      "pixel_height": "45",
+      "sha256": "2eab9545e0994c4f8f8ab159312eff67fc1fd9e8ea52046745ce41c0904afff8",
+      "raw_source_sha256": "2eab9545e0994c4f8f8ab159312eff67fc1fd9e8ea52046745ce41c0904afff8",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部有短横向笔痕，中央附近带有小的突出处。下方接一组较窄的下伸笔画，并分成两条收尖的下部笔痕；外轮廓未闭合。"
+    ],
+    "en": [
+      "A short upper bar has small projections near its center. A narrow descending group continues below it and separates into two tapered lower strokes; the outer contour is not closed."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2025.jpg",
+    "prefix": "L",
+    "code": "？_2025"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2027",
+    "source_class_path": "HUST-OBC/undeciphered/L/2027/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2027/L_？_2025.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2027/L_？_2025.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

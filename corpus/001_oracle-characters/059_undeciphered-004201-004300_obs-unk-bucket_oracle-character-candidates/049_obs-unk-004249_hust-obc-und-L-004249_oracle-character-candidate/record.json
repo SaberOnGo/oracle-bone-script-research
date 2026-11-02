@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004249",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004249",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005842_hust-obc-und-L-004249_glyph.jpg",
+      "metadata": "images/001_asset-005842_hust-obc-und-L-004249_glyph.yaml",
+      "asset_id": "asset-005842",
+      "source_image_path": "HUST-OBC/undeciphered/L/4249/L_？_9359.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "56",
+      "sha256": "25bbb9381e07f5cdf4cee6c00ccc9afd15fefb13e82ba59e44c4d517f2ddb61c",
+      "raw_source_sha256": "25bbb9381e07f5cdf4cee6c00ccc9afd15fefb13e82ba59e44c4d517f2ddb61c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：左侧有一条较深的竖向痕迹作为主要痕迹。",
+      "中文：左侧痕迹向右伸出数条短小棱角状痕迹。",
+      "中文：右侧有一处带内部开口的弯曲痕迹簇。",
+      "中文：下端痕迹较短，形态不均一，部分有所淡化。"
+    ],
+    "en": [
+      "English: A dark vertical trace anchors the left side.",
+      "English: Angular short branches project from the left trace.",
+      "English: A rounded cluster with an open interior appears on the right.",
+      "English: Lower terminals are short, uneven, and partly faded."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9359.jpg",
+    "prefix": "L",
+    "code": "？_9359"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4249",
+    "source_class_path": "HUST-OBC/undeciphered/L/4249/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4249/L_？_9359.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4249/L_？_9359.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

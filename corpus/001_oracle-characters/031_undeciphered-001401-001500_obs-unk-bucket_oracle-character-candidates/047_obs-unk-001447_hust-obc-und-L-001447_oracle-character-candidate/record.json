@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001447",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001447",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003040_hust-obc-und-L-001447_glyph.jpg",
+      "metadata": "images/001_asset-003040_hust-obc-und-L-001447_glyph.yaml",
+      "asset_id": "asset-003040",
+      "source_image_path": "HUST-OBC/undeciphered/L/1447/L_？_14045.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "53",
+      "sha256": "256dd3d3305d4f2c1d651962e016440bbc3a7af74f795bfa790054973413d17c",
+      "raw_source_sha256": "256dd3d3305d4f2c1d651962e016440bbc3a7af74f795bfa790054973413d17c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型近圆上部痕迹位于锯齿状下部形体之上，下方有短底线。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A small rounded upper mark sits above a zigzag lower body resting on a short base line."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14045.jpg",
+    "prefix": "L",
+    "code": "？_14045"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1447",
+    "source_class_path": "HUST-OBC/undeciphered/L/1447/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1447/L_？_14045.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1447/L_？_14045.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

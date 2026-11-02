@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002347",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002347",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003940_hust-obc-und-L-002347_glyph.jpg",
+      "metadata": "images/001_asset-003940_hust-obc-und-L-002347_glyph.yaml",
+      "asset_id": "asset-003940",
+      "source_image_path": "HUST-OBC/undeciphered/L/2347/L_？_3096.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "61",
+      "sha256": "2bbc64c4a72c27d14a9269f2dffcc05c3f73a35ebc9afd64929505a43ccba36f",
+      "raw_source_sha256": "2bbc64c4a72c27d14a9269f2dffcc05c3f73a35ebc9afd64929505a43ccba36f",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "数条弯曲和折角线条构成紧凑的上部线束。中央有多条分支下行，两侧可见窄而渐细的线痕。可见部分保持开放，没有形成明确的封闭外边界。"
+    ],
+    "en": [
+      "Several curved and angular strokes form a compact upper cluster. Multiple branches descend from the center, with narrow tapered traces on both sides. The visible elements remain open and do not establish a closed outer boundary."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_3096.jpg",
+    "prefix": "L",
+    "code": "？_3096"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2347",
+    "source_class_path": "HUST-OBC/undeciphered/L/2347/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2347/L_？_3096.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2347/L_？_3096.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000734",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0835_0836",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000739_hust-obc-cat-0835_0836_glyph.png",
+      "metadata": "images/001_asset-000739_hust-obc-cat-0835_0836_glyph.yaml",
+      "asset_id": "asset-000739",
+      "source_image_path": "HUST-OBC/deciphered/0835_0836/0835/H_0835_607D6_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "165",
+      "pixel_height": "235",
+      "sha256": "3b9c8ad8a67eb77d41342e8592c59211e5d3d8216fea8045afc014efaf66a919",
+      "raw_source_sha256": "52cc89cce39960f5a6a36846283ab6aed72c1756868098a5d9312a7e2c0b85e2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧大分枝干由竖笔、两条上斜枝和两条长下腿组成；右侧三条分离短斜痕纵向排列。"
+    ],
+    "en": [
+      "A large left branching trunk combines an upright, two upper diagonals, and two long lower legs; three detached short slanting marks form a vertical row at right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0835_607D6_0.png",
+    "prefix": "H",
+    "code": "0835_607D6_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0835_0836",
+    "validation_class_id": "733",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㜹㜺",
+    "codepoints": "U+3739;U+373A",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000734",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

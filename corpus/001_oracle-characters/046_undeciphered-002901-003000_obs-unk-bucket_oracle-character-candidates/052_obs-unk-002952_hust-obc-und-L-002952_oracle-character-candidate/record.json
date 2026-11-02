@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-002952",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002952",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004545_hust-obc-und-L-002952_glyph.jpg",
+      "metadata": "images/001_asset-004545_hust-obc-und-L-002952_glyph.yaml",
+      "asset_id": "asset-004545",
+      "source_image_path": "HUST-OBC/undeciphered/L/2952/L_锛焈5164.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "47",
+      "sha256": "0f42dffb21271b41d06883b32b8bfa2b8bbf35f2a3ab5aa8bd48b31bdb822353",
+      "raw_source_sha256": "0f42dffb21271b41d06883b32b8bfa2b8bbf35f2a3ab5aa8bd48b31bdb822353",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像为小幅灰度裁切图，可见一条较长的上部横向笔画。",
+      "数条竖向或斜向笔画从横笔画及其下方延伸。",
+      "中部区域比两侧笔画更深、更为紧凑。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "The small grayscale crop shows a long horizontal upper stroke.",
+      "Several vertical or diagonal strokes descend from and below the upper stroke.",
+      "The central region is darker and more compact than the side strokes.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈5164.jpg",
+    "prefix": "L",
+    "code": "锛焈5164"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2952",
+    "source_class_path": "HUST-OBC/undeciphered/L/2952/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2952/L_？_5164.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2952/L_？_5164.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

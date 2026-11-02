@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001850",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001850",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003443_hust-obc-und-L-001850_glyph.jpg",
+      "metadata": "images/001_asset-003443_hust-obc-und-L-001850_glyph.yaml",
+      "asset_id": "asset-003443",
+      "source_image_path": "HUST-OBC/undeciphered/L/1850/L_？_15106.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "53",
+      "sha256": "d89fd8f4838efbedab02bdd6cf65b76f923f97c88e80e54ef5bf4771d3284121",
+      "raw_source_sha256": "d89fd8f4838efbedab02bdd6cf65b76f923f97c88e80e54ef5bf4771d3284121",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中央是不规则圆转外形，内部有交叉笔痕。左侧伸出不整齐的方折笔痕，右侧有一条短钩形笔痕。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "An irregular rounded central form contains crossed internal strokes. Uneven angular marks extend on the left, while a short hooked stroke projects on the right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_15106.jpg",
+    "prefix": "L",
+    "code": "？_15106"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1850",
+    "source_class_path": "HUST-OBC/undeciphered/L/1850/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1850/L_？_15106.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1850/L_？_15106.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

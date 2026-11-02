@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000203",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0226",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000208_hust-obc-cat-0226_glyph.png",
+      "metadata": "images/001_asset-000208_hust-obc-cat-0226_glyph.yaml",
+      "asset_id": "asset-000208",
+      "source_image_path": "HUST-OBC/deciphered/0226/G_0226_乙9091反合20045反𠂤組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "60",
+      "pixel_height": "80",
+      "sha256": "41bcb5f2c982896ee935bec606a5eaff940e733f3518c580eb7e442e3839e89b",
+      "raw_source_sha256": "2acd09920780680099733b9fbbf57378acde8c3dc7694e41ed7e1e77710edd0c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像下部有深圆弧碗状框，内部有两道短竖笔，上方中央有窄开口。"
+    ],
+    "en": [
+      "The image has a deep rounded lower bowl, two short upright strokes inside, and a narrow central opening at the top."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0226_乙9091反合20045反𠂤組.png",
+    "prefix": "G",
+    "heji": "合20045",
+    "old_catalog": "乙9091",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反反𠂤組"
+  },
+  "dataset_category": {
+    "source_category_id": "0226",
+    "validation_class_id": "202",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㓘",
+    "codepoints": "U+34D8",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000203",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

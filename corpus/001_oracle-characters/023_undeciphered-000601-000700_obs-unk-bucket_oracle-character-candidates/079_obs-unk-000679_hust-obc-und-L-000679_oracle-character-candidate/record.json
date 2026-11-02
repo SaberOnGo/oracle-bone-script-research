@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000679",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000679",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002272_hust-obc-und-L-000679_glyph.jpg",
+      "metadata": "images/001_asset-002272_hust-obc-und-L-000679_glyph.yaml",
+      "asset_id": "asset-002272",
+      "source_image_path": "HUST-OBC/undeciphered/L/679/L_？_1201.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "61",
+      "sha256": "b9572c38a916d555ece7452d3abe57ba264529ed62067a82858a6433d453b405",
+      "raw_source_sha256": "b9572c38a916d555ece7452d3abe57ba264529ed62067a82858a6433d453b405",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高窄波曲笔组上部有尖角笔画，中部留开放通道，左侧有长弧形下行。"
+    ],
+    "en": [
+      "A tall narrow wavy composite has pointed upper strokes, an open central channel, and a long curved descent at the left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1201.jpg",
+    "prefix": "L",
+    "code": "？_1201"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "679",
+    "source_class_path": "HUST-OBC/undeciphered/L/679/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/679/L_？_1201.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/679/L_？_1201.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

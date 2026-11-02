@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004588",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004588",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006181_hust-obc-und-X-004588_glyph.jpg",
+      "metadata": "images/001_asset-006181_hust-obc-und-X-004588_glyph.yaml",
+      "asset_id": "asset-006181",
+      "source_image_path": "HUST-OBC/undeciphered/X/144/X_？_8322_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "228",
+      "pixel_height": "266",
+      "sha256": "af2973af8b068cbedb0c56d7dbc5549a9c2d3949d57e0c202ebd62f74cb6c4e2",
+      "raw_source_sha256": "af2973af8b068cbedb0c56d7dbc5549a9c2d3949d57e0c202ebd62f74cb6c4e2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽的外部轮廓围出多个分离的浅色开口。",
+      "左上开口呈三角形轮廓。",
+      "中部有一条较长的横向开口。",
+      "左下开口圆曲且不规则。",
+      "右侧形成粗重的弯曲外部支痕。"
+    ],
+    "en": [
+      "A broad outer contour encloses several separated light openings.",
+      "The upper left opening has a triangular outline.",
+      "A long horizontal opening appears across the middle.",
+      "A lower left opening is rounded and irregular.",
+      "The right side forms a thick curved outer branch."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8322_1.png",
+    "prefix": "X",
+    "code": "？_8322_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "144",
+    "source_class_path": "HUST-OBC/undeciphered/X/144/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/144/X_？_8322_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/144/X_？_8322_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

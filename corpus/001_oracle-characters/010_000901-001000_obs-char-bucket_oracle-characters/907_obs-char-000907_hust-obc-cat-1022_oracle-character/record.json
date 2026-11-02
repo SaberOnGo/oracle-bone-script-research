@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000907",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1022",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000912_hust-obc-cat-1022_glyph.png",
+      "metadata": "images/001_asset-000912_hust-obc-cat-1022_glyph.yaml",
+      "asset_id": "asset-000912",
+      "source_image_path": "HUST-OBC/deciphered/1022/G_1022_乙8691合22132子組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "66",
+      "pixel_height": "80",
+      "sha256": "5bfe22c65dc7ef1f8661a79b2e200c417045244bce5bcabaf589f1a164bc17d9",
+      "raw_source_sha256": "6c098055bc33833b3bf7790d1fc24ee22be4085d301d647a24472a129c4e15b5",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "可见三组分离形体：上方小型钩状痕迹，以及下方两个带内部直立笔和短侧笔的圆弧形体。"
+    ],
+    "en": [
+      "Three separated groups are visible: a small hooked upper mark and two rounded lower forms with internal uprights and short side marks."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1022_乙8691合22132子組.png",
+    "prefix": "G",
+    "heji": "合22132",
+    "old_catalog": "乙8691",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "子組"
+  },
+  "dataset_category": {
+    "source_category_id": "1022",
+    "validation_class_id": "906",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟴",
+    "codepoints": "U+37F4",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000907",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

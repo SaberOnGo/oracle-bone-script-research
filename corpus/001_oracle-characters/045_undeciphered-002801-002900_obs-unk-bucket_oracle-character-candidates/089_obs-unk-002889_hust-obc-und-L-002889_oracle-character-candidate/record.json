@@ -1,0 +1,72 @@
+{
+  "id": "obs-unk-002889",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002889",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004482_hust-obc-und-L-002889_glyph.jpg",
+      "metadata": "images/001_asset-004482_hust-obc-und-L-002889_glyph.yaml",
+      "asset_id": "asset-004482",
+      "source_image_path": "HUST-OBC/undeciphered/L/2889/L_锛焈4964.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "56",
+      "sha256": "50deb3df946a74451b5aaab51a1bb7ddc8c0035d95cc39f7e810d38d553438eb",
+      "raw_source_sha256": "50deb3df946a74451b5aaab51a1bb7ddc8c0035d95cc39f7e810d38d553438eb",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "多条斜向和弯曲笔画从窄中央轴线分出。",
+      "底部可见短横或弧形基部，上部笔画彼此分离且不规则。",
+      "裁切图未显示表面环境或笔顺。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "Several diagonal and curved strokes branch from a narrow central axis. A",
+      "short horizontal or curved base appears at the bottom, while the upper",
+      "strokes remain separated and irregular.",
+      "The crop does not show surface context or stroke order.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈4964.jpg",
+    "prefix": "L",
+    "code": "锛焈4964"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2889",
+    "source_class_path": "HUST-OBC/undeciphered/L/2889/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2889/L_？_4964.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2889/L_？_4964.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

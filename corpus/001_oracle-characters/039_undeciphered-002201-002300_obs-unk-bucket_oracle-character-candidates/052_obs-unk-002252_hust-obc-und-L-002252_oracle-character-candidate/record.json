@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002252",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002252",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003845_hust-obc-und-L-002252_glyph.jpg",
+      "metadata": "images/001_asset-003845_hust-obc-und-L-002252_glyph.yaml",
+      "asset_id": "asset-003845",
+      "source_image_path": "HUST-OBC/undeciphered/L/2252/L_？_2842.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "51",
+      "sha256": "267edfd47f960a504e3b28b63616e696e64135732bc94c9a9fccce05612c269a",
+      "raw_source_sha256": "267edfd47f960a504e3b28b63616e696e64135732bc94c9a9fccce05612c269a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "可见紧凑的四边转折轮廓，内部较浅。上下端比两侧更尖，两侧边缘略带弯曲。"
+    ],
+    "en": [
+      "A compact four-sided angular outline is visible with a light interior. The upper and lower points are sharper than the side edges, which appear slightly curved."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_2842.jpg",
+    "prefix": "L",
+    "code": "？_2842"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2252",
+    "source_class_path": "HUST-OBC/undeciphered/L/2252/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2252/L_？_2842.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2252/L_？_2842.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

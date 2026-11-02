@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004639",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004639",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006232_hust-obc-und-X-004639_glyph.jpg",
+      "metadata": "images/001_asset-006232_hust-obc-und-X-004639_glyph.yaml",
+      "asset_id": "asset-006232",
+      "source_image_path": "HUST-OBC/undeciphered/X/195/X_？_8368_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "151",
+      "pixel_height": "286",
+      "sha256": "a11c98092d25cbff5696a76e7bdc16402ff9104291d8910fa30b8873c05a13ae",
+      "raw_source_sha256": "a11c98092d25cbff5696a76e7bdc16402ff9104291d8910fa30b8873c05a13ae",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "可见上下分离的两组弧形笔画。",
+      "上方形体近似倒置拱形，下侧保持开口。",
+      "下方形体近似圆弧状的 U 形，上侧保持开口。",
+      "两组形体的笔画端部都不均匀，并非清晰的规则收笔。",
+      "下方形体左侧另有一个小的孤立痕迹。"
+    ],
+    "en": [
+      "Two separated curved forms are visible, one above the other.",
+      "The upper form resembles an inverted arch with an open lower side.",
+      "The lower form resembles a rounded U with an open upper side.",
+      "Both forms have uneven, thickened ends rather than clean terminals.",
+      "A small isolated mark appears to the left of the lower form.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8368_1.png",
+    "prefix": "X",
+    "code": "？_8368_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "195",
+    "source_class_path": "HUST-OBC/undeciphered/X/195/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/195/X_？_8368_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/195/X_？_8368_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

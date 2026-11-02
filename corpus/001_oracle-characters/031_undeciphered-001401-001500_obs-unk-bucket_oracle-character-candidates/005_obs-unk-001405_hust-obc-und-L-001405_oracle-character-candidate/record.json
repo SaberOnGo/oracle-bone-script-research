@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001405",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001405",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002998_hust-obc-und-L-001405_glyph.jpg",
+      "metadata": "images/001_asset-002998_hust-obc-und-L-001405_glyph.yaml",
+      "asset_id": "asset-002998",
+      "source_image_path": "HUST-OBC/undeciphered/L/1405/L_？_13936.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "43",
+      "pixel_height": "57",
+      "sha256": "b51c9d3796085d4cfeab27466237283533d2db645b6953258b2b1c1c66ac5294",
+      "raw_source_sha256": "b51c9d3796085d4cfeab27466237283533d2db645b6953258b2b1c1c66ac5294",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "右侧有较宽深色竖向墨痕，左侧为开口弯曲笔痕。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A broad dark vertical mass occupies the right side, with an open curved stroke on the left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_13936.jpg",
+    "prefix": "L",
+    "code": "？_13936"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1405",
+    "source_class_path": "HUST-OBC/undeciphered/L/1405/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1405/L_？_13936.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1405/L_？_13936.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

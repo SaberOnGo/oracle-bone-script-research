@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000740",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000740",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002333_hust-obc-und-L-000740_glyph.jpg",
+      "metadata": "images/001_asset-002333_hust-obc-und-L-000740_glyph.yaml",
+      "asset_id": "asset-002333",
+      "source_image_path": "HUST-OBC/undeciphered/L/740/L_？_12175.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "61",
+      "sha256": "4c94a1cafb24896d0e859d143609ce650c49de0748d2894c3bc785b9972af300",
+      "raw_source_sha256": "4c94a1cafb24896d0e859d143609ce650c49de0748d2894c3bc785b9972af300",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧小型环状笔组旁有高直叠置右部，内部含横向和斜向笔画。"
+    ],
+    "en": [
+      "A small looped left cluster stands beside a tall stacked right form with horizontal and angled interior strokes."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12175.jpg",
+    "prefix": "L",
+    "code": "？_12175"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "740",
+    "source_class_path": "HUST-OBC/undeciphered/L/740/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/740/L_？_12175.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/740/L_？_12175.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

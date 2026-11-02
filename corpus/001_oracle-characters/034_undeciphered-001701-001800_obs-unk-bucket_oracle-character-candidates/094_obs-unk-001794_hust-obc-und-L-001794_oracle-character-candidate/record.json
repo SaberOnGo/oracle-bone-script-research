@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001794",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001794",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003387_hust-obc-und-L-001794_glyph.jpg",
+      "metadata": "images/001_asset-003387_hust-obc-und-L-001794_glyph.yaml",
+      "asset_id": "asset-003387",
+      "source_image_path": "HUST-OBC/undeciphered/L/1794/L_？_14914.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "53",
+      "sha256": "353fe1ec73e31dce0df8404a565c44dc2b575a8f6895970eaa5cf80102bb3cf1",
+      "raw_source_sha256": "353fe1ec73e31dce0df8404a565c44dc2b575a8f6895970eaa5cf80102bb3cf1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "深色横向上带下接两组狭长下垂笔痕；下端不整齐且分离。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "A dark horizontal top band sits above two narrow descending side groups; the lower ends are irregular and separated."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14914.jpg",
+    "prefix": "L",
+    "code": "？_14914"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1794",
+    "source_class_path": "HUST-OBC/undeciphered/L/1794/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1794/L_？_14914.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1794/L_？_14914.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

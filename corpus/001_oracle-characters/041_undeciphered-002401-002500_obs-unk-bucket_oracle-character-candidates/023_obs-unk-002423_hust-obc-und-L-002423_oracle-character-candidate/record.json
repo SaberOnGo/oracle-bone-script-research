@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002423",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002423",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004016_hust-obc-und-L-002423_glyph.jpg",
+      "metadata": "images/001_asset-004016_hust-obc-und-L-002423_glyph.yaml",
+      "asset_id": "asset-004016",
+      "source_image_path": "HUST-OBC/undeciphered/L/2423/L_？_3445.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "41",
+      "pixel_height": "51",
+      "sha256": "6de663f8f954b51a5320721dca48d90ebcafa8643c92ed10351ec4501ec2c23b",
+      "raw_source_sha256": "6de663f8f954b51a5320721dca48d90ebcafa8643c92ed10351ec4501ec2c23b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "左侧有弯曲笔画，右侧有较高的弯曲笔画，两者之间仍可见一处小的内部笔痕。"
+    ],
+    "en": [
+      "A rounded left stroke is paired with a taller curved right stroke; a small inner mark remains visible between them."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_3445.jpg",
+    "prefix": "L",
+    "code": "？_3445"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2423",
+    "source_class_path": "HUST-OBC/undeciphered/L/2423/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2423/L_？_3445.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2423/L_？_3445.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

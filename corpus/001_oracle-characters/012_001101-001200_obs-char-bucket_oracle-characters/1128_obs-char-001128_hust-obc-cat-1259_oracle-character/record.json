@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001128",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1259",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001133_hust-obc-cat-1259_glyph.png",
+      "metadata": "images/001_asset-001133_hust-obc-cat-1259_glyph.yaml",
+      "asset_id": "asset-001133",
+      "source_image_path": "HUST-OBC/deciphered/1259/G_1259_七S127合7006.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "57",
+      "pixel_height": "80",
+      "sha256": "86b323ae3e2ba8cdb594a8758e16e255713816032b0d6635ef4fede9e14a4372",
+      "raw_source_sha256": "3519eb79342edfd0c2747050441ca3d8866ca28f71102d3e20d21deb3dbd9d2e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "可见三个分离的棱角笔群，其中有两个上部形体和一个较小的尖状下部形体。"
+    ],
+    "en": [
+      "Three separated angular clusters are visible, with two upper forms and a smaller pointed lower form."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1259_七S127合7006.png",
+    "prefix": "G",
+    "heji": "合7006",
+    "old_catalog": "七S127",
+    "old_catalog_abbr": "七S",
+    "old_catalog_abbr_obm_label": ""
+  },
+  "dataset_category": {
+    "source_category_id": "1259",
+    "validation_class_id": "1127",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㣡",
+    "codepoints": "U+38E1",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001128",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

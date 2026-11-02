@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000871",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0982",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000876_hust-obc-cat-0982_glyph.png",
+      "metadata": "images/001_asset-000876_hust-obc-cat-0982_glyph.yaml",
+      "asset_id": "asset-000876",
+      "source_image_path": "HUST-OBC/deciphered/0982/G_0982_乙3422(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "80",
+      "sha256": "2fd9e05e11d4f92c23636b830c32187ee38696b8a2ce58777d679268ae27032b",
+      "raw_source_sha256": "429b49ce440f80caa749a8b8d10e49c98726b9d6729269442156acd365437e5e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细尖形上部轮廓向下连接圆弧中部痕迹和带两条短腿的浅横底笔；右侧痕迹分离。"
+    ],
+    "en": [
+      "A thin pointed upper outline descends into rounded middle marks and a shallow lower bar with two short legs; a right mark is detached."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0982_乙3422(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙3422",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0982",
+    "validation_class_id": "870",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟌",
+    "codepoints": "U+37CC",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000871",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

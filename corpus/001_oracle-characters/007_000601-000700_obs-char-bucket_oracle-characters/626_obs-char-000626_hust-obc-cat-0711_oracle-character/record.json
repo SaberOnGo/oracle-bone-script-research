@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000626",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0711",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000631_hust-obc-cat-0711_glyph.png",
+      "metadata": "images/001_asset-000631_hust-obc-cat-0711_glyph.yaml",
+      "asset_id": "asset-000631",
+      "source_image_path": "HUST-OBC/deciphered/0711/G_0711_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "73",
+      "pixel_height": "80",
+      "sha256": "5d9055d581b4b94b7748e12f843a586904c4f4867db3c26004f6010c7558acc4",
+      "raw_source_sha256": "96dcbc6cea1bbad8acb72ff3afebbbb844c1f230361b4305c86cc284a30849d0",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条直立干由长中横栏连接；左干带成对短侧栏，右干有叉顶和宽底脚。"
+    ],
+    "en": [
+      "Two upright stems are joined by a long middle bar; the left carries paired short side bars, while the right has a forked top and broad bottom foot."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0711_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "0711",
+    "validation_class_id": "625",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㚽",
+    "codepoints": "U+36BD",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000626",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

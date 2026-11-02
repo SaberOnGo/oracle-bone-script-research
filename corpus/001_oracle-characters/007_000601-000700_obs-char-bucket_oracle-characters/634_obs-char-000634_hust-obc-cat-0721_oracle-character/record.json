@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000634",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0721",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000639_hust-obc-cat-0721_glyph.png",
+      "metadata": "images/001_asset-000639_hust-obc-cat-0721_glyph.yaml",
+      "asset_id": "asset-000639",
+      "source_image_path": "HUST-OBC/deciphered/0721/G_0721_乙7191反合14149反賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "56",
+      "pixel_height": "80",
+      "sha256": "ad70665a0fa292760a889865bb124dfcec3f23e6919736200d1f77c5ac8241c2",
+      "raw_source_sha256": "3c6bbea0f47aa690b7727685972505890fb86bc69779bc70fb6e42ac875acc56",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "长顶横被中央竖笔穿过，两条斜笔向内下降与竖干相接，竖干延续为纤细尖下线。"
+    ],
+    "en": [
+      "A long top horizontal is crossed by a central vertical; two diagonals descend inward to meet the stem, which continues as a thin pointed lower line."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0721_乙7191反合14149反賓組.png",
+    "prefix": "G",
+    "heji": "合14149",
+    "old_catalog": "乙7191",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反反賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "0721",
+    "validation_class_id": "633",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㛇",
+    "codepoints": "U+36C7",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000634",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000540",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0614",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000545_hust-obc-cat-0614_glyph.png",
+      "metadata": "images/001_asset-000545_hust-obc-cat-0614_glyph.yaml",
+      "asset_id": "asset-000545",
+      "source_image_path": "HUST-OBC/deciphered/0614/G_0614_乙4703(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "23",
+      "pixel_height": "80",
+      "sha256": "e0c22b65561ef6422906bdd5188618fcf47c76aaf8b8076e7210d7ed6a886b49",
+      "raw_source_sha256": "3d66c8dde602dfa246798e07e8c7a847cb91361e3ceb93b3dc6d03885c526482",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长中央干顶部叉开，沿两侧交替伸出数条短枝，下端延续为长弯尖笔。"
+    ],
+    "en": [
+      "A narrow central stem forks at the top and carries several short alternating side branches before continuing into a long curved lower point."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0614_乙4703(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙4703",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0614",
+    "validation_class_id": "539",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㙜",
+    "codepoints": "U+365C",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000540",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

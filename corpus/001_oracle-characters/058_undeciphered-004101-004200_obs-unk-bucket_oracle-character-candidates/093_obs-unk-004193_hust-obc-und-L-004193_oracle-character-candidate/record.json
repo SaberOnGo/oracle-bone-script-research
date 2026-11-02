@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004193",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004193",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005786_hust-obc-und-L-004193_glyph.jpg",
+      "metadata": "images/001_asset-005786_hust-obc-und-L-004193_glyph.yaml",
+      "asset_id": "asset-005786",
+      "source_image_path": "HUST-OBC/undeciphered/L/4193/L_？_9132.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "57",
+      "sha256": "131489fd20e8196554ffd6525166f4f5f3604b7482cf3a0f440c5990a039bd1a",
+      "raw_source_sha256": "131489fd20e8196554ffd6525166f4f5f3604b7482cf3a0f440c5990a039bd1a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：左上方有一处孤立的小圆形痕迹。",
+      "中文：中央附近有一条较窄的直立痕迹。",
+      "中文：上部直立痕迹旁有一条短的弧形笔画。",
+      "中文：下部折角笔画向右下方转折。"
+    ],
+    "en": [
+      "English: A small round mark is isolated near the upper left.",
+      "English: A narrow upright trace rises near the centre.",
+      "English: A short rounded stroke appears beside the upper trace.",
+      "English: A lower angular stroke turns toward the lower right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9132.jpg",
+    "prefix": "L",
+    "code": "？_9132"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4193",
+    "source_class_path": "HUST-OBC/undeciphered/L/4193/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4193/L_？_9132.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4193/L_？_9132.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

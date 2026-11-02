@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001211",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1356",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001216_hust-obc-cat-1356_glyph.png",
+      "metadata": "images/001_asset-001216_hust-obc-cat-1356_glyph.yaml",
+      "asset_id": "asset-001216",
+      "source_image_path": "HUST-OBC/deciphered/1356/G_1356_乙4721反(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "44",
+      "pixel_height": "80",
+      "sha256": "9cf21343dea54eadc12aab21aff6cad6e0a8843be6a35595cb5317c9d158c496",
+      "raw_source_sha256": "3a1b899c9fce7c3ddcb55a95f409837bae5046e49d72e2365a25d1ada102f175",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "宽大的上部笔群有数条尖状枝、中央圆弧带和多条下部分枝。"
+    ],
+    "en": [
+      "A broad upper cluster has several pointed prongs, a central rounded band, and multiple lower branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1356_乙4721反(甲).png",
+    "prefix": "G",
+    "old_catalog": "乙4721",
+    "old_catalog_abbr": "乙",
+    "old_catalog_abbr_obm_label": "",
+    "group_or_note": "反(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1356",
+    "validation_class_id": "1210",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㥂",
+    "codepoints": "U+3942",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001211",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

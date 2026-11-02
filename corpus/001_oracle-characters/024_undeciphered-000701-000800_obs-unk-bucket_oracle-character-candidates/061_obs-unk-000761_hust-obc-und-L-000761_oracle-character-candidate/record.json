@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000761",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000761",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002354_hust-obc-und-L-000761_glyph.jpg",
+      "metadata": "images/001_asset-002354_hust-obc-und-L-000761_glyph.yaml",
+      "asset_id": "asset-002354",
+      "source_image_path": "HUST-OBC/undeciphered/L/761/L_？_12235.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "61",
+      "sha256": "e2691665c267e765bd3cec40b9feff4fb7dcf28ea6b2145ed60e863bd14d63ef",
+      "raw_source_sha256": "e2691665c267e765bd3cec40b9feff4fb7dcf28ea6b2145ed60e863bd14d63ef",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "密集中央笔组上部带尖状笔画，两侧有弧曲笔，下方中部有两个圆形空隙。"
+    ],
+    "en": [
+      "A dense central cluster has pointed upper strokes, side curves, and two rounded openings in the lower middle."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12235.jpg",
+    "prefix": "L",
+    "code": "？_12235"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "761",
+    "source_class_path": "HUST-OBC/undeciphered/L/761/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/761/L_？_12235.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/761/L_？_12235.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

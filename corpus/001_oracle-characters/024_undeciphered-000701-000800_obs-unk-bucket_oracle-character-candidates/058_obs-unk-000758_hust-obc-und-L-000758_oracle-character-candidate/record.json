@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000758",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000758",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002351_hust-obc-und-L-000758_glyph.jpg",
+      "metadata": "images/001_asset-002351_hust-obc-und-L-000758_glyph.yaml",
+      "asset_id": "asset-002351",
+      "source_image_path": "HUST-OBC/undeciphered/L/758/L_？_12228.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "53",
+      "sha256": "80b2395a60400d15d34391ed41733fb0f861d1e9b6280a11ef3e0170746e9c2a",
+      "raw_source_sha256": "80b2395a60400d15d34391ed41733fb0f861d1e9b6280a11ef3e0170746e9c2a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型矩形上部笔组位于波曲下行笔画之上，旁边是带重复空隙的高直斜向右部。"
+    ],
+    "en": [
+      "A small rectangular upper cluster stands over wavy lower strokes, beside a tall angled right form with repeated openings."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12228.jpg",
+    "prefix": "L",
+    "code": "？_12228"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "758",
+    "source_class_path": "HUST-OBC/undeciphered/L/758/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/758/L_？_12228.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/758/L_？_12228.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

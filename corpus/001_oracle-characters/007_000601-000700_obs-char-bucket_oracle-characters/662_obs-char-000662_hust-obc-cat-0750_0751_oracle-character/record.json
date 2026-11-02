@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000662",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0750_0751",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000667_hust-obc-cat-0750_0751_glyph.png",
+      "metadata": "images/001_asset-000667_hust-obc-cat-0750_0751_glyph.yaml",
+      "asset_id": "asset-000667",
+      "source_image_path": "HUST-OBC/deciphered/0750_0751/0750/G_0750_甲骨文0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "32",
+      "pixel_height": "97",
+      "sha256": "0a9720419a8880ea469fd606b0dedae699a42ce83657be2767389b14c4f37fa3",
+      "raw_source_sha256": "3954eea10fc3f913a1373667717cde228a8d9be86460ff56d0526908e55eb333",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "纤细竖向排列结合顶部交叉折角笔、小型方格状中部笔群和数条叉状下枝。"
+    ],
+    "en": [
+      "A thin vertical arrangement combines crossed angular strokes at the top, a small square or grid-like middle cluster, and several forked lower branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0750_甲骨文0.png",
+    "prefix": "G",
+    "note": "generic_file_name_without_catalog_number"
+  },
+  "dataset_category": {
+    "source_category_id": "0750_0751",
+    "validation_class_id": "661",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㛤㛥",
+    "codepoints": "U+36E4;U+36E5",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000662",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

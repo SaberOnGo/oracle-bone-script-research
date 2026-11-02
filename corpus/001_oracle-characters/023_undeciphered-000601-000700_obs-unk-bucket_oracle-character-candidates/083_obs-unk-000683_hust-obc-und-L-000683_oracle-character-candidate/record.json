@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000683",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000683",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002276_hust-obc-und-L-000683_glyph.jpg",
+      "metadata": "images/001_asset-002276_hust-obc-und-L-000683_glyph.yaml",
+      "asset_id": "asset-002276",
+      "source_image_path": "HUST-OBC/undeciphered/L/683/L_？_12017.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "56",
+      "sha256": "f73d0e69f6eec587252b83b316863c0f6d9784527e37871d38ba9fa12fe240b3",
+      "raw_source_sha256": "f73d0e69f6eec587252b83b316863c0f6d9784527e37871d38ba9fa12fe240b3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "带长下行笔的环状左部旁有尖角上部痕迹和分离高直中轴。"
+    ],
+    "en": [
+      "A looped left form with a long lower descent stands beside a pointed upper mark and a separate tall stem."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_12017.jpg",
+    "prefix": "L",
+    "code": "？_12017"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "683",
+    "source_class_path": "HUST-OBC/undeciphered/L/683/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/683/L_？_12017.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/683/L_？_12017.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

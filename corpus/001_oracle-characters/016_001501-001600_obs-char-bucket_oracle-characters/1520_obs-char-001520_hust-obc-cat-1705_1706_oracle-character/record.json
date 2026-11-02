@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001520",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1705_1706",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001525_hust-obc-cat-1705_1706_glyph.png",
+      "metadata": "images/001_asset-001525_hust-obc-cat-1705_1706_glyph.yaml",
+      "asset_id": "asset-001525",
+      "source_image_path": "HUST-OBC/deciphered/1705_1706/1705/X_1705_472_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "96",
+      "pixel_height": "282",
+      "sha256": "954674e7475be7b766575d7d951d2170b9858eaaaa647cf3851f48b8005b8563",
+      "raw_source_sha256": "6011906e994a780c387a2b0e5b7a773de1daef72cfc8dc68119c91c0c269283c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高大组合形体有层叠上横笔、左侧小框形和长斜向下部笔画。"
+    ],
+    "en": [
+      "A tall composite has layered upper bars, a small left enclosure, and a long angled lower stroke."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1705_472_1.png",
+    "prefix": "X",
+    "code": "1705_472_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1705_1706",
+    "validation_class_id": "1519",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㪟㪠",
+    "codepoints": "U+3A9F;U+3AA0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001520",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

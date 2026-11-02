@@ -1,0 +1,74 @@
+{
+  "id": "obs-unk-004943",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004943",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006536_hust-obc-und-X-004943_glyph.jpg",
+      "metadata": "images/001_asset-006536_hust-obc-und-X-004943_glyph.yaml",
+      "asset_id": "asset-006536",
+      "source_image_path": "HUST-OBC/undeciphered/X/499/X_？_7482_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "151",
+      "pixel_height": "319",
+      "sha256": "575faa3e0d533b0bb70d87e9f4d34b0746b8a1b3b2fc90debbcd1e0f4ee27e37",
+      "raw_source_sha256": "575faa3e0d533b0bb70d87e9f4d34b0746b8a1b3b2fc90debbcd1e0f4ee27e37",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "裁切左侧由一大片深色块面占据。",
+      "深色区域内被数个不规则浅色开口打断。",
+      "中央有一处浅色结构，其下缘不规则。",
+      "右下边缘附近有一条细浅色弧形痕迹。",
+      "当前阈值化裁切没有保留清晰笔画边界。"
+    ],
+    "en": [
+      "A large dark block occupies the left side of the crop.",
+      "Several pale irregular openings interrupt the dark region.",
+      "A pale central shape has an uneven lower edge.",
+      "A thin pale curved mark appears near the lower right edge.",
+      "The thresholded crop does not preserve clear stroke boundaries.",
+      "These observations describe visible marks only; no component, variant, or reading is assigned."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_7482_1.png",
+    "prefix": "X",
+    "code": "？_7482_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "499",
+    "source_class_path": "HUST-OBC/undeciphered/X/499/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/499/X_？_7482_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/499/X_？_7482_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

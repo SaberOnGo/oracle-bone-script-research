@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004123",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004123",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005716_hust-obc-und-L-004123_glyph.jpg",
+      "metadata": "images/001_asset-005716_hust-obc-und-L-004123_glyph.yaml",
+      "asset_id": "asset-005716",
+      "source_image_path": "HUST-OBC/undeciphered/L/4123/L_？_8882.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "54",
+      "sha256": "e6372da51060afbb3ab6e26914e04b86c868028fc551c87590228424620fb1b1",
+      "raw_source_sha256": "e6372da51060afbb3ab6e26914e04b86c868028fc551c87590228424620fb1b1",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：数条短竖或弯曲笔画组成较宽的上部痕迹组。",
+      "中文：中部可见深色的横向或弧向连接。",
+      "中文：一条较窄的中央主干向下延伸到尖状端点。",
+      "中文：左右两侧笔画连接处需用更高分辨率图像核对。"
+    ],
+    "en": [
+      "English: Several short upright or curved strokes form a broad upper group.",
+      "English: The middle contains a dark horizontal or curved connection.",
+      "English: A narrow central stem descends to a pointed lower endpoint.",
+      "English: Left and right stroke joins need higher-resolution checking."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8882.jpg",
+    "prefix": "L",
+    "code": "？_8882"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4123",
+    "source_class_path": "HUST-OBC/undeciphered/L/4123/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4123/L_？_8882.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4123/L_？_8882.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

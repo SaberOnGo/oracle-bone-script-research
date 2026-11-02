@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-000712",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0807_0808",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000717_hust-obc-cat-0807_0808_glyph.png",
+      "metadata": "images/001_asset-000717_hust-obc-cat-0807_0808_glyph.yaml",
+      "asset_id": "asset-000717",
+      "source_image_path": "HUST-OBC/deciphered/0807_0808/0807/G_0807_前2.5.5(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "51",
+      "pixel_height": "80",
+      "sha256": "0df66f56539adadd02932a333ab4f28b7969261841b85ff2440130d2b826ad7c",
+      "raw_source_sha256": "b4e04af7c18f2a3d4707a2264fa0029fb2cecdec564ef0079540496833f1719c",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个相邻深色椭圆或菱形环含中央交叉和叉状顶部，下方另有分离浅弯槽。"
+    ],
+    "en": [
+      "Two adjacent dark oval or diamond-like loops contain central crossings and forked tops, while a detached shallow curved basin lies below them."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_0807_前2.5.5(甲).png",
+    "prefix": "G",
+    "old_catalog": "前2.5.5",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "0807_0808",
+    "validation_class_id": "711",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㜝㜞",
+    "codepoints": "U+371D;U+371E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000712",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-002899",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002899",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-004492_hust-obc-und-L-002899_glyph.jpg",
+      "metadata": "images/001_asset-004492_hust-obc-und-L-002899_glyph.yaml",
+      "asset_id": "asset-004492",
+      "source_image_path": "HUST-OBC/undeciphered/L/2899/L_锛焈4981.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "42",
+      "pixel_height": "53",
+      "sha256": "0f8be778dbbad1a977446f7ab59bdc805b5197da2104c101ce9425b6f4755bcf",
+      "raw_source_sha256": "0f8be778dbbad1a977446f7ab59bdc805b5197da2104c101ce9425b6f4755bcf",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "尖拱形上部围出较浅内部空间，两条长笔画从上部向下延伸。",
+      "下端附近有较短不规则痕迹。",
+      "轮廓与另一候选在视觉上相近，来源关系仍待核对。",
+      "图像未显示周围卜辞、比例尺或图版环境。"
+    ],
+    "en": [
+      "A pointed arch-like top encloses a pale interior. Two long strokes descend",
+      "from the upper region, with shorter irregular marks near their lower ends.",
+      "The contour is visually close to another candidate; source relation remains pending.",
+      "The image has no surrounding inscription, scale, or plate context."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_锛焈4981.jpg",
+    "prefix": "L",
+    "code": "锛焈4981"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2899",
+    "source_class_path": "HUST-OBC/undeciphered/L/2899/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2899/L_？_4981.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2899/L_？_4981.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

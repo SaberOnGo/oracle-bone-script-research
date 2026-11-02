@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004213",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004213",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005806_hust-obc-und-L-004213_glyph.jpg",
+      "metadata": "images/001_asset-005806_hust-obc-und-L-004213_glyph.yaml",
+      "asset_id": "asset-005806",
+      "source_image_path": "HUST-OBC/undeciphered/L/4213/L_？_9192.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "37",
+      "pixel_height": "57",
+      "sha256": "2e0581bdff7706dd80c4b97b24c86ba949d64d3efacda7f50a0e2303946009e3",
+      "raw_source_sha256": "2e0581bdff7706dd80c4b97b24c86ba949d64d3efacda7f50a0e2303946009e3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：紧凑的上部框状轮廓内有一条横向内部痕迹。",
+      "中文：较窄的中央痕迹向下延伸，并在下端附近弯曲。",
+      "中文：下伸中央痕迹两侧有较短的旁侧笔画。",
+      "中文：外围边缘和下端形态不均一。"
+    ],
+    "en": [
+      "English: A compact upper frame contains a horizontal inner bar.",
+      "English: A narrow central trace descends and curves near the lower end.",
+      "English: Short side strokes flank the descending central trace.",
+      "English: The outer edges and lower terminal are uneven."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9192.jpg",
+    "prefix": "L",
+    "code": "？_9192"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4213",
+    "source_class_path": "HUST-OBC/undeciphered/L/4213/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4213/L_？_9192.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4213/L_？_9192.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

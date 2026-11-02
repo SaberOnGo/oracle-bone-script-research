@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000880",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0992",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000885_hust-obc-cat-0992_glyph.png",
+      "metadata": "images/001_asset-000885_hust-obc-cat-0992_glyph.yaml",
+      "asset_id": "asset-000885",
+      "source_image_path": "HUST-OBC/deciphered/0992/H_0992_606FF_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "256",
+      "pixel_height": "228",
+      "sha256": "f00572593b605916d72445352ab41053caab7efc0a130dca4864981fd27e170c",
+      "raw_source_sha256": "2cd6bf1061adc00fce966c1fdb8df889c6ae4a6ba893793357c245368d131ace",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两条宽大外侧弯曲竖笔分列中央分枝笔干两旁；两条长下斜笔以横向笔足收尾，周围有分离块状痕迹。"
+    ],
+    "en": [
+      "Two broad outer vertical curves flank a central branching stem; two long lower diagonals end in horizontal feet, with short detached blocks around them."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0992_606FF_0.png",
+    "prefix": "H",
+    "code": "0992_606FF_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0992",
+    "validation_class_id": "879",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟖",
+    "codepoints": "U+37D6",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000880",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

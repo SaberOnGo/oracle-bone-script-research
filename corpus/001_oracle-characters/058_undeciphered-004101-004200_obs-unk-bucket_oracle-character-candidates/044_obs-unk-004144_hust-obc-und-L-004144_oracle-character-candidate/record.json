@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004144",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004144",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005737_hust-obc-und-L-004144_glyph.jpg",
+      "metadata": "images/001_asset-005737_hust-obc-und-L-004144_glyph.yaml",
+      "asset_id": "asset-005737",
+      "source_image_path": "HUST-OBC/undeciphered/L/4144/L_？_8966.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "26",
+      "pixel_height": "53",
+      "sha256": "10b3da78e78cd8900f9dfa04328ae76350df40001791c078992bf4c69484f222",
+      "raw_source_sha256": "10b3da78e78cd8900f9dfa04328ae76350df40001791c078992bf4c69484f222",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：一条弯曲的竖向痕迹从痕迹簇左上方升起。",
+      "中文：两条短横或斜向痕迹穿过下部中央的紧凑区域。",
+      "中文：下端逐渐收窄，形成尖状或窄的痕迹。",
+      "中文：部分外缘较淡，不易完全分开。"
+    ],
+    "en": [
+      "English: A curved vertical trace rises from the upper left of the mark.",
+      "English: Two short bars cross the compact lower central area.",
+      "English: The lower endpoint tapers into a pointed or narrow trace.",
+      "English: Some outer edges are faint and partly difficult to separate."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_8966.jpg",
+    "prefix": "L",
+    "code": "？_8966"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4144",
+    "source_class_path": "HUST-OBC/undeciphered/L/4144/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4144/L_？_8966.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4144/L_？_8966.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

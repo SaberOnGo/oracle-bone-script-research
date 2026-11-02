@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-000926",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1043",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000931_hust-obc-cat-1043_glyph.png",
+      "metadata": "images/001_asset-000931_hust-obc-cat-1043_glyph.yaml",
+      "asset_id": "asset-000931",
+      "source_image_path": "HUST-OBC/deciphered/1043/G_1043_前4.5.2合10058賓組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "76",
+      "pixel_height": "80",
+      "sha256": "bb7cf236abc1220382335282046045a2bc727467764d1bfdeac065b5baae65a5",
+      "raw_source_sha256": "27424eb046ddcc1c539471a1cebd9e975ed7379be1199a12beddb900a4fb4bc6",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三角形上伸笔位于横笔和中央笔干之上，两侧带有曲折分枝。"
+    ],
+    "en": [
+      "A triangular upper projection sits above a horizontal crossbar and central stem, with jagged side branches on both sides."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1043_前4.5.2合10058賓組.png",
+    "prefix": "G",
+    "heji": "合10058",
+    "old_catalog": "前4.5.2",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "賓組"
+  },
+  "dataset_category": {
+    "source_category_id": "1043",
+    "validation_class_id": "925",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㠉",
+    "codepoints": "U+3809",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000926",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

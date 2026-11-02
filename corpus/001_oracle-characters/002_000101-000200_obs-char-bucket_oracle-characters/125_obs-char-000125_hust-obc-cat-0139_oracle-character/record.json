@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000125",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-0139",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000130_hust-obc-cat-0139_glyph.png",
+      "metadata": "images/001_asset-000130_hust-obc-cat-0139_glyph.yaml",
+      "asset_id": "asset-000130",
+      "source_image_path": "HUST-OBC/deciphered/0139/H_0139_60AC5_0.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "155",
+      "pixel_height": "143",
+      "sha256": "8a41358bee5021f69f52f2dee403e696ae493723c41deff1037aa66bd1cdc7e2",
+      "raw_source_sha256": "52f79b2731d47bda6a4a84303a03c1b81c8f0ffcf7062e4a41201d5139d46dbf",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像可见上下分离的两处折角拱形痕迹，上方较宽，下方较小，底部都呈开放状态。"
+    ],
+    "en": [
+      "Two separated angular arch-like forms are visible, one broad above and a smaller one below, both open along their lower edges."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "H_0139_60AC5_0.png",
+    "prefix": "H",
+    "code": "0139_60AC5_0"
+  },
+  "dataset_category": {
+    "source_category_id": "0139",
+    "validation_class_id": "124",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㒁",
+    "codepoints": "U+3481",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000125",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

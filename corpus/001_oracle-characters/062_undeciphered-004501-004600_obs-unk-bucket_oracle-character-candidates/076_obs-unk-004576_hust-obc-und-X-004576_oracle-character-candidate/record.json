@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004576",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004576",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006169_hust-obc-und-X-004576_glyph.jpg",
+      "metadata": "images/001_asset-006169_hust-obc-und-X-004576_glyph.yaml",
+      "asset_id": "asset-006169",
+      "source_image_path": "HUST-OBC/undeciphered/X/132/X_？_8311_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "164",
+      "pixel_height": "283",
+      "sha256": "1bede535ea67411412bbdd11a44bbe6928186e1c5fd6a458f09d9ece538b4748",
+      "raw_source_sha256": "1bede535ea67411412bbdd11a44bbe6928186e1c5fd6a458f09d9ece538b4748",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "下部主体有两条粗的向上直立痕迹。",
+      "左上方另有一处分离的深色痕迹。",
+      "左下分支向外弯曲形成开放钩状轮廓。",
+      "右侧分支向上弯曲并以尖端结束。",
+      "中央下部痕迹的高度明显不同。"
+    ],
+    "en": [
+      "Two thick upright traces rise from the lower body.",
+      "A separate dark mark appears above the left side.",
+      "The lower left branch curves outward into an open hook.",
+      "A right branch curves upward to a pointed terminal.",
+      "The central lower traces have visibly different heights."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8311_1.png",
+    "prefix": "X",
+    "code": "？_8311_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "132",
+    "source_class_path": "HUST-OBC/undeciphered/X/132/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/132/X_？_8311_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/132/X_？_8311_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

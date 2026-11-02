@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004450",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004450",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006043_hust-obc-und-X-004450_glyph.jpg",
+      "metadata": "images/001_asset-006043_hust-obc-und-X-004450_glyph.yaml",
+      "asset_id": "asset-006043",
+      "source_image_path": "HUST-OBC/undeciphered/X/6/X_？_8185_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "151",
+      "pixel_height": "301",
+      "sha256": "3fe40d0e0cfc32b4044c536532582b45b07fc7c5ea91ff19ebf5b9610e63b63e",
+      "raw_source_sha256": "3fe40d0e0cfc32b4044c536532582b45b07fc7c5ea91ff19ebf5b9610e63b63e",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "三角状上部环形轮廓内留有较亮的内部区域。",
+      "一条中央竖向痕迹从环形轮廓向下延伸。",
+      "一条较宽的横向线段穿过中部区域。",
+      "一条较长的下部弧线伸向左下方。"
+    ],
+    "en": [
+      "A triangular upper loop contains a light interior.",
+      "A central vertical trace descends from the loop.",
+      "A broad horizontal bar crosses the middle area.",
+      "A long lower curve extends toward the lower left."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8185_1.png",
+    "prefix": "X",
+    "code": "？_8185_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "6",
+    "source_class_path": "HUST-OBC/undeciphered/X/6/",
+    "source_image_count": 2,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/6/X_？_8185_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/6/X_？_8185_2.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

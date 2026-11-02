@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000501",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000501",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002094_hust-obc-und-L-000501_glyph.jpg",
+      "metadata": "images/001_asset-002094_hust-obc-und-L-000501_glyph.yaml",
+      "asset_id": "asset-002094",
+      "source_image_path": "HUST-OBC/undeciphered/L/501/L_？_11519.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "34",
+      "pixel_height": "54",
+      "sha256": "13ef7bcc627c0ffc07b87c9ebcacbefac6d4ad1208420cbb54f96761446be178",
+      "raw_source_sha256": "13ef7bcc627c0ffc07b87c9ebcacbefac6d4ad1208420cbb54f96761446be178",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "弧形中央围合带分叉上伸和紧凑下部矩形基部；仅作与 obs-unk-000500 的视觉比较。"
+    ],
+    "en": [
+      "A rounded central enclosure has forked upper projections and a compact lower rectangular base; it is visually similar to obs-unk-000500 only."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11519.jpg",
+    "prefix": "L",
+    "code": "？_11519"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "501",
+    "source_class_path": "HUST-OBC/undeciphered/L/501/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/501/L_？_11519.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/501/L_？_11519.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004459",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004459",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006052_hust-obc-und-X-004459_glyph.jpg",
+      "metadata": "images/001_asset-006052_hust-obc-und-X-004459_glyph.yaml",
+      "asset_id": "asset-006052",
+      "source_image_path": "HUST-OBC/undeciphered/X/15/X_？_8194_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "165",
+      "pixel_height": "254",
+      "sha256": "a13bf8d7c9244485448af8ac8b21e9729a5d349676055da63979cbbb4332799a",
+      "raw_source_sha256": "a13bf8d7c9244485448af8ac8b21e9729a5d349676055da63979cbbb4332799a",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部和中部区域有一处框状轮廓。",
+      "框状轮廓下方有两条平行横向线段。",
+      "左侧边缘比右侧边缘颜色更深且更不均匀。",
+      "右侧长边越过下部横线继续向下延伸。"
+    ],
+    "en": [
+      "A rectangular outline occupies the upper and middle area.",
+      "Two parallel horizontal bars sit below the outline.",
+      "The left side is darker and more uneven than the right side.",
+      "A long right edge descends beyond the lower bars."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8194_1.png",
+    "prefix": "X",
+    "code": "？_8194_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "15",
+    "source_class_path": "HUST-OBC/undeciphered/X/15/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/15/X_？_8194_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/15/X_？_8194_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

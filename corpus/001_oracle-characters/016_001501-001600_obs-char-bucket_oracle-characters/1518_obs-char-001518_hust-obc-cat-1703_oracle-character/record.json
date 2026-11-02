@@ -1,0 +1,76 @@
+{
+  "id": "obs-char-001518",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1703",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001523_hust-obc-cat-1703_glyph.png",
+      "metadata": "images/001_asset-001523_hust-obc-cat-1703_glyph.yaml",
+      "asset_id": "asset-001523",
+      "source_image_path": "HUST-OBC/deciphered/1703/G_1703_京津4617.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "50",
+      "pixel_height": "80",
+      "sha256": "583af67fd8bb61a6fa6a1ef6fffe83fdc9b9016dbb302f5cded1918221230d39",
+      "raw_source_sha256": "c7286b3f9a4ff0512a35aa7088361d649d389dcef3e17d6ebb813bae0dbe4908",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个浅淡相邻形体各有中央竖笔和短侧向分枝。"
+    ],
+    "en": [
+      "Two faint adjacent forms each show a central vertical and short lateral branches."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1703_京津4617.png",
+    "prefix": "G",
+    "old_catalog": "京津4617",
+    "old_catalog_abbr": "京津",
+    "old_catalog_abbr_obm_label": "京津散見甲骨文字"
+  },
+  "dataset_category": {
+    "source_category_id": "1703",
+    "validation_class_id": "1517",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㪝",
+    "codepoints": "U+3A9D",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001518",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

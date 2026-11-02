@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004599",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004599",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006192_hust-obc-und-X-004599_glyph.jpg",
+      "metadata": "images/001_asset-006192_hust-obc-und-X-004599_glyph.yaml",
+      "asset_id": "asset-006192",
+      "source_image_path": "HUST-OBC/undeciphered/X/155/X_？_8332_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "163",
+      "pixel_height": "303",
+      "sha256": "bd4bb0093b4f233a09aa30e8bf311c5debc6a66c0be45feaf6c48c34639bf99d",
+      "raw_source_sha256": "bd4bb0093b4f233a09aa30e8bf311c5debc6a66c0be45feaf6c48c34639bf99d",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "图像是噪声较多的高对比度矩形裁切。",
+      "大面积深色块和浅色碎片占据了画面主要区域。",
+      "无法辨认稳定的外部字形轮廓。",
+      "无法可靠分离单独笔画和开口。",
+      "需要更高质量的来源图像才能继续观察。"
+    ],
+    "en": [
+      "The image is a noisy high-contrast rectangular crop.",
+      "Large dark blocks and pale fragments occupy most of the frame.",
+      "No stable outer glyph boundary can be distinguished.",
+      "Individual strokes and openings cannot be separated reliably.",
+      "A higher-quality source image is required before further visual description."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8332_1.png",
+    "prefix": "X",
+    "code": "？_8332_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "155",
+    "source_class_path": "HUST-OBC/undeciphered/X/155/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/155/X_？_8332_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/155/X_？_8332_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

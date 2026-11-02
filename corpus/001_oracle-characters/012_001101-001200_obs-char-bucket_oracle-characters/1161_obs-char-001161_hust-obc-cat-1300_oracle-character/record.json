@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-001161",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1300",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001166_hust-obc-cat-1300_glyph.png",
+      "metadata": "images/001_asset-001166_hust-obc-cat-1300_glyph.yaml",
+      "asset_id": "asset-001166",
+      "source_image_path": "HUST-OBC/deciphered/1300/G_1300_甲骨文.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "57",
+      "pixel_height": "72",
+      "sha256": "49d9d285d91d7c79d4577c5147999add59d1480882c543f27b4ed39822f1bc46",
+      "raw_source_sha256": "6e98efffd5f7047f1b066f7f5ff5b3ef6d83ec74bddfcf194438c9b069af6eff",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "高而分枝的形体有左侧弯曲外轮廓、中央直立笔和小型侧部折角痕迹。"
+    ],
+    "en": [
+      "A tall branching form has a curved left outer contour, a central upright, and a small angular side mark."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1300_甲骨文.png",
+    "prefix": "G",
+    "group_or_note": "甲骨文"
+  },
+  "dataset_category": {
+    "source_category_id": "1300",
+    "validation_class_id": "1160",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㤊",
+    "codepoints": "U+390A",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001161",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-001616",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001616",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003209_hust-obc-und-L-001616_glyph.jpg",
+      "metadata": "images/001_asset-003209_hust-obc-und-L-001616_glyph.yaml",
+      "asset_id": "asset-003209",
+      "source_image_path": "HUST-OBC/undeciphered/L/1616/L_？_1449.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "38",
+      "pixel_height": "62",
+      "sha256": "9c47566d5cf6658f1b9c3df9c11731155dc9bb19a7f48ace4e5c1c61fcd8cb77",
+      "raw_source_sha256": "9c47566d5cf6658f1b9c3df9c11731155dc9bb19a7f48ace4e5c1c61fcd8cb77",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "稀疏图像可见一条从左上向中央交点下行的长弯曲笔画，交点下方还有两条较短笔画。"
+    ],
+    "en": [
+      "The sparse image shows one long curved stroke descending from the upper left to a central junction, with two shorter strokes extending below."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1449.jpg",
+    "prefix": "L",
+    "code": "？_1449"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1616",
+    "source_class_path": "HUST-OBC/undeciphered/L/1616/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1616/L_？_1449.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1616/L_？_1449.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002005",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002005",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003598_hust-obc-und-L-002005_glyph.jpg",
+      "metadata": "images/001_asset-003598_hust-obc-und-L-002005_glyph.yaml",
+      "asset_id": "asset-003598",
+      "source_image_path": "HUST-OBC/undeciphered/L/2005/L_？_1924.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "39",
+      "pixel_height": "54",
+      "sha256": "40d7a4635137c1918ddb336ac005ff61aa5a3070313d89a028f4e242b38ea6ce",
+      "raw_source_sha256": "40d7a4635137c1918ddb336ac005ff61aa5a3070313d89a028f4e242b38ea6ce",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "上部两侧各有紧凑的交叉笔痕组。其下由斜向笔痕构成开放的 V 形排列；未见封闭轮廓。"
+    ],
+    "en": [
+      "Two compact crossed clusters appear near the upper sides. Below them, angled strokes form an open V-shaped arrangement; no closed outline is visible."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_1924.jpg",
+    "prefix": "L",
+    "code": "？_1924"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2005",
+    "source_class_path": "HUST-OBC/undeciphered/L/2005/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2005/L_？_1924.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2005/L_？_1924.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

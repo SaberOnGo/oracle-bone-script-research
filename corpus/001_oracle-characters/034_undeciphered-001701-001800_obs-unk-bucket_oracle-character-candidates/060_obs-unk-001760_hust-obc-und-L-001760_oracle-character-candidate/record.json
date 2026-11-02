@@ -1,0 +1,66 @@
+{
+  "id": "obs-unk-001760",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-001760",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003353_hust-obc-und-L-001760_glyph.jpg",
+      "metadata": "images/001_asset-003353_hust-obc-und-L-001760_glyph.yaml",
+      "asset_id": "asset-003353",
+      "source_image_path": "HUST-OBC/undeciphered/L/1760/L_？_14822.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "36",
+      "pixel_height": "55",
+      "sha256": "602351204f262ba45c9f449cb1d3ebb3b042e1f7997d94a514bffa53a9c82c37",
+      "raw_source_sha256": "602351204f262ba45c9f449cb1d3ebb3b042e1f7997d94a514bffa53a9c82c37",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "圆弧状上部笔痕形成紧凑顶部，数条中央斜线下伸到尖状下部轮廓。",
+      "具体笔痕、残损和墨色边界仍需与原始来源核对。"
+    ],
+    "en": [
+      "Rounded upper strokes form a compact top; several central diagonal strokes descend into a pointed lower cluster."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_14822.jpg",
+    "prefix": "L",
+    "code": "？_14822"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "1760",
+    "source_class_path": "HUST-OBC/undeciphered/L/1760/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/1760/L_？_14822.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/1760/L_？_14822.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

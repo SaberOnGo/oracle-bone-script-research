@@ -1,0 +1,74 @@
+{
+  "id": "obs-char-000890",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1002",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-000895_hust-obc-cat-1002_glyph.png",
+      "metadata": "images/001_asset-000895_hust-obc-cat-1002_glyph.yaml",
+      "asset_id": "asset-000895",
+      "source_image_path": "HUST-OBC/deciphered/1002/X_1002_5033_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "92",
+      "pixel_height": "301",
+      "sha256": "8cc63e6235b4f1137b3d75e627a3cb5970315ffb68c5dc2c8273f7e44273acb5",
+      "raw_source_sha256": "d494566592ae07da675eacd27c2f0214684e3c9b87097a0f7ac0f3c41038bd99",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "粗重密集形体结合上部横竖笔、下方大型不规则笔团和内部开口。"
+    ],
+    "en": [
+      "A very bold dense form combines an upper horizontal and upright with a large irregular lower mass and internal openings."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_1002_5033_1.png",
+    "prefix": "X",
+    "code": "1002_5033_1"
+  },
+  "dataset_category": {
+    "source_category_id": "1002",
+    "validation_class_id": "889",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㟠",
+    "codepoints": "U+37E0",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-000890",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

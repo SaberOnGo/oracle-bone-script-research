@@ -1,0 +1,73 @@
+{
+  "id": "obs-unk-004521",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-X-004521",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-006114_hust-obc-und-X-004521_glyph.jpg",
+      "metadata": "images/001_asset-006114_hust-obc-und-X-004521_glyph.yaml",
+      "asset_id": "asset-006114",
+      "source_image_path": "HUST-OBC/undeciphered/X/77/X_？_8261_1.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "184",
+      "pixel_height": "231",
+      "sha256": "1d3e069a7d8ec8d88229fa4792fefe2f261c13370309072c44b6ffa2c8b2439b",
+      "raw_source_sha256": "1d3e069a7d8ec8d88229fa4792fefe2f261c13370309072c44b6ffa2c8b2439b",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "JPG 中有两组彼此分开的弧形痕迹。",
+      "上部痕迹群有折角，并在末端接出短竖向痕迹。",
+      "上部痕迹上方可见一个分离的小痕迹。",
+      "下部痕迹群形成宽大的开放弧线，底部较圆。",
+      "上下两组痕迹之间有清晰的竖向间隔。"
+    ],
+    "en": [
+      "The JPG contains two separated curved trace groups.",
+      "The upper group has an angular bend and a short upright end.",
+      "A small detached mark appears above the upper group.",
+      "The lower group forms a broad open curve with a rounded bottom.",
+      "A clear vertical gap separates the upper and lower groups."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "X_？_8261_1.png",
+    "prefix": "X",
+    "code": "？_8261_1"
+  },
+  "dataset_category": {
+    "source_group": "X",
+    "source_group_label": "New Compilation of Oracle Bone Scripts",
+    "source_class_id": "77",
+    "source_class_path": "HUST-OBC/undeciphered/X/77/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/X/77/X_？_8261_1.png",
+    "last_source_image_path": "HUST-OBC/undeciphered/X/77/X_？_8261_1.png"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

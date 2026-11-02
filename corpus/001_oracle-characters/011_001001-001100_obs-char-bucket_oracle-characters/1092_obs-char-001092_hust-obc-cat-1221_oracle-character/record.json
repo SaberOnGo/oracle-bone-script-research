@@ -1,0 +1,77 @@
+{
+  "id": "obs-char-001092",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1221",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001097_hust-obc-cat-1221_glyph.png",
+      "metadata": "images/001_asset-001097_hust-obc-cat-1221_glyph.yaml",
+      "asset_id": "asset-001097",
+      "source_image_path": "HUST-OBC/deciphered/1221/G_1221_京都263(甲).png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "59",
+      "pixel_height": "80",
+      "sha256": "bb10944ba250947a49da87b7eefa5cff76144ae25faf2098aeefbf92458a023a",
+      "raw_source_sha256": "e6d31bf3df3e9e55140d4b6de533174d6c202e11be5e88bbcc29dafb6a9abad2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "狭长形体结合左侧短分枝、中央直立笔和右侧圆弧闭合轮廓。"
+    ],
+    "en": [
+      "A narrow form combines a short left branch, a central upright, and a rounded right enclosure."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1221_京都263(甲).png",
+    "prefix": "G",
+    "old_catalog": "京都263",
+    "old_catalog_abbr": "京都",
+    "old_catalog_abbr_obm_label": "京都大學人文科學研究所藏甲骨文字",
+    "group_or_note": "(甲)"
+  },
+  "dataset_category": {
+    "source_category_id": "1221",
+    "validation_class_id": "1091",
+    "category_member_count": "1"
+  },
+  "dataset_label": {
+    "label": "㢻",
+    "codepoints": "U+38BB",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001092",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

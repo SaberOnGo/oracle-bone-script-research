@@ -1,0 +1,78 @@
+{
+  "id": "obs-char-001448",
+  "kind": "character_candidate",
+  "primary_external_ref_id": "hust-obc-cat-1623_1624",
+  "status": {
+    "decipherment": "unknown_until_cross_source_review",
+    "review": "needs_cross_source_review",
+    "promotion": "needs_cross_source_review",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-001453_hust-obc-cat-1623_1624_glyph.png",
+      "metadata": "images/001_asset-001453_hust-obc-cat-1623_1624_glyph.yaml",
+      "asset_id": "asset-001453",
+      "source_image_path": "HUST-OBC/deciphered/1623_1624/1623/G_1623_前6.53.4合5426𠂤組.png",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "57",
+      "pixel_height": "80",
+      "sha256": "d88cc3abf0e080e3936eff88c463a147ff00e992fd8a07455d89a3c0729f8dc0",
+      "raw_source_sha256": "bf4f97611760386f5606cc1798e07c6d174fc1341d938f4c7d071b731c6479dc",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "两个狭长分枝形体共有尖状上部中心和下部竖干。"
+    ],
+    "en": [
+      "Two narrow branching forms share a pointed upper center and lower stem."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "G_1623_前6.53.4合5426𠂤組.png",
+    "prefix": "G",
+    "heji": "合5426",
+    "old_catalog": "前6.53.4",
+    "old_catalog_abbr": "前",
+    "old_catalog_abbr_obm_label": "殷墟書契前編",
+    "group_or_note": "𠂤組"
+  },
+  "dataset_category": {
+    "source_category_id": "1623_1624",
+    "validation_class_id": "1447",
+    "category_member_count": "2"
+  },
+  "dataset_label": {
+    "label": "㩍㩎",
+    "codepoints": "U+3A4D;U+3A4E",
+    "status": "dataset_label_candidate_not_accepted_reading"
+  },
+  "cross_source_codepoint": {
+    "statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ]
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_candidate-character-packet.json",
+    "former_packet_id": "hust-obc-candidate-packet-001448",
+    "risk_note": "HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence."
+  }
+}

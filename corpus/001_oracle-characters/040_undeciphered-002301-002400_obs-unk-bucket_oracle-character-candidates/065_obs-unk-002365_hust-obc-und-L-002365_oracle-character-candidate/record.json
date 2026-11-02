@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-002365",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-002365",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-003958_hust-obc-und-L-002365_glyph.jpg",
+      "metadata": "images/001_asset-003958_hust-obc-und-L-002365_glyph.yaml",
+      "asset_id": "asset-003958",
+      "source_image_path": "HUST-OBC/undeciphered/L/2365/L_？_3204.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "60",
+      "sha256": "6651bf997ab69caa55f632765e1acf556d77459a9a9c53dda00f24fb2876d836",
+      "raw_source_sha256": "6651bf997ab69caa55f632765e1acf556d77459a9a9c53dda00f24fb2876d836",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "圆弧状开放外缘围绕中央内部笔痕向上延伸。下缘呈弧形，顶部开口仍可见。内部线痕在部分位置与外缘分离。"
+    ],
+    "en": [
+      "A rounded open outer trace rises around a central inner mark. The lower edge is curved and the upper opening remains visible. The inner trace is separate from the outer contour in places."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_3204.jpg",
+    "prefix": "L",
+    "code": "？_3204"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "2365",
+    "source_class_path": "HUST-OBC/undeciphered/L/2365/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/2365/L_？_3204.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/2365/L_？_3204.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

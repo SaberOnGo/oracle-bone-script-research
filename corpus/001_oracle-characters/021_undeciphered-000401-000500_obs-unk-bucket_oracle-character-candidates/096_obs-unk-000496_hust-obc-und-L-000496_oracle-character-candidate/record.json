@@ -1,0 +1,65 @@
+{
+  "id": "obs-unk-000496",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-000496",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-002089_hust-obc-und-L-000496_glyph.jpg",
+      "metadata": "images/001_asset-002089_hust-obc-und-L-000496_glyph.yaml",
+      "asset_id": "asset-002089",
+      "source_image_path": "HUST-OBC/undeciphered/L/496/L_？_11513.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "35",
+      "pixel_height": "50",
+      "sha256": "ffa3890850fe74d6a8748239cd732b6f05b5a8ea11b0301987e1455bf3f074e2",
+      "raw_source_sha256": "ffa3890850fe74d6a8748239cd732b6f05b5a8ea11b0301987e1455bf3f074e2",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "小型上部椭圆位于宽横笔之上，并连接中央下行笔；下右有短弧形外伸。"
+    ],
+    "en": [
+      "A small upper oval sits above a broad horizontal bar and a descending central stroke; a short curved projection extends on the lower right."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_11513.jpg",
+    "prefix": "L",
+    "code": "？_11513"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "496",
+    "source_class_path": "HUST-OBC/undeciphered/L/496/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/496/L_？_11513.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/496/L_？_11513.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

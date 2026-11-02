@@ -1,0 +1,71 @@
+{
+  "id": "obs-unk-004208",
+  "kind": "undeciphered_character_candidate",
+  "primary_external_ref_id": "hust-obc-und-L-004208",
+  "status": {
+    "decipherment": "undeciphered_dataset_candidate_not_accepted_character",
+    "review": "reviewed_metadata_only",
+    "promotion": "not_promoted",
+    "reading_history": "not_yet_collected_in_dossier",
+    "example_sentences": 0
+  },
+  "sources": [
+    {
+      "source_id": "src-hust-obc",
+      "rights_status": "source_marked_risk_noted",
+      "role": "glyph_image_and_dataset_category"
+    }
+  ],
+  "images": [
+    {
+      "path": "images/001_asset-005801_hust-obc-und-L-004208_glyph.jpg",
+      "metadata": "images/001_asset-005801_hust-obc-und-L-004208_glyph.yaml",
+      "asset_id": "asset-005801",
+      "source_image_path": "HUST-OBC/undeciphered/L/4208/L_？_9163.jpg",
+      "source_package_id": "large-src-000001",
+      "download_id": "dl-hust-obc-figshare-raw",
+      "pixel_width": "40",
+      "pixel_height": "55",
+      "sha256": "6ba70d06b2ec3908f93fc2bafdcb9f09a6a2784e9036f9edd0085bef569f8fe3",
+      "raw_source_sha256": "6ba70d06b2ec3908f93fc2bafdcb9f09a6a2784e9036f9edd0085bef569f8fe3",
+      "rights_status": "source_marked_risk_noted",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
+  "observation": {
+    "kind": "visual",
+    "zh": [
+      "中文：中央有一组尖顶状轮廓高于下部形态。",
+      "中文：其左右两侧各有小的分离痕迹。",
+      "中文：底部沿横向分布数条波曲笔画。",
+      "中文：中央组与两侧形态在图像中仍有明显间隔。"
+    ],
+    "en": [
+      "English: A pointed central outline rises above the lower group.",
+      "English: Small detached marks appear on both sides of it.",
+      "English: Several wavy horizontal strokes lie along the bottom.",
+      "English: The central and side groups remain visibly separated."
+    ]
+  },
+  "filename_catalog_clue": {
+    "file_name": "L_？_9163.jpg",
+    "prefix": "L",
+    "code": "？_9163"
+  },
+  "dataset_category": {
+    "source_group": "L",
+    "source_group_label": "Oracle Bone Script: Six Digit Numerical Code",
+    "source_class_id": "4208",
+    "source_class_path": "HUST-OBC/undeciphered/L/4208/",
+    "source_image_count": 1,
+    "first_source_image_path": "HUST-OBC/undeciphered/L/4208/L_？_9163.jpg",
+    "last_source_image_path": "HUST-OBC/undeciphered/L/4208/L_？_9163.jpg"
+  },
+  "provenance": {
+    "merged_on": "2026-11-02",
+    "merged_from_commit": "b3659368c35",
+    "former_packet": "01_undeciphered-candidate-packet.json",
+    "former_packet_id": "",
+    "risk_note": "Figshare package metadata reports CC BY 4.0; Scientific Data article page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must not be committed to regular Git."
+  }
+}

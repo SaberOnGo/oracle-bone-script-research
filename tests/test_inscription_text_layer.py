@@ -129,6 +129,26 @@ class AttachTests(unittest.TestCase):
         self.assertLess(once.index("## 5 分布"), once.index("## 10 来源与权利"))
 
 
+class SelectUidTests(unittest.TestCase):
+    def test_multi_uid_class_keeps_only_label_matching_glyphs(self):
+        record = {"dataset_label": {"label": "鼎"},
+                  "cross_source_codepoint": {"obimd_main_uids": ["u-zhen", "u-ding"]}}
+        stats = {"u-zhen": {"transcription": "貞"}, "u-ding": {"transcription": "鼎"}}
+        self.assertEqual(attach.select_uids(record, stats), ["u-ding"])
+
+    def test_multi_uid_class_without_matching_glyph_gets_nothing(self):
+        record = {"dataset_label": {"label": "有"},
+                  "cross_source_codepoint": {"obimd_main_uids": ["u-jia", "u-hou"]}}
+        stats = {"u-jia": {"transcription": "佑"}, "u-hou": {"transcription": "㞢"}}
+        self.assertEqual(attach.select_uids(record, stats), [])
+
+    def test_single_uid_is_kept_even_with_variant_transcription(self):
+        record = {"dataset_label": {"label": "雲"},
+                  "cross_source_codepoint": {"obimd_main_uids": ["u-yun"]}}
+        stats = {"u-yun": {"transcription": "云"}}
+        self.assertEqual(attach.select_uids(record, stats), ["u-yun"])
+
+
 class PublicOutputTests(unittest.TestCase):
     STATS = ROOT / "corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv"
 

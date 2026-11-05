@@ -25,12 +25,12 @@
 | H3193 | 乙丑卜貞出□◇異 | 第 8/8 字 | src-obimd H3193 句组 1 |
 | H13006 | □申卜貞異不其雨 | 第 5/8 字 | src-obimd H13006 句组 1 |
 
-- 其他字例所在甲骨：H4412、H8121、H11507、H13559、H17269、H17270、H17272、H17273、H17278、H17279等〔来源 src-obimd〕。
+- 其他字例所在甲骨：H4412、H29818、H30152、H30416、HD289〔来源 src-obimd〕。
 
 ## 5 分布
 
-- OBIMD 中共 18 个字例，见于 18 片甲骨；按句组类别：卜辞句 18〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
-- 同一句组中最常一起出现的字：㞢（8）、卜（7）、貞（7）、其（6）、雨（2）、申（2）。
+- OBIMD 中共 7 个字例，见于 7 片甲骨；按句组类别：卜辞句 7〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
+- 同一句组中最常一起出现的字：卜（4）、貞（4）、其（3）、雨（2）、出（1）、◇（1）。
 - OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
 
 ## 8 实物与出土（著录线索）

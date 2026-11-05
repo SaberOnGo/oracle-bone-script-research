@@ -100,77 +100,74 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "dhewuxyotl",
       "v2nizai7hr"
     ],
-    "occurrences": 6473,
-    "plates": 4982,
+    "occurrences": 13,
+    "plates": 11,
     "plate_list_head": [
-      "H5",
-      "H7",
-      "H8",
-      "H10",
-      "H11",
-      "H12",
-      "H15",
-      "H16",
-      "H17",
-      "H18",
-      "H20",
-      "H26"
+      "H171",
+      "H18563",
+      "H19500",
+      "H19962",
+      "H20275",
+      "H21154",
+      "H21450",
+      "H22290",
+      "H22342",
+      "H22529",
+      "H30013"
     ],
     "by_category": {
-      "卜辞句": 6466,
-      "未定": 7
+      "卜辞句": 13
     },
     "top_cooccurring": [
       {
-        "text": "卜",
-        "uid": "h0gzv3styy",
-        "count": 2364
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
       },
       {
         "text": "王",
         "uid": "hftl4m18q0",
-        "count": 1342
-      },
-      {
-        "text": "亡",
-        "uid": "55qv0winah",
-        "count": 1169
-      },
-      {
-        "text": "其",
-        "uid": "qmvfvw99v9",
-        "count": 951
+        "count": 4
       },
       {
         "text": "于",
         "uid": "jjm889wxay",
-        "count": 923
+        "count": 4
       },
       {
-        "text": "癸",
-        "uid": "h32m5ulkit",
-        "count": 747
+        "text": "其",
+        "uid": "qmvfvw99v9",
+        "count": 2
+      },
+      {
+        "text": "殻",
+        "uid": "5k1l85d8n2",
+        "count": 1
+      },
+      {
+        "text": "比",
+        "uid": "d15m8dd17h",
+        "count": 1
       }
     ],
     "examples": [
       {
-        "plate": "H5",
-        "heji_candidate": "5",
+        "plate": "H20275",
+        "heji_candidate": "20275",
         "group_index": 1,
-        "text": "乙巳卜殻貞□",
-        "position": 5,
+        "text": "王乍邑于牛鼎",
+        "position": 6,
         "length": 6
       },
       {
-        "plate": "H5",
-        "heji_candidate": "5",
-        "group_index": 2,
-        "text": "□殻貞王大令眾匕曰□",
-        "position": 3,
-        "length": 10
+        "plate": "H21154",
+        "heji_candidate": "21154",
+        "group_index": 1,
+        "text": "□卯卜貞于若鼎",
+        "position": 7,
+        "length": 7
       }
     ]
   }

@@ -22,15 +22,15 @@
 
 | OBIMD 片号 | 释文（OBIMD） | 本字位置 | 来源 |
 | --- | --- | --- | --- |
-| H18 | 貞臿啟叶 | 第 4/4 字 | src-obimd H18 句组 4 |
-| H18 | 臿啟不其叶 | 第 5/5 字 | src-obimd H18 句组 5 |
+| H4420 | 丁酉卜◇由 | 第 5/5 字 | src-obimd H4420 句组 1 |
+| H17324 | 不隹㞢由 | 第 4/4 字 | src-obimd H17324 句组 1 |
 
-- 其他字例所在甲骨：H177、H1366、H4420、H5441、H5442、H5455、H5458、H5459、H5463、H5464等〔来源 src-obimd〕。
+- 其他字例所在甲骨：H1366、H17322、H17327、H17328、H17329、H18399、HD273、HD289、HD494〔来源 src-obimd〕。
 
 ## 5 分布
 
-- OBIMD 中共 74 个字例，见于 62 片甲骨；按句组类别：卜辞句 74〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
-- 同一句组中最常一起出现的字：王（29）、貞（28）、卜（26）、史（26）、其（14）、◇（8）。
+- OBIMD 中共 14 个字例，见于 11 片甲骨；按句组类别：卜辞句 14〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
+- 同一句组中最常一起出现的字：卜（7）、于（6）、丁（5）、若（5）、告（4）、匕（4）。
 - OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
 
 ## 8 实物与出土（著录线索）

@@ -97,58 +97,55 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "rddtpyuik3",
       "xe5j0rm6ao"
     ],
-    "occurrences": 23,
-    "plates": 23,
+    "occurrences": 10,
+    "plates": 10,
     "plate_list_head": [
       "H383",
-      "H5303",
-      "H5304",
-      "H5306",
-      "H5307",
-      "H5309",
-      "H5310",
-      "H5311",
-      "H5312",
-      "H5313",
-      "H8017",
-      "H8089"
+      "H8089",
+      "H8090",
+      "H9267",
+      "H19537",
+      "H30284",
+      "H30285",
+      "H30294",
+      "H31014",
+      "HD363"
     ],
     "by_category": {
-      "卜辞句": 23
+      "卜辞句": 10
     },
     "top_cooccurring": [
-      {
-        "text": "王",
-        "uid": "hftl4m18q0",
-        "count": 12
-      },
-      {
-        "text": "卜",
-        "uid": "h0gzv3styy",
-        "count": 8
-      },
       {
         "text": "于",
         "uid": "jjm889wxay",
         "count": 7
       },
       {
-        "text": "貞",
-        "uid": "dhewuxyotl",
-        "count": 6
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 4
       },
       {
-        "text": "隹",
-        "uid": "y0f5gu3q0a",
-        "count": 5
-      },
-      {
-        "text": "害",
-        "uid": "446qjw4xgi",
+        "text": "王",
+        "uid": "hftl4m18q0",
         "count": 3
+      },
+      {
+        "text": "三",
+        "uid": "p77d58vew4",
+        "count": 2
+      },
+      {
+        "text": "酉",
+        "uid": "4r0g6bx5rc",
+        "count": 2
+      },
+      {
+        "text": "己",
+        "uid": "mdwfmpr3c8",
+        "count": 2
       }
     ],
     "examples": [
@@ -161,12 +158,12 @@
         "length": 13
       },
       {
-        "plate": "H5303",
-        "heji_candidate": "5303",
+        "plate": "H8089",
+        "heji_candidate": "8089",
         "group_index": 1,
-        "text": "□聽其祸",
-        "position": 2,
-        "length": 4
+        "text": "己酉卜王在庭",
+        "position": 6,
+        "length": 6
       }
     ]
   }

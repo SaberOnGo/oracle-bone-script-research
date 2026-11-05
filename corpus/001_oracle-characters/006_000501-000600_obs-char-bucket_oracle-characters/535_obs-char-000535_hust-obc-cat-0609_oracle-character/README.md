@@ -29,8 +29,8 @@
 
 ## 5 分布
 
-- OBIMD 中共 1003 个字例，见于 727 片甲骨；按句组类别：卜辞句 1002，未定 1〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
-- 同一句组中最常一起出现的字：卜（595）、貞（350）、丁（200）、于（190）、癸（186）、乙（178）。
+- OBIMD 中共 987 个字例，见于 718 片甲骨；按句组类别：卜辞句 986，未定 1〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
+- 同一句组中最常一起出现的字：卜（591）、貞（347）、丁（198）、于（190）、癸（186）、乙（176）。
 - OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
 
 ## 8 实物与出土（著录线索）

@@ -101,76 +101,74 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "awebxd6wg1",
-      "r424gd7pwf"
+      "awebxd6wg1"
     ],
-    "occurrences": 74,
-    "plates": 62,
+    "occurrences": 14,
+    "plates": 11,
     "plate_list_head": [
-      "H18",
-      "H177",
       "H1366",
       "H4420",
-      "H5441",
-      "H5442",
-      "H5455",
-      "H5458",
-      "H5459",
-      "H5463",
-      "H5464",
-      "H5467"
+      "H17322",
+      "H17324",
+      "H17327",
+      "H17328",
+      "H17329",
+      "H18399",
+      "HD273",
+      "HD289",
+      "HD494"
     ],
     "by_category": {
-      "卜辞句": 74
+      "卜辞句": 14
     },
     "top_cooccurring": [
       {
-        "text": "王",
-        "uid": "hftl4m18q0",
-        "count": 29
-      },
-      {
-        "text": "貞",
-        "uid": "dhewuxyotl",
-        "count": 28
-      },
-      {
         "text": "卜",
         "uid": "h0gzv3styy",
-        "count": 26
+        "count": 7
       },
       {
-        "text": "史",
-        "uid": "h3nw474wwr",
-        "count": 26
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 6
       },
       {
-        "text": "其",
-        "uid": "qmvfvw99v9",
-        "count": 14
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 5
       },
       {
-        "text": "◇",
-        "uid": "2lep30tiiz",
-        "count": 8
+        "text": "若",
+        "uid": "1k9ogi7w79",
+        "count": 5
+      },
+      {
+        "text": "告",
+        "uid": "fmdym8mxmv",
+        "count": 4
+      },
+      {
+        "text": "匕",
+        "uid": "i3lktxnh52",
+        "count": 4
       }
     ],
     "examples": [
       {
-        "plate": "H18",
-        "heji_candidate": "18",
-        "group_index": 4,
-        "text": "貞臿啟叶",
-        "position": 4,
-        "length": 4
-      },
-      {
-        "plate": "H18",
-        "heji_candidate": "18",
-        "group_index": 5,
-        "text": "臿啟不其叶",
+        "plate": "H4420",
+        "heji_candidate": "4420",
+        "group_index": 1,
+        "text": "丁酉卜◇由",
         "position": 5,
         "length": 5
+      },
+      {
+        "plate": "H17324",
+        "heji_candidate": "17324",
+        "group_index": 1,
+        "text": "不隹㞢由",
+        "position": 4,
+        "length": 4
       }
     ]
   }

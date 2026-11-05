@@ -101,48 +101,37 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "6m1qvxsh3e",
-      "ld0qrctsbb"
+      "6m1qvxsh3e"
     ],
-    "occurrences": 18,
-    "plates": 18,
+    "occurrences": 7,
+    "plates": 7,
     "plate_list_head": [
       "H3193",
       "H4412",
-      "H8121",
-      "H11507",
       "H13006",
-      "H13559",
-      "H17269",
-      "H17270",
-      "H17272",
-      "H17273",
-      "H17278",
-      "H17279"
+      "H29818",
+      "H30152",
+      "H30416",
+      "HD289"
     ],
     "by_category": {
-      "卜辞句": 18
+      "卜辞句": 7
     },
     "top_cooccurring": [
       {
-        "text": "㞢",
-        "uid": "0uhj5zj3ce",
-        "count": 8
-      },
-      {
         "text": "卜",
         "uid": "h0gzv3styy",
-        "count": 7
+        "count": 4
       },
       {
         "text": "貞",
         "uid": "dhewuxyotl",
-        "count": 7
+        "count": 4
       },
       {
         "text": "其",
         "uid": "qmvfvw99v9",
-        "count": 6
+        "count": 3
       },
       {
         "text": "雨",
@@ -150,9 +139,14 @@
         "count": 2
       },
       {
-        "text": "申",
-        "uid": "rzfokwkc7a",
-        "count": 2
+        "text": "出",
+        "uid": "74alaf1szs",
+        "count": 1
+      },
+      {
+        "text": "◇",
+        "uid": "yhwcwu1uot",
+        "count": 1
       }
     ],
     "examples": [

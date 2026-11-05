@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 2
+    "example_sentences": 0
   },
   "sources": [
     {
@@ -100,73 +100,5 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㧦㧧",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
-  },
-  "inscription_evidence": {
-    "obimd_main_uids": [
-      "14fcc90wdg",
-      "imnwy7c15d"
-    ],
-    "occurrences": 5,
-    "plates": 5,
-    "plate_list_head": [
-      "H6986",
-      "H14294",
-      "HD267",
-      "HD289",
-      "HD481"
-    ],
-    "by_category": {
-      "卜辞句": 5
-    },
-    "top_cooccurring": [
-      {
-        "text": "其",
-        "uid": "qmvfvw99v9",
-        "count": 2
-      },
-      {
-        "text": "曰",
-        "uid": "9xhq4zclpe",
-        "count": 2
-      },
-      {
-        "text": "巳",
-        "uid": "d7mczw6osp",
-        "count": 2
-      },
-      {
-        "text": "卜",
-        "uid": "h0gzv3styy",
-        "count": 2
-      },
-      {
-        "text": "若",
-        "uid": "1k9ogi7w79",
-        "count": 2
-      },
-      {
-        "text": "佑",
-        "uid": "c40r3zyq5t",
-        "count": 2
-      }
-    ],
-    "examples": [
-      {
-        "plate": "H6986",
-        "heji_candidate": "6986",
-        "group_index": 1,
-        "text": "貞雀弗其獲圍髟□人",
-        "position": 7,
-        "length": 9
-      },
-      {
-        "plate": "H14294",
-        "heji_candidate": "14294",
-        "group_index": 2,
-        "text": "南方曰因風曰髟",
-        "position": 7,
-        "length": 7
-      }
-    ]
   }
 }

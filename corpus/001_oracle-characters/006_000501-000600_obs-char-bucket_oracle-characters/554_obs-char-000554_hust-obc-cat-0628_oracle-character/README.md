@@ -23,14 +23,14 @@
 | OBIMD 片号 | 释文（OBIMD） | 本字位置 | 来源 |
 | --- | --- | --- | --- |
 | H383 | 乙酉卜爭貞□◇于庭□羌三人 | 第 9/13 字 | src-obimd H383 句组 1 |
-| H5303 | □聽其祸 | 第 2/4 字 | src-obimd H5303 句组 1 |
+| H8089 | 己酉卜王在庭 | 第 6/6 字 | src-obimd H8089 句组 1 |
 
-- 其他字例所在甲骨：H5304、H5306、H5307、H5309、H5310、H5311、H5312、H5313、H8017、H8089等〔来源 src-obimd〕。
+- 其他字例所在甲骨：H8090、H9267、H19537、H30284、H30285、H30294、H31014、HD363〔来源 src-obimd〕。
 
 ## 5 分布
 
-- OBIMD 中共 23 个字例，见于 23 片甲骨；按句组类别：卜辞句 23〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
-- 同一句组中最常一起出现的字：王（12）、卜（8）、于（7）、貞（6）、隹（5）、害（3）。
+- OBIMD 中共 10 个字例，见于 10 片甲骨；按句组类别：卜辞句 10〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
+- 同一句组中最常一起出现的字：于（7）、卜（4）、王（3）、三（2）、酉（2）、己（2）。
 - OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
 
 ## 10 来源与权利

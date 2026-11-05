@@ -97,28 +97,24 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "5p2qekgax3",
-      "kjeovtb3db"
+      "5p2qekgax3"
     ],
-    "occurrences": 7,
-    "plates": 7,
+    "occurrences": 4,
+    "plates": 4,
     "plate_list_head": [
-      "H665",
       "H5007",
-      "H32161",
-      "H32162",
       "HD220",
       "HD379",
       "HD441"
     ],
     "by_category": {
-      "卜辞句": 7
+      "卜辞句": 4
     },
     "top_cooccurring": [
       {
         "text": "卜",
         "uid": "h0gzv3styy",
-        "count": 4
+        "count": 3
       },
       {
         "text": "貞",
@@ -156,12 +152,12 @@
         "length": 7
       },
       {
-        "plate": "H32161",
-        "heji_candidate": "32161",
-        "group_index": 2,
-        "text": "丁巳卜其尞于河牢沈◇",
-        "position": 10,
-        "length": 10
+        "plate": "HD220",
+        "heji_candidate": "D220",
+        "group_index": 6,
+        "text": "甲申卜叀配乎曰帚好告伯屯用",
+        "position": 5,
+        "length": 13
       }
     ]
   }

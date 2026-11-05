@@ -23,14 +23,14 @@
 | OBIMD 片号 | 释文（OBIMD） | 本字位置 | 来源 |
 | --- | --- | --- | --- |
 | H5007 | 辛酉卜王貞余配 | 第 7/7 字 | src-obimd H5007 句组 1 |
-| H32161 | 丁巳卜其尞于河牢沈◇ | 第 10/10 字 | src-obimd H32161 句组 2 |
+| HD220 | 甲申卜叀配乎曰帚好告伯屯用 | 第 5/13 字 | src-obimd HD220 句组 6 |
 
-- 其他字例所在甲骨：H665、H32162、HD220、HD379、HD441〔来源 src-obimd〕。
+- 其他字例所在甲骨：HD379、HD441〔来源 src-obimd〕。
 
 ## 5 分布
 
-- OBIMD 中共 7 个字例，见于 7 片甲骨；按句组类别：卜辞句 7〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
-- 同一句组中最常一起出现的字：卜（4）、貞（2）、叀（2）、乎（2）、用（2）、帚（2）。
+- OBIMD 中共 4 个字例，见于 4 片甲骨；按句组类别：卜辞句 4〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
+- 同一句组中最常一起出现的字：卜（3）、貞（2）、叀（2）、乎（2）、用（2）、帚（2）。
 - OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
 
 ## 8 实物与出土（著录线索）

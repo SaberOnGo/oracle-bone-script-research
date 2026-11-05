@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 2
+    "example_sentences": 0
   },
   "sources": [
     {
@@ -97,79 +97,5 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㡃",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
-  },
-  "inscription_evidence": {
-    "obimd_main_uids": [
-      "pbhb0fgh1y",
-      "ptr3rfuph8"
-    ],
-    "occurrences": 13,
-    "plates": 11,
-    "plate_list_head": [
-      "H13406",
-      "H13409",
-      "H13410",
-      "H13413",
-      "H13414",
-      "H13416",
-      "H13417",
-      "H13419",
-      "H14922",
-      "H19360",
-      "H19657"
-    ],
-    "by_category": {
-      "卜辞句": 13
-    },
-    "top_cooccurring": [
-      {
-        "text": "卜",
-        "uid": "h0gzv3styy",
-        "count": 5
-      },
-      {
-        "text": "貞",
-        "uid": "dhewuxyotl",
-        "count": 5
-      },
-      {
-        "text": "于",
-        "uid": "jjm889wxay",
-        "count": 3
-      },
-      {
-        "text": "◇",
-        "uid": "yhwcwu1uot",
-        "count": 2
-      },
-      {
-        "text": "雨",
-        "uid": "ftj0qy2f7b",
-        "count": 2
-      },
-      {
-        "text": "亥",
-        "uid": "q71z8tnnc6",
-        "count": 2
-      }
-    ],
-    "examples": [
-      {
-        "plate": "H13406",
-        "heji_candidate": "13406",
-        "group_index": 1,
-        "text": "癸◇卜古貞□雨雷◇在",
-        "position": 8,
-        "length": 10
-      },
-      {
-        "plate": "H13410",
-        "heji_candidate": "13410",
-        "group_index": 1,
-        "text": "貞雷沚于◇",
-        "position": 2,
-        "length": 5
-      }
-    ]
   }
 }

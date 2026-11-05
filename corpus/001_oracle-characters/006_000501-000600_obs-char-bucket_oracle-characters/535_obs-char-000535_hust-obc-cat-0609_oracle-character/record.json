@@ -101,11 +101,10 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "d7mczw6osp",
-      "j5cl5jcqdz"
+      "d7mczw6osp"
     ],
-    "occurrences": 1003,
-    "plates": 727,
+    "occurrences": 987,
+    "plates": 718,
     "plate_list_head": [
       "H5",
       "H11",
@@ -121,24 +120,24 @@
       "H469"
     ],
     "by_category": {
-      "卜辞句": 1002,
+      "卜辞句": 986,
       "未定": 1
     },
     "top_cooccurring": [
       {
         "text": "卜",
         "uid": "h0gzv3styy",
-        "count": 595
+        "count": 591
       },
       {
         "text": "貞",
         "uid": "dhewuxyotl",
-        "count": 350
+        "count": 347
       },
       {
         "text": "丁",
         "uid": "l7cyvm7kbt",
-        "count": 200
+        "count": 198
       },
       {
         "text": "于",
@@ -153,7 +152,7 @@
       {
         "text": "乙",
         "uid": "jbgbxt897u",
-        "count": 178
+        "count": 176
       }
     ],
     "examples": [

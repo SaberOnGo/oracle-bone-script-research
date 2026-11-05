@@ -17,15 +17,6 @@
 - EvoBC 有 2 个类别标为同一字（evobc-evo-cat-02138、evobc-evo-cat-02139），可用于跨时期字形比较〔来源 src-evobc〕。
 - 更正：本档案 2026-11-02 合并时曾写作“㗕㗖”。那是早期流程把本类号错接到 HUST-OBC OCR 字表的结果，已按官方对照表更正。
 
-## 4 卜辞例句
-
-- 其他字例所在甲骨：H18034、H20815、H35361〔来源 src-obimd〕。
-
-## 5 分布
-
-- OBIMD 中共 4 个字例，见于 3 片甲骨；按句组类别：卜辞句 4〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
-- 同一句组中最常一起出现的字：卜（3）、卯（2）、賓（2）、王（2）、尤（2）、奭（2）。
-- OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
 
 ## 8 实物与出土（著录线索）
 

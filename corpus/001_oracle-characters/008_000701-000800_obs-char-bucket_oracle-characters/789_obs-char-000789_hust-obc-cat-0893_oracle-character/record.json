@@ -100,13 +100,11 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "ar259dtulv",
-      "f9f0lfjetk"
+      "ar259dtulv"
     ],
-    "occurrences": 23,
-    "plates": 16,
+    "occurrences": 13,
+    "plates": 9,
     "plate_list_head": [
-      "H5819",
       "H6538",
       "H7355",
       "H7356",
@@ -115,54 +113,44 @@
       "H32275",
       "H32277",
       "H32278",
-      "H32486",
-      "H33062",
-      "H33149"
+      "H33062"
     ],
     "by_category": {
-      "卜辞句": 23
+      "卜辞句": 13
     },
     "top_cooccurring": [
-      {
-        "text": "貞",
-        "uid": "dhewuxyotl",
-        "count": 10
-      },
-      {
-        "text": "王",
-        "uid": "hftl4m18q0",
-        "count": 8
-      },
       {
         "text": "于",
         "uid": "jjm889wxay",
         "count": 7
       },
       {
-        "text": "卜",
-        "uid": "h0gzv3styy",
-        "count": 6
-      },
-      {
-        "text": "在",
-        "uid": "4n6v7cj6m9",
-        "count": 6
-      },
-      {
         "text": "人",
         "uid": "p6uj3n0aze",
         "count": 5
+      },
+      {
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 3
+      },
+      {
+        "text": "以",
+        "uid": "5n30uigzj6",
+        "count": 3
+      },
+      {
+        "text": "奠",
+        "uid": "w4frb60x9v",
+        "count": 3
+      },
+      {
+        "text": "北",
+        "uid": "um3hp76w21",
+        "count": 3
       }
     ],
     "examples": [
-      {
-        "plate": "H5819",
-        "heji_candidate": "5819",
-        "group_index": 1,
-        "text": "貞从□𫡜",
-        "position": 4,
-        "length": 4
-      },
       {
         "plate": "H7355",
         "heji_candidate": "7355",
@@ -170,6 +158,14 @@
         "text": "□卜殻貞王勿于鼓次",
         "position": 9,
         "length": 9
+      },
+      {
+        "plate": "H7362",
+        "heji_candidate": "7362",
+        "group_index": 1,
+        "text": "□卜亘貞乎収◇次",
+        "position": 8,
+        "length": 8
       }
     ]
   }

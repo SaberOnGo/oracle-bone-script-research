@@ -104,3 +104,15 @@ The HUST-OBC labels in registers `007`, `008`, and `011` are all wrong and are
 superseded by register `012`. The earlier pipeline joined deciphered category
 IDs to the OCR sub-dataset table, a different ID space. The correct table is
 `HUST-OBC/deciphered/ID_to_chinese.json` in the raw package.
+
+## 多字形类的隶定冲突 / Classes With Conflicting OBIMD Transcriptions
+
+2026-11-05 核查：35 个 HUST-OBC 类对应的 OBIMD 字形中，至少一个的隶定与类标签不同（统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`）。档案的字例计数与例句只取隶定与标签相同的字形；标签不匹配的类不写字例。这些类的标签与 OBIMD 隶定的关系未经文献核对，常见情形有三种：同形异字（如 0508 子 / 0609 巳 / 0815 月夕）、异体或繁简（0479 姬姫、0982 溫）、OBIMD 把字形隶定为另一字（1667 鼎 的两个字形分别为“貞”6,460 例和“鼎”13 例；0155 侑 / 0302 又右 / 0817 有 / 1170 祐 共用“㞢”和“佑”）。
+
+Checked on 2026-11-05: 35 HUST-OBC classes map to an OBIMD glyph whose transcription differs from the class label. Dossiers count only glyphs whose transcription matches the label. The relation between label and transcription is unverified against scholarship; list the class numbers 0155, 0249, 0273, 0292, 0302, 0349, 0357, 0436, 0452, 0479, 0496, 0508, 0609, 0618, 0628, 0714, 0814, 0815, 0817, 0893, 0982, 0995, 1085, 1098, 1100, 1101, 1123, 1170, 1184, 1261, 1504, 1520, 1552, 1667, 1682.
+
+## 013 小学堂底座（100 字）/ Xiaoxuetang Base For 100 Characters
+
+`013_xiaoxuetang-base-100.csv` 列出第 5 步试点的 100 个已释字：按 OBIMD 字例数（只计隶定与标签相同的字形）排序取前 100，并在对应档案第 8 节补入小学堂甲骨文库的字号、字形数、旧著录样例、合集号样例、类组和《甲骨文字詁林》册页。2026-11-05 更正计数后换入 8 个字。释读史（提出者、年份、著作、页码）仍为空，诂林册页只是定位，未核对。
+
+`013_xiaoxuetang-base-100.csv` lists the 100 deciphered characters of the step-5 pilot, ranked by OBIMD occurrences (matching transcriptions only). Reading histories are still empty; the Guilin page numbers are unverified pointers.

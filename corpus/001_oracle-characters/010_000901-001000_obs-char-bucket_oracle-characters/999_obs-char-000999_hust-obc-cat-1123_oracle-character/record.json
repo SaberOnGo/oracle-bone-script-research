@@ -100,76 +100,68 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "ls6u8dscwp",
-      "zxrxdzrytu"
+      "ls6u8dscwp"
     ],
-    "occurrences": 27,
-    "plates": 24,
+    "occurrences": 6,
+    "plates": 5,
     "plate_list_head": [
-      "H242",
-      "H246",
-      "H553",
-      "H1781",
       "H25228",
-      "H25371",
-      "H26063",
       "H30044",
-      "H30393",
       "H30453",
-      "H30677",
-      "H32090"
+      "HD228",
+      "HD401"
     ],
     "by_category": {
-      "卜辞句": 27
+      "卜辞句": 6
     },
     "top_cooccurring": [
       {
-        "text": "卜",
-        "uid": "h0gzv3styy",
-        "count": 9
+        "text": "二",
+        "uid": "8gxzzbv7w8",
+        "count": 3
       },
       {
-        "text": "貞",
-        "uid": "dhewuxyotl",
-        "count": 9
+        "text": "雨",
+        "uid": "ftj0qy2f7b",
+        "count": 3
+      },
+      {
+        "text": "大",
+        "uid": "s9y9vbblxa",
+        "count": 3
+      },
+      {
+        "text": "佑",
+        "uid": "c40r3zyq5t",
+        "count": 3
       },
       {
         "text": "丁",
         "uid": "l7cyvm7kbt",
-        "count": 7
+        "count": 2
       },
       {
-        "text": "用",
-        "uid": "353gxm6hd4",
-        "count": 6
-      },
-      {
-        "text": "其",
-        "uid": "qmvfvw99v9",
-        "count": 6
-      },
-      {
-        "text": "㘡",
-        "uid": "mfe79ij88l",
-        "count": 6
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 2
       }
     ],
     "examples": [
       {
-        "plate": "H242",
-        "heji_candidate": "242",
+        "plate": "H30044",
+        "heji_candidate": "30044",
         "group_index": 1,
-        "text": "丙寅卜賓貞小來羌來甲戌㲹用",
-        "position": 12,
-        "length": 13
+        "text": "皆□二田喪盂佑大雨",
+        "position": 1,
+        "length": 9
       },
       {
-        "plate": "H246",
-        "heji_candidate": "246",
-        "group_index": 1,
-        "text": "己亥卜賓貞㲹用來羌",
-        "position": 6,
-        "length": 9
+        "plate": "H30453",
+        "heji_candidate": "30453",
+        "group_index": 2,
+        "text": "其皆取二火佑大雨",
+        "position": 2,
+        "length": 8
       }
     ]
   }

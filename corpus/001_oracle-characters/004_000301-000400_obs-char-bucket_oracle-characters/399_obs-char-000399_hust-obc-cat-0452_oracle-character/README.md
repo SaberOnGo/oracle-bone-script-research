@@ -25,12 +25,12 @@
 | H2864 | 貞于匕癸御霝妃 | 第 7/7 字 | src-obimd H2864 句组 1 |
 | H2865 | 貞御霝妃于𣎆□ | 第 4/7 字 | src-obimd H2865 句组 1 |
 
-- 其他字例所在甲骨：H665、H2866、H32161、H32162〔来源 src-obimd〕。
+- 其他字例所在甲骨：H2866〔来源 src-obimd〕。
 
 ## 5 分布
 
-- OBIMD 中共 6 个字例，见于 6 片甲骨；按句组类别：卜辞句 6〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
-- 同一句组中最常一起出现的字：于（4）、御（3）、貞（3）、霝（3）、其（2）、癸（1）。
+- OBIMD 中共 3 个字例，见于 3 片甲骨；按句组类别：卜辞句 3〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
+- 同一句组中最常一起出现的字：于（3）、御（3）、貞（3）、霝（3）、癸（1）、匕（1）。
 - OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
 
 ## 8 实物与出土（著录线索）

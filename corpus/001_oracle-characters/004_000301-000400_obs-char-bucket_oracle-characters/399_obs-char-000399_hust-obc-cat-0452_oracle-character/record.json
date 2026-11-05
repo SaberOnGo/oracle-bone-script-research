@@ -100,27 +100,23 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "j2m24wzu8g",
-      "kjeovtb3db"
+      "j2m24wzu8g"
     ],
-    "occurrences": 6,
-    "plates": 6,
+    "occurrences": 3,
+    "plates": 3,
     "plate_list_head": [
-      "H665",
       "H2864",
       "H2865",
-      "H2866",
-      "H32161",
-      "H32162"
+      "H2866"
     ],
     "by_category": {
-      "卜辞句": 6
+      "卜辞句": 3
     },
     "top_cooccurring": [
       {
         "text": "于",
         "uid": "jjm889wxay",
-        "count": 4
+        "count": 3
       },
       {
         "text": "御",
@@ -138,13 +134,13 @@
         "count": 3
       },
       {
-        "text": "其",
-        "uid": "qmvfvw99v9",
-        "count": 2
-      },
-      {
         "text": "癸",
         "uid": "h32m5ulkit",
+        "count": 1
+      },
+      {
+        "text": "匕",
+        "uid": "i3lktxnh52",
         "count": 1
       }
     ],

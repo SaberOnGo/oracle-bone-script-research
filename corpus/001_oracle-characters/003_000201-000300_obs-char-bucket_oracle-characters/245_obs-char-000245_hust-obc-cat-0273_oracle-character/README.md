@@ -23,14 +23,14 @@
 | OBIMD 片号 | 释文（OBIMD） | 本字位置 | 来源 |
 | --- | --- | --- | --- |
 | H11 | 丙午卜古貞□眾黍于□ | 第 2/10 字 | src-obimd H11 句组 4 |
-| H33 | 壬御卜◇貞㞢于高匕己匕庚小牢 | 第 2/14 字 | src-obimd H33 句组 2 |
+| H142 | 甲午卜古貞在□戓芻乎□ | 第 2/11 字 | src-obimd H142 句组 1 |
 
-- 其他字例所在甲骨：H18、H142、H146、H159、H177、H255、H265、H298、H300、H301等〔来源 src-obimd〕。
+- 其他字例所在甲骨：H146、H255、H265、H414、H474、H491、H515、H574、H673、H731等〔来源 src-obimd〕。
 
 ## 5 分布
 
-- OBIMD 中共 759 个字例，见于 643 片甲骨；按句组类别：卜辞句 756，未定 3〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
-- 同一句组中最常一起出现的字：卜（392）、貞（326）、于（224）、甲（137）、庚（120）、其（97）。
+- OBIMD 中共 392 个字例，见于 358 片甲骨；按句组类别：卜辞句 390，未定 2〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
+- 同一句组中最常一起出现的字：卜（245）、貞（163）、甲（102）、王（91）、庚（81）、于（72）。
 - OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
 
 ## 8 实物与出土（著录线索）

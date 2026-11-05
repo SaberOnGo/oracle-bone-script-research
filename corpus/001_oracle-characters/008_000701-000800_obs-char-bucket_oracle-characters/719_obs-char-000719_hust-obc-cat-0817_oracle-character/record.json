@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 2
+    "example_sentences": 0
   },
   "sources": [
     {
@@ -97,81 +97,5 @@
     "corrected_on": "2026-11-02",
     "wrong_label": "㜧",
     "cause": "category id joined to OCR/ID_to_Chinese.json, a different id space"
-  },
-  "inscription_evidence": {
-    "obimd_main_uids": [
-      "0uhj5zj3ce",
-      "c40r3zyq5t"
-    ],
-    "occurrences": 1937,
-    "plates": 1576,
-    "plate_list_head": [
-      "H17",
-      "H18",
-      "H33",
-      "H47",
-      "H48",
-      "H64",
-      "H115",
-      "H132",
-      "H156",
-      "H169",
-      "H175",
-      "H198"
-    ],
-    "by_category": {
-      "卜辞句": 1931,
-      "未定": 6
-    },
-    "top_cooccurring": [
-      {
-        "text": "貞",
-        "uid": "dhewuxyotl",
-        "count": 623
-      },
-      {
-        "text": "于",
-        "uid": "jjm889wxay",
-        "count": 555
-      },
-      {
-        "text": "卜",
-        "uid": "h0gzv3styy",
-        "count": 538
-      },
-      {
-        "text": "其",
-        "uid": "qmvfvw99v9",
-        "count": 359
-      },
-      {
-        "text": "王",
-        "uid": "hftl4m18q0",
-        "count": 212
-      },
-      {
-        "text": "受",
-        "uid": "52a130pcmy",
-        "count": 117
-      }
-    ],
-    "examples": [
-      {
-        "plate": "H17",
-        "heji_candidate": "17",
-        "group_index": 1,
-        "text": "辛亥卜□貞眾□往臿□㞢擒",
-        "position": 11,
-        "length": 12
-      },
-      {
-        "plate": "H18",
-        "heji_candidate": "18",
-        "group_index": 1,
-        "text": "戌寅卜爭貞今春眾㞢工◇",
-        "position": 9,
-        "length": 11
-      }
-    ]
   }
 }

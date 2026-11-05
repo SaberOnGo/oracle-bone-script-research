@@ -22,15 +22,15 @@
 
 | OBIMD 片号 | 释文（OBIMD） | 本字位置 | 来源 |
 | --- | --- | --- | --- |
-| H242 | 丙寅卜賓貞小來羌來甲戌㲹用 | 第 12/13 字 | src-obimd H242 句组 1 |
-| H246 | 己亥卜賓貞㲹用來羌 | 第 6/9 字 | src-obimd H246 句组 1 |
+| H30044 | 皆□二田喪盂佑大雨 | 第 1/9 字 | src-obimd H30044 句组 1 |
+| H30453 | 其皆取二火佑大雨 | 第 2/8 字 | src-obimd H30453 句组 2 |
 
-- 其他字例所在甲骨：H553、H1781、H25228、H25371、H26063、H30044、H30393、H30453、H30677、H32090等〔来源 src-obimd〕。
+- 其他字例所在甲骨：H25228、HD228、HD401〔来源 src-obimd〕。
 
 ## 5 分布
 
-- OBIMD 中共 27 个字例，见于 24 片甲骨；按句组类别：卜辞句 27〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
-- 同一句组中最常一起出现的字：卜（9）、貞（9）、丁（7）、用（6）、其（6）、㘡（6）。
+- OBIMD 中共 6 个字例，见于 5 片甲骨；按句组类别：卜辞句 6〔来源 src-obimd，统计表 `corpus/002_oracle-bone-inscriptions/010_inscription-texts/002_obimd-glyph-occurrence-stats.csv`〕。
+- 同一句组中最常一起出现的字：二（3）、雨（3）、大（3）、佑（3）、丁（2）、卜（2）。
 - OBIMD 没有分期和组类字段，分期分布尚待《合集》分期表或小学堂材料来源表补入。
 
 ## 8 实物与出土（著录线索）

@@ -4,7 +4,8 @@
 For every character dossier whose record.json lists OBIMD main-character UIDs
 (cross_source_codepoint.obimd_main_uids), this writes section 4 (example
 sentences) and section 5 (distribution) into README.md and the same data into
-record.json. Running it again replaces the two sections.
+record.json. Running it again replaces the two sections. A HUST class with several OBIMD UIDs counts only the glyphs whose
+transcription equals the dataset label, so different characters are not summed.
 
 Public quoting is limited on purpose: at most two example sentences per
 dossier, plus plate numbers for further occurrences. OBIMD rights are
@@ -110,6 +111,26 @@ def summarize(uids: list[str], index, stats) -> dict:
     }
 
 
+def select_uids(record: dict, stats) -> list[str]:
+    """Keep only OBIMD glyphs whose transcription equals the dataset label.
+
+    A HUST class can list several OBIMD UIDs. Summing them merges different
+    glyphs (for example 鼎 with 貞, or 侑 with 又 and 有 sharing UIDs), so a
+    multi-UID class counts only the UIDs that transcribe the same character.
+    If none matches, the class gets no distribution section.
+    """
+    uids = record.get("cross_source_codepoint", {}).get("obimd_main_uids", [])
+    if len(uids) <= 1:
+        return uids
+    label = record.get("dataset_label", {}).get("label")
+    return [uid for uid in uids if stats.get(uid, {}).get("transcription") == label]
+
+
+def strip_sections(text: str) -> str:
+    text = SECTION_4_5.sub("", text, count=1)
+    return STATUS_EXAMPLES.sub("例句：0", text, count=1)
+
+
 def render(summary: dict) -> str:
     lines = ["## 4 卜辞例句", ""]
     if summary["examples"]:
@@ -161,14 +182,23 @@ def main() -> int:
     for record_path in sorted(CHAR_AREA.glob("*/*/record.json")):
         record_path = long_path(record_path)
         record = json.loads(record_path.read_text(encoding="utf-8"))
-        uids = record.get("cross_source_codepoint", {}).get("obimd_main_uids", [])
+        if not record.get("cross_source_codepoint", {}).get("obimd_main_uids"):
+            continue
+        readme_path = record_path.with_name("README.md")
+        uids = select_uids(record, stats)
         if not uids:
+            skipped += 1
+            text = strip_sections(readme_path.read_text(encoding="utf-8"))
+            record.pop("inscription_evidence", None)
+            record["status"]["example_sentences"] = 0
+            readme_path.write_text(text, encoding="utf-8", newline="\n")
+            record_path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n",
+                                   encoding="utf-8", newline="\n")
             continue
         summary = summarize(uids, index, stats)
         if not summary["occurrences"]:
             skipped += 1
             continue
-        readme_path = record_path.with_name("README.md")
         text = readme_path.read_text(encoding="utf-8")
         text = insert_sections(text, render(summary))
         text = STATUS_EXAMPLES.sub(f"例句：{len(summary['examples'])}", text, count=1)

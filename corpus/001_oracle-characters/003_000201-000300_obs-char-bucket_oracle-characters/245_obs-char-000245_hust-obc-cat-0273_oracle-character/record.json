@@ -101,59 +101,58 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "89m3dkhxyy",
-      "o6m37o3l7o"
+      "89m3dkhxyy"
     ],
-    "occurrences": 759,
-    "plates": 643,
+    "occurrences": 392,
+    "plates": 358,
     "plate_list_head": [
       "H11",
-      "H18",
-      "H33",
       "H142",
       "H146",
-      "H159",
-      "H177",
       "H255",
       "H265",
-      "H298",
-      "H300",
-      "H301"
+      "H414",
+      "H474",
+      "H491",
+      "H515",
+      "H574",
+      "H673",
+      "H731"
     ],
     "by_category": {
-      "卜辞句": 756,
-      "未定": 3
+      "卜辞句": 390,
+      "未定": 2
     },
     "top_cooccurring": [
       {
         "text": "卜",
         "uid": "h0gzv3styy",
-        "count": 392
+        "count": 245
       },
       {
         "text": "貞",
         "uid": "dhewuxyotl",
-        "count": 326
-      },
-      {
-        "text": "于",
-        "uid": "jjm889wxay",
-        "count": 224
+        "count": 163
       },
       {
         "text": "甲",
         "uid": "a1lmo1xxj5",
-        "count": 137
+        "count": 102
+      },
+      {
+        "text": "王",
+        "uid": "hftl4m18q0",
+        "count": 91
       },
       {
         "text": "庚",
         "uid": "7sys4laq6v",
-        "count": 120
+        "count": 81
       },
       {
-        "text": "其",
-        "uid": "qmvfvw99v9",
-        "count": 97
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 72
       }
     ],
     "examples": [
@@ -166,12 +165,12 @@
         "length": 10
       },
       {
-        "plate": "H33",
-        "heji_candidate": "33",
-        "group_index": 2,
-        "text": "壬御卜◇貞㞢于高匕己匕庚小牢",
+        "plate": "H142",
+        "heji_candidate": "142",
+        "group_index": 1,
+        "text": "甲午卜古貞在□戓芻乎□",
         "position": 2,
-        "length": 14
+        "length": 11
       }
     ]
   }

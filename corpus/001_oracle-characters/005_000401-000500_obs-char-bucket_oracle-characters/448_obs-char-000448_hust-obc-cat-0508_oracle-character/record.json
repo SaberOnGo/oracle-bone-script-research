@@ -102,78 +102,76 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "d7mczw6osp",
-      "r79attbhro",
-      "yhwcwu1uot"
+      "r79attbhro"
     ],
-    "occurrences": 1882,
-    "plates": 1387,
+    "occurrences": 493,
+    "plates": 439,
     "plate_list_head": [
-      "H5",
-      "H11",
-      "H40",
-      "H41",
-      "H64",
-      "H89",
-      "H169",
-      "H181",
-      "H229",
-      "H331",
-      "H335",
-      "H354"
+      "H354",
+      "H495",
+      "H542",
+      "H644",
+      "H678",
+      "H801",
+      "H859",
+      "H911",
+      "H987",
+      "H990",
+      "H998",
+      "H1012"
     ],
     "by_category": {
-      "卜辞句": 1879,
-      "未定": 3
+      "卜辞句": 492,
+      "未定": 1
     },
     "top_cooccurring": [
       {
         "text": "卜",
         "uid": "h0gzv3styy",
-        "count": 1100
+        "count": 326
       },
       {
         "text": "貞",
         "uid": "dhewuxyotl",
-        "count": 695
+        "count": 207
       },
       {
-        "text": "于",
-        "uid": "jjm889wxay",
-        "count": 362
-      },
-      {
-        "text": "其",
-        "uid": "qmvfvw99v9",
-        "count": 284
+        "text": "甲",
+        "uid": "a1lmo1xxj5",
+        "count": 128
       },
       {
         "text": "王",
         "uid": "hftl4m18q0",
-        "count": 277
+        "count": 113
       },
       {
-        "text": "丁",
-        "uid": "l7cyvm7kbt",
-        "count": 247
+        "text": "庚",
+        "uid": "7sys4laq6v",
+        "count": 103
+      },
+      {
+        "text": "丙",
+        "uid": "lp8x647qo2",
+        "count": 81
       }
     ],
     "examples": [
       {
-        "plate": "H5",
-        "heji_candidate": "5",
-        "group_index": 1,
-        "text": "乙巳卜殻貞□",
-        "position": 2,
-        "length": 6
+        "plate": "H495",
+        "heji_candidate": "495",
+        "group_index": 2,
+        "text": "壬戌卜賓貞叀甲子步",
+        "position": 8,
+        "length": 9
       },
       {
-        "plate": "H40",
-        "heji_candidate": "40",
+        "plate": "H542",
+        "heji_candidate": "542",
         "group_index": 1,
-        "text": "己巳卜爭貞乎□",
+        "text": "甲子卜殻貞乎伐𢀛方受□",
         "position": 2,
-        "length": 7
+        "length": 11
       }
     ]
   }

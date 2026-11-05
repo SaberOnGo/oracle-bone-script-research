@@ -100,77 +100,76 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "aki498y6jc",
       "tyn2yfryvp"
     ],
-    "occurrences": 123,
-    "plates": 111,
+    "occurrences": 16,
+    "plates": 14,
     "plate_list_head": [
-      "H429",
-      "H497",
-      "H572",
-      "H1409",
-      "H1451",
-      "H1495",
-      "H1602",
-      "H1734",
-      "H1803",
-      "H2523",
-      "H2848",
-      "H2924"
+      "H4421",
+      "H7257",
+      "H17943",
+      "H17944",
+      "H19860",
+      "H21119",
+      "H21362",
+      "H21366",
+      "H21835",
+      "H21837",
+      "H22285",
+      "H22290"
     ],
     "by_category": {
-      "卜辞句": 122,
+      "卜辞句": 15,
       "未定": 1
     },
     "top_cooccurring": [
       {
-        "text": "貞",
-        "uid": "dhewuxyotl",
-        "count": 54
+        "text": "隹",
+        "uid": "y0f5gu3q0a",
+        "count": 5
       },
       {
-        "text": "卜",
-        "uid": "h0gzv3styy",
-        "count": 43
+        "text": "貞",
+        "uid": "dhewuxyotl",
+        "count": 5
       },
       {
         "text": "㞢",
         "uid": "0uhj5zj3ce",
-        "count": 31
+        "count": 4
       },
       {
-        "text": "曰",
-        "uid": "9xhq4zclpe",
-        "count": 18
+        "text": "丁",
+        "uid": "l7cyvm7kbt",
+        "count": 4
       },
       {
-        "text": "王",
-        "uid": "hftl4m18q0",
-        "count": 17
+        "text": "且",
+        "uid": "z640bkv6r7",
+        "count": 3
       },
       {
-        "text": "于",
-        "uid": "jjm889wxay",
-        "count": 16
+        "text": "卜",
+        "uid": "h0gzv3styy",
+        "count": 3
       }
     ],
     "examples": [
       {
-        "plate": "H572",
-        "heji_candidate": "572",
-        "group_index": 1,
-        "text": "貞乎求寇執",
-        "position": 3,
+        "plate": "H4421",
+        "heji_candidate": "4421",
+        "group_index": 2,
+        "text": "隹㞢匕咎◇",
+        "position": 4,
         "length": 5
       },
       {
-        "plate": "H1409",
-        "heji_candidate": "1409",
-        "group_index": 1,
-        "text": "貞大丁求□",
-        "position": 4,
-        "length": 5
+        "plate": "H4421",
+        "heji_candidate": "4421",
+        "group_index": 3,
+        "text": "貞隹㞢且咎◇",
+        "position": 5,
+        "length": 6
       }
     ]
   }

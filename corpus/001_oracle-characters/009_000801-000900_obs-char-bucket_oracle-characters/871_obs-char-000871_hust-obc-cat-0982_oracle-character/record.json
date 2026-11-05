@@ -7,7 +7,7 @@
     "review": "needs_cross_source_review",
     "promotion": "needs_cross_source_review",
     "reading_history": "not_yet_collected_in_dossier",
-    "example_sentences": 2
+    "example_sentences": 0
   },
   "sources": [
     {
@@ -100,77 +100,49 @@
   },
   "inscription_evidence": {
     "obimd_main_uids": [
-      "buakj9jija",
-      "yrxflndwvy"
+      "buakj9jija"
     ],
-    "occurrences": 78,
-    "plates": 74,
+    "occurrences": 2,
+    "plates": 2,
     "plate_list_head": [
-      "H487",
-      "H525",
-      "H528",
-      "H574",
-      "H581",
-      "H638",
-      "H2627",
-      "H2812",
-      "H3096",
-      "H3942",
-      "H7865",
-      "H8255"
+      "H8255",
+      "H13575"
     ],
     "by_category": {
-      "卜辞句": 78
+      "卜辞句": 2
     },
     "top_cooccurring": [
       {
-        "text": "貞",
-        "uid": "dhewuxyotl",
-        "count": 38
+        "text": "于",
+        "uid": "jjm889wxay",
+        "count": 1
       },
       {
-        "text": "不",
-        "uid": "h2mhpxskhk",
-        "count": 29
+        "text": "寢",
+        "uid": "qtpfktwrdi",
+        "count": 1
       },
       {
         "text": "卜",
         "uid": "h0gzv3styy",
-        "count": 23
+        "count": 1
       },
       {
-        "text": "其",
-        "uid": "qmvfvw99v9",
-        "count": 17
+        "text": "未",
+        "uid": "pa13rewdd9",
+        "count": 1
       },
       {
-        "text": "◇",
-        "uid": "yhwcwu1uot",
-        "count": 10
+        "text": "令",
+        "uid": "ji97td3npi",
+        "count": 1
       },
       {
-        "text": "㞢",
-        "uid": "0uhj5zj3ce",
-        "count": 5
+        "text": "宜",
+        "uid": "f0j9ho8ua2",
+        "count": 1
       }
     ],
-    "examples": [
-      {
-        "plate": "H487",
-        "heji_candidate": "487",
-        "group_index": 1,
-        "text": "辛□羌𬛫其昷",
-        "position": 6,
-        "length": 6
-      },
-      {
-        "plate": "H525",
-        "heji_candidate": "525",
-        "group_index": 1,
-        "text": "庚辰卜王朕剢羌不昷",
-        "position": 9,
-        "length": 9
-      }
-    ]
+    "examples": []
   }
 }
